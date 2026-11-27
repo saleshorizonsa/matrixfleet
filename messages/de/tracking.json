@@ -1,0 +1,38 @@
+{
+  "title": "Live-Karte",
+  "subtitle": "Wo sich jeder Fahrer gerade befindet – in Echtzeit aus der Fahrer-App.",
+  "online": "Online",
+  "inTransit": "Unterwegs",
+  "deliveredToday": "Heute zugestellt",
+  "searchDrivers": "Fahrer oder Fahrzeug suchen…",
+  "noDrivers": "Keine Fahrer gefunden",
+  "noPosition": "Noch keine Position",
+  "liveUpdates": "Live",
+  "showDeliveries": "Heutige Stopps",
+  "public": {
+    "notFoundTitle": "Sendung nicht gefunden",
+    "notFound": "Dieser Tracking-Link ist ungültig oder nicht mehr verfügbar. Bitte prüfen Sie den Link oder wenden Sie sich an den Absender.",
+    "shipment": "Sendung",
+    "headline": {
+      "cancelled": "Diese Zustellung wurde storniert",
+      "delivered": "Zugestellt",
+      "onTheWay": "Ihre Lieferung ist unterwegs",
+      "scheduled": "Ihre Lieferung ist gebucht"
+    },
+    "deliveredOn": "Zugestellt {date}",
+    "expected": "Erwartet {eta}",
+    "awaitingSchedule": "Wir bestätigen die Lieferzeit in Kürze",
+    "from": "Von",
+    "to": "Nach",
+    "driverLive": "{name} ist unterwegs – Live-Standort",
+    "liveLocation": "Live-Standort",
+    "updated": "Aktualisiert {time}",
+    "podTitle": "Zustellung bestätigt",
+    "podSignedBy": "Unterschrieben von {name} am {date}.",
+    "podDelivered": "Zugestellt am {date}.",
+    "deliveryTo": "Lieferung an",
+    "questions": "Fragen zu dieser Lieferung?",
+    "contactCarrier": "Bitte wenden Sie sich an den Spediteur.",
+    "poweredBy": "Sendungsverfolgung von"
+  }
+}

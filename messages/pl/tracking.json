@@ -1,0 +1,38 @@
+{
+  "title": "Mapa na żywo",
+  "subtitle": "Gdzie jest teraz każdy kierowca – w czasie rzeczywistym z aplikacji kierowcy.",
+  "online": "Online",
+  "inTransit": "W drodze",
+  "deliveredToday": "Dostarczone dziś",
+  "searchDrivers": "Szukaj kierowcy lub pojazdu…",
+  "noDrivers": "Nie znaleziono kierowców",
+  "noPosition": "Brak pozycji",
+  "liveUpdates": "Na żywo",
+  "showDeliveries": "Dzisiejsze dostawy",
+  "public": {
+    "notFoundTitle": "Nie znaleziono przesyłki",
+    "notFound": "Ten link do śledzenia jest nieprawidłowy lub nieaktualny. Sprawdź link lub skontaktuj się z nadawcą.",
+    "shipment": "Przesyłka",
+    "headline": {
+      "cancelled": "Ta dostawa została anulowana",
+      "delivered": "Dostarczono",
+      "onTheWay": "Twoja przesyłka jest w drodze",
+      "scheduled": "Twoja dostawa jest zaplanowana"
+    },
+    "deliveredOn": "Dostarczono {date}",
+    "expected": "Spodziewana dostawa: {eta}",
+    "awaitingSchedule": "Wkrótce potwierdzimy godzinę dostawy",
+    "from": "Skąd",
+    "to": "Dokąd",
+    "driverLive": "{name} jest w trasie – lokalizacja na żywo",
+    "liveLocation": "Lokalizacja na żywo",
+    "updated": "Zaktualizowano {time}",
+    "podTitle": "Dostawa potwierdzona",
+    "podSignedBy": "Odebrane i podpisane przez: {name}, {date}.",
+    "podDelivered": "Dostarczono {date}.",
+    "deliveryTo": "Dostawa do",
+    "questions": "Pytania dotyczące tej dostawy?",
+    "contactCarrier": "Skontaktuj się z przewoźnikiem.",
+    "poweredBy": "Śledzenie przez"
+  }
+}

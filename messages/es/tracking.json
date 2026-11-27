@@ -1,0 +1,38 @@
+{
+  "title": "Mapa en directo",
+  "subtitle": "Dónde está cada conductor ahora mismo, en tiempo real desde la app del conductor.",
+  "online": "En línea",
+  "inTransit": "En tránsito",
+  "deliveredToday": "Entregados hoy",
+  "searchDrivers": "Buscar conductor o vehículo…",
+  "noDrivers": "No se encontraron conductores",
+  "noPosition": "Sin posición todavía",
+  "liveUpdates": "En directo",
+  "showDeliveries": "Entregas de hoy",
+  "public": {
+    "notFoundTitle": "Envío no encontrado",
+    "notFound": "Este enlace de seguimiento no es válido o ya no está disponible. Revisa el enlace o contacta con el remitente.",
+    "shipment": "Envío",
+    "headline": {
+      "cancelled": "Esta entrega se ha cancelado",
+      "delivered": "Entregado",
+      "onTheWay": "Tu entrega está en camino",
+      "scheduled": "Tu entrega está programada"
+    },
+    "deliveredOn": "Entregado el {date}",
+    "expected": "Prevista {eta}",
+    "awaitingSchedule": "Confirmaremos pronto la hora de entrega",
+    "from": "Desde",
+    "to": "Hasta",
+    "driverLive": "{name} está en ruta: ubicación en directo",
+    "liveLocation": "Ubicación en directo",
+    "updated": "Actualizado a las {time}",
+    "podTitle": "Entrega confirmada",
+    "podSignedBy": "Firmado por {name} el {date}.",
+    "podDelivered": "Entregado el {date}.",
+    "deliveryTo": "Entrega en",
+    "questions": "¿Preguntas sobre esta entrega?",
+    "contactCarrier": "Ponte en contacto con el transportista.",
+    "poweredBy": "Seguimiento por"
+  }
+}

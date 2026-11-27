@@ -1,0 +1,75 @@
+{
+  "welcome": {
+    "title": "Welcome to Haulora, {org}!",
+    "text": "Your 14-day trial has started with every Growth feature unlocked. Follow the checklist below to get your first job on the road in a few minutes."
+  },
+  "denied": "You don't have access to that area. Ask an owner or admin if you need it.",
+  "greeting": {
+    "morning": "Good morning, {name}",
+    "afternoon": "Good afternoon, {name}",
+    "evening": "Good evening, {name}"
+  },
+  "quick": {
+    "newJob": "New job",
+    "newQuote": "New quote",
+    "dispatch": "Dispatch",
+    "liveMap": "Live map"
+  },
+  "checklist": {
+    "title": "Get set up",
+    "progress": "{done} of {total} steps completed",
+    "hide": "Hide checklist",
+    "steps": {
+      "company": "Complete company details",
+      "customer": "Add your first customer",
+      "vehicle": "Add a vehicle",
+      "driver": "Add a driver",
+      "job": "Book your first job",
+      "team": "Invite a teammate",
+      "plan": "Choose a plan"
+    }
+  },
+  "kpi": {
+    "today": "Jobs today",
+    "todayHint": "Scheduled for today",
+    "inTransit": "In transit now",
+    "onlineDrivers": "{count, plural, one {# driver online} other {# drivers online}}",
+    "deliveredWeek": "Delivered (7 days)",
+    "onTime": "{pct}% on time",
+    "onTimeNa": "Add delivery windows to track on-time %",
+    "revenueMonth": "Revenue this month",
+    "revenueHint": "Delivered & invoiced, excl. VAT",
+    "outstanding": "Outstanding invoices",
+    "overdue": "{count, plural, one {# overdue} other {# overdue}}",
+    "invoicesOpen": "{count, plural, one {# invoice open} other {# invoices open}}"
+  },
+  "charts": {
+    "noData": "No deliveries in this period yet",
+    "revenue": "Revenue",
+    "jobs": "Jobs",
+    "revenueTitle": "Revenue & deliveries",
+    "revenueSubtitle": "Last 30 days",
+    "statusTitle": "Jobs by status",
+    "statusSubtitle": "Created in the last 30 days"
+  },
+  "schedule": {
+    "title": "Today's schedule",
+    "subtitle": "{count, plural, one {# job} other {# jobs}} planned",
+    "openBoard": "Open board",
+    "emptyTitle": "Nothing scheduled today",
+    "emptyText": "Book a job or schedule an existing one to see it here.",
+    "pickup": "pickup",
+    "unassigned": "Unassigned"
+  },
+  "alerts": {
+    "title": "Compliance alerts",
+    "all": "View all",
+    "allGood": "All documents are in date. Nice work.",
+    "defect": "reported defect",
+    "open": "Open"
+  },
+  "online": {
+    "title": "Drivers online",
+    "none": "No drivers are sharing their location right now."
+  }
+}

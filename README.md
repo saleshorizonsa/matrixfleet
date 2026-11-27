@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Haulora — Transport management for UK & EU hauliers
 
-## Getting Started
+*Powered by Matrix Infotech Ltd*
 
-First, run the development server:
+An all-in-one SaaS for small and medium haulage and delivery companies: quotes and jobs, drag-and-drop dispatch,
+live GPS map, a driver phone app with proof of delivery, customer tracking links, VAT-correct invoicing for the UK
+and every EU country, e-CMR consignment notes, fleet compliance and GDPR tools. It ships in 5 languages
+(English, Deutsch, Français, Español, Polski) with Stripe subscriptions on top.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**Stack:** Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 · Supabase (self-hosted, London) · Stripe · Leaflet/OpenStreetMap · next-intl · pdf-lib
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## What's inside
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Area | Routes |
+|---|---|
+| Marketing site, pricing, ROI calculator | `/`, `/legal/*` |
+| Sign up (14-day trial), sign in, team invites | `/signup`, `/login`, `/onboarding`, `/invite/[token]` |
+| Dashboard with KPIs, charts, setup checklist, alerts | `/app` |
+| Jobs & quotes with live route pricing | `/app/jobs` |
+| Drag-and-drop dispatch board (realtime) | `/app/dispatch` |
+| Live map of drivers (realtime) | `/app/tracking` |
+| Customers with VIES / HMRC VAT checks, CSV import | `/app/customers` |
+| VAT-correct invoices + PDF | `/app/invoices`, `/api/pdf/invoice/[id]` |
+| CMR consignment note PDF with POD signature | `/api/pdf/cmr/[jobId]` |
+| Vehicles, drivers, compliance centre | `/app/fleet/*` |
+| Settings: company, pricing, team, billing, privacy/GDPR, audit log | `/app/settings/*` |
+| Driver PWA: jobs, navigation, POD (signature + photos), walkaround checks, shifts/hours, GPS | `/driver/*` |
+| Public consignee tracking page | `/track/[token]` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Plans (in `src/lib/plans.ts`): **Starter** £39 / €45, **Growth** £99 / €115, **Pro** £249 / €289 per month excl. VAT.
+A trial gets Growth limits for 14 days.
 
-## Learn More
+## Run locally
 
-To learn more about Next.js, take a look at the following resources:
+1. Open the SSH tunnel to the Supabase server (leave it running):
+   ```
+   ssh -i ~/.ssh/<your-key> -N -L 8000:localhost:8000 root@<your-vps-ip>
+   ```
+2. Copy `.env.example` to `.env.local` and fill in the Supabase anon + service role keys.
+3. `npm install` then `npm run dev` → http://localhost:3000
+4. Optional demo data: `npm run seed:demo` (logins are written to `scripts/demo-credentials.local.txt`, git-ignored).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Database migrations live in `supabase/migrations` (apply `0001_init.sql`, then the `0002_*.sql` files).
+All tables are prefixed `hl_` and protected by row-level security per organisation.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deployment: see [DEPLOYMENT.md](DEPLOYMENT.md).

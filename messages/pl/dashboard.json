@@ -1,0 +1,75 @@
+{
+  "welcome": {
+    "title": "Witamy w Haulora, {org}!",
+    "text": "Twój 14-dniowy okres próbny właśnie się rozpoczął – wszystkie funkcje planu Growth są odblokowane. Skorzystaj z listy poniżej, aby w kilka minut wysłać pierwsze zlecenie w trasę."
+  },
+  "denied": "Nie masz dostępu do tej sekcji. W razie potrzeby poproś właściciela lub administratora.",
+  "greeting": {
+    "morning": "Dzień dobry, {name}",
+    "afternoon": "Dzień dobry, {name}",
+    "evening": "Dobry wieczór, {name}"
+  },
+  "quick": {
+    "newJob": "Nowe zlecenie",
+    "newQuote": "Nowa wycena",
+    "dispatch": "Spedycja",
+    "liveMap": "Mapa na żywo"
+  },
+  "checklist": {
+    "title": "Pierwsze kroki",
+    "progress": "Ukończono {done} z {total} kroków",
+    "hide": "Ukryj listę",
+    "steps": {
+      "company": "Uzupełnij dane firmy",
+      "customer": "Dodaj pierwszego klienta",
+      "vehicle": "Dodaj pojazd",
+      "driver": "Dodaj kierowcę",
+      "job": "Utwórz pierwsze zlecenie",
+      "team": "Zaproś współpracownika",
+      "plan": "Wybierz plan"
+    }
+  },
+  "kpi": {
+    "today": "Zlecenia dziś",
+    "todayHint": "Zaplanowane na dziś",
+    "inTransit": "Obecnie w trasie",
+    "onlineDrivers": "{count, plural, one {# kierowca online} few {# kierowców online} many {# kierowców online} other {# kierowcy online}}",
+    "deliveredWeek": "Dostarczone (7 dni)",
+    "onTime": "{pct}% na czas",
+    "onTimeNa": "Dodaj okna dostaw, aby mierzyć terminowość",
+    "revenueMonth": "Przychód w tym miesiącu",
+    "revenueHint": "Dostarczone i zafakturowane, netto",
+    "outstanding": "Nieopłacone faktury",
+    "overdue": "{count, plural, one {# przeterminowana} few {# przeterminowane} many {# przeterminowanych} other {# przeterminowanej}}",
+    "invoicesOpen": "{count, plural, one {# otwarta faktura} few {# otwarte faktury} many {# otwartych faktur} other {# otwartej faktury}}"
+  },
+  "charts": {
+    "noData": "Brak dostaw w tym okresie",
+    "revenue": "Przychód",
+    "jobs": "Zlecenia",
+    "revenueTitle": "Przychód i dostawy",
+    "revenueSubtitle": "Ostatnie 30 dni",
+    "statusTitle": "Zlecenia wg statusu",
+    "statusSubtitle": "Utworzone w ostatnich 30 dniach"
+  },
+  "schedule": {
+    "title": "Plan na dziś",
+    "subtitle": "Zaplanowano: {count}",
+    "openBoard": "Otwórz tablicę",
+    "emptyTitle": "Na dziś nic nie zaplanowano",
+    "emptyText": "Utwórz zlecenie lub zaplanuj istniejące, aby zobaczyć je tutaj.",
+    "pickup": "załadunek",
+    "unassigned": "Nieprzypisane"
+  },
+  "alerts": {
+    "title": "Alerty zgodności",
+    "all": "Pokaż wszystkie",
+    "allGood": "Wszystkie dokumenty są ważne. Świetna robota.",
+    "defect": "zgłoszona usterka",
+    "open": "Otwarta"
+  },
+  "online": {
+    "title": "Kierowcy online",
+    "none": "Żaden kierowca nie udostępnia teraz lokalizacji."
+  }
+}

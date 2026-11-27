@@ -1,0 +1,145 @@
+{
+  "nav": {
+    "features": "Funktionen",
+    "how": "So funktioniert's",
+    "pricing": "Preise",
+    "faq": "FAQ",
+    "signIn": "Anmelden",
+    "trial": "Kostenlos testen"
+  },
+  "hero": {
+    "badgeNew": "Neu",
+    "badge": "Digitaler CMR & Live-Sendungsverfolgung",
+    "title": "Führen Sie Ihre <hl>Spedition in UK & EU</hl> von einem Bildschirm aus",
+    "subtitle": "Haulora vereint Angebote, Aufträge, Disposition, Live-GPS-Tracking, eine Fahrer-App mit Zustellnachweis und umsatzsteuerkorrekte Rechnungen – gebaut für kleine und mittlere Transportunternehmen.",
+    "ctaPrimary": "14 Tage kostenlos testen",
+    "ctaSecondary": "Anmelden",
+    "c1": "Keine Kreditkarte nötig",
+    "c2": "In 2 Minuten eingerichtet",
+    "c3": "Daten in London gehostet"
+  },
+  "preview": {
+    "live": "Live",
+    "mapLabel": "Animierte Karte mit Fahrzeugen zwischen britischen und europäischen Städten",
+    "onRoad": "Unterwegs",
+    "vehicles": "Fahrzeuge",
+    "deliveredToday": "Heute zugestellt",
+    "podReceived": "Zustellnachweis erhalten",
+    "signedBy": "Fahrer {name}",
+    "todaysJobs": "Heutige Aufträge"
+  },
+  "stats": {
+    "s1": { "value": "30", "label": "unterstützte Länder" },
+    "s2": { "value": "5", "label": "integrierte Sprachen" },
+    "s3": { "value": "< 2 Min.", "label": "bis Ihr Unternehmen eingerichtet ist" },
+    "s4": { "value": "14 Tage", "label": "kostenlos testen, alle Funktionen" }
+  },
+  "features": {
+    "eyebrow": "Alles an einem Ort",
+    "title": "Gebaut für die Art, wie Transportunternehmen wirklich arbeiten",
+    "subtitle": "Ersetzen Sie Tabellen, WhatsApp-Gruppen und Papiernachweise durch ein System, das Büro und Fahrer gleichermaßen lieben.",
+    "items": {
+      "jobs": { "title": "Aufträge & Sofortangebote", "body": "Buchen Sie einen Auftrag in Sekunden. Routenentfernung und Ihre Preise ergeben automatisch einen Preis – inklusive Treibstoff- und ADR-Zuschlag." },
+      "dispatch": { "title": "Drag-and-drop-Disposition", "body": "Planen Sie den Tag auf einer visuellen Tafel. Ziehen Sie Aufträge auf Fahrer und Fahrzeuge – alle sind sofort informiert." },
+      "tracking": { "title": "Live-GPS-Tracking", "body": "Sehen Sie jedes Fahrzeug in Echtzeit auf der Karte – ohne zusätzliche Tracker oder Hardware." },
+      "driver": { "title": "Fahrer-App mit POD", "body": "Fahrer sehen ihre Tour, navigieren und erfassen Unterschriften und Fotos als Zustellnachweis auf jedem Handy." },
+      "invoicing": { "title": "USt-korrekte Rechnungen", "body": "Britische USt., inländische EU-USt. und Reverse Charge für grenzüberschreitendes B2B – automatisch, mit fortlaufender Nummerierung." },
+      "cmr": { "title": "Digitale CMR-Frachtbriefe", "body": "Erstellen Sie CMR-Frachtbriefe für internationale Ladungen als PDF, vorausgefüllt aus dem Auftrag." },
+      "compliance": { "title": "Compliance & Kontrollen", "body": "Tägliche Abfahrtskontrollen sowie Erinnerungen an HU, Versicherung, Tachograph und Führerschein – bevor Bußgelder drohen." },
+      "links": { "title": "Tracking-Links für Kunden", "body": "Senden Sie einen Link im eigenen Branding, damit Kunden ihre Lieferung und den POD verfolgen – weniger „Wo bleibt es?“-Anrufe." },
+      "gdpr": { "title": "DSGVO & UK-Hosting", "body": "Ihre Daten liegen in London – mit Verschlüsselung, Mandantentrennung, Audit-Logs und Datenexport per Klick." },
+      "languages": { "title": "5 Sprachen", "body": "Englisch, Deutsch, Französisch, Spanisch und Polnisch für Ihr Büroteam und Ihre Fahrer." }
+    }
+  },
+  "driverSpot": {
+    "eyebrow": "Fahrer-App",
+    "title": "Der Zustellnachweis in der Tasche Ihres Fahrers",
+    "body": "Kein App Store, keine Schulung. Fahrer öffnen einen Link, legen Haulora auf den Startbildschirm und sehen ihre Aufträge für den Tag.",
+    "b1": "Navigation über Google Maps oder Waze",
+    "b2": "Unterschrift, Fotos und Notizen direkt an der Tür",
+    "b3": "Tägliche Abfahrtskontrolle mit Mängelmeldung",
+    "b4": "Schicht- und Pausenerfassung zur Einhaltung der Arbeitszeitregeln",
+    "phoneTitle": "Nächste Zustellung",
+    "phoneStop": "Ware",
+    "phoneSign": "Unterschrift des Kunden",
+    "phonePhoto": "Fotos",
+    "phoneDone": "Zustellung abschließen"
+  },
+  "how": {
+    "eyebrow": "So funktioniert's",
+    "title": "An einem Nachmittag startklar",
+    "subtitle": "Keine Berater, keine Hardware, keine langen Verträge.",
+    "s1": { "title": "Unternehmen anlegen", "body": "Registrieren Sie sich, wählen Sie Ihr Land – wir richten USt., Währung und Einheiten automatisch ein." },
+    "s2": { "title": "Fahrzeuge anlegen & Fahrer einladen", "body": "Erfassen Sie Ihre Flotte und senden Sie jedem Fahrer einen Einladungslink zur Fahrer-App." },
+    "s3": { "title": "Buchen, disponieren, zustellen, abrechnen", "body": "Aufträge anlegen, auf Fahrer ziehen, live verfolgen und sofort nach Zustellung abrechnen." }
+  },
+  "roi": {
+    "eyebrow": "ROI-Rechner",
+    "title": "Sehen Sie, was Haulora Ihnen spart",
+    "subtitle": "Passen Sie die Regler an Ihr Unternehmen an.",
+    "inputs": "Ihr Unternehmen",
+    "vehicles": "Fahrzeuge in Ihrer Flotte",
+    "jobsPerDay": "Aufträge pro Fahrzeug und Tag",
+    "minutesPerJob": "Heutiger Verwaltungsaufwand pro Auftrag",
+    "hourly": "Bürokosten pro Stunde ({symbol})",
+    "assumptions": "Schätzung auf Basis von 21 Arbeitstagen pro Monat, ca. 70 % weniger manuellem Aufwand pro Auftrag (Anrufe, Papier-POD, Rechnungen abtippen) und schnellerer, vollständigerer Abrechnung. Ihre Ergebnisse können abweichen.",
+    "result": "Geschätzte Nettoersparnis",
+    "perMonth": "pro Monat, nach Abzug Ihres Haulora-Abos",
+    "hoursSaved": "Gesparte Bürostunden / Monat",
+    "planCost": "Tarif {plan}",
+    "cta": "Jetzt sparen – 14 Tage kostenlos"
+  },
+  "quote": {
+    "text": "Wir haben Haulora gemeinsam mit Transportunternehmen aus UK und Europa entwickelt, um den Papierkram zu beseitigen, der jeden Arbeitstag auffrisst – damit Sie Fracht bewegen, statt ihr hinterherzulaufen.",
+    "by": "Das Haulora-Team · Matrix Infotech Ltd"
+  },
+  "pricing": {
+    "eyebrow": "Preise",
+    "title": "Einfache Preise, die mit Ihrer Flotte wachsen",
+    "subtitle": "Ein fester Monatspreis pro Unternehmen. Keine Gebühren pro Auftrag, keine Einrichtungskosten.",
+    "currency": "Währung",
+    "cta": "Kostenlos testen",
+    "trialNote": "Jeder Tarif beginnt mit einer 14-tägigen kostenlosen Testphase aller Growth-Funktionen. Preise zzgl. USt. Jederzeit kündbar.",
+    "desc": {
+      "starter": "Für Selbstfahrer und kleine Flotten, die sich organisieren wollen.",
+      "growth": "Für wachsende Transportunternehmen, die täglich disponieren.",
+      "pro": "Für etablierte Unternehmen mit großen Flotten."
+    }
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Fragen und Antworten",
+    "q1": { "q": "Müssen meine Fahrer eine App herunterladen?", "a": "Nein. Die Fahrer-App läuft im Browser und kann auf iPhone und Android wie eine normale App zum Startbildschirm hinzugefügt werden. Fahrer öffnen einfach den Einladungslink." },
+    "q2": { "q": "Berücksichtigt Haulora die USt. bei grenzüberschreitenden Aufträgen?", "a": "Ja. Haulora wendet britische USt., inländische EU-USt. oder das Reverse-Charge-Verfahren an – je nachdem, wo Sie und Ihr Kunde ansässig sind und ob der Kunde eine gültige USt-IdNr. hat – und druckt den korrekten Hinweis auf die Rechnung. Klären Sie Sonderfälle stets mit Ihrem Steuerberater." },
+    "q3": { "q": "Wo werden meine Daten gespeichert?", "a": "In einem Rechenzentrum in London, Vereinigtes Königreich, mit nächtlichen verschlüsselten Backups. Haulora ist für UK-DSGVO und EU-DSGVO ausgelegt; für das Vereinigte Königreich gilt ein Angemessenheitsbeschluss der EU." },
+    "q4": { "q": "Brauche ich GPS-Tracker in meinen Fahrzeugen?", "a": "Nein. Das Live-Tracking nutzt das Handy des Fahrers während der Schicht. Die Standortfreigabe kann jederzeit beendet werden." },
+    "q5": { "q": "Kann ich es in meiner Sprache nutzen?", "a": "Haulora ist auf Englisch, Deutsch, Französisch, Spanisch und Polnisch verfügbar. Jeder Benutzer wählt seine eigene Sprache." },
+    "q6": { "q": "Was passiert nach der Testphase?", "a": "Wählen Sie einen Tarif und zahlen Sie monatlich per Karte. Ohne Tarif wird Ihr Konto pausiert – nichts wird gelöscht und Sie können später upgraden." },
+    "q7": { "q": "Kann ich meine Daten exportieren?", "a": "Ja, jederzeit. Inhaber und Administratoren können unter Einstellungen → Datenschutz & Daten einen vollständigen Export herunterladen." },
+    "q8": { "q": "Wer steht hinter Haulora?", "a": "Haulora wird von der Matrix Infotech Ltd entwickelt und betrieben, einem britischen Softwareunternehmen." }
+  },
+  "cta": {
+    "title": "Bereit, den Papierkram aus dem Transport zu verbannen?",
+    "subtitle": "Geben Sie Büro und Fahrern ein System, das sie gerne nutzen. Testen Sie alle Funktionen 14 Tage kostenlos.",
+    "secondary": "Tarife vergleichen"
+  },
+  "footer": {
+    "tagline": "Transportmanagement für kleine und mittlere Speditions- und Lieferunternehmen in UK und EU.",
+    "product": "Haulora ist ein Produkt der Matrix Infotech Ltd.",
+    "productTitle": "Produkt",
+    "features": "Funktionen",
+    "pricing": "Preise",
+    "faq": "FAQ",
+    "trial": "Kostenlos testen",
+    "legalTitle": "Rechtliches",
+    "terms": "Nutzungsbedingungen",
+    "privacy": "Datenschutzerklärung",
+    "cookies": "Cookie-Richtlinie",
+    "dpa": "Auftragsverarbeitungsvertrag",
+    "trustTitle": "Vertrauen",
+    "trust1": "Gehostet in London, UK",
+    "trust2": "Bereit für UK-DSGVO & EU-DSGVO",
+    "trust3": "Zahlungen gesichert durch Stripe",
+    "rights": "Alle Rechte vorbehalten."
+  }
+}

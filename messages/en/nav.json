@@ -1,0 +1,30 @@
+{
+  "workspace": "Workspace",
+  "section": {
+    "operations": "Operations",
+    "business": "Business",
+    "fleet": "Fleet"
+  },
+  "dashboard": "Dashboard",
+  "jobs": "Jobs & quotes",
+  "dispatch": "Dispatch board",
+  "tracking": "Live map",
+  "customers": "Customers",
+  "invoices": "Invoices",
+  "vehicles": "Vehicles",
+  "drivers": "Drivers",
+  "compliance": "Compliance",
+  "settings": "Settings",
+  "driverApp": "Open driver app",
+  "signOut": "Sign out",
+  "trialLeft": "{days, plural, one {# day} other {# days}} of trial left",
+  "upgradeCta": "Choose a plan",
+  "subscriptionInactive": "Your subscription is not active — some features are locked.",
+  "role": {
+    "owner": "Owner",
+    "admin": "Admin",
+    "dispatcher": "Dispatcher",
+    "driver": "Driver",
+    "accountant": "Accountant"
+  }
+}

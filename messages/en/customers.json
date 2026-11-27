@@ -1,0 +1,87 @@
+{
+  "eyebrow": "Business",
+  "title": "Customers",
+  "subtitle": "{count, plural, one {# customer} other {# customers}}",
+  "add": "Add customer",
+  "edit": "Edit {name}",
+  "searchPlaceholder": "Search by name, email, city, postcode or VAT…",
+  "noResults": "No customers match your search",
+  "emptyTitle": "No customers yet",
+  "emptyText": "Add the companies you haul for, or import them from a spreadsheet.",
+  "columns": {
+    "customer": "Customer",
+    "location": "Location",
+    "vat": "VAT number",
+    "jobs": "Jobs",
+    "revenue": "Revenue"
+  },
+  "kind": {
+    "business": "Business",
+    "individual": "Individual"
+  },
+  "vat": {
+    "verified": "VAT number verified",
+    "unverified": "Not verified",
+    "badFormat": "This doesn't look like a valid VAT number for the selected country.",
+    "offline": "Format is valid, but the VAT service could not be reached. Try again later.",
+    "notFound": "This VAT number is not registered.",
+    "checkedOn": "Checked on {date}",
+    "recheck": "Re-check VAT number"
+  },
+  "form": {
+    "company": "Customer",
+    "vatNumber": "VAT number",
+    "vatHint": "Checked against HMRC (UK) or VIES (EU). Needed for reverse-charge invoices.",
+    "verify": "Verify",
+    "addressContact": "Address & contact",
+    "address1": "Address line 1",
+    "address2": "Address line 2",
+    "contactName": "Contact name",
+    "emailHint": "Invoices and tracking links are sent here",
+    "commercial": "Commercial terms",
+    "paymentTerms": "Payment terms (days)",
+    "paymentTermsHint": "Leave empty to use your company default",
+    "rate": "Rate per {unit} ({currency})",
+    "rateHint": "Overrides your default price per distance for this customer"
+  },
+  "errors": {
+    "nameRequired": "Please enter a name.",
+    "noRows": "No rows with a name column were found."
+  },
+  "import": {
+    "button": "Import CSV",
+    "title": "Import customers",
+    "cancel": "Cancel",
+    "run": "Import {count, plural, one {# customer} other {# customers}}",
+    "help": "Upload or paste a CSV file with a header row. Recognised columns:",
+    "choose": "Choose a .csv file",
+    "paste": "…or paste CSV here",
+    "done": "{count, plural, one {# customer imported} other {# customers imported}}",
+    "more": "+ {count} more rows"
+  },
+  "newJob": "New job",
+  "stats": {
+    "jobs": "Total jobs",
+    "active": "Active jobs",
+    "revenue": "Revenue",
+    "outstanding": "Outstanding"
+  },
+  "contact": "Contact",
+  "billing": "Billing",
+  "days": "{days, plural, one {# day} other {# days}}",
+  "rateOverride": "Rate",
+  "rateDefault": "Company default",
+  "recentJobs": "Recent jobs",
+  "viewAll": "View all",
+  "noJobs": "No jobs for this customer yet.",
+  "invoices": "Invoices",
+  "noInvoices": "No invoices yet.",
+  "due": "due {date}",
+  "invoiceStatus": {
+    "draft": "Draft",
+    "sent": "Sent",
+    "paid": "Paid",
+    "overdue": "Overdue",
+    "void": "Void"
+  }
+}

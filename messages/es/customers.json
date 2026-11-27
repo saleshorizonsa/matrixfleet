@@ -1,0 +1,87 @@
+{
+  "eyebrow": "Negocio",
+  "title": "Clientes",
+  "subtitle": "{count, plural, one {# cliente} other {# clientes}}",
+  "add": "Añadir cliente",
+  "edit": "Editar {name}",
+  "searchPlaceholder": "Buscar por nombre, email, ciudad, código postal o NIF-IVA…",
+  "noResults": "Ningún cliente coincide con la búsqueda",
+  "emptyTitle": "Aún no hay clientes",
+  "emptyText": "Añade las empresas para las que transportas o impórtalas desde una hoja de cálculo.",
+  "columns": {
+    "customer": "Cliente",
+    "location": "Ubicación",
+    "vat": "NIF-IVA",
+    "jobs": "Servicios",
+    "revenue": "Ingresos"
+  },
+  "kind": {
+    "business": "Empresa",
+    "individual": "Particular"
+  },
+  "vat": {
+    "verified": "NIF-IVA verificado",
+    "unverified": "Sin verificar",
+    "badFormat": "No parece un número de IVA válido para el país seleccionado.",
+    "offline": "El formato es válido, pero no se pudo contactar con el servicio de verificación. Inténtalo más tarde.",
+    "notFound": "Este número de IVA no está registrado.",
+    "checkedOn": "Comprobado el {date}",
+    "recheck": "Volver a comprobar el IVA"
+  },
+  "form": {
+    "company": "Cliente",
+    "vatNumber": "NIF-IVA (intracomunitario)",
+    "vatHint": "Se verifica con HMRC (Reino Unido) o VIES (UE). Necesario para facturas con inversión del sujeto pasivo.",
+    "verify": "Verificar",
+    "addressContact": "Dirección y contacto",
+    "address1": "Dirección (línea 1)",
+    "address2": "Dirección (línea 2)",
+    "contactName": "Persona de contacto",
+    "emailHint": "Aquí se envían las facturas y los enlaces de seguimiento",
+    "commercial": "Condiciones comerciales",
+    "paymentTerms": "Plazo de pago (días)",
+    "paymentTermsHint": "Déjalo vacío para usar el valor por defecto de tu empresa",
+    "rate": "Tarifa por {unit} ({currency})",
+    "rateHint": "Sustituye tu tarifa por distancia por defecto para este cliente"
+  },
+  "errors": {
+    "nameRequired": "Introduce un nombre.",
+    "noRows": "No se encontraron filas con una columna de nombre."
+  },
+  "import": {
+    "button": "Importar CSV",
+    "title": "Importar clientes",
+    "cancel": "Cancelar",
+    "run": "Importar {count, plural, one {# cliente} other {# clientes}}",
+    "help": "Sube o pega un CSV con fila de cabecera. Columnas reconocidas:",
+    "choose": "Elegir un archivo .csv",
+    "paste": "…o pega el CSV aquí",
+    "done": "{count, plural, one {# cliente importado} other {# clientes importados}}",
+    "more": "+ {count} filas más"
+  },
+  "newJob": "Nuevo servicio",
+  "stats": {
+    "jobs": "Servicios totales",
+    "active": "Servicios activos",
+    "revenue": "Ingresos",
+    "outstanding": "Pendiente de cobro"
+  },
+  "contact": "Contacto",
+  "billing": "Facturación",
+  "days": "{days, plural, one {# día} other {# días}}",
+  "rateOverride": "Tarifa",
+  "rateDefault": "Tarifa por defecto",
+  "recentJobs": "Servicios recientes",
+  "viewAll": "Ver todo",
+  "noJobs": "Este cliente aún no tiene servicios.",
+  "invoices": "Facturas",
+  "noInvoices": "Aún no hay facturas.",
+  "due": "vence {date}",
+  "invoiceStatus": {
+    "draft": "Borrador",
+    "sent": "Enviada",
+    "paid": "Pagada",
+    "overdue": "Vencida",
+    "void": "Anulada"
+  }
+}

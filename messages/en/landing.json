@@ -1,0 +1,145 @@
+{
+  "nav": {
+    "features": "Features",
+    "how": "How it works",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "signIn": "Sign in",
+    "trial": "Start free trial"
+  },
+  "hero": {
+    "badgeNew": "New",
+    "badge": "Digital CMR & live customer tracking",
+    "title": "Run your <hl>UK & EU haulage</hl> business from one screen",
+    "subtitle": "Haulora brings quotes, jobs, dispatch, live GPS tracking, a driver app with proof of delivery and VAT-correct invoicing together — built for small and medium transport companies.",
+    "ctaPrimary": "Start free 14-day trial",
+    "ctaSecondary": "Sign in",
+    "c1": "No credit card required",
+    "c2": "Set up in 2 minutes",
+    "c3": "Data hosted in London"
+  },
+  "preview": {
+    "live": "Live",
+    "mapLabel": "Animated map of vehicles moving between UK and European cities",
+    "onRoad": "On the road",
+    "vehicles": "vehicles",
+    "deliveredToday": "Delivered today",
+    "podReceived": "Proof of delivery received",
+    "signedBy": "driver {name}",
+    "todaysJobs": "Today's jobs"
+  },
+  "stats": {
+    "s1": { "value": "30", "label": "countries supported" },
+    "s2": { "value": "5", "label": "languages built in" },
+    "s3": { "value": "< 2 min", "label": "to set up your company" },
+    "s4": { "value": "14 days", "label": "free trial, every feature" }
+  },
+  "features": {
+    "eyebrow": "Everything in one place",
+    "title": "Built for the way hauliers actually work",
+    "subtitle": "Replace the spreadsheets, WhatsApp groups and paper PODs with one system your office and drivers both love.",
+    "items": {
+      "jobs": { "title": "Jobs & instant quotes", "body": "Book a job in seconds. Route distance and your rates produce a price automatically — with fuel and ADR surcharges." },
+      "dispatch": { "title": "Drag-and-drop dispatch", "body": "Plan the day on a visual board. Drag jobs onto drivers and vehicles and everyone is updated instantly." },
+      "tracking": { "title": "Live GPS tracking", "body": "See every vehicle on a live map with real-time status — no extra trackers or hardware to install." },
+      "driver": { "title": "Driver app with POD", "body": "Drivers see their run, navigate, and capture signatures and photos as proof of delivery on any phone." },
+      "invoicing": { "title": "VAT-correct invoicing", "body": "UK VAT, EU domestic VAT and reverse charge for cross-border B2B worked out for you, with sequential numbering." },
+      "cmr": { "title": "Digital CMR notes", "body": "Generate CMR consignment notes for international loads as PDFs, pre-filled from the job." },
+      "compliance": { "title": "Compliance & checks", "body": "Daily walkaround checks, MOT, insurance, tacho and licence expiry reminders before they become fines." },
+      "links": { "title": "Customer tracking links", "body": "Send a branded link so your customers can follow their delivery and see the POD — fewer “where is it?” calls." },
+      "gdpr": { "title": "GDPR & UK hosting", "body": "Your data lives in London with encryption, row-level isolation, audit logs and one-click data export." },
+      "languages": { "title": "5 languages", "body": "English, Deutsch, Français, Español and Polski for your office team and your drivers." }
+    }
+  },
+  "driverSpot": {
+    "eyebrow": "Driver app",
+    "title": "Proof of delivery in your driver's pocket",
+    "body": "No app store, no training. Drivers open a link, add Haulora to their home screen and get their jobs for the day.",
+    "b1": "Turn-by-turn navigation via Google Maps or Waze",
+    "b2": "Signature, photos and notes captured at the door",
+    "b3": "Daily vehicle walkaround checks with defect reporting",
+    "b4": "Shift and break logging to support working-time rules",
+    "phoneTitle": "Next delivery",
+    "phoneStop": "Goods",
+    "phoneSign": "Customer signature",
+    "phonePhoto": "Photos",
+    "phoneDone": "Complete delivery"
+  },
+  "how": {
+    "eyebrow": "How it works",
+    "title": "Live in an afternoon",
+    "subtitle": "No consultants, no hardware, no long contracts.",
+    "s1": { "title": "Create your company", "body": "Sign up, pick your country and we set up VAT, currency and distance units automatically." },
+    "s2": { "title": "Add vehicles & invite drivers", "body": "Enter your fleet and send each driver an invitation link to the driver app." },
+    "s3": { "title": "Book, dispatch, deliver, invoice", "body": "Create jobs, drag them onto drivers, track them live and invoice the moment they're delivered." }
+  },
+  "roi": {
+    "eyebrow": "ROI calculator",
+    "title": "See what Haulora saves you",
+    "subtitle": "Move the sliders to match your business.",
+    "inputs": "Your business",
+    "vehicles": "Vehicles in your fleet",
+    "jobsPerDay": "Jobs per vehicle per day",
+    "minutesPerJob": "Admin time per job today",
+    "hourly": "Office staff cost per hour ({symbol})",
+    "assumptions": "Estimate based on 21 working days a month, ~70% less manual admin per job (calls, paper POD, re-keying invoices) and faster, more complete invoicing. Your results will vary.",
+    "result": "Estimated net saving",
+    "perMonth": "per month, after your Haulora subscription",
+    "hoursSaved": "Office hours saved / month",
+    "planCost": "{plan} plan",
+    "cta": "Start saving — free for 14 days"
+  },
+  "quote": {
+    "text": "We built Haulora with UK and European hauliers to remove the paperwork that eats into every working day — so you can spend your time moving freight, not chasing it.",
+    "by": "The Haulora team · Matrix Infotech Ltd"
+  },
+  "pricing": {
+    "eyebrow": "Pricing",
+    "title": "Simple pricing that grows with your fleet",
+    "subtitle": "One flat monthly price per company. No per-job fees, no setup costs.",
+    "currency": "Currency",
+    "cta": "Start free trial",
+    "trialNote": "Every plan starts with a 14-day free trial of all Growth features. Prices exclude VAT. Cancel anytime.",
+    "desc": {
+      "starter": "For owner-drivers and small fleets getting organised.",
+      "growth": "For growing hauliers who dispatch every day.",
+      "pro": "For established operators running large fleets."
+    }
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Questions, answered",
+    "q1": { "q": "Do my drivers need to download an app?", "a": "No. The driver app runs in the phone's browser and can be added to the home screen like a normal app on both iPhone and Android. Drivers just open the invitation link." },
+    "q2": { "q": "Does Haulora handle VAT for cross-border jobs?", "a": "Yes. Haulora applies UK VAT, domestic EU VAT or the reverse-charge mechanism depending on where you and your customer are established and whether the customer has a valid VAT number, and prints the correct wording on the invoice. Always confirm unusual cases with your accountant." },
+    "q3": { "q": "Where is my data stored?", "a": "In a data centre in London, United Kingdom, with nightly encrypted backups. Haulora is designed for UK GDPR and EU GDPR, and the UK benefits from an EU adequacy decision." },
+    "q4": { "q": "Do I need GPS trackers in my vehicles?", "a": "No. Live tracking uses the driver's phone while they are on shift. You can stop location sharing at any time." },
+    "q5": { "q": "Can I use it in my language?", "a": "Haulora is available in English, German, French, Spanish and Polish. Each user chooses their own language." },
+    "q6": { "q": "What happens after the free trial?", "a": "Choose a plan and pay monthly by card. If you don't choose a plan your account is paused — nothing is deleted and you can upgrade later." },
+    "q7": { "q": "Can I export my data?", "a": "Yes, at any time. Owners and admins can download a complete export of your company data from Settings → Privacy & data." },
+    "q8": { "q": "Who is behind Haulora?", "a": "Haulora is built and operated by Matrix Infotech Ltd, a UK software company." }
+  },
+  "cta": {
+    "title": "Ready to take the paperwork out of haulage?",
+    "subtitle": "Give your office and your drivers one system they'll actually enjoy using. Try every feature free for 14 days.",
+    "secondary": "Compare plans"
+  },
+  "footer": {
+    "tagline": "Transport management for small and medium haulage and delivery companies in the UK and EU.",
+    "product": "Haulora is a product of Matrix Infotech Ltd.",
+    "productTitle": "Product",
+    "features": "Features",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "trial": "Free trial",
+    "legalTitle": "Legal",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookie Policy",
+    "dpa": "Data Processing Agreement",
+    "trustTitle": "Trust",
+    "trust1": "Hosted in London, UK",
+    "trust2": "UK GDPR & EU GDPR ready",
+    "trust3": "Payments secured by Stripe",
+    "rights": "All rights reserved."
+  }
+}

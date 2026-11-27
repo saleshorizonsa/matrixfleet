@@ -1,0 +1,30 @@
+{
+  "workspace": "Przestrzeń robocza",
+  "section": {
+    "operations": "Operacje",
+    "business": "Biznes",
+    "fleet": "Flota"
+  },
+  "dashboard": "Pulpit",
+  "jobs": "Zlecenia i wyceny",
+  "dispatch": "Planowanie",
+  "tracking": "Mapa na żywo",
+  "customers": "Klienci",
+  "invoices": "Faktury",
+  "vehicles": "Pojazdy",
+  "drivers": "Kierowcy",
+  "compliance": "Zgodność",
+  "settings": "Ustawienia",
+  "driverApp": "Otwórz aplikację kierowcy",
+  "signOut": "Wyloguj",
+  "trialLeft": "{days, plural, one {Został # dzień} few {Zostały # dni} many {Zostało # dni} other {Zostało # dnia}} okresu próbnego",
+  "upgradeCta": "Wybierz plan",
+  "subscriptionInactive": "Twoja subskrypcja jest nieaktywna — niektóre funkcje są zablokowane.",
+  "role": {
+    "owner": "Właściciel",
+    "admin": "Administrator",
+    "dispatcher": "Spedytor",
+    "driver": "Kierowca",
+    "accountant": "Księgowy"
+  }
+}

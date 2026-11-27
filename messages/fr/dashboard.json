@@ -1,0 +1,75 @@
+{
+  "welcome": {
+    "title": "Bienvenue sur Haulora, {org} !",
+    "text": "Votre essai de 14 jours a commencé avec toutes les fonctionnalités Growth débloquées. Suivez la liste ci-dessous pour mettre votre première mission sur la route en quelques minutes."
+  },
+  "denied": "Vous n'avez pas accès à cette zone. Demandez à un propriétaire ou à un administrateur si nécessaire.",
+  "greeting": {
+    "morning": "Bonjour, {name}",
+    "afternoon": "Bon après-midi, {name}",
+    "evening": "Bonsoir, {name}"
+  },
+  "quick": {
+    "newJob": "Nouvelle mission",
+    "newQuote": "Nouveau devis",
+    "dispatch": "Planning",
+    "liveMap": "Carte en direct"
+  },
+  "checklist": {
+    "title": "Configuration",
+    "progress": "{done} étapes sur {total} terminées",
+    "hide": "Masquer la liste",
+    "steps": {
+      "company": "Compléter les infos de l'entreprise",
+      "customer": "Ajouter votre premier client",
+      "vehicle": "Ajouter un véhicule",
+      "driver": "Ajouter un chauffeur",
+      "job": "Réserver votre première mission",
+      "team": "Inviter un collègue",
+      "plan": "Choisir une formule"
+    }
+  },
+  "kpi": {
+    "today": "Missions du jour",
+    "todayHint": "Prévues aujourd'hui",
+    "inTransit": "En cours de transport",
+    "onlineDrivers": "{count, plural, one {# chauffeur en ligne} other {# chauffeurs en ligne}}",
+    "deliveredWeek": "Livrées (7 jours)",
+    "onTime": "{pct} % à l'heure",
+    "onTimeNa": "Ajoutez des créneaux de livraison pour suivre la ponctualité",
+    "revenueMonth": "Chiffre d'affaires du mois",
+    "revenueHint": "Livré & facturé, HT",
+    "outstanding": "Factures en attente",
+    "overdue": "{count, plural, one {# en retard} other {# en retard}}",
+    "invoicesOpen": "{count, plural, one {# facture ouverte} other {# factures ouvertes}}"
+  },
+  "charts": {
+    "noData": "Aucune livraison sur cette période",
+    "revenue": "CA",
+    "jobs": "Missions",
+    "revenueTitle": "CA & livraisons",
+    "revenueSubtitle": "30 derniers jours",
+    "statusTitle": "Missions par statut",
+    "statusSubtitle": "Créées ces 30 derniers jours"
+  },
+  "schedule": {
+    "title": "Planning du jour",
+    "subtitle": "{count, plural, one {# mission prévue} other {# missions prévues}}",
+    "openBoard": "Ouvrir le planning",
+    "emptyTitle": "Rien de prévu aujourd'hui",
+    "emptyText": "Réservez une mission ou planifiez-en une existante pour la voir ici.",
+    "pickup": "enlèvement",
+    "unassigned": "Non affectée"
+  },
+  "alerts": {
+    "title": "Alertes de conformité",
+    "all": "Tout voir",
+    "allGood": "Tous les documents sont à jour. Bravo.",
+    "defect": "défaut signalé",
+    "open": "Ouvert"
+  },
+  "online": {
+    "title": "Chauffeurs en ligne",
+    "none": "Aucun chauffeur ne partage sa position pour le moment."
+  }
+}

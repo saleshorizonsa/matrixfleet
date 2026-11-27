@@ -1,0 +1,87 @@
+{
+  "eyebrow": "Geschäft",
+  "title": "Kunden",
+  "subtitle": "{count, plural, one {# Kunde} other {# Kunden}}",
+  "add": "Kunde anlegen",
+  "edit": "{name} bearbeiten",
+  "searchPlaceholder": "Nach Name, E-Mail, Ort, PLZ oder USt-IdNr. suchen…",
+  "noResults": "Keine Kunden gefunden",
+  "emptyTitle": "Noch keine Kunden",
+  "emptyText": "Legen Sie die Firmen an, für die Sie fahren, oder importieren Sie sie aus einer Tabelle.",
+  "columns": {
+    "customer": "Kunde",
+    "location": "Ort",
+    "vat": "USt-IdNr.",
+    "jobs": "Aufträge",
+    "revenue": "Umsatz"
+  },
+  "kind": {
+    "business": "Unternehmen",
+    "individual": "Privatperson"
+  },
+  "vat": {
+    "verified": "USt-IdNr. bestätigt",
+    "unverified": "Nicht geprüft",
+    "badFormat": "Das sieht nicht nach einer gültigen USt-IdNr. für das gewählte Land aus.",
+    "offline": "Format ist gültig, aber der Prüfdienst ist nicht erreichbar. Bitte später erneut versuchen.",
+    "notFound": "Diese USt-IdNr. ist nicht registriert.",
+    "checkedOn": "Geprüft am {date}",
+    "recheck": "USt-IdNr. erneut prüfen"
+  },
+  "form": {
+    "company": "Kunde",
+    "vatNumber": "USt-IdNr.",
+    "vatHint": "Geprüft über HMRC (UK) bzw. VIES (EU). Erforderlich für Reverse-Charge-Rechnungen.",
+    "verify": "Prüfen",
+    "addressContact": "Adresse & Kontakt",
+    "address1": "Adresszeile 1",
+    "address2": "Adresszeile 2",
+    "contactName": "Ansprechpartner",
+    "emailHint": "Rechnungen und Tracking-Links gehen an diese Adresse",
+    "commercial": "Konditionen",
+    "paymentTerms": "Zahlungsziel (Tage)",
+    "paymentTermsHint": "Leer lassen, um den Firmenstandard zu verwenden",
+    "rate": "Preis pro {unit} ({currency})",
+    "rateHint": "Überschreibt Ihren Standardpreis pro Distanz für diesen Kunden"
+  },
+  "errors": {
+    "nameRequired": "Bitte einen Namen eingeben.",
+    "noRows": "Keine Zeilen mit einer Namensspalte gefunden."
+  },
+  "import": {
+    "button": "CSV importieren",
+    "title": "Kunden importieren",
+    "cancel": "Abbrechen",
+    "run": "{count, plural, one {# Kunden importieren} other {# Kunden importieren}}",
+    "help": "Laden Sie eine CSV-Datei mit Kopfzeile hoch oder fügen Sie sie ein. Erkannte Spalten:",
+    "choose": ".csv-Datei auswählen",
+    "paste": "…oder CSV hier einfügen",
+    "done": "{count, plural, one {# Kunde importiert} other {# Kunden importiert}}",
+    "more": "+ {count} weitere Zeilen"
+  },
+  "newJob": "Neuer Auftrag",
+  "stats": {
+    "jobs": "Aufträge gesamt",
+    "active": "Aktive Aufträge",
+    "revenue": "Umsatz",
+    "outstanding": "Offen"
+  },
+  "contact": "Kontakt",
+  "billing": "Abrechnung",
+  "days": "{days, plural, one {# Tag} other {# Tage}}",
+  "rateOverride": "Preis",
+  "rateDefault": "Firmenstandard",
+  "recentJobs": "Letzte Aufträge",
+  "viewAll": "Alle anzeigen",
+  "noJobs": "Noch keine Aufträge für diesen Kunden.",
+  "invoices": "Rechnungen",
+  "noInvoices": "Noch keine Rechnungen.",
+  "due": "fällig {date}",
+  "invoiceStatus": {
+    "draft": "Entwurf",
+    "sent": "Versendet",
+    "paid": "Bezahlt",
+    "overdue": "Überfällig",
+    "void": "Storniert"
+  }
+}

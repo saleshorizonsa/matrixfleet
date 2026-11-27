@@ -1,0 +1,30 @@
+{
+  "workspace": "Arbeitsbereich",
+  "section": {
+    "operations": "Betrieb",
+    "business": "Geschäft",
+    "fleet": "Fuhrpark"
+  },
+  "dashboard": "Dashboard",
+  "jobs": "Aufträge & Angebote",
+  "dispatch": "Disposition",
+  "tracking": "Live-Karte",
+  "customers": "Kunden",
+  "invoices": "Rechnungen",
+  "vehicles": "Fahrzeuge",
+  "drivers": "Fahrer",
+  "compliance": "Compliance",
+  "settings": "Einstellungen",
+  "driverApp": "Fahrer-App öffnen",
+  "signOut": "Abmelden",
+  "trialLeft": "{days, plural, one {# Testtag} other {# Testtage}} übrig",
+  "upgradeCta": "Tarif wählen",
+  "subscriptionInactive": "Ihr Abonnement ist nicht aktiv – einige Funktionen sind gesperrt.",
+  "role": {
+    "owner": "Inhaber",
+    "admin": "Administrator",
+    "dispatcher": "Disponent",
+    "driver": "Fahrer",
+    "accountant": "Buchhaltung"
+  }
+}

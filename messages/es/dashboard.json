@@ -1,0 +1,75 @@
+{
+  "welcome": {
+    "title": "¡Bienvenido a Haulora, {org}!",
+    "text": "Tu prueba de 14 días ha comenzado con todas las funciones Growth desbloqueadas. Sigue la lista de abajo para poner tu primer servicio en ruta en pocos minutos."
+  },
+  "denied": "No tienes acceso a esa sección. Pide acceso a un propietario o administrador si lo necesitas.",
+  "greeting": {
+    "morning": "Buenos días, {name}",
+    "afternoon": "Buenas tardes, {name}",
+    "evening": "Buenas noches, {name}"
+  },
+  "quick": {
+    "newJob": "Nuevo servicio",
+    "newQuote": "Nuevo presupuesto",
+    "dispatch": "Planificación",
+    "liveMap": "Mapa en vivo"
+  },
+  "checklist": {
+    "title": "Configuración inicial",
+    "progress": "{done} de {total} pasos completados",
+    "hide": "Ocultar lista",
+    "steps": {
+      "company": "Completar datos de la empresa",
+      "customer": "Añadir tu primer cliente",
+      "vehicle": "Añadir un vehículo",
+      "driver": "Añadir un conductor",
+      "job": "Reservar tu primer servicio",
+      "team": "Invitar a un compañero",
+      "plan": "Elegir un plan"
+    }
+  },
+  "kpi": {
+    "today": "Servicios hoy",
+    "todayHint": "Programados para hoy",
+    "inTransit": "En tránsito ahora",
+    "onlineDrivers": "{count, plural, one {# conductor conectado} other {# conductores conectados}}",
+    "deliveredWeek": "Entregados (7 días)",
+    "onTime": "{pct} % a tiempo",
+    "onTimeNa": "Añade franjas de entrega para medir la puntualidad",
+    "revenueMonth": "Ingresos del mes",
+    "revenueHint": "Entregado y facturado, sin IVA",
+    "outstanding": "Facturas pendientes",
+    "overdue": "{count, plural, one {# vencida} other {# vencidas}}",
+    "invoicesOpen": "{count, plural, one {# factura abierta} other {# facturas abiertas}}"
+  },
+  "charts": {
+    "noData": "Aún no hay entregas en este periodo",
+    "revenue": "Ingresos",
+    "jobs": "Servicios",
+    "revenueTitle": "Ingresos y entregas",
+    "revenueSubtitle": "Últimos 30 días",
+    "statusTitle": "Servicios por estado",
+    "statusSubtitle": "Creados en los últimos 30 días"
+  },
+  "schedule": {
+    "title": "Agenda de hoy",
+    "subtitle": "{count, plural, one {# servicio previsto} other {# servicios previstos}}",
+    "openBoard": "Abrir tablero",
+    "emptyTitle": "Nada programado hoy",
+    "emptyText": "Reserva un servicio o programa uno existente para verlo aquí.",
+    "pickup": "recogida",
+    "unassigned": "Sin asignar"
+  },
+  "alerts": {
+    "title": "Alertas de cumplimiento",
+    "all": "Ver todo",
+    "allGood": "Todos los documentos están en vigor. ¡Buen trabajo!",
+    "defect": "defecto notificado",
+    "open": "Abierto"
+  },
+  "online": {
+    "title": "Conductores conectados",
+    "none": "Ningún conductor está compartiendo su ubicación ahora mismo."
+  }
+}

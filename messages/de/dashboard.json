@@ -1,0 +1,75 @@
+{
+  "welcome": {
+    "title": "Willkommen bei Haulora, {org}!",
+    "text": "Ihre 14-tägige Testphase hat begonnen – alle Growth-Funktionen sind freigeschaltet. Folgen Sie der Checkliste unten und bringen Sie Ihren ersten Auftrag in wenigen Minuten auf die Straße."
+  },
+  "denied": "Sie haben keinen Zugriff auf diesen Bereich. Wenden Sie sich bei Bedarf an einen Inhaber oder Administrator.",
+  "greeting": {
+    "morning": "Guten Morgen, {name}",
+    "afternoon": "Guten Tag, {name}",
+    "evening": "Guten Abend, {name}"
+  },
+  "quick": {
+    "newJob": "Neuer Auftrag",
+    "newQuote": "Neues Angebot",
+    "dispatch": "Disposition",
+    "liveMap": "Live-Karte"
+  },
+  "checklist": {
+    "title": "Einrichtung",
+    "progress": "{done} von {total} Schritten erledigt",
+    "hide": "Checkliste ausblenden",
+    "steps": {
+      "company": "Firmendaten vervollständigen",
+      "customer": "Ersten Kunden anlegen",
+      "vehicle": "Fahrzeug hinzufügen",
+      "driver": "Fahrer hinzufügen",
+      "job": "Ersten Auftrag buchen",
+      "team": "Teammitglied einladen",
+      "plan": "Tarif wählen"
+    }
+  },
+  "kpi": {
+    "today": "Aufträge heute",
+    "todayHint": "Für heute geplant",
+    "inTransit": "Aktuell unterwegs",
+    "onlineDrivers": "{count, plural, one {# Fahrer online} other {# Fahrer online}}",
+    "deliveredWeek": "Zugestellt (7 Tage)",
+    "onTime": "{pct} % pünktlich",
+    "onTimeNa": "Lieferzeitfenster hinterlegen, um die Pünktlichkeit zu messen",
+    "revenueMonth": "Umsatz diesen Monat",
+    "revenueHint": "Zugestellt & berechnet, netto",
+    "outstanding": "Offene Rechnungen",
+    "overdue": "{count, plural, one {# überfällig} other {# überfällig}}",
+    "invoicesOpen": "{count, plural, one {# Rechnung offen} other {# Rechnungen offen}}"
+  },
+  "charts": {
+    "noData": "In diesem Zeitraum noch keine Zustellungen",
+    "revenue": "Umsatz",
+    "jobs": "Aufträge",
+    "revenueTitle": "Umsatz & Zustellungen",
+    "revenueSubtitle": "Letzte 30 Tage",
+    "statusTitle": "Aufträge nach Status",
+    "statusSubtitle": "In den letzten 30 Tagen angelegt"
+  },
+  "schedule": {
+    "title": "Heutiger Tourenplan",
+    "subtitle": "{count, plural, one {# Auftrag} other {# Aufträge}} geplant",
+    "openBoard": "Zur Disposition",
+    "emptyTitle": "Heute nichts geplant",
+    "emptyText": "Buchen Sie einen Auftrag oder planen Sie einen bestehenden ein, um ihn hier zu sehen.",
+    "pickup": "Abholung",
+    "unassigned": "Nicht zugewiesen"
+  },
+  "alerts": {
+    "title": "Compliance-Hinweise",
+    "all": "Alle anzeigen",
+    "allGood": "Alle Dokumente sind gültig. Sehr gut.",
+    "defect": "Mangel gemeldet",
+    "open": "Offen"
+  },
+  "online": {
+    "title": "Fahrer online",
+    "none": "Derzeit teilt kein Fahrer seinen Standort."
+  }
+}

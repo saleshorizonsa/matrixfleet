@@ -1,0 +1,30 @@
+{
+  "workspace": "Espace de travail",
+  "section": {
+    "operations": "Exploitation",
+    "business": "Commercial",
+    "fleet": "Flotte"
+  },
+  "dashboard": "Tableau de bord",
+  "jobs": "Missions & devis",
+  "dispatch": "Planning",
+  "tracking": "Carte en direct",
+  "customers": "Clients",
+  "invoices": "Factures",
+  "vehicles": "Véhicules",
+  "drivers": "Chauffeurs",
+  "compliance": "Conformité",
+  "settings": "Paramètres",
+  "driverApp": "Ouvrir l'appli chauffeur",
+  "signOut": "Se déconnecter",
+  "trialLeft": "{days, plural, one {# jour} other {# jours}} d'essai restant(s)",
+  "upgradeCta": "Choisir une formule",
+  "subscriptionInactive": "Votre abonnement n'est pas actif — certaines fonctionnalités sont verrouillées.",
+  "role": {
+    "owner": "Propriétaire",
+    "admin": "Administrateur",
+    "dispatcher": "Exploitant",
+    "driver": "Chauffeur",
+    "accountant": "Comptable"
+  }
+}

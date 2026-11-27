@@ -1,0 +1,38 @@
+{
+  "title": "Live map",
+  "subtitle": "Where every driver is right now, updated in real time from the driver app.",
+  "online": "Online",
+  "inTransit": "In transit",
+  "deliveredToday": "Delivered today",
+  "searchDrivers": "Search driver or vehicle…",
+  "noDrivers": "No drivers found",
+  "noPosition": "No position yet",
+  "liveUpdates": "Live",
+  "showDeliveries": "Today's drops",
+  "public": {
+    "notFoundTitle": "Shipment not found",
+    "notFound": "This tracking link is invalid or no longer available. Please check the link or contact the sender.",
+    "shipment": "Shipment",
+    "headline": {
+      "cancelled": "This delivery was cancelled",
+      "delivered": "Delivered",
+      "onTheWay": "Your delivery is on its way",
+      "scheduled": "Your delivery is booked"
+    },
+    "deliveredOn": "Delivered {date}",
+    "expected": "Expected {eta}",
+    "awaitingSchedule": "We'll confirm the delivery time soon",
+    "from": "From",
+    "to": "To",
+    "driverLive": "{name} is driving — live location",
+    "liveLocation": "Live location",
+    "updated": "Updated {time}",
+    "podTitle": "Delivery confirmed",
+    "podSignedBy": "Signed for by {name} on {date}.",
+    "podDelivered": "Delivered on {date}.",
+    "deliveryTo": "Delivering to",
+    "questions": "Questions about this delivery?",
+    "contactCarrier": "Please contact the carrier.",
+    "poweredBy": "Tracking by"
+  }
+}

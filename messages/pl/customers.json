@@ -1,0 +1,87 @@
+{
+  "eyebrow": "Biznes",
+  "title": "Klienci",
+  "subtitle": "Liczba klientów: {count}",
+  "add": "Dodaj klienta",
+  "edit": "Edytuj: {name}",
+  "searchPlaceholder": "Szukaj po nazwie, e-mailu, mieście, kodzie lub NIP…",
+  "noResults": "Brak klientów pasujących do wyszukiwania",
+  "emptyTitle": "Nie masz jeszcze klientów",
+  "emptyText": "Dodaj firmy, dla których przewozisz, lub zaimportuj je z arkusza.",
+  "columns": {
+    "customer": "Klient",
+    "location": "Lokalizacja",
+    "vat": "NIP UE",
+    "jobs": "Zlecenia",
+    "revenue": "Przychód"
+  },
+  "kind": {
+    "business": "Firma",
+    "individual": "Osoba prywatna"
+  },
+  "vat": {
+    "verified": "Numer VAT zweryfikowany",
+    "unverified": "Niezweryfikowany",
+    "badFormat": "To nie wygląda na prawidłowy numer VAT dla wybranego kraju.",
+    "offline": "Format jest poprawny, ale usługa weryfikacji jest niedostępna. Spróbuj później.",
+    "notFound": "Ten numer VAT nie jest zarejestrowany.",
+    "checkedOn": "Sprawdzono {date}",
+    "recheck": "Sprawdź numer VAT ponownie"
+  },
+  "form": {
+    "company": "Klient",
+    "vatNumber": "Numer VAT UE",
+    "vatHint": "Weryfikacja w HMRC (UK) lub VIES (UE). Wymagany przy odwrotnym obciążeniu.",
+    "verify": "Weryfikuj",
+    "addressContact": "Adres i kontakt",
+    "address1": "Adres (linia 1)",
+    "address2": "Adres (linia 2)",
+    "contactName": "Osoba kontaktowa",
+    "emailHint": "Na ten adres wysyłamy faktury i linki do śledzenia",
+    "commercial": "Warunki handlowe",
+    "paymentTerms": "Termin płatności (dni)",
+    "paymentTermsHint": "Pozostaw puste, aby użyć domyślnego terminu firmy",
+    "rate": "Stawka za {unit} ({currency})",
+    "rateHint": "Zastępuje domyślną stawkę za odległość dla tego klienta"
+  },
+  "errors": {
+    "nameRequired": "Podaj nazwę.",
+    "noRows": "Nie znaleziono wierszy z kolumną nazwy."
+  },
+  "import": {
+    "button": "Importuj CSV",
+    "title": "Import klientów",
+    "cancel": "Anuluj",
+    "run": "Importuj ({count})",
+    "help": "Wgraj lub wklej plik CSV z wierszem nagłówka. Rozpoznawane kolumny:",
+    "choose": "Wybierz plik .csv",
+    "paste": "…lub wklej CSV tutaj",
+    "done": "Zaimportowano klientów: {count}",
+    "more": "+ {count} kolejnych wierszy"
+  },
+  "newJob": "Nowe zlecenie",
+  "stats": {
+    "jobs": "Wszystkie zlecenia",
+    "active": "Aktywne zlecenia",
+    "revenue": "Przychód",
+    "outstanding": "Do zapłaty"
+  },
+  "contact": "Kontakt",
+  "billing": "Rozliczenia",
+  "days": "{days, plural, one {# dzień} other {# dni}}",
+  "rateOverride": "Stawka",
+  "rateDefault": "Domyślna stawka firmy",
+  "recentJobs": "Ostatnie zlecenia",
+  "viewAll": "Pokaż wszystkie",
+  "noJobs": "Brak zleceń dla tego klienta.",
+  "invoices": "Faktury",
+  "noInvoices": "Brak faktur.",
+  "due": "termin {date}",
+  "invoiceStatus": {
+    "draft": "Szkic",
+    "sent": "Wysłana",
+    "paid": "Opłacona",
+    "overdue": "Przeterminowana",
+    "void": "Anulowana"
+  }
+}

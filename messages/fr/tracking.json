@@ -1,0 +1,38 @@
+{
+  "title": "Carte en direct",
+  "subtitle": "La position de chaque chauffeur en temps réel, depuis l'appli chauffeur.",
+  "online": "En ligne",
+  "inTransit": "En transit",
+  "deliveredToday": "Livrées aujourd'hui",
+  "searchDrivers": "Rechercher un chauffeur ou un véhicule…",
+  "noDrivers": "Aucun chauffeur trouvé",
+  "noPosition": "Pas encore de position",
+  "liveUpdates": "En direct",
+  "showDeliveries": "Livraisons du jour",
+  "public": {
+    "notFoundTitle": "Expédition introuvable",
+    "notFound": "Ce lien de suivi est invalide ou n'est plus disponible. Vérifiez le lien ou contactez l'expéditeur.",
+    "shipment": "Expédition",
+    "headline": {
+      "cancelled": "Cette livraison a été annulée",
+      "delivered": "Livrée",
+      "onTheWay": "Votre livraison est en route",
+      "scheduled": "Votre livraison est programmée"
+    },
+    "deliveredOn": "Livrée le {date}",
+    "expected": "Prévue {eta}",
+    "awaitingSchedule": "Nous confirmerons bientôt l'heure de livraison",
+    "from": "De",
+    "to": "À",
+    "driverLive": "{name} est en route — position en direct",
+    "liveLocation": "Position en direct",
+    "updated": "Mis à jour à {time}",
+    "podTitle": "Livraison confirmée",
+    "podSignedBy": "Signée par {name} le {date}.",
+    "podDelivered": "Livrée le {date}.",
+    "deliveryTo": "Livraison à",
+    "questions": "Une question sur cette livraison ?",
+    "contactCarrier": "Veuillez contacter le transporteur.",
+    "poweredBy": "Suivi par"
+  }
+}

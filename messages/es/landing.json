@@ -1,0 +1,145 @@
+{
+  "nav": {
+    "features": "Funciones",
+    "how": "Cómo funciona",
+    "pricing": "Precios",
+    "faq": "Preguntas",
+    "signIn": "Iniciar sesión",
+    "trial": "Prueba gratis"
+  },
+  "hero": {
+    "badgeNew": "Nuevo",
+    "badge": "CMR digital y seguimiento en directo para clientes",
+    "title": "Gestiona tu <hl>transporte en RU y la UE</hl> desde una sola pantalla",
+    "subtitle": "Haulora reúne presupuestos, servicios, planificación, seguimiento GPS en directo, una app del conductor con prueba de entrega y facturación con el IVA correcto, pensado para pequeñas y medianas empresas de transporte.",
+    "ctaPrimary": "Prueba gratis 14 días",
+    "ctaSecondary": "Iniciar sesión",
+    "c1": "Sin tarjeta de crédito",
+    "c2": "Listo en 2 minutos",
+    "c3": "Datos alojados en Londres"
+  },
+  "preview": {
+    "live": "En directo",
+    "mapLabel": "Mapa animado de vehículos circulando entre ciudades británicas y europeas",
+    "onRoad": "En ruta",
+    "vehicles": "vehículos",
+    "deliveredToday": "Entregados hoy",
+    "podReceived": "Prueba de entrega recibida",
+    "signedBy": "conductor {name}",
+    "todaysJobs": "Servicios de hoy"
+  },
+  "stats": {
+    "s1": { "value": "30", "label": "países compatibles" },
+    "s2": { "value": "5", "label": "idiomas integrados" },
+    "s3": { "value": "< 2 min", "label": "para configurar tu empresa" },
+    "s4": { "value": "14 días", "label": "de prueba gratis, todo incluido" }
+  },
+  "features": {
+    "eyebrow": "Todo en un mismo lugar",
+    "title": "Diseñado para cómo trabajan de verdad los transportistas",
+    "subtitle": "Sustituye hojas de cálculo, grupos de WhatsApp y albaranes en papel por un sistema que encantará a la oficina y a los conductores.",
+    "items": {
+      "jobs": { "title": "Servicios y presupuestos al instante", "body": "Crea un servicio en segundos. La distancia y tus tarifas generan un precio automático, con recargos por combustible y ADR." },
+      "dispatch": { "title": "Planificación arrastrar y soltar", "body": "Organiza el día en un tablero visual. Arrastra servicios a conductores y vehículos y todos quedan informados al momento." },
+      "tracking": { "title": "Seguimiento GPS en directo", "body": "Ve cada vehículo en un mapa en tiempo real, sin rastreadores ni hardware adicional." },
+      "driver": { "title": "App del conductor con POD", "body": "Los conductores ven su ruta, navegan y recogen firmas y fotos como prueba de entrega desde cualquier móvil." },
+      "invoicing": { "title": "Facturación con IVA correcto", "body": "IVA británico, IVA nacional de la UE e inversión del sujeto pasivo para B2B transfronterizo, con numeración correlativa." },
+      "cmr": { "title": "Cartas de porte CMR digitales", "body": "Genera cartas de porte CMR en PDF para envíos internacionales, rellenadas a partir del servicio." },
+      "compliance": { "title": "Cumplimiento y revisiones", "body": "Revisiones diarias del vehículo y avisos de ITV, seguro, tacógrafo y permisos antes de que lleguen las multas." },
+      "links": { "title": "Enlaces de seguimiento", "body": "Envía un enlace con tu marca para que tus clientes sigan su entrega y la prueba de entrega: menos llamadas de «¿dónde está?»." },
+      "gdpr": { "title": "RGPD y alojamiento en RU", "body": "Tus datos están en Londres, con cifrado, aislamiento por empresa, registros de auditoría y exportación con un clic." },
+      "languages": { "title": "5 idiomas", "body": "Inglés, alemán, francés, español y polaco para tu oficina y tus conductores." }
+    }
+  },
+  "driverSpot": {
+    "eyebrow": "App del conductor",
+    "title": "La prueba de entrega en el bolsillo del conductor",
+    "body": "Sin tiendas de apps ni formación. El conductor abre un enlace, añade Haulora a su pantalla de inicio y ve sus servicios del día.",
+    "b1": "Navegación con Google Maps o Waze",
+    "b2": "Firma, fotos y notas en el momento de la entrega",
+    "b3": "Revisión diaria del vehículo con aviso de defectos",
+    "b4": "Registro de jornada y pausas para cumplir la normativa",
+    "phoneTitle": "Próxima entrega",
+    "phoneStop": "Mercancía",
+    "phoneSign": "Firma del cliente",
+    "phonePhoto": "Fotos",
+    "phoneDone": "Completar entrega"
+  },
+  "how": {
+    "eyebrow": "Cómo funciona",
+    "title": "Operativo en una tarde",
+    "subtitle": "Sin consultores, sin hardware, sin permanencias.",
+    "s1": { "title": "Crea tu empresa", "body": "Regístrate, elige tu país y configuramos automáticamente el IVA, la moneda y las unidades." },
+    "s2": { "title": "Añade vehículos e invita a conductores", "body": "Registra tu flota y envía a cada conductor un enlace de invitación a la app." },
+    "s3": { "title": "Reserva, planifica, entrega, factura", "body": "Crea servicios, arrástralos a los conductores, síguelos en directo y factura en cuanto se entreguen." }
+  },
+  "roi": {
+    "eyebrow": "Calculadora de ROI",
+    "title": "Descubre cuánto te ahorra Haulora",
+    "subtitle": "Mueve los controles para ajustarlos a tu empresa.",
+    "inputs": "Tu empresa",
+    "vehicles": "Vehículos de tu flota",
+    "jobsPerDay": "Servicios por vehículo y día",
+    "minutesPerJob": "Tiempo administrativo actual por servicio",
+    "hourly": "Coste por hora del personal de oficina ({symbol})",
+    "assumptions": "Estimación basada en 21 días laborables al mes, alrededor de un 70 % menos de trabajo manual por servicio (llamadas, albaranes en papel, volver a teclear facturas) y una facturación más rápida y completa. Tus resultados pueden variar.",
+    "result": "Ahorro neto estimado",
+    "perMonth": "al mes, descontada tu suscripción a Haulora",
+    "hoursSaved": "Horas de oficina ahorradas / mes",
+    "planCost": "Plan {plan}",
+    "cta": "Empieza a ahorrar: 14 días gratis"
+  },
+  "quote": {
+    "text": "Creamos Haulora junto a transportistas del Reino Unido y Europa para eliminar el papeleo que se come cada jornada, para que dediques tu tiempo a mover mercancía y no a perseguirla.",
+    "by": "El equipo de Haulora · Matrix Infotech Ltd"
+  },
+  "pricing": {
+    "eyebrow": "Precios",
+    "title": "Precios sencillos que crecen con tu flota",
+    "subtitle": "Una cuota mensual fija por empresa. Sin comisiones por servicio ni costes de alta.",
+    "currency": "Moneda",
+    "cta": "Prueba gratis",
+    "trialNote": "Todos los planes empiezan con 14 días de prueba gratuita de todas las funciones Growth. Precios sin IVA. Cancela cuando quieras.",
+    "desc": {
+      "starter": "Para autónomos y flotas pequeñas que quieren organizarse.",
+      "growth": "Para transportistas en crecimiento que planifican a diario.",
+      "pro": "Para empresas consolidadas con flotas grandes."
+    }
+  },
+  "faq": {
+    "eyebrow": "Preguntas",
+    "title": "Preguntas frecuentes",
+    "q1": { "q": "¿Mis conductores tienen que descargar una app?", "a": "No. La app del conductor funciona en el navegador y puede añadirse a la pantalla de inicio como una app normal en iPhone y Android. Solo tienen que abrir el enlace de invitación." },
+    "q2": { "q": "¿Haulora gestiona el IVA de los servicios transfronterizos?", "a": "Sí. Haulora aplica el IVA británico, el IVA nacional de la UE o la inversión del sujeto pasivo según dónde estéis establecidos tú y tu cliente y si este tiene un NIF-IVA válido, e imprime la mención correcta en la factura. Consulta siempre los casos especiales con tu asesor." },
+    "q3": { "q": "¿Dónde se guardan mis datos?", "a": "En un centro de datos de Londres (Reino Unido), con copias de seguridad cifradas cada noche. Haulora está diseñado para el RGPD británico y europeo; el Reino Unido cuenta con una decisión de adecuación de la UE." },
+    "q4": { "q": "¿Necesito rastreadores GPS en los vehículos?", "a": "No. El seguimiento en directo usa el móvil del conductor durante su jornada. Puede dejar de compartir la ubicación en cualquier momento." },
+    "q5": { "q": "¿Puedo usarlo en mi idioma?", "a": "Haulora está disponible en inglés, alemán, francés, español y polaco. Cada usuario elige su idioma." },
+    "q6": { "q": "¿Qué pasa después de la prueba gratuita?", "a": "Elige un plan y paga mensualmente con tarjeta. Si no eliges plan, tu cuenta queda en pausa: no se borra nada y puedes suscribirte más adelante." },
+    "q7": { "q": "¿Puedo exportar mis datos?", "a": "Sí, en cualquier momento. Propietarios y administradores pueden descargar una exportación completa desde Ajustes → Privacidad y datos." },
+    "q8": { "q": "¿Quién está detrás de Haulora?", "a": "Haulora lo desarrolla y opera Matrix Infotech Ltd, una empresa de software del Reino Unido." }
+  },
+  "cta": {
+    "title": "¿Listo para quitar el papeleo del transporte?",
+    "subtitle": "Dale a tu oficina y a tus conductores un sistema que disfrutarán usando. Prueba todas las funciones gratis durante 14 días.",
+    "secondary": "Comparar planes"
+  },
+  "footer": {
+    "tagline": "Gestión de transporte para pequeñas y medianas empresas de transporte y reparto en el Reino Unido y la UE.",
+    "product": "Haulora es un producto de Matrix Infotech Ltd.",
+    "productTitle": "Producto",
+    "features": "Funciones",
+    "pricing": "Precios",
+    "faq": "Preguntas",
+    "trial": "Prueba gratis",
+    "legalTitle": "Legal",
+    "terms": "Términos del servicio",
+    "privacy": "Política de privacidad",
+    "cookies": "Política de cookies",
+    "dpa": "Acuerdo de tratamiento de datos",
+    "trustTitle": "Confianza",
+    "trust1": "Alojado en Londres, RU",
+    "trust2": "Preparado para RGPD de RU y UE",
+    "trust3": "Pagos protegidos por Stripe",
+    "rights": "Todos los derechos reservados."
+  }
+}

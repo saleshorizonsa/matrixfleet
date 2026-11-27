@@ -1,0 +1,87 @@
+{
+  "eyebrow": "Commercial",
+  "title": "Clients",
+  "subtitle": "{count, plural, one {# client} other {# clients}}",
+  "add": "Ajouter un client",
+  "edit": "Modifier {name}",
+  "searchPlaceholder": "Rechercher par nom, e-mail, ville, code postal ou n° de TVA…",
+  "noResults": "Aucun client ne correspond à votre recherche",
+  "emptyTitle": "Aucun client pour l'instant",
+  "emptyText": "Ajoutez les entreprises pour lesquelles vous transportez, ou importez-les depuis un tableur.",
+  "columns": {
+    "customer": "Client",
+    "location": "Localisation",
+    "vat": "N° de TVA",
+    "jobs": "Missions",
+    "revenue": "CA"
+  },
+  "kind": {
+    "business": "Entreprise",
+    "individual": "Particulier"
+  },
+  "vat": {
+    "verified": "N° de TVA vérifié",
+    "unverified": "Non vérifié",
+    "badFormat": "Ce numéro ne semble pas être un n° de TVA valide pour le pays choisi.",
+    "offline": "Le format est valide, mais le service de vérification est injoignable. Réessayez plus tard.",
+    "notFound": "Ce n° de TVA n'est pas enregistré.",
+    "checkedOn": "Vérifié le {date}",
+    "recheck": "Revérifier le n° de TVA"
+  },
+  "form": {
+    "company": "Client",
+    "vatNumber": "N° de TVA intracommunautaire",
+    "vatHint": "Vérifié auprès du HMRC (UK) ou de VIES (UE). Requis pour l'autoliquidation.",
+    "verify": "Vérifier",
+    "addressContact": "Adresse & contact",
+    "address1": "Adresse ligne 1",
+    "address2": "Adresse ligne 2",
+    "contactName": "Nom du contact",
+    "emailHint": "Les factures et liens de suivi sont envoyés ici",
+    "commercial": "Conditions commerciales",
+    "paymentTerms": "Délai de paiement (jours)",
+    "paymentTermsHint": "Laisser vide pour utiliser la valeur par défaut",
+    "rate": "Tarif par {unit} ({currency})",
+    "rateHint": "Remplace votre tarif par défaut pour ce client"
+  },
+  "errors": {
+    "nameRequired": "Veuillez saisir un nom.",
+    "noRows": "Aucune ligne avec une colonne nom n'a été trouvée."
+  },
+  "import": {
+    "button": "Importer un CSV",
+    "title": "Importer des clients",
+    "cancel": "Annuler",
+    "run": "Importer {count, plural, one {# client} other {# clients}}",
+    "help": "Téléversez ou collez un fichier CSV avec une ligne d'en-tête. Colonnes reconnues :",
+    "choose": "Choisir un fichier .csv",
+    "paste": "…ou collez le CSV ici",
+    "done": "{count, plural, one {# client importé} other {# clients importés}}",
+    "more": "+ {count} lignes supplémentaires"
+  },
+  "newJob": "Nouvelle mission",
+  "stats": {
+    "jobs": "Missions au total",
+    "active": "Missions actives",
+    "revenue": "CA",
+    "outstanding": "À encaisser"
+  },
+  "contact": "Contact",
+  "billing": "Facturation",
+  "days": "{days, plural, one {# jour} other {# jours}}",
+  "rateOverride": "Tarif",
+  "rateDefault": "Tarif par défaut",
+  "recentJobs": "Missions récentes",
+  "viewAll": "Tout voir",
+  "noJobs": "Aucune mission pour ce client.",
+  "invoices": "Factures",
+  "noInvoices": "Aucune facture pour l'instant.",
+  "due": "échéance {date}",
+  "invoiceStatus": {
+    "draft": "Brouillon",
+    "sent": "Envoyée",
+    "paid": "Payée",
+    "overdue": "En retard",
+    "void": "Annulée"
+  }
+}
