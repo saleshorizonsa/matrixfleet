@@ -36,8 +36,14 @@ Restart Supabase afterwards. Team and driver invites are currently shared as cop
 
 ## 3. Database
 
-Already applied on the London server: `0001_init.sql` and the three `0002_*.sql` files.
-For a fresh database, run them in that order (Studio → SQL editor, or `psql`).
+All MatrixFleet tables live in the isolated `matrixfleet` schema, owned by the `matrixfleet` database login
+(credentials in `matrixfleet-credentials.txt`, never commit it). MatrixPOS data in the `matrixpos` schema is not reachable from it.
+
+- Already applied on the London server: `0001_init.sql`, the three `0002_*.sql` files and `0003_ownership_and_grants.sql`.
+- The Supabase API serves the schema because `/opt/supabase/.env` has `PGRST_DB_SCHEMAS=public,graphql_public,matrixfleet`
+  (after changing it: `sh run.sh recreate rest`).
+- For a fresh server: run the migrations in order as `supabase_admin` (they need `set role postgres` for 0001–0002 and
+  a member of the `matrixfleet` role for 0003), then add `matrixfleet` to `PGRST_DB_SCHEMAS`.
 
 ## 4. GitHub
 
@@ -53,6 +59,7 @@ The code is in the private repo `saleshorizonsa/matrixfleet` (branch `main`). Pu
 | Variable | Value |
 |---|---|
 | `NEXT_PUBLIC_SUPABASE_URL` | `https://api.yourdomain.com` |
+| `NEXT_PUBLIC_SUPABASE_SCHEMA` | `matrixfleet` |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | `ANON_KEY` from your credentials file |
 | `SUPABASE_SERVICE_ROLE_KEY` | `SERVICE_ROLE_KEY` (server only — never prefix with `NEXT_PUBLIC_`) |
 | `NEXT_PUBLIC_APP_URL` | `https://app.yourdomain.com` |

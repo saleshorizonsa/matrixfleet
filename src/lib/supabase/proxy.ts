@@ -1,5 +1,6 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { DB_SCHEMA } from "./schema";
 
 const PROTECTED = ["/app", "/driver", "/onboarding"];
 
@@ -11,6 +12,7 @@ export async function updateSession(request: NextRequest) {
   if (!url || !key) return response;
 
   const supabase = createServerClient(url, key, {
+    db: { schema: DB_SCHEMA },
     cookies: {
       getAll() {
         return request.cookies.getAll();

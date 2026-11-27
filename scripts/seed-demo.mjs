@@ -11,7 +11,8 @@ const SERVICE = process.env.SUPABASE_SERVICE_ROLE_KEY;
 if (!URL || !ANON || !SERVICE) throw new Error("Supabase env vars missing — run with --env-file=.env.local");
 
 const CRED_FILE = new globalThis.URL("./demo-credentials.local.txt", import.meta.url);
-const admin = createClient(URL, SERVICE, { auth: { persistSession: false } });
+const SCHEMA = process.env.NEXT_PUBLIC_SUPABASE_SCHEMA || "matrixfleet";
+const admin = createClient(URL, SERVICE, { db: { schema: SCHEMA }, auth: { persistSession: false } });
 
 function loadCreds() {
   if (existsSync(CRED_FILE)) {
@@ -46,7 +47,7 @@ for (const m of oldMem ?? []) await admin.from("hl_organizations").delete().eq("
 await admin.from("hl_memberships").delete().eq("user_id", driverUserId);
 
 // Create the organisation as the owner (exercises the real RPC).
-const ownerClient = createClient(URL, ANON, { auth: { persistSession: false } });
+const ownerClient = createClient(URL, ANON, { db: { schema: SCHEMA }, auth: { persistSession: false } });
 const { error: signErr } = await ownerClient.auth.signInWithPassword({ email: OWNER_EMAIL, password: creds.owner });
 if (signErr) throw signErr;
 const { data: orgId, error: orgErr } = await ownerClient.rpc("hl_create_organization", {

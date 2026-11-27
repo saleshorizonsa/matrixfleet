@@ -1,12 +1,16 @@
 -- MatrixFleet — settings / billing hardening
 -- Owners/admins may update their organisation row (RLS org_update), but billing
 -- columns must only ever be changed by the service role (Stripe webhook).
+-- Objects live in the isolated "matrixfleet" schema (owned by the matrixfleet login).
+create schema if not exists matrixfleet;
+set search_path = matrixfleet, public, extensions;
+
 
 create or replace function hl_protect_billing_columns() returns trigger
 language plpgsql as $$
 begin
   if coalesce(current_setting('request.jwt.claim.role', true), auth.role()) is distinct from 'service_role'
-     and current_user not in ('postgres', 'supabase_admin', 'service_role') then
+     and current_user not in ('postgres', 'supabase_admin', 'service_role', 'matrixfleet') then
     new.plan := old.plan;
     new.subscription_status := old.subscription_status;
     new.stripe_customer_id := old.stripe_customer_id;
@@ -25,7 +29,7 @@ create trigger hl_org_protect_billing before update on hl_organizations
 
 -- Members can leave / owners can see who else is owner: count owners helper
 create or replace function hl_owner_count(p_org uuid)
-returns integer language sql stable security definer set search_path = public as $$
+returns integer language sql stable security definer set search_path = matrixfleet, public, extensions as $$
   select count(*)::int from hl_memberships where org_id = p_org and role = 'owner';
 $$;
 grant execute on function hl_owner_count(uuid) to authenticated;

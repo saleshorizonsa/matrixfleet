@@ -2,6 +2,10 @@
 -- Powered by Matrix Infotech Ltd
 -- Safe to run on a self-hosted Supabase instance. All objects are prefixed
 -- with the "hl_" naming convention where a clash with another app is likely.
+-- Objects live in the isolated "matrixfleet" schema (owned by the matrixfleet login).
+create schema if not exists matrixfleet;
+set search_path = matrixfleet, public, extensions;
+
 
 create extension if not exists pgcrypto;
 
@@ -78,19 +82,19 @@ create table if not exists hl_invitations (
 -- Helper functions (security definer so RLS policies stay cheap)
 -- ---------------------------------------------------------------------------
 create or replace function hl_is_member(p_org uuid)
-returns boolean language sql stable security definer set search_path = public as $$
+returns boolean language sql stable security definer set search_path = matrixfleet, public, extensions as $$
   select exists (select 1 from hl_memberships m where m.org_id = p_org and m.user_id = auth.uid());
 $$;
 
 create or replace function hl_has_role(p_org uuid, p_roles hl_role[])
-returns boolean language sql stable security definer set search_path = public as $$
+returns boolean language sql stable security definer set search_path = matrixfleet, public, extensions as $$
   select exists (select 1 from hl_memberships m
                  where m.org_id = p_org and m.user_id = auth.uid() and m.role = any(p_roles));
 $$;
 
 -- office = everybody except drivers
 create or replace function hl_is_office(p_org uuid)
-returns boolean language sql stable security definer set search_path = public as $$
+returns boolean language sql stable security definer set search_path = matrixfleet, public, extensions as $$
   select hl_has_role(p_org, array['owner','admin','dispatcher','accountant']::hl_role[]);
 $$;
 
@@ -157,7 +161,7 @@ create index if not exists hl_vehicles_org_idx on hl_vehicles(org_id);
 
 -- the driver record of the signed-in user
 create or replace function hl_my_driver_ids()
-returns setof uuid language sql stable security definer set search_path = public as $$
+returns setof uuid language sql stable security definer set search_path = matrixfleet, public, extensions as $$
   select d.id from hl_drivers d where d.user_id = auth.uid();
 $$;
 
@@ -353,7 +357,7 @@ create trigger hl_jobs_touch before update on hl_jobs
 
 -- auto job reference JOB-000001 per organisation
 create or replace function hl_assign_job_reference() returns trigger
-language plpgsql security definer set search_path = public as $$
+language plpgsql security definer set search_path = matrixfleet, public, extensions as $$
 declare n integer;
 begin
   if new.reference is null or new.reference = '' then
@@ -370,7 +374,7 @@ create trigger hl_jobs_reference before insert on hl_jobs
 
 -- write a timeline event whenever status / assignment changes
 create or replace function hl_job_event_on_change() returns trigger
-language plpgsql security definer set search_path = public as $$
+language plpgsql security definer set search_path = matrixfleet, public, extensions as $$
 begin
   if tg_op = 'INSERT' then
     insert into hl_job_events(org_id, job_id, kind, status, message, created_by)
@@ -397,7 +401,7 @@ create trigger hl_jobs_events after insert or update on hl_jobs
 -- Called right after sign-up: creates the tenant and makes the caller its owner.
 create or replace function hl_create_organization(
   p_name text, p_country char(2), p_currency char(3), p_full_name text, p_locale text default 'en'
-) returns uuid language plpgsql security definer set search_path = public as $$
+) returns uuid language plpgsql security definer set search_path = matrixfleet, public, extensions as $$
 declare v_org uuid; v_unit text; v_vat numeric;
 begin
   if auth.uid() is null then raise exception 'not authenticated'; end if;
@@ -421,7 +425,7 @@ end $$;
 
 -- Accept an invitation (the signed-in user's email must match).
 create or replace function hl_accept_invitation(p_token text, p_full_name text)
-returns uuid language plpgsql security definer set search_path = public as $$
+returns uuid language plpgsql security definer set search_path = matrixfleet, public, extensions as $$
 declare v_inv hl_invitations; v_email text;
 begin
   select email into v_email from auth.users where id = auth.uid();
@@ -447,7 +451,7 @@ end $$;
 
 -- Atomically allocate the next invoice number, e.g. INV-2026-0001
 create or replace function hl_next_invoice_number(p_org uuid)
-returns text language plpgsql security definer set search_path = public as $$
+returns text language plpgsql security definer set search_path = matrixfleet, public, extensions as $$
 declare n integer; v_prefix text;
 begin
   if not hl_is_office(p_org) then raise exception 'forbidden'; end if;
@@ -458,7 +462,7 @@ end $$;
 
 -- Public tracking page (no login) — returns only what a consignee should see.
 create or replace function hl_get_tracking(p_token text)
-returns jsonb language sql stable security definer set search_path = public as $$
+returns jsonb language sql stable security definer set search_path = matrixfleet, public, extensions as $$
   select jsonb_build_object(
     'reference', j.reference,
     'status', j.status,
@@ -489,7 +493,7 @@ $$;
 
 -- Invitation preview for the /invite/<token> page (no login needed)
 create or replace function hl_get_invitation(p_token text)
-returns jsonb language sql stable security definer set search_path = public as $$
+returns jsonb language sql stable security definer set search_path = matrixfleet, public, extensions as $$
   select jsonb_build_object('email', i.email, 'role', i.role, 'org_name', o.name, 'expired', i.expires_at < now(), 'accepted', i.accepted_at is not null)
   from hl_invitations i join hl_organizations o on o.id = i.org_id
   where i.token = p_token;
@@ -504,7 +508,7 @@ grant execute on function hl_next_invoice_number(uuid) to authenticated;
 -- Driver: post a GPS fix (updates latest position + history)
 create or replace function hl_driver_ping(p_lat double precision, p_lng double precision,
   p_speed double precision default null, p_heading double precision default null, p_accuracy double precision default null)
-returns void language plpgsql security definer set search_path = public as $$
+returns void language plpgsql security definer set search_path = matrixfleet, public, extensions as $$
 declare d hl_drivers;
 begin
   select * into d from hl_drivers where user_id = auth.uid() limit 1;

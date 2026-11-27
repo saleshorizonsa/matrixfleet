@@ -1,4 +1,5 @@
 "use client";
+import { DB_SCHEMA } from "@/lib/supabase/schema";
 import * as React from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -111,7 +112,7 @@ export function DispatchBoard({
     let timer: ReturnType<typeof setTimeout> | undefined;
     const channel = supabase
       .channel(`dispatch-${orgId}`)
-      .on("postgres_changes", { event: "*", schema: "public", table: "hl_jobs", filter: `org_id=eq.${orgId}` }, () => {
+      .on("postgres_changes", { event: "*", schema: DB_SCHEMA, table: "hl_jobs", filter: `org_id=eq.${orgId}` }, () => {
         clearTimeout(timer);
         timer = setTimeout(() => router.refresh(), 600);
       })

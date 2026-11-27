@@ -1,4 +1,5 @@
 "use client";
+import { DB_SCHEMA } from "@/lib/supabase/schema";
 import * as React from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
@@ -58,7 +59,7 @@ export function LiveMap({ orgId, drivers: initial, jobs, unit }: { orgId: string
     const supabase = createClient();
     const channel = supabase
       .channel(`live-${orgId}`)
-      .on("postgres_changes", { event: "UPDATE", schema: "public", table: "hl_drivers", filter: `org_id=eq.${orgId}` }, (payload: { new: unknown }) => {
+      .on("postgres_changes", { event: "UPDATE", schema: DB_SCHEMA, table: "hl_drivers", filter: `org_id=eq.${orgId}` }, (payload: { new: unknown }) => {
         const row = payload.new as Partial<LiveDriver> & { id: string };
         setDrivers((ds) => ds.map((d) => (d.id === row.id ? { ...d, ...row, vehicle: d.vehicle } : d)));
       })
