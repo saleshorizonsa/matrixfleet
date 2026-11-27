@@ -2,37 +2,31 @@
 
 Do these in order. Steps 1–2 are **required** before the app can work on Vercel.
 
-## 1. Make the Supabase API reachable over HTTPS (required)
+## 1. Domains and HTTPS: done
 
-Right now the Supabase API (port 8000) is only reachable through an SSH tunnel. Vercel and drivers' phones need
-a public HTTPS address.
+| Address | Points to | Purpose |
+|---|---|---|
+| `https://fleet.matrixinfo.co.uk` | Vercel (A 76.76.21.21) | the MatrixFleet app, driver app and tracking links |
+| `https://api.matrixinfo.co.uk` | London VPS (A record) | Supabase API, served by Caddy with a Let's Encrypt certificate |
 
-1. Point a DNS record at the VPS, e.g. `api.yourdomain.com → <your-vps-ip>`.
-2. Install Caddy on the VPS and reverse-proxy to Kong (it fetches TLS certificates automatically):
-   ```
-   # /etc/caddy/Caddyfile
-   api.yourdomain.com {
-       reverse_proxy localhost:8000
-   }
-   ```
-3. In `/opt/supabase/.env` set:
-   - `API_EXTERNAL_URL=https://api.yourdomain.com`
-   - `SUPABASE_PUBLIC_URL=https://api.yourdomain.com`
-   - `SITE_URL=https://app.yourdomain.com` (your Vercel domain)
-   - `ADDITIONAL_REDIRECT_URLS=https://app.yourdomain.com/**,http://localhost:3000/**`
+- DNS is managed at Hostinger (records `fleet` and `api`).
+- Caddy config: `/etc/caddy/Caddyfile` on the VPS. Only the client API paths are public
+  (`/auth/v1`, `/rest/v1`, `/storage/v1`, `/realtime/v1`, `/functions/v1`, `/graphql/v1`); Studio and `/pg` return 404.
+  Use the SSH tunnel to `localhost:8000` for Studio. Certificates renew automatically.
+- Firewall (ufw): 22, 80, 443, 5432, 6543 open; 8000 is bound to localhost only.
+- Supabase `/opt/supabase/.env`: `SUPABASE_PUBLIC_URL=https://api.matrixinfo.co.uk`,
+  `API_EXTERNAL_URL=https://api.matrixinfo.co.uk/auth/v1`, `SITE_URL=https://fleet.matrixinfo.co.uk`,
+  `ADDITIONAL_REDIRECT_URLS=https://fleet.matrixinfo.co.uk/**,http://localhost:3000/**` (backups: `.env.bak-*`).
 
-   Then restart: `cd /opt/supabase && sh run.sh stop && sh run.sh start`.
-4. Firewall: allow only 22, 80 and 443 publicly. Keep 8000 and Studio closed (use the SSH tunnel for Studio).
+## 2. Email: done (Zoho)
 
-> Note: MatrixFleet shares this Supabase instance with MatrixPOS (separate `hl_*` tables in `public`; MatrixPOS uses
-> the `matrixpos` schema). Both apps share the same login user pool. For full isolation, run a second Supabase stack later.
+Supabase sends sign-up confirmations, sign-in links and password resets through Zoho Mail:
+`SMTP_HOST=smtp.zoho.com`, `SMTP_PORT=587` (STARTTLS), `SMTP_USER=info@matrixinfo.co.uk`, sender name `MatrixFleet`,
+password = a Zoho app password (stored only in `/opt/supabase/.env` and your local credentials file).
+To rotate it: create a new app password in Zoho, update `SMTP_PASS` in `/opt/supabase/.env`, then `sh run.sh recreate auth`.
 
-## 2. Email (required for sign-up confirmations and magic links)
-
-Email confirmation is switched on (`mailer_autoconfirm: false`), so Supabase must be able to send email.
-Use an EU/UK SMTP provider (for example Brevo, Postmark or Resend) and set the following in `/opt/supabase/.env`:
-`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_ADMIN_EMAIL`, `SMTP_SENDER_NAME=MatrixFleet`.
-Restart Supabase afterwards. Team and driver invites are currently shared as copyable links / mailto: links.
+Limits: the Zoho free plan caps daily sending. When sign-ups grow, move to Zoho Mail Lite or a transactional
+service (Brevo, Postmark) by changing the same SMTP_* values. Team and driver invites are still shared as links.
 
 ## 3. Database
 
@@ -53,7 +47,7 @@ The code is in the private repo `saleshorizonsa/matrixfleet` (branch `main`). Pu
 ## 5. Vercel
 
 1. vercel.com → **Add New → Project** → import the `saleshorizonsa/matrixfleet` GitHub repo (framework: Next.js).
-2. Functions run in London (`lhr1`, set in `vercel.json`) — close to the database and inside the UK.
+2. Functions run in London (`lhr1`, set in `vercel.json`). The project is deployed from the CLI (`vercel deploy --prod`); `.vercelignore` keeps local secrets out of uploads. Connect the GitHub repo under Project → Settings → Git for automatic deploys.
 3. Environment variables (Production + Preview):
 
 | Variable | Value |
