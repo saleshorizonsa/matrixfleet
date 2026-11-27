@@ -41,12 +41,12 @@ For a fresh database, run them in that order (Studio → SQL editor, or `psql`).
 
 ## 4. GitHub
 
-The code is in the private repo `saleshorizonsa/haulora` (branch `main`). Push changes with `git push`.
+The code is in the private repo `saleshorizonsa/matrixfleet` (branch `main`). Push changes with `git push`.
 `.env*` files and `*credentials*.txt` are git-ignored — double-check `git status` before every push.
 
 ## 5. Vercel
 
-1. vercel.com → **Add New → Project** → import the `saleshorizonsa/haulora` GitHub repo (framework: Next.js).
+1. vercel.com → **Add New → Project** → import the `saleshorizonsa/matrixfleet` GitHub repo (framework: Next.js).
 2. Functions run in London (`lhr1`, set in `vercel.json`) — close to the database and inside the UK.
 3. Environment variables (Production + Preview):
 
