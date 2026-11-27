@@ -25,7 +25,7 @@ export async function buildCmrPdf(input: CmrPdfInput) {
   const { regular, bold } = await embedFonts(doc);
   doc.setTitle(`CMR ${job.reference}`);
   doc.setAuthor(org.legal_name || org.name);
-  doc.setCreator("Haulora · Matrix Infotech Ltd");
+  doc.setCreator("MatrixFleet · Matrix Infotech Ltd");
 
   const page = doc.addPage([A4.w, A4.h]);
   const W = A4.w - M * 2;
@@ -170,7 +170,7 @@ export async function buildCmrPdf(input: CmrPdfInput) {
   y -= rI;
 
   // ---- footer
-  text(page, "Generated with Haulora · Powered by Matrix Infotech Ltd", M, y - 10, { font: regular, size: 7, color: C.muted });
+  text(page, "Generated with MatrixFleet · Powered by Matrix Infotech Ltd", M, y - 10, { font: regular, size: 7, color: C.muted });
   rightText(page, `${job.reference}`, M + W, y - 10, regular, 7, C.muted);
 
   return doc.save();

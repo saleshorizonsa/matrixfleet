@@ -30,7 +30,7 @@ export function LandingNav() {
       )}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:px-8">
-        <Link href="/" aria-label="Haulora home">
+        <Link href="/" aria-label="MatrixFleet home">
           <Logo dark size={30} />
         </Link>
         <nav className="hidden items-center gap-8 md:flex">

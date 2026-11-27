@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Haulora design tokens — ink navy + electric violet + signal lime */
+/* MatrixFleet design tokens — ink navy + electric violet + signal lime */
 @theme inline {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;

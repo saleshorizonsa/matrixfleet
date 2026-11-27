@@ -17,7 +17,7 @@
   "unlimited": "Illimité",
   "manage": "Gérer la facturation et les factures",
   "invoicesTitle": "Factures et paiement",
-  "invoicesNote": "Vos factures Haulora, moyens de paiement et adresse de facturation sont gérés en toute sécurité dans le portail client Stripe.",
+  "invoicesNote": "Vos factures MatrixFleet, moyens de paiement et adresse de facturation sont gérés en toute sécurité dans le portail client Stripe.",
   "vatNote": "Prix HT. Les entreprises britanniques paient 20 % de TVA. Les entreprises de l'UE disposant d'un numéro de TVA valide sont facturées en autoliquidation.",
   "secureNote": "Les paiements sont traités par Stripe. Nous ne voyons ni ne stockons jamais vos données de carte.",
   "choosePlan": "Formules",

@@ -14,7 +14,7 @@ export function getStripe(): Stripe {
   if (!_stripe) {
     const key = process.env.STRIPE_SECRET_KEY;
     if (!key) throw new Error("STRIPE_SECRET_KEY is not set");
-    _stripe = new Stripe(key, { appInfo: { name: "Haulora", url: "https://haulora.com" } });
+    _stripe = new Stripe(key, { appInfo: { name: "MatrixFleet", url: process.env.NEXT_PUBLIC_APP_URL || "https://matrixinfotech.co.uk" } });
   }
   return _stripe;
 }

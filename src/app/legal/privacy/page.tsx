@@ -7,7 +7,7 @@ export default function PrivacyPolicyPage() {
       <p className="text-sm text-slate-500">Last updated: 27 November 2026</p>
 
       <p>
-        This policy explains how <strong>Matrix Infotech Ltd</strong> (“we”) handles personal data in connection with Haulora.
+        This policy explains how <strong>Matrix Infotech Ltd</strong> (“we”) handles personal data in connection with MatrixFleet.
         It is written to meet the UK GDPR, the Data Protection Act 2018 and the EU General Data Protection Regulation (EU GDPR).
       </p>
 
@@ -18,7 +18,7 @@ export default function PrivacyPolicyPage() {
           website visitors and support contacts.
         </li>
         <li>
-          <strong>Processor</strong> — for data our customers put into Haulora about their staff, drivers, customers and consignees
+          <strong>Processor</strong> — for data our customers put into MatrixFleet about their staff, drivers, customers and consignees
           (for example delivery addresses, signatures, photos and driver GPS positions). The transport company is the controller of
           that data and our <a href="/legal/dpa">Data Processing Agreement</a> applies. If you are a driver or a consignee, please
           contact the transport company first.
@@ -41,7 +41,7 @@ export default function PrivacyPolicyPage() {
 
       <h2>3. Where your data is stored</h2>
       <p>
-        Haulora’s database and file storage run on a server located in <strong>London, United Kingdom</strong>. Backups are taken
+        MatrixFleet’s database and file storage run on a server located in <strong>London, United Kingdom</strong>. Backups are taken
         nightly and encrypted. The UK benefits from an EU adequacy decision, so personal data of EU customers can flow to the UK
         without additional safeguards. Where a sub-processor processes data outside the UK/EEA, we rely on adequacy regulations,
         the UK International Data Transfer Addendum and/or EU Standard Contractual Clauses.

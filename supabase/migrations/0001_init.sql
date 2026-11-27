@@ -1,4 +1,4 @@
--- Haulora — core schema (multi-tenant, RLS on every table)
+-- MatrixFleet — core schema (multi-tenant, RLS on every table)
 -- Powered by Matrix Infotech Ltd
 -- Safe to run on a self-hosted Supabase instance. All objects are prefixed
 -- with the "hl_" naming convention where a clash with another app is likely.

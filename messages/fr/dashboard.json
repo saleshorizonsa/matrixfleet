@@ -1,6 +1,6 @@
 {
   "welcome": {
-    "title": "Bienvenue sur Haulora, {org} !",
+    "title": "Bienvenue sur MatrixFleet, {org} !",
     "text": "Votre essai de 14 jours a commencé avec toutes les fonctionnalités Growth débloquées. Suivez la liste ci-dessous pour mettre votre première mission sur la route en quelques minutes."
   },
   "denied": "Vous n'avez pas accès à cette zone. Demandez à un propriétaire ou à un administrateur si nécessaire.",

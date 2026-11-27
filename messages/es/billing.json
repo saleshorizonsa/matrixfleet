@@ -17,7 +17,7 @@
   "unlimited": "Ilimitado",
   "manage": "Gestionar facturación y facturas",
   "invoicesTitle": "Facturas y pago",
-  "invoicesNote": "Tus facturas de Haulora, métodos de pago y dirección de facturación se gestionan de forma segura en el portal de clientes de Stripe.",
+  "invoicesNote": "Tus facturas de MatrixFleet, métodos de pago y dirección de facturación se gestionan de forma segura en el portal de clientes de Stripe.",
   "vatNote": "Precios sin IVA. A las empresas del Reino Unido se les aplica un 20 % de IVA. Las empresas de la UE con un NIF-IVA válido se facturan con inversión del sujeto pasivo.",
   "secureNote": "Los pagos los procesa Stripe. Nunca vemos ni guardamos los datos de tu tarjeta.",
   "choosePlan": "Planes",

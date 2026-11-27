@@ -144,13 +144,13 @@
   "invite": {
     "button": "Invite to app",
     "title": "Invite to the driver app",
-    "description": "The driver gets a personal link to create their login and install the Haulora driver app on their phone.",
+    "description": "The driver gets a personal link to create their login and install the MatrixFleet driver app on their phone.",
     "create": "Create invitation link",
     "ready": "Invitation created for {email}. Share this link with the driver:",
     "sendEmail": "Send by email",
     "expires": "The link is valid for 7 days and can be used once.",
     "mailSubject": "Your {org} driver app invitation",
-    "mailBody": "Hi {name},\n\n{org} has invited you to the Haulora driver app. Open this link on your phone to set up your login:\n\n{link}\n\nThanks!"
+    "mailBody": "Hi {name},\n\n{org} has invited you to the MatrixFleet driver app. Open this link on your phone to set up your login:\n\n{link}\n\nThanks!"
   },
   "compliance": {
     "title": "Compliance centre",

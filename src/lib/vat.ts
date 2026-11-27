@@ -1,4 +1,4 @@
-// Haulora VAT engine for road freight transport services (UK + EU).
+// MatrixFleet VAT engine for road freight transport services (UK + EU).
 //
 // IMPORTANT: this is GUIDANCE, not tax advice. The suggestion is pre-filled on
 // the invoice form and the user can always override the treatment, rate and

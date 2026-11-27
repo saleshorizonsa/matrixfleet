@@ -1,6 +1,6 @@
 {
   "welcome": {
-    "title": "¡Bienvenido a Haulora, {org}!",
+    "title": "¡Bienvenido a MatrixFleet, {org}!",
     "text": "Tu prueba de 14 días ha comenzado con todas las funciones Growth desbloqueadas. Sigue la lista de abajo para poner tu primer servicio en ruta en pocos minutos."
   },
   "denied": "No tienes acceso a esa sección. Pide acceso a un propietario o administrador si lo necesitas.",

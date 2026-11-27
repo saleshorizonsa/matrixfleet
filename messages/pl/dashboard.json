@@ -1,6 +1,6 @@
 {
   "welcome": {
-    "title": "Witamy w Haulora, {org}!",
+    "title": "Witamy w MatrixFleet, {org}!",
     "text": "Twój 14-dniowy okres próbny właśnie się rozpoczął – wszystkie funkcje planu Growth są odblokowane. Skorzystaj z listy poniżej, aby w kilka minut wysłać pierwsze zlecenie w trasę."
   },
   "denied": "Nie masz dostępu do tej sekcji. W razie potrzeby poproś właściciela lub administratora.",

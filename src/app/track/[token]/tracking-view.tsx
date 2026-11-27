@@ -214,7 +214,7 @@ export function TrackingView({ data }: { data: TrackingData }) {
         <footer className="flex items-center justify-center gap-2 pt-6 text-xs text-slate-400">
           <LogoMark size={18} />
           <span>
-            {t("poweredBy")} <span className="font-semibold text-slate-600">Haulora</span> · Matrix Infotech Ltd
+            {t("poweredBy")} <span className="font-semibold text-slate-600">MatrixFleet</span> · Matrix Infotech Ltd
           </span>
         </footer>
       </main>

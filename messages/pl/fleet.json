@@ -144,13 +144,13 @@
   "invite": {
     "button": "Zaproś do aplikacji",
     "title": "Zaproszenie do aplikacji kierowcy",
-    "description": "Kierowca otrzyma osobisty link, aby założyć konto i zainstalować aplikację Haulora na telefonie.",
+    "description": "Kierowca otrzyma osobisty link, aby założyć konto i zainstalować aplikację MatrixFleet na telefonie.",
     "create": "Utwórz link z zaproszeniem",
     "ready": "Utworzono zaproszenie dla {email}. Przekaż ten link kierowcy:",
     "sendEmail": "Wyślij e-mailem",
     "expires": "Link jest ważny 7 dni i można go użyć raz.",
     "mailSubject": "Zaproszenie do aplikacji kierowcy {org}",
-    "mailBody": "Cześć {name},\n\n{org} zaprasza Cię do aplikacji kierowcy Haulora. Otwórz ten link na telefonie, aby założyć konto:\n\n{link}\n\nDziękujemy!"
+    "mailBody": "Cześć {name},\n\n{org} zaprasza Cię do aplikacji kierowcy MatrixFleet. Otwórz ten link na telefonie, aby założyć konto:\n\n{link}\n\nDziękujemy!"
   },
   "compliance": {
     "title": "Centrum zgodności",

@@ -3,7 +3,7 @@ import { COUNTRIES } from "./countries";
 
 const NOMINATIM = process.env.NOMINATIM_URL || "https://nominatim.openstreetmap.org";
 const OSRM = process.env.OSRM_URL || "https://router.project-osrm.org";
-const UA = "Haulora/1.0";
+const UA = "MatrixFleet/1.0";
 
 export interface GeoResult {
   label: string;

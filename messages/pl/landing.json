@@ -11,7 +11,7 @@
     "badgeNew": "Nowość",
     "badge": "Cyfrowy CMR i śledzenie na żywo dla klientów",
     "title": "Prowadź <hl>transport w UK i UE</hl> z jednego ekranu",
-    "subtitle": "Haulora łączy wyceny, zlecenia, planowanie, śledzenie GPS na żywo, aplikację kierowcy z potwierdzeniem dostawy i fakturowanie z poprawnym VAT — stworzone dla małych i średnich firm transportowych.",
+    "subtitle": "MatrixFleet łączy wyceny, zlecenia, planowanie, śledzenie GPS na żywo, aplikację kierowcy z potwierdzeniem dostawy i fakturowanie z poprawnym VAT — stworzone dla małych i średnich firm transportowych.",
     "ctaPrimary": "Wypróbuj 14 dni za darmo",
     "ctaSecondary": "Zaloguj się",
     "c1": "Bez karty kredytowej",
@@ -54,7 +54,7 @@
   "driverSpot": {
     "eyebrow": "Aplikacja kierowcy",
     "title": "Potwierdzenie dostawy w kieszeni kierowcy",
-    "body": "Bez sklepu z aplikacjami i bez szkoleń. Kierowca otwiera link, dodaje Haulora do ekranu głównego i widzi zlecenia na dziś.",
+    "body": "Bez sklepu z aplikacjami i bez szkoleń. Kierowca otwiera link, dodaje MatrixFleet do ekranu głównego i widzi zlecenia na dziś.",
     "b1": "Nawigacja przez Google Maps lub Waze",
     "b2": "Podpis, zdjęcia i notatki zbierane na miejscu",
     "b3": "Codzienna kontrola pojazdu ze zgłaszaniem usterek",
@@ -75,7 +75,7 @@
   },
   "roi": {
     "eyebrow": "Kalkulator ROI",
-    "title": "Sprawdź, ile zaoszczędzisz z Haulora",
+    "title": "Sprawdź, ile zaoszczędzisz z MatrixFleet",
     "subtitle": "Dopasuj suwaki do swojej firmy.",
     "inputs": "Twoja firma",
     "vehicles": "Pojazdy we flocie",
@@ -84,14 +84,14 @@
     "hourly": "Koszt godziny pracy biura ({symbol})",
     "assumptions": "Szacunek przy 21 dniach roboczych w miesiącu, ok. 70% mniej pracy ręcznej na zlecenie (telefony, papierowe POD, przepisywanie faktur) oraz szybszym i pełniejszym fakturowaniu. Twoje wyniki mogą się różnić.",
     "result": "Szacowana oszczędność netto",
-    "perMonth": "miesięcznie, po odliczeniu subskrypcji Haulora",
+    "perMonth": "miesięcznie, po odliczeniu subskrypcji MatrixFleet",
     "hoursSaved": "Zaoszczędzone godziny biura / mies.",
     "planCost": "Plan {plan}",
     "cta": "Zacznij oszczędzać — 14 dni za darmo"
   },
   "quote": {
-    "text": "Stworzyliśmy Haulora razem z przewoźnikami z Wielkiej Brytanii i Europy, aby usunąć papierologię, która zjada każdy dzień pracy — byś mógł wozić towar, a nie go szukać.",
-    "by": "Zespół Haulora · Matrix Infotech Ltd"
+    "text": "Stworzyliśmy MatrixFleet razem z przewoźnikami z Wielkiej Brytanii i Europy, aby usunąć papierologię, która zjada każdy dzień pracy — byś mógł wozić towar, a nie go szukać.",
+    "by": "Zespół MatrixFleet · Matrix Infotech Ltd"
   },
   "pricing": {
     "eyebrow": "Cennik",
@@ -110,13 +110,13 @@
     "eyebrow": "FAQ",
     "title": "Pytania i odpowiedzi",
     "q1": { "q": "Czy kierowcy muszą pobierać aplikację?", "a": "Nie. Aplikacja kierowcy działa w przeglądarce i można ją dodać do ekranu głównego jak zwykłą aplikację na iPhonie i Androidzie. Wystarczy otworzyć link z zaproszeniem." },
-    "q2": { "q": "Czy Haulora obsługuje VAT przy transportach międzynarodowych?", "a": "Tak. Haulora stosuje VAT brytyjski, krajowy VAT w UE lub odwrotne obciążenie w zależności od siedziby Twojej i klienta oraz ważności jego numeru VAT, i drukuje poprawną adnotację na fakturze. Nietypowe przypadki zawsze konsultuj z księgowym." },
-    "q3": { "q": "Gdzie są przechowywane moje dane?", "a": "W centrum danych w Londynie (Wielka Brytania), z conocnymi szyfrowanymi kopiami zapasowymi. Haulora jest przygotowana pod brytyjskie i unijne RODO; Wielka Brytania posiada decyzję UE stwierdzającą odpowiedni stopień ochrony." },
+    "q2": { "q": "Czy MatrixFleet obsługuje VAT przy transportach międzynarodowych?", "a": "Tak. MatrixFleet stosuje VAT brytyjski, krajowy VAT w UE lub odwrotne obciążenie w zależności od siedziby Twojej i klienta oraz ważności jego numeru VAT, i drukuje poprawną adnotację na fakturze. Nietypowe przypadki zawsze konsultuj z księgowym." },
+    "q3": { "q": "Gdzie są przechowywane moje dane?", "a": "W centrum danych w Londynie (Wielka Brytania), z conocnymi szyfrowanymi kopiami zapasowymi. MatrixFleet jest przygotowana pod brytyjskie i unijne RODO; Wielka Brytania posiada decyzję UE stwierdzającą odpowiedni stopień ochrony." },
     "q4": { "q": "Czy potrzebuję lokalizatorów GPS w pojazdach?", "a": "Nie. Śledzenie na żywo korzysta z telefonu kierowcy w trakcie zmiany. Udostępnianie lokalizacji można wyłączyć w każdej chwili." },
-    "q5": { "q": "Czy mogę korzystać w swoim języku?", "a": "Haulora jest dostępna po angielsku, niemiecku, francusku, hiszpańsku i polsku. Każdy użytkownik wybiera własny język." },
+    "q5": { "q": "Czy mogę korzystać w swoim języku?", "a": "MatrixFleet jest dostępna po angielsku, niemiecku, francusku, hiszpańsku i polsku. Każdy użytkownik wybiera własny język." },
     "q6": { "q": "Co po okresie próbnym?", "a": "Wybierz plan i płać co miesiąc kartą. Jeśli nie wybierzesz planu, konto zostanie wstrzymane — nic nie zostanie usunięte i możesz wrócić później." },
     "q7": { "q": "Czy mogę wyeksportować dane?", "a": "Tak, w każdej chwili. Właściciele i administratorzy mogą pobrać pełny eksport w Ustawienia → Prywatność i dane." },
-    "q8": { "q": "Kto stoi za Haulora?", "a": "Haulora jest tworzona i obsługiwana przez Matrix Infotech Ltd, brytyjską firmę programistyczną." }
+    "q8": { "q": "Kto stoi za MatrixFleet?", "a": "MatrixFleet jest tworzona i obsługiwana przez Matrix Infotech Ltd, brytyjską firmę programistyczną." }
   },
   "cta": {
     "title": "Gotowy, by pozbyć się papierologii w transporcie?",
@@ -125,7 +125,7 @@
   },
   "footer": {
     "tagline": "Zarządzanie transportem dla małych i średnich firm transportowych i kurierskich w UK i UE.",
-    "product": "Haulora jest produktem Matrix Infotech Ltd.",
+    "product": "MatrixFleet jest produktem Matrix Infotech Ltd.",
     "productTitle": "Produkt",
     "features": "Funkcje",
     "pricing": "Cennik",

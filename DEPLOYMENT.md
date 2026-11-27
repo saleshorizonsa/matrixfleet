@@ -24,14 +24,14 @@ a public HTTPS address.
    Then restart: `cd /opt/supabase && sh run.sh stop && sh run.sh start`.
 4. Firewall: allow only 22, 80 and 443 publicly. Keep 8000 and Studio closed (use the SSH tunnel for Studio).
 
-> Note: Haulora shares this Supabase instance with MatrixPOS (separate `hl_*` tables in `public`; MatrixPOS uses
+> Note: MatrixFleet shares this Supabase instance with MatrixPOS (separate `hl_*` tables in `public`; MatrixPOS uses
 > the `matrixpos` schema). Both apps share the same login user pool. For full isolation, run a second Supabase stack later.
 
 ## 2. Email (required for sign-up confirmations and magic links)
 
 Email confirmation is switched on (`mailer_autoconfirm: false`), so Supabase must be able to send email.
 Use an EU/UK SMTP provider (for example Brevo, Postmark or Resend) and set the following in `/opt/supabase/.env`:
-`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_ADMIN_EMAIL`, `SMTP_SENDER_NAME=Haulora`.
+`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_ADMIN_EMAIL`, `SMTP_SENDER_NAME=MatrixFleet`.
 Restart Supabase afterwards. Team and driver invites are currently shared as copyable links / mailto: links.
 
 ## 3. Database
@@ -41,17 +41,12 @@ For a fresh database, run them in that order (Studio → SQL editor, or `psql`).
 
 ## 4. GitHub
 
-```
-cd haulora
-git add -A
-git commit -m "Haulora v1"
-gh repo create haulora --private --source . --push
-```
-`.env*` files and `*credentials*.txt` are git-ignored — double-check `git status` before the first push.
+The code is in the private repo `saleshorizonsa/haulora` (branch `main`). Push changes with `git push`.
+`.env*` files and `*credentials*.txt` are git-ignored — double-check `git status` before every push.
 
 ## 5. Vercel
 
-1. vercel.com → **Add New → Project** → import the `haulora` GitHub repo (framework: Next.js).
+1. vercel.com → **Add New → Project** → import the `saleshorizonsa/haulora` GitHub repo (framework: Next.js).
 2. Functions run in London (`lhr1`, set in `vercel.json`) — close to the database and inside the UK.
 3. Environment variables (Production + Preview):
 
@@ -61,7 +56,7 @@ gh repo create haulora --private --source . --push
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | `ANON_KEY` from your credentials file |
 | `SUPABASE_SERVICE_ROLE_KEY` | `SERVICE_ROLE_KEY` (server only — never prefix with `NEXT_PUBLIC_`) |
 | `NEXT_PUBLIC_APP_URL` | `https://app.yourdomain.com` |
-| `NEXT_PUBLIC_APP_NAME` | `Haulora` |
+| `NEXT_PUBLIC_APP_NAME` | `MatrixFleet` |
 | `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET` | from Stripe (step 6) |
 | `STRIPE_PRICE_{STARTER,GROWTH,PRO}_{GBP,EUR}` | the 6 price IDs from Stripe |
 | `OSRM_URL`, `NOMINATIM_URL` | see step 7 |

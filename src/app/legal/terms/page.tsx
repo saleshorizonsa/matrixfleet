@@ -8,15 +8,15 @@ export default function TermsPage() {
 
       <h2>1. Who we are</h2>
       <p>
-        Haulora (the “Service”) is provided by <strong>Matrix Infotech Ltd</strong>, a company registered in England and Wales
+        MatrixFleet (the “Service”) is provided by <strong>Matrix Infotech Ltd</strong>, a company registered in England and Wales
         (company number [●], registered office [●]) (“we”, “us”). These Terms form a contract between us and the business that
-        creates a Haulora account (“Customer”, “you”). The Service is intended for business use only; you confirm you are not
+        creates a MatrixFleet account (“Customer”, “you”). The Service is intended for business use only; you confirm you are not
         acting as a consumer.
       </p>
 
       <h2>2. The Service</h2>
       <p>
-        Haulora is a cloud transport management system for haulage and delivery companies, including job and quote management,
+        MatrixFleet is a cloud transport management system for haulage and delivery companies, including job and quote management,
         dispatch, GPS tracking via drivers’ mobile devices, proof of delivery, invoicing, document generation (including CMR
         consignment notes) and fleet compliance tools. We may improve or change features from time to time; we will not
         materially reduce the core functionality of a paid plan during a billing period.

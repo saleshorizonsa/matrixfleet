@@ -1,4 +1,4 @@
-/* Haulora service worker — app shell caching for the driver PWA.
+/* MatrixFleet service worker — app shell caching for the driver PWA.
  * - static assets (/_next/static, /icons, fonts): cache-first
  * - page navigations: network-first, falling back to the last cached copy
  * - never cached: /api, /auth, server actions (POST), any cross-origin request (Supabase, maps)

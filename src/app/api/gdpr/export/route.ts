@@ -40,7 +40,7 @@ export async function GET() {
   await audit(ctx, "gdpr.export", "organization", ctx.org.id);
 
   const body = JSON.stringify(
-    { exported_at: new Date().toISOString(), exported_by: ctx.user.email, format: "haulora-export-v1", data },
+    { exported_at: new Date().toISOString(), exported_by: ctx.user.email, format: "matrixfleet-export-v1", data },
     null,
     2,
   );
@@ -48,7 +48,7 @@ export async function GET() {
   return new NextResponse(body, {
     headers: {
       "Content-Type": "application/json; charset=utf-8",
-      "Content-Disposition": `attachment; filename="haulora-export-${stamp}.json"`,
+      "Content-Disposition": `attachment; filename="matrixfleet-export-${stamp}.json"`,
       "Cache-Control": "no-store",
     },
   });

@@ -1,4 +1,4 @@
--- Haulora — fleet module additions
+-- MatrixFleet — fleet module additions
 -- Dispatchers may invite drivers (but not office staff) to the driver app.
 drop policy if exists inv_dispatcher_drivers on hl_invitations;
 create policy inv_dispatcher_drivers on hl_invitations for all

@@ -1,4 +1,4 @@
--- Haulora — driver app additions (additive, safe to re-run)
+-- MatrixFleet — driver app additions (additive, safe to re-run)
 
 -- when the current break ended, for "continuous work since last break" guidance
 alter table hl_driver_shifts add column if not exists last_break_end_at timestamptz;

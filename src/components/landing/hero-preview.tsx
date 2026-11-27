@@ -76,7 +76,7 @@ export function HeroPreview() {
           </span>
           {t("live")}
         </div>
-        <div className="hidden text-xs text-white/40 sm:block">app.haulora.com/tracking</div>
+        <div className="hidden text-xs text-white/40 sm:block">app.matrixfleet.com/tracking</div>
       </div>
 
       <div className="grid lg:grid-cols-[1fr_280px]">

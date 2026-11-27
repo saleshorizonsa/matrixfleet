@@ -16,7 +16,7 @@ export function RoiCalculator() {
   const [hourly, setHourly] = React.useState(18);
   const [minutesPerJob, setMinutesPerJob] = React.useState(12);
 
-  // assumptions: 21 working days; Haulora removes ~70% of manual admin per job
+  // assumptions: 21 working days; MatrixFleet removes ~70% of manual admin per job
   // (phone calls, paper PODs, re-typing invoices); 2% fewer empty/failed runs.
   const jobs = vehicles * jobsPerDay * 21;
   const hoursSaved = (jobs * minutesPerJob * 0.7) / 60;

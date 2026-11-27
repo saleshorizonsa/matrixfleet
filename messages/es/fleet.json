@@ -144,13 +144,13 @@
   "invite": {
     "button": "Invitar a la app",
     "title": "Invitar a la app de conductor",
-    "description": "El conductor recibe un enlace personal para crear su acceso e instalar la app de Haulora en su móvil.",
+    "description": "El conductor recibe un enlace personal para crear su acceso e instalar la app de MatrixFleet en su móvil.",
     "create": "Crear enlace de invitación",
     "ready": "Invitación creada para {email}. Comparte este enlace con el conductor:",
     "sendEmail": "Enviar por email",
     "expires": "El enlace es válido 7 días y solo puede usarse una vez.",
     "mailSubject": "Tu invitación a la app de conductor de {org}",
-    "mailBody": "Hola {name}:\n\n{org} te ha invitado a la app de conductor de Haulora. Abre este enlace en tu móvil para crear tu acceso:\n\n{link}\n\n¡Gracias!"
+    "mailBody": "Hola {name}:\n\n{org} te ha invitado a la app de conductor de MatrixFleet. Abre este enlace en tu móvil para crear tu acceso:\n\n{link}\n\n¡Gracias!"
   },
   "compliance": {
     "title": "Centro de cumplimiento",

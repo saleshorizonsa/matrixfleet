@@ -157,7 +157,7 @@ export function InvoicePreview({
         </div>
       </div>
       <div className="border-t border-slate-100 bg-slate-50/60 px-6 py-3 text-center text-[11px] text-slate-400 sm:px-10">
-        Generated with Haulora · Powered by Matrix Infotech Ltd
+        Generated with MatrixFleet · Powered by Matrix Infotech Ltd
       </div>
     </div>
   );

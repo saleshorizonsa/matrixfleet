@@ -127,8 +127,8 @@
     "removeConfirm": "¿Quitar a esta persona de tu espacio de trabajo? Perderá el acceso de inmediato.",
     "limitReached": "Has usado todas las plazas de tu plan.",
     "upgrade": "Mejorar plan",
-    "mailSubject": "Invitación para unirte a {org} en Haulora",
-    "mailBody": "Hola:\n\n{org} te ha invitado a Haulora, nuestro sistema de gestión de transporte.\n\nAcepta la invitación aquí: {link}\n\nEl enlace es válido durante 7 días."
+    "mailSubject": "Invitación para unirte a {org} en MatrixFleet",
+    "mailBody": "Hola:\n\n{org} te ha invitado a MatrixFleet, nuestro sistema de gestión de transporte.\n\nAcepta la invitación aquí: {link}\n\nEl enlace es válido durante 7 días."
   },
   "privacy": {
     "residencyTitle": "Datos en el Reino Unido",
@@ -138,7 +138,7 @@
     "rolesTitle": "Tú eres el responsable",
     "rolesBody": "Tú decides qué se trata. Matrix Infotech Ltd actúa como encargado del tratamiento según nuestro acuerdo.",
     "exportTitle": "Exportar tus datos",
-    "exportHint": "Descarga todos los datos de tu empresa en Haulora en un archivo JSON legible por máquina (artículos 15 y 20 del RGPD).",
+    "exportHint": "Descarga todos los datos de tu empresa en MatrixFleet en un archivo JSON legible por máquina (artículos 15 y 20 del RGPD).",
     "exportButton": "Descargar exportación",
     "adminOnly": "Solo propietarios y administradores pueden exportar los datos de la empresa.",
     "retentionTitle": "Conservación de datos",

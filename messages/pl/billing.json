@@ -17,7 +17,7 @@
   "unlimited": "Bez limitu",
   "manage": "Zarządzaj płatnościami i fakturami",
   "invoicesTitle": "Faktury i płatności",
-  "invoicesNote": "Faktury Haulora, metody płatności i adres rozliczeniowy są bezpiecznie zarządzane w portalu klienta Stripe.",
+  "invoicesNote": "Faktury MatrixFleet, metody płatności i adres rozliczeniowy są bezpiecznie zarządzane w portalu klienta Stripe.",
   "vatNote": "Ceny netto. Firmom z Wielkiej Brytanii doliczamy 20% VAT. Firmy z UE z ważnym numerem VAT otrzymują faktury z odwrotnym obciążeniem.",
   "secureNote": "Płatności obsługuje Stripe. Nigdy nie widzimy ani nie przechowujemy danych Twojej karty.",
   "choosePlan": "Plany",

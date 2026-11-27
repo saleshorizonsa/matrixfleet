@@ -144,13 +144,13 @@
   "invite": {
     "button": "In App einladen",
     "title": "In die Fahrer-App einladen",
-    "description": "Der Fahrer erhält einen persönlichen Link, um sein Login anzulegen und die Haulora Fahrer-App auf dem Handy zu installieren.",
+    "description": "Der Fahrer erhält einen persönlichen Link, um sein Login anzulegen und die MatrixFleet Fahrer-App auf dem Handy zu installieren.",
     "create": "Einladungslink erstellen",
     "ready": "Einladung für {email} erstellt. Teilen Sie diesen Link mit dem Fahrer:",
     "sendEmail": "Per E-Mail senden",
     "expires": "Der Link ist 7 Tage gültig und einmal verwendbar.",
     "mailSubject": "Ihre Einladung zur Fahrer-App von {org}",
-    "mailBody": "Hallo {name},\n\n{org} hat Sie in die Haulora Fahrer-App eingeladen. Öffnen Sie diesen Link auf Ihrem Handy, um Ihr Login einzurichten:\n\n{link}\n\nVielen Dank!"
+    "mailBody": "Hallo {name},\n\n{org} hat Sie in die MatrixFleet Fahrer-App eingeladen. Öffnen Sie diesen Link auf Ihrem Handy, um Ihr Login einzurichten:\n\n{link}\n\nVielen Dank!"
   },
   "compliance": {
     "title": "Compliance-Center",

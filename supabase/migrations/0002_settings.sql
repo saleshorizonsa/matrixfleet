@@ -1,4 +1,4 @@
--- Haulora — settings / billing hardening
+-- MatrixFleet — settings / billing hardening
 -- Owners/admins may update their organisation row (RLS org_update), but billing
 -- columns must only ever be changed by the service role (Stripe webhook).
 

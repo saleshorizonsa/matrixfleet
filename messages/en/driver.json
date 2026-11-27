@@ -18,7 +18,7 @@
     }
   },
   "install": {
-    "title": "Install Haulora on your phone",
+    "title": "Install MatrixFleet on your phone",
     "body": "Open it from your home screen like a normal app — faster and full screen.",
     "cta": "Install app",
     "ios": "Tap <share></share> Share, then “Add to Home Screen”.",

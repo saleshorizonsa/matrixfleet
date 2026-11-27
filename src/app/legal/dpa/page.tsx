@@ -6,14 +6,14 @@ export default function DpaPage() {
       <h1>Data Processing Agreement</h1>
       <p className="text-sm text-slate-500">Last updated: 27 November 2026</p>
       <p>
-        This Data Processing Agreement (“DPA”) forms part of the Haulora Terms of Service between the customer (“Controller”) and{" "}
+        This Data Processing Agreement (“DPA”) forms part of the MatrixFleet Terms of Service between the customer (“Controller”) and{" "}
         <strong>Matrix Infotech Ltd</strong> (“Processor”). It reflects the requirements of Article 28 of the UK GDPR and the EU
         GDPR. It is accepted when the Controller agrees to the Terms of Service.
       </p>
 
       <h2>1. Subject matter and duration</h2>
       <p>
-        The Processor processes personal data on behalf of the Controller to provide the Haulora transport management service, for
+        The Processor processes personal data on behalf of the Controller to provide the MatrixFleet transport management service, for
         the duration of the Terms and until deletion of the data in accordance with section 10.
       </p>
 

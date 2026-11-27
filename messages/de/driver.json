@@ -18,7 +18,7 @@
     }
   },
   "install": {
-    "title": "Haulora auf dem Handy installieren",
+    "title": "MatrixFleet auf dem Handy installieren",
     "body": "Vom Startbildschirm öffnen wie eine normale App — schneller und im Vollbild.",
     "cta": "App installieren",
     "ios": "Tippe auf <share></share> Teilen und dann „Zum Home-Bildschirm“.",

@@ -18,7 +18,7 @@
     }
   },
   "install": {
-    "title": "Zainstaluj Haulora na telefonie",
+    "title": "Zainstaluj MatrixFleet na telefonie",
     "body": "Otwieraj z ekranu głównego jak zwykłą aplikację — szybciej i na pełnym ekranie.",
     "cta": "Zainstaluj aplikację",
     "ios": "Stuknij <share></share> Udostępnij, a potem „Do ekranu początkowego”.",

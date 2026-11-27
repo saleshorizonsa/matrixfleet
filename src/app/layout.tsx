@@ -10,14 +10,14 @@ const jakarta = Plus_Jakarta_Sans({ subsets: ["latin", "latin-ext"], variable: "
 
 export const metadata: Metadata = {
   title: {
-    default: "Haulora — Transport management for UK & EU hauliers",
-    template: "%s · Haulora",
+    default: "MatrixFleet — Transport management for UK & EU hauliers",
+    template: "%s · MatrixFleet",
   },
   description:
     "Jobs, dispatch, live tracking, driver app, proof of delivery, VAT-ready invoicing and compliance for small and medium haulage and delivery companies. Powered by Matrix Infotech Ltd.",
-  applicationName: "Haulora",
+  applicationName: "MatrixFleet",
   manifest: "/manifest.webmanifest",
-  appleWebApp: { capable: true, title: "Haulora", statusBarStyle: "black-translucent" },
+  appleWebApp: { capable: true, title: "MatrixFleet", statusBarStyle: "black-translucent" },
   icons: { icon: "/icons/icon.svg", apple: "/icons/icon-192.png" },
 };
 

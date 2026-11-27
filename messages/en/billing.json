@@ -17,7 +17,7 @@
   "unlimited": "Unlimited",
   "manage": "Manage billing & invoices",
   "invoicesTitle": "Invoices & payment",
-  "invoicesNote": "Your Haulora invoices, payment methods and billing address are managed securely in the Stripe customer portal.",
+  "invoicesNote": "Your MatrixFleet invoices, payment methods and billing address are managed securely in the Stripe customer portal.",
   "vatNote": "Prices exclude VAT. UK businesses are charged 20% VAT. EU businesses with a valid VAT number are invoiced under the reverse-charge mechanism.",
   "secureNote": "Payments are processed by Stripe. We never see or store your card details.",
   "choosePlan": "Plans",

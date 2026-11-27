@@ -11,7 +11,7 @@
     "badgeNew": "Neu",
     "badge": "Digitaler CMR & Live-Sendungsverfolgung",
     "title": "Führen Sie Ihre <hl>Spedition in UK & EU</hl> von einem Bildschirm aus",
-    "subtitle": "Haulora vereint Angebote, Aufträge, Disposition, Live-GPS-Tracking, eine Fahrer-App mit Zustellnachweis und umsatzsteuerkorrekte Rechnungen – gebaut für kleine und mittlere Transportunternehmen.",
+    "subtitle": "MatrixFleet vereint Angebote, Aufträge, Disposition, Live-GPS-Tracking, eine Fahrer-App mit Zustellnachweis und umsatzsteuerkorrekte Rechnungen – gebaut für kleine und mittlere Transportunternehmen.",
     "ctaPrimary": "14 Tage kostenlos testen",
     "ctaSecondary": "Anmelden",
     "c1": "Keine Kreditkarte nötig",
@@ -54,7 +54,7 @@
   "driverSpot": {
     "eyebrow": "Fahrer-App",
     "title": "Der Zustellnachweis in der Tasche Ihres Fahrers",
-    "body": "Kein App Store, keine Schulung. Fahrer öffnen einen Link, legen Haulora auf den Startbildschirm und sehen ihre Aufträge für den Tag.",
+    "body": "Kein App Store, keine Schulung. Fahrer öffnen einen Link, legen MatrixFleet auf den Startbildschirm und sehen ihre Aufträge für den Tag.",
     "b1": "Navigation über Google Maps oder Waze",
     "b2": "Unterschrift, Fotos und Notizen direkt an der Tür",
     "b3": "Tägliche Abfahrtskontrolle mit Mängelmeldung",
@@ -75,7 +75,7 @@
   },
   "roi": {
     "eyebrow": "ROI-Rechner",
-    "title": "Sehen Sie, was Haulora Ihnen spart",
+    "title": "Sehen Sie, was MatrixFleet Ihnen spart",
     "subtitle": "Passen Sie die Regler an Ihr Unternehmen an.",
     "inputs": "Ihr Unternehmen",
     "vehicles": "Fahrzeuge in Ihrer Flotte",
@@ -84,14 +84,14 @@
     "hourly": "Bürokosten pro Stunde ({symbol})",
     "assumptions": "Schätzung auf Basis von 21 Arbeitstagen pro Monat, ca. 70 % weniger manuellem Aufwand pro Auftrag (Anrufe, Papier-POD, Rechnungen abtippen) und schnellerer, vollständigerer Abrechnung. Ihre Ergebnisse können abweichen.",
     "result": "Geschätzte Nettoersparnis",
-    "perMonth": "pro Monat, nach Abzug Ihres Haulora-Abos",
+    "perMonth": "pro Monat, nach Abzug Ihres MatrixFleet-Abos",
     "hoursSaved": "Gesparte Bürostunden / Monat",
     "planCost": "Tarif {plan}",
     "cta": "Jetzt sparen – 14 Tage kostenlos"
   },
   "quote": {
-    "text": "Wir haben Haulora gemeinsam mit Transportunternehmen aus UK und Europa entwickelt, um den Papierkram zu beseitigen, der jeden Arbeitstag auffrisst – damit Sie Fracht bewegen, statt ihr hinterherzulaufen.",
-    "by": "Das Haulora-Team · Matrix Infotech Ltd"
+    "text": "Wir haben MatrixFleet gemeinsam mit Transportunternehmen aus UK und Europa entwickelt, um den Papierkram zu beseitigen, der jeden Arbeitstag auffrisst – damit Sie Fracht bewegen, statt ihr hinterherzulaufen.",
+    "by": "Das MatrixFleet-Team · Matrix Infotech Ltd"
   },
   "pricing": {
     "eyebrow": "Preise",
@@ -110,13 +110,13 @@
     "eyebrow": "FAQ",
     "title": "Fragen und Antworten",
     "q1": { "q": "Müssen meine Fahrer eine App herunterladen?", "a": "Nein. Die Fahrer-App läuft im Browser und kann auf iPhone und Android wie eine normale App zum Startbildschirm hinzugefügt werden. Fahrer öffnen einfach den Einladungslink." },
-    "q2": { "q": "Berücksichtigt Haulora die USt. bei grenzüberschreitenden Aufträgen?", "a": "Ja. Haulora wendet britische USt., inländische EU-USt. oder das Reverse-Charge-Verfahren an – je nachdem, wo Sie und Ihr Kunde ansässig sind und ob der Kunde eine gültige USt-IdNr. hat – und druckt den korrekten Hinweis auf die Rechnung. Klären Sie Sonderfälle stets mit Ihrem Steuerberater." },
-    "q3": { "q": "Wo werden meine Daten gespeichert?", "a": "In einem Rechenzentrum in London, Vereinigtes Königreich, mit nächtlichen verschlüsselten Backups. Haulora ist für UK-DSGVO und EU-DSGVO ausgelegt; für das Vereinigte Königreich gilt ein Angemessenheitsbeschluss der EU." },
+    "q2": { "q": "Berücksichtigt MatrixFleet die USt. bei grenzüberschreitenden Aufträgen?", "a": "Ja. MatrixFleet wendet britische USt., inländische EU-USt. oder das Reverse-Charge-Verfahren an – je nachdem, wo Sie und Ihr Kunde ansässig sind und ob der Kunde eine gültige USt-IdNr. hat – und druckt den korrekten Hinweis auf die Rechnung. Klären Sie Sonderfälle stets mit Ihrem Steuerberater." },
+    "q3": { "q": "Wo werden meine Daten gespeichert?", "a": "In einem Rechenzentrum in London, Vereinigtes Königreich, mit nächtlichen verschlüsselten Backups. MatrixFleet ist für UK-DSGVO und EU-DSGVO ausgelegt; für das Vereinigte Königreich gilt ein Angemessenheitsbeschluss der EU." },
     "q4": { "q": "Brauche ich GPS-Tracker in meinen Fahrzeugen?", "a": "Nein. Das Live-Tracking nutzt das Handy des Fahrers während der Schicht. Die Standortfreigabe kann jederzeit beendet werden." },
-    "q5": { "q": "Kann ich es in meiner Sprache nutzen?", "a": "Haulora ist auf Englisch, Deutsch, Französisch, Spanisch und Polnisch verfügbar. Jeder Benutzer wählt seine eigene Sprache." },
+    "q5": { "q": "Kann ich es in meiner Sprache nutzen?", "a": "MatrixFleet ist auf Englisch, Deutsch, Französisch, Spanisch und Polnisch verfügbar. Jeder Benutzer wählt seine eigene Sprache." },
     "q6": { "q": "Was passiert nach der Testphase?", "a": "Wählen Sie einen Tarif und zahlen Sie monatlich per Karte. Ohne Tarif wird Ihr Konto pausiert – nichts wird gelöscht und Sie können später upgraden." },
     "q7": { "q": "Kann ich meine Daten exportieren?", "a": "Ja, jederzeit. Inhaber und Administratoren können unter Einstellungen → Datenschutz & Daten einen vollständigen Export herunterladen." },
-    "q8": { "q": "Wer steht hinter Haulora?", "a": "Haulora wird von der Matrix Infotech Ltd entwickelt und betrieben, einem britischen Softwareunternehmen." }
+    "q8": { "q": "Wer steht hinter MatrixFleet?", "a": "MatrixFleet wird von der Matrix Infotech Ltd entwickelt und betrieben, einem britischen Softwareunternehmen." }
   },
   "cta": {
     "title": "Bereit, den Papierkram aus dem Transport zu verbannen?",
@@ -125,7 +125,7 @@
   },
   "footer": {
     "tagline": "Transportmanagement für kleine und mittlere Speditions- und Lieferunternehmen in UK und EU.",
-    "product": "Haulora ist ein Produkt der Matrix Infotech Ltd.",
+    "product": "MatrixFleet ist ein Produkt der Matrix Infotech Ltd.",
     "productTitle": "Produkt",
     "features": "Funktionen",
     "pricing": "Preise",

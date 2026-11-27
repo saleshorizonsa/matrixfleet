@@ -24,8 +24,8 @@ export async function buildInvoicePdf({ invoice, lines, seller, buyer, logoBytes
   const { regular, bold } = await embedFonts(doc);
   doc.setTitle(`${L.invoice} ${invoice.number}`);
   doc.setAuthor(seller.legal_name || seller.name);
-  doc.setCreator("Haulora · Matrix Infotech Ltd");
-  doc.setProducer("Haulora");
+  doc.setCreator("MatrixFleet · Matrix Infotech Ltd");
+  doc.setProducer("MatrixFleet");
 
   const logo = logoBytes ? await embedImage(doc, logoBytes) : await fetchImage(doc, seller.logo_url);
   const cur = invoice.currency;

@@ -1,7 +1,7 @@
 {
-  "name": "Haulora",
-  "short_name": "Haulora",
-  "description": "Haulora driver app — jobs, navigation, proof of delivery, vehicle checks and shifts. Powered by Matrix Infotech Ltd.",
+  "name": "MatrixFleet",
+  "short_name": "MatrixFleet",
+  "description": "MatrixFleet driver app — jobs, navigation, proof of delivery, vehicle checks and shifts. Powered by Matrix Infotech Ltd.",
   "id": "/driver",
   "start_url": "/driver",
   "scope": "/",

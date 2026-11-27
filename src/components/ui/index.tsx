@@ -1,4 +1,4 @@
-// Haulora UI kit — small, dependency-free primitives styled with Tailwind.
+// MatrixFleet UI kit — small, dependency-free primitives styled with Tailwind.
 import * as React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";

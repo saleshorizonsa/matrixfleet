@@ -171,7 +171,7 @@ await admin.from("hl_driver_shifts").insert({ org_id: orgId, driver_id: drv[0].i
 
 writeFileSync(
   CRED_FILE,
-  `# Haulora demo logins (local development only — do not commit)\nOWNER_EMAIL=${OWNER_EMAIL}\nOWNER_PASSWORD=${creds.owner}\nDRIVER_EMAIL=${DRIVER_EMAIL}\nDRIVER_PASSWORD=${creds.driver}\n`,
+  `# MatrixFleet demo logins (local development only — do not commit)\nOWNER_EMAIL=${OWNER_EMAIL}\nOWNER_PASSWORD=${creds.owner}\nDRIVER_EMAIL=${DRIVER_EMAIL}\nDRIVER_PASSWORD=${creds.driver}\n`,
 );
 console.log(`Seeded org ${orgId}: ${cust.length} customers, ${drv.length} drivers, ${veh.length} vehicles, ${jobs.length} jobs.`);
 console.log("Logins written to scripts/demo-credentials.local.txt");

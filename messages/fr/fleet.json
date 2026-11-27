@@ -144,13 +144,13 @@
   "invite": {
     "button": "Inviter dans l'appli",
     "title": "Inviter dans l'application chauffeur",
-    "description": "Le chauffeur reçoit un lien personnel pour créer son accès et installer l'application Haulora sur son téléphone.",
+    "description": "Le chauffeur reçoit un lien personnel pour créer son accès et installer l'application MatrixFleet sur son téléphone.",
     "create": "Créer le lien d'invitation",
     "ready": "Invitation créée pour {email}. Partagez ce lien avec le chauffeur :",
     "sendEmail": "Envoyer par e-mail",
     "expires": "Le lien est valable 7 jours et utilisable une seule fois.",
     "mailSubject": "Votre invitation à l'application chauffeur de {org}",
-    "mailBody": "Bonjour {name},\n\n{org} vous invite à rejoindre l'application chauffeur Haulora. Ouvrez ce lien sur votre téléphone pour créer votre accès :\n\n{link}\n\nMerci !"
+    "mailBody": "Bonjour {name},\n\n{org} vous invite à rejoindre l'application chauffeur MatrixFleet. Ouvrez ce lien sur votre téléphone pour créer votre accès :\n\n{link}\n\nMerci !"
   },
   "compliance": {
     "title": "Centre de conformité",

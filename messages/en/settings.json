@@ -127,8 +127,8 @@
     "removeConfirm": "Remove this person from your workspace? They will lose access immediately.",
     "limitReached": "You've used every seat on your plan.",
     "upgrade": "Upgrade plan",
-    "mailSubject": "You're invited to join {org} on Haulora",
-    "mailBody": "Hi,\n\n{org} has invited you to Haulora, our transport management system.\n\nAccept your invitation here: {link}\n\nThe link is valid for 7 days."
+    "mailSubject": "You're invited to join {org} on MatrixFleet",
+    "mailBody": "Hi,\n\n{org} has invited you to MatrixFleet, our transport management system.\n\nAccept your invitation here: {link}\n\nThe link is valid for 7 days."
   },
   "privacy": {
     "residencyTitle": "UK data residency",
@@ -138,7 +138,7 @@
     "rolesTitle": "You are the controller",
     "rolesBody": "You decide what is processed. Matrix Infotech Ltd acts as your processor under our DPA.",
     "exportTitle": "Export your data",
-    "exportHint": "Download everything your company holds in Haulora as a machine-readable JSON file (GDPR Articles 15 & 20).",
+    "exportHint": "Download everything your company holds in MatrixFleet as a machine-readable JSON file (GDPR Articles 15 & 20).",
     "exportButton": "Download data export",
     "adminOnly": "Only owners and admins can export company data.",
     "retentionTitle": "Data retention",

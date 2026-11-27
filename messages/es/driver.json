@@ -18,7 +18,7 @@
     }
   },
   "install": {
-    "title": "Instala Haulora en tu móvil",
+    "title": "Instala MatrixFleet en tu móvil",
     "body": "Ábrela desde la pantalla de inicio como una app normal — más rápida y a pantalla completa.",
     "cta": "Instalar app",
     "ios": "Pulsa <share></share> Compartir y luego «Añadir a pantalla de inicio».",

@@ -6,7 +6,7 @@ export default function CookiePolicyPage() {
       <h1>Cookie Policy</h1>
       <p className="text-sm text-slate-500">Last updated: 27 November 2026</p>
       <p>
-        Haulora only uses cookies that are <strong>strictly necessary</strong> to provide the service you ask for. Under the UK
+        MatrixFleet only uses cookies that are <strong>strictly necessary</strong> to provide the service you ask for. Under the UK
         Privacy and Electronic Communications Regulations (PECR) and the EU ePrivacy Directive, strictly necessary cookies do not
         require consent, so we do not show a cookie consent banner. We do not use advertising, analytics or tracking cookies.
       </p>

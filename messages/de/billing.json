@@ -17,7 +17,7 @@
   "unlimited": "Unbegrenzt",
   "manage": "Abrechnung & Rechnungen verwalten",
   "invoicesTitle": "Rechnungen & Zahlung",
-  "invoicesNote": "Ihre Haulora-Rechnungen, Zahlungsmethoden und Rechnungsadresse werden sicher im Stripe-Kundenportal verwaltet.",
+  "invoicesNote": "Ihre MatrixFleet-Rechnungen, Zahlungsmethoden und Rechnungsadresse werden sicher im Stripe-Kundenportal verwaltet.",
   "vatNote": "Preise zzgl. USt. Britischen Unternehmen werden 20 % USt. berechnet. EU-Unternehmen mit gültiger USt-IdNr. erhalten Rechnungen im Reverse-Charge-Verfahren.",
   "secureNote": "Zahlungen werden von Stripe abgewickelt. Wir sehen oder speichern niemals Ihre Kartendaten.",
   "choosePlan": "Tarife",

@@ -40,7 +40,7 @@ export interface InvoiceLabels {
   footer: string;
 }
 
-const FOOTER = "Generated with Haulora · Powered by Matrix Infotech Ltd";
+const FOOTER = "Generated with MatrixFleet · Powered by Matrix Infotech Ltd";
 
 export const INVOICE_LABELS: Record<PdfLocale, InvoiceLabels> = {
   en: {

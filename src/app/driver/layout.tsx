@@ -19,7 +19,7 @@ export default async function DriverLayout({ children }: { children: React.React
           <Link href="/driver" className="flex min-w-0 items-center gap-2.5">
             <LogoMark size={28} />
             <div className="min-w-0 leading-tight">
-              <div className="font-display text-[15px] font-bold">Haulora</div>
+              <div className="font-display text-[15px] font-bold">MatrixFleet</div>
               <div className="truncate text-[11px] text-white/50">{org.name}</div>
             </div>
           </Link>
