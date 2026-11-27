@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { getContext, ADMIN_ROLES } from "@/lib/auth";
-import { PLANS, stripePriceId } from "@/lib/plans";
+import { PLANS, extraVehicles, stripeExtraVehiclePriceId, stripePriceId } from "@/lib/plans";
 import { billingConfigured, getStripe } from "@/lib/stripe";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { audit } from "@/lib/audit";
@@ -27,6 +27,16 @@ export async function POST(request: NextRequest) {
     return NextResponse.redirect(back, { status: 303 });
   }
 
+  // Growth and Pro bill each vehicle above the included ones; charge for the current fleet from day one.
+  const { count: vehicleCount } = await ctx.supabase.from("hl_vehicles").select("id", { count: "exact", head: true }).eq("org_id", ctx.org.id);
+  const extra = extraVehicles(plan, vehicleCount ?? 0);
+  const extraPrice = stripeExtraVehiclePriceId(plan.id, ctx.org.currency);
+  if (extra > 0 && !extraPrice) {
+    back.searchParams.set("error", "price_missing");
+    return NextResponse.redirect(back, { status: 303 });
+  }
+  const lineItems = [{ price, quantity: 1 }, ...(extra > 0 ? [{ price: extraPrice!, quantity: extra }] : [])];
+
   const stripe = getStripe();
   let customerId = ctx.org.stripe_customer_id;
   if (!customerId) {
@@ -45,7 +55,7 @@ export async function POST(request: NextRequest) {
     mode: "subscription",
     customer: customerId,
     client_reference_id: ctx.org.id,
-    line_items: [{ price, quantity: 1 }],
+    line_items: lineItems,
     automatic_tax: { enabled: true },
     tax_id_collection: { enabled: true },
     customer_update: { address: "auto", name: "auto" },
@@ -57,6 +67,6 @@ export async function POST(request: NextRequest) {
     cancel_url: `${APP_URL}/app/settings/billing?canceled=1`,
   });
 
-  await audit(ctx, "billing.checkout_started", "organization", ctx.org.id, { plan: plan.id });
+  await audit(ctx, "billing.checkout_started", "organization", ctx.org.id, { plan: plan.id, extra_vehicles: extra });
   return NextResponse.redirect(session.url!, { status: 303 });
 }

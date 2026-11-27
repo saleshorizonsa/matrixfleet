@@ -54,9 +54,13 @@
     "f_cmr": "Digital CMR consignment notes",
     "f_reports": "Profit & performance reports",
     "f_everythingGrowth": "Everything in Growth",
-    "f_unlimited": "Unlimited vehicles & users",
+    "f_unlimited": "Unlimited users",
     "f_audit": "Full audit log & data export",
     "f_priority": "Priority support & onboarding",
     "f_api": "API access & integrations"
-  }
+  },
+  "includesVehicles": "Includes {n} vehicles",
+  "extraVehicle": "then {price} per extra vehicle / month",
+  "extraVehiclesBilled": "{n, plural, one {# extra vehicle} other {# extra vehicles}} above the {included} included, billed at {price} each per month",
+  "includedVehiclesNote": "{included} vehicles included — each extra vehicle is {price} per month, added automatically"
 }

@@ -61,7 +61,16 @@ export function PricingSection() {
             <ul className="mt-8 space-y-3 text-sm">
               <li className="flex gap-3">
                 <Check className={cn("h-5 w-5 shrink-0", plan.highlight ? "text-lime-signal" : "text-brand-500")} />
-                {Number.isFinite(plan.vehicles) ? tb("upToVehicles", { n: plan.vehicles }) : tb("unlimitedVehicles")}
+                {plan.extraVehiclePrice ? (
+                  <span>
+                    {tb("includesVehicles", { n: plan.includedVehicles })}
+                    <span className={cn("block text-xs", plan.highlight ? "text-white/55" : "text-slate-500")}>
+                      {tb("extraVehicle", { price: money(plan.extraVehiclePrice[currency], currency, locale).replace(/[.,]00$/, "") })}
+                    </span>
+                  </span>
+                ) : (
+                  tb("upToVehicles", { n: plan.includedVehicles })
+                )}
               </li>
               <li className="flex gap-3">
                 <Check className={cn("h-5 w-5 shrink-0", plan.highlight ? "text-lime-signal" : "text-brand-500")} />

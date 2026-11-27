@@ -59,14 +59,28 @@ The code is in the private repo `saleshorizonsa/matrixfleet` (branch `main`). Pu
 | `NEXT_PUBLIC_APP_URL` | `https://app.yourdomain.com` |
 | `NEXT_PUBLIC_APP_NAME` | `MatrixFleet` |
 | `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET` | from Stripe (step 6) |
-| `STRIPE_PRICE_{STARTER,GROWTH,PRO}_{GBP,EUR}` | the 6 price IDs from Stripe |
+| `STRIPE_PRICE_{STARTER,GROWTH,PRO}_{GBP,EUR}` | the 6 base price IDs from Stripe |
+| `STRIPE_PRICE_{GROWTH,PRO}_EXTRA_VEHICLE_{GBP,EUR}` | the 4 per-extra-vehicle price IDs |
 | `OSRM_URL`, `NOMINATIM_URL` | see step 7 |
 
 4. Add your custom domain under **Settings → Domains**.
 
 ## 6. Stripe (subscriptions)
 
-1. Create 3 products (Starter, Growth, Pro), each with a monthly **GBP** price and a monthly **EUR** price → 6 price IDs.
+1. Create the products and monthly recurring prices (excl. VAT):
+
+   | Product | GBP | EUR | Includes |
+   |---|---|---|---|
+   | Starter | £39 | €45 | up to 3 vehicles, 3 users (no extras: upgrade) |
+   | Growth | £119 | €139 | 10 vehicles, 10 users |
+   | Growth extra vehicle | £9 per unit | €10 per unit | each vehicle above 10 |
+   | Pro | £279 | €325 | 30 vehicles, unlimited users |
+   | Pro extra vehicle | £7 per unit | €8 per unit | each vehicle above 30 |
+
+   That is 10 price IDs. The extra-vehicle prices must be **per unit** (quantity-based). The app sets the quantity
+   automatically whenever a customer adds or removes vehicles, swaps the price when they change plan, and Stripe
+   prorates the difference. Pro becomes cheaper than Growth from about 28 vehicles. Free trials are capped at 30 vehicles.
+   Plan prices and limits live in `src/lib/plans.ts`; keep them in step with Stripe.
 2. Turn on **Stripe Tax** and register for UK VAT (and EU OSS if applicable).
 3. Turn on the **Customer Portal** (Settings → Billing → Customer portal): allow plan switching, cancellation and invoice history.
 4. Add a webhook endpoint `https://app.yourdomain.com/api/stripe/webhook` with events:

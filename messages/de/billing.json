@@ -54,9 +54,13 @@
     "f_cmr": "Digitale CMR-Frachtbriefe",
     "f_reports": "Gewinn- & Leistungsberichte",
     "f_everythingGrowth": "Alles aus Growth",
-    "f_unlimited": "Unbegrenzte Fahrzeuge & Benutzer",
+    "f_unlimited": "Unbegrenzt viele Benutzer",
     "f_audit": "Vollständiges Audit-Log & Datenexport",
     "f_priority": "Priorisierter Support & Onboarding",
     "f_api": "API-Zugang & Integrationen"
-  }
+  },
+  "includesVehicles": "Inklusive {n} Fahrzeuge",
+  "extraVehicle": "danach {price} pro weiterem Fahrzeug / Monat",
+  "extraVehiclesBilled": "{n, plural, one {# zusätzliches Fahrzeug} other {# zusätzliche Fahrzeuge}} über den {included} enthaltenen, je {price} pro Monat",
+  "includedVehiclesNote": "{included} Fahrzeuge inklusive – jedes weitere kostet {price} pro Monat und wird automatisch berechnet"
 }

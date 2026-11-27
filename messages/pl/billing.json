@@ -54,9 +54,13 @@
     "f_cmr": "Cyfrowe listy przewozowe CMR",
     "f_reports": "Raporty rentowności i wydajności",
     "f_everythingGrowth": "Wszystko z planu Growth",
-    "f_unlimited": "Nielimitowane pojazdy i użytkownicy",
+    "f_unlimited": "Nieograniczona liczba użytkowników",
     "f_audit": "Pełny dziennik zdarzeń i eksport danych",
     "f_priority": "Priorytetowe wsparcie i wdrożenie",
     "f_api": "Dostęp do API i integracje"
-  }
+  },
+  "includesVehicles": "{n, plural, one {W cenie # pojazd} few {W cenie # pojazdy} many {W cenie # pojazdów} other {W cenie # pojazdu}}",
+  "extraVehicle": "potem {price} za każdy dodatkowy pojazd / miesiąc",
+  "extraVehiclesBilled": "{n, plural, one {# dodatkowy pojazd} few {# dodatkowe pojazdy} many {# dodatkowych pojazdów} other {# dodatkowego pojazdu}} ponad pojazdy w cenie ({included}), po {price} miesięcznie za każdy",
+  "includedVehiclesNote": "Pojazdy w cenie: {included} — każdy dodatkowy kosztuje {price} miesięcznie i jest doliczany automatycznie"
 }

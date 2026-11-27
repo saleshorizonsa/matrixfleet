@@ -54,9 +54,13 @@
     "f_cmr": "Cartas de porte CMR digitales",
     "f_reports": "Informes de rentabilidad y rendimiento",
     "f_everythingGrowth": "Todo lo de Growth",
-    "f_unlimited": "Vehículos y usuarios ilimitados",
+    "f_unlimited": "Usuarios ilimitados",
     "f_audit": "Registro de auditoría completo y exportación",
     "f_priority": "Soporte prioritario y puesta en marcha",
     "f_api": "Acceso API e integraciones"
-  }
+  },
+  "includesVehicles": "Incluye {n} vehículos",
+  "extraVehicle": "después {price} por vehículo adicional / mes",
+  "extraVehiclesBilled": "{n, plural, one {# vehículo adicional} other {# vehículos adicionales}} por encima de los {included} incluidos, a {price} cada uno al mes",
+  "includedVehiclesNote": "{included} vehículos incluidos: cada vehículo adicional cuesta {price} al mes y se añade automáticamente"
 }

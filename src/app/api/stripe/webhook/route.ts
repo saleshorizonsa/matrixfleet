@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import type Stripe from "stripe";
-import { getStripe, planFromPriceId } from "@/lib/stripe";
+import { getStripe, isExtraVehiclePrice, planFromSubscription, syncExtraVehicles } from "@/lib/stripe";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 export const runtime = "nodejs";
@@ -8,8 +8,9 @@ export const runtime = "nodejs";
 async function syncSubscription(sub: Stripe.Subscription, fallbackOrgId?: string | null) {
   const admin = createAdminClient();
   const customerId = typeof sub.customer === "string" ? sub.customer : sub.customer.id;
-  const item = sub.items.data[0];
-  const plan = planFromPriceId(item?.price?.id) ?? (sub.metadata?.plan as "starter" | "growth" | "pro" | undefined) ?? null;
+  // the base plan line (a Pro subscription may also carry an "extra vehicles" line)
+  const item = sub.items.data.find((i) => !isExtraVehiclePrice(i.price?.id)) ?? sub.items.data[0];
+  const plan = planFromSubscription(sub) ?? (sub.metadata?.plan as "starter" | "growth" | "pro" | undefined) ?? null;
   const periodEnd = item?.current_period_end ? new Date(item.current_period_end * 1000).toISOString() : null;
   const ended = sub.status === "canceled" || sub.status === "incomplete_expired";
 
@@ -37,6 +38,9 @@ async function syncSubscription(sub: Stripe.Subscription, fallbackOrgId?: string
       entity_id: sub.id,
       details: { plan, status: sub.status },
     });
+    // plan changes (e.g. upgrading to Pro in the portal) can change how many vehicles are billed;
+    // this is a no-op when the quantity is already right, so it cannot loop with its own webhook
+    if (!ended) await syncExtraVehicles(org.id);
   }
 }
 

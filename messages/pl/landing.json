@@ -29,26 +29,68 @@
     "todaysJobs": "Dzisiejsze zlecenia"
   },
   "stats": {
-    "s1": { "value": "30", "label": "obsługiwanych krajów" },
-    "s2": { "value": "5", "label": "wbudowanych języków" },
-    "s3": { "value": "< 2 min", "label": "na konfigurację firmy" },
-    "s4": { "value": "14 dni", "label": "za darmo, wszystkie funkcje" }
+    "s1": {
+      "value": "30",
+      "label": "obsługiwanych krajów"
+    },
+    "s2": {
+      "value": "5",
+      "label": "wbudowanych języków"
+    },
+    "s3": {
+      "value": "< 2 min",
+      "label": "na konfigurację firmy"
+    },
+    "s4": {
+      "value": "14 dni",
+      "label": "za darmo, wszystkie funkcje"
+    }
   },
   "features": {
     "eyebrow": "Wszystko w jednym miejscu",
     "title": "Stworzone tak, jak naprawdę pracują przewoźnicy",
     "subtitle": "Zastąp arkusze, grupy WhatsApp i papierowe potwierdzenia jednym systemem, który polubi biuro i kierowcy.",
     "items": {
-      "jobs": { "title": "Zlecenia i szybkie wyceny", "body": "Utwórz zlecenie w kilka sekund. Odległość trasy i Twoje stawki dają cenę automatycznie — z dopłatą paliwową i ADR." },
-      "dispatch": { "title": "Planowanie przeciągnij i upuść", "body": "Planuj dzień na wizualnej tablicy. Przeciągaj zlecenia na kierowców i pojazdy — wszyscy od razu wiedzą o zmianach." },
-      "tracking": { "title": "Śledzenie GPS na żywo", "body": "Zobacz każdy pojazd na mapie w czasie rzeczywistym — bez dodatkowych lokalizatorów i sprzętu." },
-      "driver": { "title": "Aplikacja kierowcy z POD", "body": "Kierowcy widzą trasę, nawigują i zbierają podpisy oraz zdjęcia jako potwierdzenie dostawy na dowolnym telefonie." },
-      "invoicing": { "title": "Faktury z poprawnym VAT", "body": "VAT brytyjski, krajowy VAT w UE i odwrotne obciążenie dla transgranicznego B2B — automatycznie, z ciągłą numeracją." },
-      "cmr": { "title": "Cyfrowe listy CMR", "body": "Generuj listy przewozowe CMR w PDF dla transportów międzynarodowych, wypełnione danymi ze zlecenia." },
-      "compliance": { "title": "Zgodność i kontrole", "body": "Codzienne kontrole pojazdu i przypomnienia o przeglądzie, ubezpieczeniu, tachografie i prawie jazdy — zanim pojawią się mandaty." },
-      "links": { "title": "Linki śledzenia dla klientów", "body": "Wyślij link z Twoim logo, aby klient śledził dostawę i potwierdzenie — mniej telefonów „gdzie jest towar?”." },
-      "gdpr": { "title": "RODO i hosting w UK", "body": "Dane w Londynie, z szyfrowaniem, izolacją między firmami, dziennikiem zdarzeń i eksportem jednym kliknięciem." },
-      "languages": { "title": "5 języków", "body": "Angielski, niemiecki, francuski, hiszpański i polski dla biura i kierowców." }
+      "jobs": {
+        "title": "Zlecenia i szybkie wyceny",
+        "body": "Utwórz zlecenie w kilka sekund. Odległość trasy i Twoje stawki dają cenę automatycznie — z dopłatą paliwową i ADR."
+      },
+      "dispatch": {
+        "title": "Planowanie przeciągnij i upuść",
+        "body": "Planuj dzień na wizualnej tablicy. Przeciągaj zlecenia na kierowców i pojazdy — wszyscy od razu wiedzą o zmianach."
+      },
+      "tracking": {
+        "title": "Śledzenie GPS na żywo",
+        "body": "Zobacz każdy pojazd na mapie w czasie rzeczywistym — bez dodatkowych lokalizatorów i sprzętu."
+      },
+      "driver": {
+        "title": "Aplikacja kierowcy z POD",
+        "body": "Kierowcy widzą trasę, nawigują i zbierają podpisy oraz zdjęcia jako potwierdzenie dostawy na dowolnym telefonie."
+      },
+      "invoicing": {
+        "title": "Faktury z poprawnym VAT",
+        "body": "VAT brytyjski, krajowy VAT w UE i odwrotne obciążenie dla transgranicznego B2B — automatycznie, z ciągłą numeracją."
+      },
+      "cmr": {
+        "title": "Cyfrowe listy CMR",
+        "body": "Generuj listy przewozowe CMR w PDF dla transportów międzynarodowych, wypełnione danymi ze zlecenia."
+      },
+      "compliance": {
+        "title": "Zgodność i kontrole",
+        "body": "Codzienne kontrole pojazdu i przypomnienia o przeglądzie, ubezpieczeniu, tachografie i prawie jazdy — zanim pojawią się mandaty."
+      },
+      "links": {
+        "title": "Linki śledzenia dla klientów",
+        "body": "Wyślij link z Twoim logo, aby klient śledził dostawę i potwierdzenie — mniej telefonów „gdzie jest towar?”."
+      },
+      "gdpr": {
+        "title": "RODO i hosting w UK",
+        "body": "Dane w Londynie, z szyfrowaniem, izolacją między firmami, dziennikiem zdarzeń i eksportem jednym kliknięciem."
+      },
+      "languages": {
+        "title": "5 języków",
+        "body": "Angielski, niemiecki, francuski, hiszpański i polski dla biura i kierowców."
+      }
     }
   },
   "driverSpot": {
@@ -69,9 +111,18 @@
     "eyebrow": "Jak to działa",
     "title": "Gotowe w jedno popołudnie",
     "subtitle": "Bez konsultantów, bez sprzętu, bez długich umów.",
-    "s1": { "title": "Załóż firmę", "body": "Zarejestruj się, wybierz kraj — automatycznie ustawimy VAT, walutę i jednostki." },
-    "s2": { "title": "Dodaj pojazdy i zaproś kierowców", "body": "Wprowadź flotę i wyślij każdemu kierowcy link z zaproszeniem do aplikacji." },
-    "s3": { "title": "Przyjmij, zaplanuj, dostarcz, zafakturuj", "body": "Twórz zlecenia, przeciągaj je na kierowców, śledź na żywo i fakturuj od razu po dostawie." }
+    "s1": {
+      "title": "Załóż firmę",
+      "body": "Zarejestruj się, wybierz kraj — automatycznie ustawimy VAT, walutę i jednostki."
+    },
+    "s2": {
+      "title": "Dodaj pojazdy i zaproś kierowców",
+      "body": "Wprowadź flotę i wyślij każdemu kierowcy link z zaproszeniem do aplikacji."
+    },
+    "s3": {
+      "title": "Przyjmij, zaplanuj, dostarcz, zafakturuj",
+      "body": "Twórz zlecenia, przeciągaj je na kierowców, śledź na żywo i fakturuj od razu po dostawie."
+    }
   },
   "roi": {
     "eyebrow": "Kalkulator ROI",
@@ -96,7 +147,7 @@
   "pricing": {
     "eyebrow": "Cennik",
     "title": "Prosty cennik, który rośnie razem z flotą",
-    "subtitle": "Jedna stała miesięczna opłata za firmę. Bez opłat za zlecenie i kosztów wdrożenia.",
+    "subtitle": "Proste miesięczne plany dla firmy. Bez opłat za zlecenie i bez kosztów wdrożenia.",
     "currency": "Waluta",
     "cta": "Wypróbuj za darmo",
     "trialNote": "Każdy plan zaczyna się od 14-dniowego bezpłatnego okresu próbnego wszystkich funkcji Growth. Ceny netto. Rezygnacja w dowolnym momencie.",
@@ -109,14 +160,38 @@
   "faq": {
     "eyebrow": "FAQ",
     "title": "Pytania i odpowiedzi",
-    "q1": { "q": "Czy kierowcy muszą pobierać aplikację?", "a": "Nie. Aplikacja kierowcy działa w przeglądarce i można ją dodać do ekranu głównego jak zwykłą aplikację na iPhonie i Androidzie. Wystarczy otworzyć link z zaproszeniem." },
-    "q2": { "q": "Czy MatrixFleet obsługuje VAT przy transportach międzynarodowych?", "a": "Tak. MatrixFleet stosuje VAT brytyjski, krajowy VAT w UE lub odwrotne obciążenie w zależności od siedziby Twojej i klienta oraz ważności jego numeru VAT, i drukuje poprawną adnotację na fakturze. Nietypowe przypadki zawsze konsultuj z księgowym." },
-    "q3": { "q": "Gdzie są przechowywane moje dane?", "a": "W centrum danych w Londynie (Wielka Brytania), z conocnymi szyfrowanymi kopiami zapasowymi. MatrixFleet jest przygotowana pod brytyjskie i unijne RODO; Wielka Brytania posiada decyzję UE stwierdzającą odpowiedni stopień ochrony." },
-    "q4": { "q": "Czy potrzebuję lokalizatorów GPS w pojazdach?", "a": "Nie. Śledzenie na żywo korzysta z telefonu kierowcy w trakcie zmiany. Udostępnianie lokalizacji można wyłączyć w każdej chwili." },
-    "q5": { "q": "Czy mogę korzystać w swoim języku?", "a": "MatrixFleet jest dostępna po angielsku, niemiecku, francusku, hiszpańsku i polsku. Każdy użytkownik wybiera własny język." },
-    "q6": { "q": "Co po okresie próbnym?", "a": "Wybierz plan i płać co miesiąc kartą. Jeśli nie wybierzesz planu, konto zostanie wstrzymane — nic nie zostanie usunięte i możesz wrócić później." },
-    "q7": { "q": "Czy mogę wyeksportować dane?", "a": "Tak, w każdej chwili. Właściciele i administratorzy mogą pobrać pełny eksport w Ustawienia → Prywatność i dane." },
-    "q8": { "q": "Kto stoi za MatrixFleet?", "a": "MatrixFleet jest tworzona i obsługiwana przez Matrix Infotech Ltd, brytyjską firmę programistyczną." }
+    "q1": {
+      "q": "Czy kierowcy muszą pobierać aplikację?",
+      "a": "Nie. Aplikacja kierowcy działa w przeglądarce i można ją dodać do ekranu głównego jak zwykłą aplikację na iPhonie i Androidzie. Wystarczy otworzyć link z zaproszeniem."
+    },
+    "q2": {
+      "q": "Czy MatrixFleet obsługuje VAT przy transportach międzynarodowych?",
+      "a": "Tak. MatrixFleet stosuje VAT brytyjski, krajowy VAT w UE lub odwrotne obciążenie w zależności od siedziby Twojej i klienta oraz ważności jego numeru VAT, i drukuje poprawną adnotację na fakturze. Nietypowe przypadki zawsze konsultuj z księgowym."
+    },
+    "q3": {
+      "q": "Gdzie są przechowywane moje dane?",
+      "a": "W centrum danych w Londynie (Wielka Brytania), z conocnymi szyfrowanymi kopiami zapasowymi. MatrixFleet jest przygotowana pod brytyjskie i unijne RODO; Wielka Brytania posiada decyzję UE stwierdzającą odpowiedni stopień ochrony."
+    },
+    "q4": {
+      "q": "Czy potrzebuję lokalizatorów GPS w pojazdach?",
+      "a": "Nie. Śledzenie na żywo korzysta z telefonu kierowcy w trakcie zmiany. Udostępnianie lokalizacji można wyłączyć w każdej chwili."
+    },
+    "q5": {
+      "q": "Czy mogę korzystać w swoim języku?",
+      "a": "MatrixFleet jest dostępna po angielsku, niemiecku, francusku, hiszpańsku i polsku. Każdy użytkownik wybiera własny język."
+    },
+    "q6": {
+      "q": "Co po okresie próbnym?",
+      "a": "Wybierz plan i płać co miesiąc kartą. Jeśli nie wybierzesz planu, konto zostanie wstrzymane — nic nie zostanie usunięte i możesz wrócić później."
+    },
+    "q7": {
+      "q": "Czy mogę wyeksportować dane?",
+      "a": "Tak, w każdej chwili. Właściciele i administratorzy mogą pobrać pełny eksport w Ustawienia → Prywatność i dane."
+    },
+    "q8": {
+      "q": "Kto stoi za MatrixFleet?",
+      "a": "MatrixFleet jest tworzona i obsługiwana przez Matrix Infotech Ltd, brytyjską firmę programistyczną."
+    }
   },
   "cta": {
     "title": "Gotowy, by pozbyć się papierologii w transporcie?",

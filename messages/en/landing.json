@@ -29,26 +29,68 @@
     "todaysJobs": "Today's jobs"
   },
   "stats": {
-    "s1": { "value": "30", "label": "countries supported" },
-    "s2": { "value": "5", "label": "languages built in" },
-    "s3": { "value": "< 2 min", "label": "to set up your company" },
-    "s4": { "value": "14 days", "label": "free trial, every feature" }
+    "s1": {
+      "value": "30",
+      "label": "countries supported"
+    },
+    "s2": {
+      "value": "5",
+      "label": "languages built in"
+    },
+    "s3": {
+      "value": "< 2 min",
+      "label": "to set up your company"
+    },
+    "s4": {
+      "value": "14 days",
+      "label": "free trial, every feature"
+    }
   },
   "features": {
     "eyebrow": "Everything in one place",
     "title": "Built for the way hauliers actually work",
     "subtitle": "Replace the spreadsheets, WhatsApp groups and paper PODs with one system your office and drivers both love.",
     "items": {
-      "jobs": { "title": "Jobs & instant quotes", "body": "Book a job in seconds. Route distance and your rates produce a price automatically — with fuel and ADR surcharges." },
-      "dispatch": { "title": "Drag-and-drop dispatch", "body": "Plan the day on a visual board. Drag jobs onto drivers and vehicles and everyone is updated instantly." },
-      "tracking": { "title": "Live GPS tracking", "body": "See every vehicle on a live map with real-time status — no extra trackers or hardware to install." },
-      "driver": { "title": "Driver app with POD", "body": "Drivers see their run, navigate, and capture signatures and photos as proof of delivery on any phone." },
-      "invoicing": { "title": "VAT-correct invoicing", "body": "UK VAT, EU domestic VAT and reverse charge for cross-border B2B worked out for you, with sequential numbering." },
-      "cmr": { "title": "Digital CMR notes", "body": "Generate CMR consignment notes for international loads as PDFs, pre-filled from the job." },
-      "compliance": { "title": "Compliance & checks", "body": "Daily walkaround checks, MOT, insurance, tacho and licence expiry reminders before they become fines." },
-      "links": { "title": "Customer tracking links", "body": "Send a branded link so your customers can follow their delivery and see the POD — fewer “where is it?” calls." },
-      "gdpr": { "title": "GDPR & UK hosting", "body": "Your data lives in London with encryption, row-level isolation, audit logs and one-click data export." },
-      "languages": { "title": "5 languages", "body": "English, Deutsch, Français, Español and Polski for your office team and your drivers." }
+      "jobs": {
+        "title": "Jobs & instant quotes",
+        "body": "Book a job in seconds. Route distance and your rates produce a price automatically — with fuel and ADR surcharges."
+      },
+      "dispatch": {
+        "title": "Drag-and-drop dispatch",
+        "body": "Plan the day on a visual board. Drag jobs onto drivers and vehicles and everyone is updated instantly."
+      },
+      "tracking": {
+        "title": "Live GPS tracking",
+        "body": "See every vehicle on a live map with real-time status — no extra trackers or hardware to install."
+      },
+      "driver": {
+        "title": "Driver app with POD",
+        "body": "Drivers see their run, navigate, and capture signatures and photos as proof of delivery on any phone."
+      },
+      "invoicing": {
+        "title": "VAT-correct invoicing",
+        "body": "UK VAT, EU domestic VAT and reverse charge for cross-border B2B worked out for you, with sequential numbering."
+      },
+      "cmr": {
+        "title": "Digital CMR notes",
+        "body": "Generate CMR consignment notes for international loads as PDFs, pre-filled from the job."
+      },
+      "compliance": {
+        "title": "Compliance & checks",
+        "body": "Daily walkaround checks, MOT, insurance, tacho and licence expiry reminders before they become fines."
+      },
+      "links": {
+        "title": "Customer tracking links",
+        "body": "Send a branded link so your customers can follow their delivery and see the POD — fewer “where is it?” calls."
+      },
+      "gdpr": {
+        "title": "GDPR & UK hosting",
+        "body": "Your data lives in London with encryption, row-level isolation, audit logs and one-click data export."
+      },
+      "languages": {
+        "title": "5 languages",
+        "body": "English, Deutsch, Français, Español and Polski for your office team and your drivers."
+      }
     }
   },
   "driverSpot": {
@@ -69,9 +111,18 @@
     "eyebrow": "How it works",
     "title": "Live in an afternoon",
     "subtitle": "No consultants, no hardware, no long contracts.",
-    "s1": { "title": "Create your company", "body": "Sign up, pick your country and we set up VAT, currency and distance units automatically." },
-    "s2": { "title": "Add vehicles & invite drivers", "body": "Enter your fleet and send each driver an invitation link to the driver app." },
-    "s3": { "title": "Book, dispatch, deliver, invoice", "body": "Create jobs, drag them onto drivers, track them live and invoice the moment they're delivered." }
+    "s1": {
+      "title": "Create your company",
+      "body": "Sign up, pick your country and we set up VAT, currency and distance units automatically."
+    },
+    "s2": {
+      "title": "Add vehicles & invite drivers",
+      "body": "Enter your fleet and send each driver an invitation link to the driver app."
+    },
+    "s3": {
+      "title": "Book, dispatch, deliver, invoice",
+      "body": "Create jobs, drag them onto drivers, track them live and invoice the moment they're delivered."
+    }
   },
   "roi": {
     "eyebrow": "ROI calculator",
@@ -96,7 +147,7 @@
   "pricing": {
     "eyebrow": "Pricing",
     "title": "Simple pricing that grows with your fleet",
-    "subtitle": "One flat monthly price per company. No per-job fees, no setup costs.",
+    "subtitle": "Simple monthly plans per company. No per-job fees, no setup costs.",
     "currency": "Currency",
     "cta": "Start free trial",
     "trialNote": "Every plan starts with a 14-day free trial of all Growth features. Prices exclude VAT. Cancel anytime.",
@@ -109,14 +160,38 @@
   "faq": {
     "eyebrow": "FAQ",
     "title": "Questions, answered",
-    "q1": { "q": "Do my drivers need to download an app?", "a": "No. The driver app runs in the phone's browser and can be added to the home screen like a normal app on both iPhone and Android. Drivers just open the invitation link." },
-    "q2": { "q": "Does MatrixFleet handle VAT for cross-border jobs?", "a": "Yes. MatrixFleet applies UK VAT, domestic EU VAT or the reverse-charge mechanism depending on where you and your customer are established and whether the customer has a valid VAT number, and prints the correct wording on the invoice. Always confirm unusual cases with your accountant." },
-    "q3": { "q": "Where is my data stored?", "a": "In a data centre in London, United Kingdom, with nightly encrypted backups. MatrixFleet is designed for UK GDPR and EU GDPR, and the UK benefits from an EU adequacy decision." },
-    "q4": { "q": "Do I need GPS trackers in my vehicles?", "a": "No. Live tracking uses the driver's phone while they are on shift. You can stop location sharing at any time." },
-    "q5": { "q": "Can I use it in my language?", "a": "MatrixFleet is available in English, German, French, Spanish and Polish. Each user chooses their own language." },
-    "q6": { "q": "What happens after the free trial?", "a": "Choose a plan and pay monthly by card. If you don't choose a plan your account is paused — nothing is deleted and you can upgrade later." },
-    "q7": { "q": "Can I export my data?", "a": "Yes, at any time. Owners and admins can download a complete export of your company data from Settings → Privacy & data." },
-    "q8": { "q": "Who is behind MatrixFleet?", "a": "MatrixFleet is built and operated by Matrix Infotech Ltd, a UK software company." }
+    "q1": {
+      "q": "Do my drivers need to download an app?",
+      "a": "No. The driver app runs in the phone's browser and can be added to the home screen like a normal app on both iPhone and Android. Drivers just open the invitation link."
+    },
+    "q2": {
+      "q": "Does MatrixFleet handle VAT for cross-border jobs?",
+      "a": "Yes. MatrixFleet applies UK VAT, domestic EU VAT or the reverse-charge mechanism depending on where you and your customer are established and whether the customer has a valid VAT number, and prints the correct wording on the invoice. Always confirm unusual cases with your accountant."
+    },
+    "q3": {
+      "q": "Where is my data stored?",
+      "a": "In a data centre in London, United Kingdom, with nightly encrypted backups. MatrixFleet is designed for UK GDPR and EU GDPR, and the UK benefits from an EU adequacy decision."
+    },
+    "q4": {
+      "q": "Do I need GPS trackers in my vehicles?",
+      "a": "No. Live tracking uses the driver's phone while they are on shift. You can stop location sharing at any time."
+    },
+    "q5": {
+      "q": "Can I use it in my language?",
+      "a": "MatrixFleet is available in English, German, French, Spanish and Polish. Each user chooses their own language."
+    },
+    "q6": {
+      "q": "What happens after the free trial?",
+      "a": "Choose a plan and pay monthly by card. If you don't choose a plan your account is paused — nothing is deleted and you can upgrade later."
+    },
+    "q7": {
+      "q": "Can I export my data?",
+      "a": "Yes, at any time. Owners and admins can download a complete export of your company data from Settings → Privacy & data."
+    },
+    "q8": {
+      "q": "Who is behind MatrixFleet?",
+      "a": "MatrixFleet is built and operated by Matrix Infotech Ltd, a UK software company."
+    }
   },
   "cta": {
     "title": "Ready to take the paperwork out of haulage?",

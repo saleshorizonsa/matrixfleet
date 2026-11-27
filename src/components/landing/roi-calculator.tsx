@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { buttonClass } from "@/components/ui";
 import { intlLocale, money } from "@/lib/format";
-import { PLANS } from "@/lib/plans";
+import { monthlyCost, planForFleet } from "@/lib/plans";
 
 /** Simple, transparent ROI model shown on the landing page. */
 export function RoiCalculator() {
@@ -22,8 +22,8 @@ export function RoiCalculator() {
   const hoursSaved = (jobs * minutesPerJob * 0.7) / 60;
   const adminSaving = hoursSaved * hourly;
   const invoiceSpeedup = jobs * 0.9; // faster invoicing / fewer missed charges per job
-  const plan = vehicles <= 3 ? PLANS[0] : vehicles <= 15 ? PLANS[1] : PLANS[2];
-  const cost = plan.price[currency];
+  const plan = planForFleet(vehicles, currency);
+  const cost = monthlyCost(plan, vehicles, currency);
   const net = adminSaving + invoiceSpeedup - cost;
   const m = (v: number) => money(Math.round(v), currency, locale).replace(/[.,]00$/, "");
 
@@ -66,7 +66,7 @@ export function RoiCalculator() {
             ))}
           </div>
         </div>
-        {slider(t("vehicles"), vehicles, setVehicles, 1, 50)}
+        {slider(t("vehicles"), vehicles, setVehicles, 1, 80)}
         {slider(t("jobsPerDay"), jobsPerDay, setJobsPerDay, 1, 15)}
         {slider(t("minutesPerJob"), minutesPerJob, setMinutesPerJob, 2, 40, 1, " min")}
         {slider(t("hourly", { symbol: currency === "GBP" ? "£" : "€" }), hourly, setHourly, 10, 45)}

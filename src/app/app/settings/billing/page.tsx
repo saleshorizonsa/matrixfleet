@@ -1,7 +1,7 @@
 import { getTranslations, getLocale } from "next-intl/server";
 import { CheckCircle2, CreditCard, Info, Sparkles } from "lucide-react";
 import { requireOffice, ADMIN_ROLES } from "@/lib/auth";
-import { PLANS, limitsFor, trialDaysLeft, isSubscriptionActive, stripePriceId } from "@/lib/plans";
+import { PLANS, extraVehicles, limitsFor, trialDaysLeft, isSubscriptionActive, stripePriceId } from "@/lib/plans";
 import { billingConfigured } from "@/lib/stripe";
 import { Badge, Card, CardBody, CardHeader } from "@/components/ui";
 import { SubmitButton } from "@/components/app/client";
@@ -77,6 +77,17 @@ export default async function BillingPage({
           </div>
           <CardBody className="space-y-5">
             <UsageBar label={t("vehicles")} used={vehicles ?? 0} limit={limits.vehicles} unlimited={t("unlimited")} />
+            {limits.plan.extraVehiclePrice && !limits.trial && (
+              <p className="-mt-3 text-xs text-slate-500">
+                {extraVehicles(limits.plan, vehicles ?? 0) > 0
+                  ? t("extraVehiclesBilled", {
+                      n: extraVehicles(limits.plan, vehicles ?? 0),
+                      included: limits.includedVehicles,
+                      price: money(limits.plan.extraVehiclePrice[cur], cur, locale).replace(/[.,]00$/, ""),
+                    })
+                  : t("includedVehiclesNote", { included: limits.includedVehicles, price: money(limits.plan.extraVehiclePrice[cur], cur, locale).replace(/[.,]00$/, "") })}
+              </p>
+            )}
             <UsageBar label={t("users")} used={users ?? 0} limit={limits.users} unlimited={t("unlimited")} />
             {isAdmin && org.stripe_customer_id && configured && (
               <form action="/api/stripe/portal" method="post">
@@ -123,7 +134,14 @@ export default async function BillingPage({
                 <ul className="mt-5 flex-1 space-y-2 text-sm">
                   <li className="flex gap-2">
                     <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-500" />
-                    {Number.isFinite(plan.vehicles) ? t("upToVehicles", { n: plan.vehicles }) : t("unlimitedVehicles")}
+                    {plan.extraVehiclePrice ? (
+                      <span>
+                        {t("includesVehicles", { n: plan.includedVehicles })}
+                        <span className="block text-xs text-slate-500">{t("extraVehicle", { price: money(plan.extraVehiclePrice[cur], cur, locale).replace(/[.,]00$/, "") })}</span>
+                      </span>
+                    ) : (
+                      t("upToVehicles", { n: plan.includedVehicles })
+                    )}
                   </li>
                   <li className="flex gap-2">
                     <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-500" />

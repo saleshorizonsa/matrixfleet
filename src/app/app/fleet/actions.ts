@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { requireOffice } from "@/lib/auth";
 import { audit } from "@/lib/audit";
 import { limitsFor } from "@/lib/plans";
+import { syncExtraVehicles } from "@/lib/stripe";
 import { APP_URL, num, str } from "@/lib/utils";
 
 export type FormState = { error?: string; ok?: boolean } | undefined;
@@ -54,6 +55,7 @@ export async function saveVehicle(_: FormState, fd: FormData): Promise<FormState
     .single();
   if (error) return { error: error.message };
   await audit(ctx, "vehicle.created", "vehicle", data.id, { registration: payload.registration });
+  await syncExtraVehicles(ctx.org.id); // Growth/Pro: bill vehicles above the included ones
   revalidatePath("/app/fleet", "layout");
   redirect(`/app/fleet/vehicles/${data.id}`);
 }
@@ -62,6 +64,7 @@ export async function deleteVehicle(id: string) {
   const ctx = await requireOffice(["owner", "admin"]);
   await ctx.supabase.from("hl_vehicles").delete().eq("id", id).eq("org_id", ctx.org.id);
   await audit(ctx, "vehicle.deleted", "vehicle", id);
+  await syncExtraVehicles(ctx.org.id);
   revalidatePath("/app/fleet", "layout");
   redirect("/app/fleet/vehicles");
 }

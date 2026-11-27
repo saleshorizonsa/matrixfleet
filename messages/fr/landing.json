@@ -29,26 +29,68 @@
     "todaysJobs": "Missions du jour"
   },
   "stats": {
-    "s1": { "value": "30", "label": "pays pris en charge" },
-    "s2": { "value": "5", "label": "langues intégrées" },
-    "s3": { "value": "< 2 min", "label": "pour configurer votre entreprise" },
-    "s4": { "value": "14 jours", "label": "d'essai gratuit, tout inclus" }
+    "s1": {
+      "value": "30",
+      "label": "pays pris en charge"
+    },
+    "s2": {
+      "value": "5",
+      "label": "langues intégrées"
+    },
+    "s3": {
+      "value": "< 2 min",
+      "label": "pour configurer votre entreprise"
+    },
+    "s4": {
+      "value": "14 jours",
+      "label": "d'essai gratuit, tout inclus"
+    }
   },
   "features": {
     "eyebrow": "Tout au même endroit",
     "title": "Conçu pour le vrai quotidien des transporteurs",
     "subtitle": "Remplacez tableurs, groupes WhatsApp et bons papier par un seul outil apprécié du bureau comme des chauffeurs.",
     "items": {
-      "jobs": { "title": "Missions et devis instantanés", "body": "Créez une mission en quelques secondes. La distance et vos tarifs donnent un prix automatique — surcharges carburant et ADR comprises." },
-      "dispatch": { "title": "Planning glisser-déposer", "body": "Organisez la journée sur un tableau visuel. Glissez les missions sur chauffeurs et véhicules : tout le monde est informé instantanément." },
-      "tracking": { "title": "Suivi GPS en direct", "body": "Visualisez chaque véhicule sur une carte en temps réel — sans boîtier ni matériel à installer." },
-      "driver": { "title": "Appli chauffeur avec POD", "body": "Les chauffeurs voient leur tournée, naviguent et recueillent signatures et photos comme preuve de livraison sur n'importe quel téléphone." },
-      "invoicing": { "title": "Facturation conforme à la TVA", "body": "TVA britannique, TVA nationale UE et autoliquidation pour le B2B transfrontalier, avec numérotation séquentielle." },
-      "cmr": { "title": "Lettres de voiture CMR", "body": "Générez des lettres de voiture CMR en PDF pour l'international, pré-remplies à partir de la mission." },
-      "compliance": { "title": "Conformité et contrôles", "body": "Contrôles quotidiens des véhicules et rappels de contrôle technique, assurance, chronotachygraphe et permis — avant les amendes." },
-      "links": { "title": "Liens de suivi client", "body": "Envoyez un lien à vos couleurs pour que vos clients suivent leur livraison et la preuve de livraison — moins d'appels « où est-ce ? »." },
-      "gdpr": { "title": "RGPD et hébergement au R.-U.", "body": "Vos données restent à Londres, avec chiffrement, isolation par client, journal d'audit et export en un clic." },
-      "languages": { "title": "5 langues", "body": "Anglais, allemand, français, espagnol et polonais pour votre bureau et vos chauffeurs." }
+      "jobs": {
+        "title": "Missions et devis instantanés",
+        "body": "Créez une mission en quelques secondes. La distance et vos tarifs donnent un prix automatique — surcharges carburant et ADR comprises."
+      },
+      "dispatch": {
+        "title": "Planning glisser-déposer",
+        "body": "Organisez la journée sur un tableau visuel. Glissez les missions sur chauffeurs et véhicules : tout le monde est informé instantanément."
+      },
+      "tracking": {
+        "title": "Suivi GPS en direct",
+        "body": "Visualisez chaque véhicule sur une carte en temps réel — sans boîtier ni matériel à installer."
+      },
+      "driver": {
+        "title": "Appli chauffeur avec POD",
+        "body": "Les chauffeurs voient leur tournée, naviguent et recueillent signatures et photos comme preuve de livraison sur n'importe quel téléphone."
+      },
+      "invoicing": {
+        "title": "Facturation conforme à la TVA",
+        "body": "TVA britannique, TVA nationale UE et autoliquidation pour le B2B transfrontalier, avec numérotation séquentielle."
+      },
+      "cmr": {
+        "title": "Lettres de voiture CMR",
+        "body": "Générez des lettres de voiture CMR en PDF pour l'international, pré-remplies à partir de la mission."
+      },
+      "compliance": {
+        "title": "Conformité et contrôles",
+        "body": "Contrôles quotidiens des véhicules et rappels de contrôle technique, assurance, chronotachygraphe et permis — avant les amendes."
+      },
+      "links": {
+        "title": "Liens de suivi client",
+        "body": "Envoyez un lien à vos couleurs pour que vos clients suivent leur livraison et la preuve de livraison — moins d'appels « où est-ce ? »."
+      },
+      "gdpr": {
+        "title": "RGPD et hébergement au R.-U.",
+        "body": "Vos données restent à Londres, avec chiffrement, isolation par client, journal d'audit et export en un clic."
+      },
+      "languages": {
+        "title": "5 langues",
+        "body": "Anglais, allemand, français, espagnol et polonais pour votre bureau et vos chauffeurs."
+      }
     }
   },
   "driverSpot": {
@@ -69,9 +111,18 @@
     "eyebrow": "Fonctionnement",
     "title": "Opérationnel en un après-midi",
     "subtitle": "Sans consultants, sans matériel, sans engagement long.",
-    "s1": { "title": "Créez votre entreprise", "body": "Inscrivez-vous, choisissez votre pays : TVA, devise et unités sont configurées automatiquement." },
-    "s2": { "title": "Ajoutez véhicules et chauffeurs", "body": "Saisissez votre flotte et envoyez à chaque chauffeur un lien d'invitation vers l'appli." },
-    "s3": { "title": "Réservez, planifiez, livrez, facturez", "body": "Créez les missions, glissez-les sur les chauffeurs, suivez-les en direct et facturez dès la livraison." }
+    "s1": {
+      "title": "Créez votre entreprise",
+      "body": "Inscrivez-vous, choisissez votre pays : TVA, devise et unités sont configurées automatiquement."
+    },
+    "s2": {
+      "title": "Ajoutez véhicules et chauffeurs",
+      "body": "Saisissez votre flotte et envoyez à chaque chauffeur un lien d'invitation vers l'appli."
+    },
+    "s3": {
+      "title": "Réservez, planifiez, livrez, facturez",
+      "body": "Créez les missions, glissez-les sur les chauffeurs, suivez-les en direct et facturez dès la livraison."
+    }
   },
   "roi": {
     "eyebrow": "Calculateur de ROI",
@@ -96,7 +147,7 @@
   "pricing": {
     "eyebrow": "Tarifs",
     "title": "Des tarifs simples qui évoluent avec votre flotte",
-    "subtitle": "Un prix mensuel fixe par entreprise. Pas de frais par mission, pas de frais d'installation.",
+    "subtitle": "Des forfaits mensuels simples par entreprise. Aucuns frais par mission, aucuns frais de mise en service.",
     "currency": "Devise",
     "cta": "Essai gratuit",
     "trialNote": "Chaque formule commence par 14 jours d'essai gratuit de toutes les fonctionnalités Growth. Prix HT. Résiliable à tout moment.",
@@ -109,14 +160,38 @@
   "faq": {
     "eyebrow": "FAQ",
     "title": "Vos questions, nos réponses",
-    "q1": { "q": "Mes chauffeurs doivent-ils télécharger une application ?", "a": "Non. L'appli chauffeur fonctionne dans le navigateur et peut être ajoutée à l'écran d'accueil comme une appli classique sur iPhone et Android. Il suffit d'ouvrir le lien d'invitation." },
-    "q2": { "q": "MatrixFleet gère-t-il la TVA des transports transfrontaliers ?", "a": "Oui. MatrixFleet applique la TVA britannique, la TVA nationale de l'UE ou l'autoliquidation selon le lieu d'établissement de chacun et la validité du numéro de TVA du client, et imprime la mention correcte sur la facture. Vérifiez toujours les cas particuliers avec votre expert-comptable." },
-    "q3": { "q": "Où sont stockées mes données ?", "a": "Dans un centre de données à Londres, au Royaume-Uni, avec des sauvegardes chiffrées chaque nuit. MatrixFleet est conçu pour le RGPD britannique et européen ; le Royaume-Uni bénéficie d'une décision d'adéquation de l'UE." },
-    "q4": { "q": "Faut-il des boîtiers GPS dans les véhicules ?", "a": "Non. Le suivi en direct utilise le téléphone du chauffeur pendant son service. Le partage de position peut être arrêté à tout moment." },
-    "q5": { "q": "Puis-je l'utiliser dans ma langue ?", "a": "MatrixFleet est disponible en anglais, allemand, français, espagnol et polonais. Chaque utilisateur choisit sa langue." },
-    "q6": { "q": "Que se passe-t-il après l'essai gratuit ?", "a": "Choisissez une formule et payez mensuellement par carte. Sans formule, votre compte est mis en pause — rien n'est supprimé et vous pouvez souscrire plus tard." },
-    "q7": { "q": "Puis-je exporter mes données ?", "a": "Oui, à tout moment. Les propriétaires et administrateurs peuvent télécharger un export complet depuis Paramètres → Confidentialité et données." },
-    "q8": { "q": "Qui est derrière MatrixFleet ?", "a": "MatrixFleet est développé et exploité par Matrix Infotech Ltd, éditeur de logiciels britannique." }
+    "q1": {
+      "q": "Mes chauffeurs doivent-ils télécharger une application ?",
+      "a": "Non. L'appli chauffeur fonctionne dans le navigateur et peut être ajoutée à l'écran d'accueil comme une appli classique sur iPhone et Android. Il suffit d'ouvrir le lien d'invitation."
+    },
+    "q2": {
+      "q": "MatrixFleet gère-t-il la TVA des transports transfrontaliers ?",
+      "a": "Oui. MatrixFleet applique la TVA britannique, la TVA nationale de l'UE ou l'autoliquidation selon le lieu d'établissement de chacun et la validité du numéro de TVA du client, et imprime la mention correcte sur la facture. Vérifiez toujours les cas particuliers avec votre expert-comptable."
+    },
+    "q3": {
+      "q": "Où sont stockées mes données ?",
+      "a": "Dans un centre de données à Londres, au Royaume-Uni, avec des sauvegardes chiffrées chaque nuit. MatrixFleet est conçu pour le RGPD britannique et européen ; le Royaume-Uni bénéficie d'une décision d'adéquation de l'UE."
+    },
+    "q4": {
+      "q": "Faut-il des boîtiers GPS dans les véhicules ?",
+      "a": "Non. Le suivi en direct utilise le téléphone du chauffeur pendant son service. Le partage de position peut être arrêté à tout moment."
+    },
+    "q5": {
+      "q": "Puis-je l'utiliser dans ma langue ?",
+      "a": "MatrixFleet est disponible en anglais, allemand, français, espagnol et polonais. Chaque utilisateur choisit sa langue."
+    },
+    "q6": {
+      "q": "Que se passe-t-il après l'essai gratuit ?",
+      "a": "Choisissez une formule et payez mensuellement par carte. Sans formule, votre compte est mis en pause — rien n'est supprimé et vous pouvez souscrire plus tard."
+    },
+    "q7": {
+      "q": "Puis-je exporter mes données ?",
+      "a": "Oui, à tout moment. Les propriétaires et administrateurs peuvent télécharger un export complet depuis Paramètres → Confidentialité et données."
+    },
+    "q8": {
+      "q": "Qui est derrière MatrixFleet ?",
+      "a": "MatrixFleet est développé et exploité par Matrix Infotech Ltd, éditeur de logiciels britannique."
+    }
   },
   "cta": {
     "title": "Prêt à sortir la paperasse du transport ?",

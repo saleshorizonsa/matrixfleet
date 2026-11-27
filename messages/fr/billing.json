@@ -54,9 +54,13 @@
     "f_cmr": "Lettres de voiture CMR numériques",
     "f_reports": "Rapports de rentabilité et de performance",
     "f_everythingGrowth": "Tout Growth, plus",
-    "f_unlimited": "Véhicules et utilisateurs illimités",
+    "f_unlimited": "Utilisateurs illimités",
     "f_audit": "Journal d'audit complet et export des données",
     "f_priority": "Support prioritaire et accompagnement",
     "f_api": "Accès API et intégrations"
-  }
+  },
+  "includesVehicles": "{n} véhicules inclus",
+  "extraVehicle": "puis {price} par véhicule supplémentaire / mois",
+  "extraVehiclesBilled": "{n, plural, one {# véhicule supplémentaire} other {# véhicules supplémentaires}} au-delà des {included} inclus, facturés {price} chacun par mois",
+  "includedVehiclesNote": "{included} véhicules inclus — chaque véhicule supplémentaire coûte {price} par mois, ajouté automatiquement"
 }
