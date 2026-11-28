@@ -146,6 +146,10 @@
     "activity": "Historique",
     "emailSubject": "Facture {number} de {company}",
     "emailBody": "Bonjour,\n\nVeuillez trouver ci-joint la facture {number} d'un montant de {total}, à régler avant le {due}.\n\nRéférence de paiement : {number}\n\nCordialement,\n{company}",
-    "emailHint": "Téléchargez le PDF et joignez-le à l'e-mail qui s'ouvre."
+    "emailHint": "Téléchargez le PDF et joignez-le à l'e-mail qui s'ouvre.",
+    "whatsappText": "Bonjour, voici la facture {number} de {company} d'un montant de {total}, à régler le {due} :",
+    "whatsappCredit": "Bonjour, voici l'avoir {number} de {company} d'un montant de {total} :",
+    "emailSubjectCredit": "Avoir {number} de {company}",
+    "emailBodyCredit": "Bonjour,\n\nVeuillez trouver ci-joint l'avoir {number} d'un montant de {total}, qui corrige la facture {original}.\n\nCordialement,\n{company}"
   }
 }

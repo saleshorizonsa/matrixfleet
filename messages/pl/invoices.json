@@ -146,6 +146,10 @@
     "activity": "Historia",
     "emailSubject": "Faktura {number} od {company}",
     "emailBody": "Dzień dobry,\n\nw załączeniu przesyłamy fakturę {number} na kwotę {total}, płatną do {due}.\n\nTytuł przelewu: {number}\n\nZ poważaniem,\n{company}",
-    "emailHint": "Pobierz PDF i dołącz go do otwartej wiadomości e-mail."
+    "emailHint": "Pobierz PDF i dołącz go do otwartej wiadomości e-mail.",
+    "whatsappText": "Dzień dobry, przesyłamy fakturę {number} od {company} na kwotę {total}, termin płatności {due}:",
+    "whatsappCredit": "Dzień dobry, przesyłamy fakturę korygującą {number} od {company} na kwotę {total}:",
+    "emailSubjectCredit": "Faktura korygująca {number} od {company}",
+    "emailBodyCredit": "Dzień dobry,\n\nw załączeniu przesyłamy fakturę korygującą {number} na kwotę {total} do faktury {original}.\n\nZ poważaniem\n{company}"
   }
 }

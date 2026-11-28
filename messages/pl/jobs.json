@@ -140,5 +140,8 @@
     "created": "Zlecenie utworzone jako {status}",
     "statusChanged": "Status zmieniony na",
     "assigned": "Przydzielono do: {name}"
-  }
+  },
+  "cmrEmailSubject": "List przewozowy CMR {reference} od {company}",
+  "cmrEmailBody": "Dzień dobry,\n\nw załączeniu przesyłamy list przewozowy CMR dla zlecenia {reference}.\n\nZ poważaniem\n{company}",
+  "cmrWhatsapp": "Dzień dobry, przesyłamy list przewozowy CMR dla zlecenia {reference} od {company}:"
 }

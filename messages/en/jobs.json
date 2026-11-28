@@ -140,5 +140,8 @@
     "created": "Job created as {status}",
     "statusChanged": "Status changed to",
     "assigned": "Assigned to {name}"
-  }
+  },
+  "cmrEmailSubject": "CMR consignment note {reference} from {company}",
+  "cmrEmailBody": "Hello,\n\nPlease find attached the CMR consignment note for job {reference}.\n\nKind regards,\n{company}",
+  "cmrWhatsapp": "Hello, here is the CMR consignment note for job {reference} from {company}:"
 }

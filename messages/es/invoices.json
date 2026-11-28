@@ -146,6 +146,10 @@
     "activity": "Actividad",
     "emailSubject": "Factura {number} de {company}",
     "emailBody": "Hola:\n\nAdjuntamos la factura {number} por importe de {total}, con vencimiento el {due}.\n\nReferencia de pago: {number}\n\nUn saludo,\n{company}",
-    "emailHint": "Descarga el PDF y adjúntalo al correo que se abre."
+    "emailHint": "Descarga el PDF y adjúntalo al correo que se abre.",
+    "whatsappText": "Hola, aquí tienes la factura {number} de {company} por {total}, con vencimiento el {due}:",
+    "whatsappCredit": "Hola, aquí tienes la factura rectificativa {number} de {company} por {total}:",
+    "emailSubjectCredit": "Factura rectificativa {number} de {company}",
+    "emailBodyCredit": "Hola:\n\nAdjuntamos la factura rectificativa {number} por {total}, que corrige la factura {original}.\n\nUn saludo,\n{company}"
   }
 }

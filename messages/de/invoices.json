@@ -146,6 +146,10 @@
     "activity": "Verlauf",
     "emailSubject": "Rechnung {number} von {company}",
     "emailBody": "Guten Tag,\n\nanbei erhalten Sie die Rechnung {number} über {total}, fällig am {due}.\n\nVerwendungszweck: {number}\n\nMit freundlichen Grüßen\n{company}",
-    "emailHint": "Laden Sie das PDF herunter und hängen Sie es an die geöffnete E-Mail an."
+    "emailHint": "Laden Sie das PDF herunter und hängen Sie es an die geöffnete E-Mail an.",
+    "whatsappText": "Guten Tag, hier ist die Rechnung {number} von {company} über {total}, fällig am {due}:",
+    "whatsappCredit": "Guten Tag, hier ist die Gutschrift {number} von {company} über {total}:",
+    "emailSubjectCredit": "Gutschrift {number} von {company}",
+    "emailBodyCredit": "Guten Tag,\n\nanbei erhalten Sie die Gutschrift {number} über {total} zur Rechnung {original}.\n\nMit freundlichen Grüßen\n{company}"
   }
 }

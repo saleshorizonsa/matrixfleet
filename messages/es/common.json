@@ -57,5 +57,39 @@
   "errorTitle": "Algo ha salido mal",
   "errorReference": "Referencia",
   "tryAgain": "Reintentar",
-  "home": "Ir al inicio"
+  "home": "Ir al inicio",
+  "docs": {
+    "preview": "Vista previa",
+    "print": "Imprimir",
+    "download": "Descargar",
+    "email": "Correo",
+    "printHint": "Usa el botón de imprimir o compartir del navegador para imprimir el PDF.",
+    "emailTitle": "Enviar por correo",
+    "to": "Para",
+    "toHint": "Separa varias direcciones con comas (máx. 5).",
+    "cc": "Cc (opcional)",
+    "subject": "Asunto",
+    "message": "Mensaje",
+    "copyMe": "Enviarme una copia",
+    "send": "Enviar",
+    "emailSent": "Correo enviado con el PDF adjunto.",
+    "emailNote": "Se envía desde el buzón de MatrixFleet en nombre de tu empresa; las respuestas llegan al correo de tu empresa.",
+    "whatsappTitle": "Enviar por WhatsApp",
+    "openWhatsapp": "Abrir WhatsApp",
+    "whatsappNumber": "Número de WhatsApp del cliente",
+    "whatsappNumberHint": "Con prefijo de país, p. ej. +34. Déjalo vacío para elegir el chat en WhatsApp.",
+    "shareFile": "Compartir archivo PDF",
+    "shareFileHint": "En este teléfono puedes enviar el propio archivo PDF a WhatsApp.",
+    "creatingLink": "Creando un enlace seguro…",
+    "linkNote": "El mensaje incluye un enlace seguro a este PDF. Funciona 30 días y solo abre este documento.",
+    "errors": {
+      "invalidTo": "Revisa las direcciones de los destinatarios.",
+      "invalid": "Revisa los datos.",
+      "notFound": "Documento no encontrado.",
+      "notIssued": "Emite el documento antes de enviarlo.",
+      "mailNotConfigured": "El envío de correos aún no está activado. Contacta con el soporte de MatrixFleet.",
+      "rateLimited": "Demasiados correos en la última hora. Inténtalo más tarde.",
+      "sendFailed": "No se pudo enviar el correo. Inténtalo de nuevo."
+    }
+  }
 }

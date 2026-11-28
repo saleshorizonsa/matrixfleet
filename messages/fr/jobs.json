@@ -140,5 +140,8 @@
     "created": "Mission créée en tant que {status}",
     "statusChanged": "Statut changé en",
     "assigned": "Affectée à {name}"
-  }
+  },
+  "cmrEmailSubject": "Lettre de voiture CMR {reference} de {company}",
+  "cmrEmailBody": "Bonjour,\n\nVeuillez trouver ci-joint la lettre de voiture CMR de la mission {reference}.\n\nCordialement,\n{company}",
+  "cmrWhatsapp": "Bonjour, voici la lettre de voiture CMR de la mission {reference} de {company} :"
 }

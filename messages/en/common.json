@@ -57,5 +57,39 @@
   "errorTitle": "Something went wrong",
   "errorReference": "Reference",
   "tryAgain": "Try again",
-  "home": "Go to home page"
+  "home": "Go to home page",
+  "docs": {
+    "preview": "Preview",
+    "print": "Print",
+    "download": "Download",
+    "email": "Email",
+    "printHint": "Use your browser's print or share button to print the PDF.",
+    "emailTitle": "Send by email",
+    "to": "To",
+    "toHint": "Separate several addresses with commas (up to 5).",
+    "cc": "Cc (optional)",
+    "subject": "Subject",
+    "message": "Message",
+    "copyMe": "Send me a copy",
+    "send": "Send",
+    "emailSent": "Email sent with the PDF attached.",
+    "emailNote": "Sent from MatrixFleet's mailbox in your company's name; replies go to your company email.",
+    "whatsappTitle": "Send by WhatsApp",
+    "openWhatsapp": "Open WhatsApp",
+    "whatsappNumber": "Customer's WhatsApp number",
+    "whatsappNumberHint": "With country code, e.g. +966 or +44. Leave empty to choose the chat in WhatsApp.",
+    "shareFile": "Share PDF file",
+    "shareFileHint": "On this phone you can send the PDF file itself to WhatsApp.",
+    "creatingLink": "Creating a secure link…",
+    "linkNote": "The message contains a secure link to this PDF. It works for 30 days and opens only this document.",
+    "errors": {
+      "invalidTo": "Check the recipient email addresses.",
+      "invalid": "Please check the details.",
+      "notFound": "Document not found.",
+      "notIssued": "Issue the document before sending it.",
+      "mailNotConfigured": "Email sending is not switched on yet. Please contact MatrixFleet support.",
+      "rateLimited": "Too many emails sent in the last hour. Please try again later.",
+      "sendFailed": "The email could not be sent. Please try again."
+    }
+  }
 }

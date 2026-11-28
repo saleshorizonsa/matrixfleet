@@ -140,5 +140,8 @@
     "created": "Servicio creado como {status}",
     "statusChanged": "Estado cambiado a",
     "assigned": "Asignado a {name}"
-  }
+  },
+  "cmrEmailSubject": "Carta de porte CMR {reference} de {company}",
+  "cmrEmailBody": "Hola:\n\nAdjuntamos la carta de porte CMR del servicio {reference}.\n\nUn saludo,\n{company}",
+  "cmrWhatsapp": "Hola, aquí tienes la carta de porte CMR del servicio {reference} de {company}:"
 }

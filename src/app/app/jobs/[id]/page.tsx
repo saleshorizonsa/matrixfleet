@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 import {
-  ArrowLeft, Camera, CircleDot, Clock, FileText, Flame, MapPin, MessageSquare, Package, Pencil, Phone, Receipt, Route,
+  ArrowLeft, Camera, CircleDot, Clock, Flame, MapPin, MessageSquare, Package, Pencil, Phone, Receipt, Route,
   Signature, Snowflake, Truck, User, UserCheck,
 } from "lucide-react";
 import { requireOffice } from "@/lib/auth";
@@ -13,6 +13,7 @@ import { country } from "@/lib/countries";
 import { APP_URL } from "@/lib/utils";
 import { dateTime, date as fmtDate, distance, intlLocale, money } from "@/lib/format";
 import type { Customer, Driver, Job, JobEvent, Vehicle } from "@/lib/types";
+import { DocumentToolbar } from "@/components/documents/document-toolbar";
 import { AssignForm, CopyLink, DangerActions, DuplicateButton, NoteForm, StatusControls } from "./job-actions";
 
 export const metadata = { title: "Job" };
@@ -103,9 +104,21 @@ export default async function JobDetailPage({ params }: { params: Promise<{ id: 
           )}
           {canEdit && <DuplicateButton jobId={job.id} />}
           {job.status !== "quote" && (
-            <a href={`/api/pdf/cmr/${job.id}`} target="_blank" rel="noreferrer" className={buttonClass("secondary")}>
-              <FileText className="h-4 w-4" /> {t("actions.cmr")}
-            </a>
+            <DocumentToolbar
+              kind="cmr"
+              id={job.id}
+              filename={`CMR-${job.reference}.pdf`}
+              shareable={job.status !== "cancelled"}
+              email={{
+                to: job.customer?.email ?? "",
+                subject: t("cmrEmailSubject", { reference: job.reference, company: ctx.org.legal_name || ctx.org.name }),
+                message: t("cmrEmailBody", { reference: job.reference, company: ctx.org.legal_name || ctx.org.name }),
+              }}
+              whatsapp={{
+                phone: job.customer?.phone ?? "",
+                message: t("cmrWhatsapp", { reference: job.reference, company: ctx.org.legal_name || ctx.org.name }),
+              }}
+            />
           )}
           {job.invoice_id ? (
             <LinkButton href={`/app/invoices/${job.invoice_id}`} variant="secondary">

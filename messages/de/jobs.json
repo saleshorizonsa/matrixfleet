@@ -140,5 +140,8 @@
     "created": "Auftrag erstellt als {status}",
     "statusChanged": "Status geändert zu",
     "assigned": "Zugewiesen an {name}"
-  }
+  },
+  "cmrEmailSubject": "CMR-Frachtbrief {reference} von {company}",
+  "cmrEmailBody": "Guten Tag,\n\nanbei erhalten Sie den CMR-Frachtbrief für den Auftrag {reference}.\n\nMit freundlichen Grüßen\n{company}",
+  "cmrWhatsapp": "Guten Tag, hier ist der CMR-Frachtbrief für den Auftrag {reference} von {company}:"
 }

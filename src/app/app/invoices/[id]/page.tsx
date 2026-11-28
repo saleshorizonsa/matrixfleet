@@ -113,8 +113,22 @@ export default async function InvoicePage({
           number={invoice.number}
           status={status}
           buyerEmail={buyer.email ?? customer?.email ?? null}
-          emailSubject={t("detail.emailSubject", { number: invoice.number, company })}
-          emailBody={t("detail.emailBody", { number: invoice.number, total: totalStr, due: date(invoice.due_date, loc), company })}
+          emailSubject={
+            invoice.doc_type === "credit_note"
+              ? t("detail.emailSubjectCredit", { number: invoice.number, company })
+              : t("detail.emailSubject", { number: invoice.number, company })
+          }
+          emailBody={
+            invoice.doc_type === "credit_note"
+              ? t("detail.emailBodyCredit", { number: invoice.number, total: totalStr, original: original?.number ?? "—", company })
+              : t("detail.emailBody", { number: invoice.number, total: totalStr, due: date(invoice.due_date, loc), company })
+          }
+          buyerPhone={customer?.phone ?? null}
+          whatsappText={
+            invoice.doc_type === "credit_note"
+              ? t("detail.whatsappCredit", { number: invoice.number, total: totalStr, company })
+              : t("detail.whatsappText", { number: invoice.number, total: totalStr, due: date(invoice.due_date, loc), company })
+          }
           docType={invoice.doc_type ?? "invoice"}
           einvoiceLocked={einvoiceLocked}
           einvoicing={connected}

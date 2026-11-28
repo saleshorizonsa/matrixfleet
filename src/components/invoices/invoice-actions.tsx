@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { Ban, CheckCircle2, Copy, Download, ExternalLink, FileMinus2, Loader2, Mail, Pencil, Send, Undo2, Wallet } from "lucide-react";
+import { Ban, CheckCircle2, Copy, FileMinus2, Loader2, Pencil, Send, Undo2, Wallet } from "lucide-react";
+import { DocumentToolbar } from "@/components/documents/document-toolbar";
 import { createCreditNote, duplicateInvoice, markPaid, markSent, markUnpaid, voidInvoice } from "@/app/app/invoices/actions";
 import { Button, Field, Input, Textarea, buttonClass } from "@/components/ui";
 import { ConfirmButton, Modal } from "@/components/app/client";
@@ -17,6 +18,8 @@ export function InvoiceActions({
   buyerEmail,
   emailSubject,
   emailBody,
+  buyerPhone = null,
+  whatsappText = "",
   docType = "invoice",
   einvoiceLocked = false,
   einvoicing = false,
@@ -27,6 +30,8 @@ export function InvoiceActions({
   buyerEmail: string | null;
   emailSubject: string;
   emailBody: string;
+  buyerPhone?: string | null;
+  whatsappText?: string;
   docType?: "invoice" | "credit_note" | "debit_note";
   /** submitted to ZATCA: cannot be voided or edited, only credited */
   einvoiceLocked?: boolean;
@@ -55,17 +60,17 @@ export function InvoiceActions({
       }
     });
 
-  const mailto = `mailto:${buyerEmail ?? ""}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-
   return (
     <div className="flex flex-wrap items-center gap-2">
       {pending && <Loader2 className="h-4 w-4 animate-spin text-slate-400" />}
-      <a href={`/api/pdf/invoice/${id}?download=1`} className={buttonClass("secondary", "md")}>
-        <Download className="h-4 w-4" /> {t("detail.downloadPdf")}
-      </a>
-      <a href={`/api/pdf/invoice/${id}`} target="_blank" rel="noreferrer" className={buttonClass("ghost", "md")} title={t("detail.viewPdf")}>
-        <ExternalLink className="h-4 w-4" />
-      </a>
+      <DocumentToolbar
+        kind="invoice"
+        id={id}
+        filename={`${number}.pdf`}
+        shareable={status !== "draft" && status !== "void"}
+        email={{ to: buyerEmail ?? "", subject: emailSubject, message: emailBody }}
+        whatsapp={{ phone: buyerPhone ?? "", message: whatsappText }}
+      />
 
       {status === "draft" && (
         <>
@@ -99,16 +104,6 @@ export function InvoiceActions({
         </Button>
       )}
 
-      {status !== "void" && (
-        <a
-          href={mailto}
-          className={buttonClass("ghost", "md")}
-          onClick={() => toast.info(t("detail.emailHint"))}
-          title={t("detail.emailHint")}
-        >
-          <Mail className="h-4 w-4" /> {t("detail.email")}
-        </a>
-      )}
       {docType === "invoice" && (
         <Button variant="ghost" disabled={pending} onClick={() => run(() => duplicateInvoice(id))}>
           <Copy className="h-4 w-4" /> {t("detail.duplicate")}

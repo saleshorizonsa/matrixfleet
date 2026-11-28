@@ -24,7 +24,8 @@ export function buildCsp(nonce: string, isDev: boolean) {
     "media-src": ["'self'", "blob:"],
     "worker-src": ["'self'", "blob:"],
     "manifest-src": ["'self'"],
-    "frame-src": ["'none'"],
+    // in-app PDF preview/print: a blob: URL created by our own page (no third-party frames)
+    "frame-src": ["'self'", "blob:"],
     "frame-ancestors": ["'none'"],
     "object-src": ["'none'"],
     "base-uri": ["'self'"],
