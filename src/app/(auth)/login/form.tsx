@@ -8,13 +8,14 @@ import { Field, Input } from "@/components/ui";
 import { SubmitButton } from "@/components/app/client";
 import { cn } from "@/lib/utils";
 
-export function LoginForm({ next, initialError }: { next: string; initialError?: string }) {
+export function LoginForm({ next, initialError, initialMessage }: { next: string; initialError?: string; initialMessage?: string }) {
   const t = useTranslations("auth");
   const [mode, setMode] = React.useState<"password" | "magic">("password");
   const [pwState, pwAction] = React.useActionState(signIn, undefined);
   const [mlState, mlAction] = React.useActionState(sendMagicLink, undefined);
   const state = mode === "password" ? pwState : mlState;
   const error = state?.error ?? initialError;
+  const message = state?.message ?? (state ? undefined : initialMessage);
 
   return (
     <div className="animate-fade-up">
@@ -51,7 +52,7 @@ export function LoginForm({ next, initialError }: { next: string; initialError?:
           </Field>
         )}
         {error && <p className="rounded-lg bg-rose-50 px-3 py-2 text-sm text-rose-700">{t.has(`errors.${error}`) ? t(`errors.${error}`) : error}</p>}
-        {state?.message && <p className="rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-700">{t(`messages.${state.message}`)}</p>}
+        {message && <p className="rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-700">{t(`messages.${message}`)}</p>}
         <SubmitButton className="w-full" size="lg">
           {mode === "password" ? t("signIn") : t("sendLink")}
         </SubmitButton>
