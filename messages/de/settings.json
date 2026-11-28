@@ -26,7 +26,8 @@
     "lastOwner": "Jedes Unternehmen braucht mindestens einen Inhaber.",
     "lastOwnerAccount": "Sie sind der einzige Inhaber. Machen Sie zuerst jemand anderen zum Inhaber oder löschen Sie das gesamte Unternehmen.",
     "notFound": "Nicht gefunden.",
-    "confirmMismatch": "Der Bestätigungstext stimmt nicht überein."
+    "confirmMismatch": "Der Bestätigungstext stimmt nicht überein.",
+    "erase_failed": "Ihre Daten konnten gerade nicht gelöscht werden. Es wurde nichts entfernt – bitte versuchen Sie es erneut oder kontaktieren Sie den Support."
   },
   "company": {
     "identity": "Firmendaten",
@@ -145,7 +146,7 @@
     "retention": {
       "invoices": "Rechnungen werden so lange aufbewahrt, wie Ihr Konto besteht, damit Sie steuerliche Aufbewahrungspflichten erfüllen (6 Jahre UK, bis zu 10 Jahre in einigen EU-Ländern).",
       "jobs": "Aufträge, Unterschriften und Fotos der Zustellnachweise bleiben erhalten, bis Sie sie löschen oder Ihr Konto schließen.",
-      "gps": "GPS-Positionen von Fahrern werden nur während der Schicht bei aktivierter Standortfreigabe aufgezeichnet.",
+      "gps": "GPS-Positionen werden nur erfasst, solange ein Fahrer seinen Standort teilt. Standortverläufe, die älter als 90 Tage sind, werden automatisch gelöscht.",
       "checks": "Abfahrtskontrollen werden aufbewahrt, damit Sie die Verkehrssicherheit gegenüber Behörden nachweisen können.",
       "audit": "Das Audit-Log zeichnet zur Nachvollziehbarkeit auf, wer was geändert hat.",
       "backups": "Wenn Sie Ihr Unternehmen löschen, werden die Daten sofort entfernt und verschwinden innerhalb von 14 Tagen aus den Backups."
@@ -154,11 +155,11 @@
     "dangerTitle": "Gefahrenbereich",
     "dangerHint": "Diese Aktionen sind endgültig und können nicht rückgängig gemacht werden.",
     "deleteMeTitle": "Mein Konto löschen",
-    "deleteMeBody": "Entfernt Ihren persönlichen Login. Von Ihnen erstellte Unternehmensdaten bleiben beim Unternehmen.",
+    "deleteMeBody": "Löscht Ihr Login, entfernt Ihre E-Mail-Adresse aus dem Protokoll und löscht Ihren GPS-Verlauf. Geschäftsdaten, die Sie angelegt haben (Aufträge, Rechnungen), bleiben beim Unternehmen.",
     "typeDelete": "Geben Sie DELETE zur Bestätigung ein",
     "deleteMeButton": "Mein Konto löschen",
     "deleteOrgTitle": "Unternehmen löschen",
-    "deleteOrgBody": "Kündigt Ihr Abonnement und löscht dauerhaft alle Aufträge, Kunden, Rechnungen, Fahrer, Fahrzeuge und Dateien.",
+    "deleteOrgBody": "Kündigt Ihr Abonnement, löscht Ihr Abrechnungsprofil bei Stripe und löscht dauerhaft alle Aufträge, Kunden, Rechnungen, Fahrer, Fahrzeuge und Dateien – sowie die Logins aller Personen im Unternehmen, die keinem anderen Unternehmen angehören.",
     "typeName": "Geben Sie „{name}“ zur Bestätigung ein",
     "deleteOrgButton": "Unternehmen endgültig löschen"
   },

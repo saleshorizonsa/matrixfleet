@@ -1,5 +1,10 @@
 {
-  "tabs": { "jobs": "Jobs", "check": "Check", "shift": "Shift", "profile": "Profile" },
+  "tabs": {
+    "jobs": "Jobs",
+    "check": "Check",
+    "shift": "Shift",
+    "profile": "Profile"
+  },
   "gps": {
     "live": "Live",
     "problem": "GPS issue",
@@ -66,7 +71,10 @@
       "collected": "Collected — now in transit",
       "arrived_delivery": "Arrival at delivery recorded"
     },
-    "errors": { "notFound": "Job not found.", "closed": "This job is already closed." },
+    "errors": {
+      "notFound": "Job not found.",
+      "closed": "This job is already closed."
+    },
     "reportProblem": "Report a problem",
     "problemPlaceholder": "What happened? The office will be notified.",
     "problemSent": "Problem reported to the office",
@@ -122,7 +130,11 @@
       "dashboard": "Tachograph & warning lights",
       "safety": "First aid & fire extinguisher"
     },
-    "result": { "ok": "OK", "defect": "Defect", "na": "Not applicable" },
+    "result": {
+      "ok": "OK",
+      "defect": "Defect",
+      "na": "Not applicable"
+    },
     "defectDetails": "Describe the defect",
     "defectPlaceholder": "What is wrong and where?",
     "addPhoto": "Add photo",
@@ -173,13 +185,20 @@
       "daily": "You have reached 9 hours today. The daily driving limit is 9h (10h twice a week).",
       "weekly": "You have reached 56 hours this week — the weekly driving limit."
     },
-    "errors": { "shiftOpen": "You already have a shift running.", "notFound": "Shift not found." },
+    "errors": {
+      "shiftOpen": "You already have a shift running.",
+      "notFound": "Shift not found."
+    },
     "disclaimer": "Guidance only, based on shift times (EU/GB rules 561/2006). This is not a tachograph — your tachograph record is the legal record.",
     "ukDomestic": "For UK domestic driving, GB domestic rules may apply instead (10h driving, 11h duty)."
   },
   "profile": {
     "documents": "My documents",
-    "doc": { "licence": "Driving licence", "cpc": "Driver CPC", "tacho": "Tachograph card" },
+    "doc": {
+      "licence": "Driving licence",
+      "cpc": "Driver CPC",
+      "tacho": "Tachograph card"
+    },
     "expires": "Expires {date}",
     "notRecorded": "Not recorded",
     "expired": "Expired",
@@ -187,6 +206,12 @@
     "documentsHint": "Details wrong? Ask the office to update them.",
     "language": "Language",
     "officeApp": "Open office dashboard",
-    "signOut": "Sign out"
+    "signOut": "Sign out",
+    "deleteTitle": "Delete my account",
+    "deleteBody": "Erases your login and your location history. Deliveries you completed stay with your company. Ask your company to remove your driver details (licence, phone).",
+    "deleteConfirm": "Type DELETE to confirm",
+    "deleteButton": "Delete my account",
+    "deleteMismatch": "Type DELETE in capitals to confirm.",
+    "deleteFailed": "Your account could not be deleted right now. Please try again."
   }
 }

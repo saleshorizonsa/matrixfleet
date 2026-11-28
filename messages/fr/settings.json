@@ -26,7 +26,8 @@
     "lastOwner": "Chaque entreprise doit avoir au moins un propriétaire.",
     "lastOwnerAccount": "Vous êtes le seul propriétaire. Désignez d'abord un autre propriétaire ou supprimez toute l'entreprise.",
     "notFound": "Introuvable.",
-    "confirmMismatch": "Le texte de confirmation ne correspond pas."
+    "confirmMismatch": "Le texte de confirmation ne correspond pas.",
+    "erase_failed": "Vos données n'ont pas pu être effacées pour le moment. Rien n'a été supprimé — réessayez ou contactez le support."
   },
   "company": {
     "identity": "Coordonnées de l'entreprise",
@@ -145,7 +146,7 @@
     "retention": {
       "invoices": "Les factures sont conservées tant que votre compte existe, afin de respecter les obligations fiscales (6 ans au R.-U., jusqu'à 10 ans dans certains pays de l'UE).",
       "jobs": "Les missions, signatures et photos de preuve de livraison sont conservées jusqu'à ce que vous les supprimiez ou fermiez votre compte.",
-      "gps": "Les positions GPS des chauffeurs ne sont enregistrées que pendant leur service, avec le partage de position activé.",
+      "gps": "Les positions GPS ne sont enregistrées que lorsqu'un chauffeur partage sa position. L'historique de plus de 90 jours est supprimé automatiquement.",
       "checks": "Les contrôles de véhicule sont conservés pour prouver leur bon état auprès des autorités.",
       "audit": "Le journal d'audit enregistre qui a modifié quoi, à des fins de responsabilité.",
       "backups": "Lorsque vous supprimez votre entreprise, les données sont effacées immédiatement et disparaissent des sauvegardes sous 14 jours."
@@ -154,11 +155,11 @@
     "dangerTitle": "Zone sensible",
     "dangerHint": "Ces actions sont définitives et irréversibles.",
     "deleteMeTitle": "Supprimer mon compte",
-    "deleteMeBody": "Supprime votre accès personnel. Les données d'entreprise que vous avez créées restent dans l'entreprise.",
+    "deleteMeBody": "Supprime votre compte de connexion, retire votre e-mail du journal d'audit et efface votre historique GPS. Les données métier que vous avez créées (missions, factures) restent à l'entreprise.",
     "typeDelete": "Tapez DELETE pour confirmer",
     "deleteMeButton": "Supprimer mon compte",
     "deleteOrgTitle": "Supprimer l'entreprise",
-    "deleteOrgBody": "Résilie votre abonnement et efface définitivement toutes les missions, clients, factures, chauffeurs, véhicules et fichiers.",
+    "deleteOrgBody": "Résilie votre abonnement, supprime votre profil de facturation chez Stripe et efface définitivement toutes les missions, clients, factures, chauffeurs, véhicules et fichiers — ainsi que les comptes de toutes les personnes de l'entreprise qui n'appartiennent à aucune autre entreprise.",
     "typeName": "Tapez « {name} » pour confirmer",
     "deleteOrgButton": "Supprimer définitivement l'entreprise"
   },

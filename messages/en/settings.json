@@ -26,7 +26,8 @@
     "lastOwner": "Every company needs at least one owner.",
     "lastOwnerAccount": "You are the only owner. Make someone else owner first, or delete the whole company.",
     "notFound": "Not found.",
-    "confirmMismatch": "The confirmation text does not match."
+    "confirmMismatch": "The confirmation text does not match.",
+    "erase_failed": "Your data could not be erased right now. Nothing was deleted — please try again or contact support."
   },
   "company": {
     "identity": "Company details",
@@ -145,7 +146,7 @@
     "retention": {
       "invoices": "Invoices are kept for as long as your account exists, so you can meet tax record rules (6 years UK, up to 10 years in some EU countries).",
       "jobs": "Jobs, proof-of-delivery signatures and photos are kept until you delete them or close your account.",
-      "gps": "Driver GPS positions are only recorded while a driver is on shift with location sharing switched on.",
+      "gps": "Driver GPS positions are only recorded while a driver shares their location. Location history older than 90 days is deleted automatically.",
       "checks": "Vehicle walkaround checks are kept so you can evidence roadworthiness to the DVSA and other authorities.",
       "audit": "The audit log records who changed what, for accountability.",
       "backups": "When you delete your company, data is removed immediately and disappears from backups within 14 days."
@@ -154,11 +155,11 @@
     "dangerTitle": "Danger zone",
     "dangerHint": "These actions are permanent and cannot be undone.",
     "deleteMeTitle": "Delete my account",
-    "deleteMeBody": "Removes your personal login. Company data you created stays with the company.",
+    "deleteMeBody": "Erases your login, removes your email from the audit log and deletes your GPS history. Business records you created (jobs, invoices) stay with the company.",
     "typeDelete": "Type DELETE to confirm",
     "deleteMeButton": "Delete my account",
     "deleteOrgTitle": "Delete company",
-    "deleteOrgBody": "Cancels your subscription and permanently erases all jobs, customers, invoices, drivers, vehicles and files.",
+    "deleteOrgBody": "Cancels your subscription, deletes your billing profile at Stripe and permanently erases all jobs, customers, invoices, drivers, vehicles and files — and the logins of everyone in the company who isn't a member of another company.",
     "typeName": "Type “{name}” to confirm",
     "deleteOrgButton": "Delete company permanently"
   },

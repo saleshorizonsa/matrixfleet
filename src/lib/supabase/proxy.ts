@@ -1,6 +1,7 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 import { DB_SCHEMA } from "./schema";
+import { AUTH_COOKIE_OPTIONS } from "./cookie-options";
 
 const PROTECTED = ["/app", "/driver", "/onboarding"];
 
@@ -13,6 +14,7 @@ export async function updateSession(request: NextRequest) {
 
   const supabase = createServerClient(url, key, {
     db: { schema: DB_SCHEMA },
+    cookieOptions: AUTH_COOKIE_OPTIONS,
     cookies: {
       getAll() {
         return request.cookies.getAll();

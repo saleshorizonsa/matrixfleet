@@ -1,5 +1,10 @@
 {
-  "tabs": { "jobs": "Zlecenia", "check": "Kontrola", "shift": "Zmiana", "profile": "Profil" },
+  "tabs": {
+    "jobs": "Zlecenia",
+    "check": "Kontrola",
+    "shift": "Zmiana",
+    "profile": "Profil"
+  },
   "gps": {
     "live": "Na żywo",
     "problem": "Problem z GPS",
@@ -66,7 +71,10 @@
       "collected": "Załadowano — w drodze",
       "arrived_delivery": "Zapisano przyjazd na rozładunek"
     },
-    "errors": { "notFound": "Nie znaleziono zlecenia.", "closed": "To zlecenie jest już zamknięte." },
+    "errors": {
+      "notFound": "Nie znaleziono zlecenia.",
+      "closed": "To zlecenie jest już zamknięte."
+    },
     "reportProblem": "Zgłoś problem",
     "problemPlaceholder": "Co się stało? Biuro zostanie powiadomione.",
     "problemSent": "Problem zgłoszony do biura",
@@ -122,7 +130,11 @@
       "dashboard": "Tachograf i kontrolki",
       "safety": "Apteczka i gaśnica"
     },
-    "result": { "ok": "OK", "defect": "Usterka", "na": "Nie dotyczy" },
+    "result": {
+      "ok": "OK",
+      "defect": "Usterka",
+      "na": "Nie dotyczy"
+    },
     "defectDetails": "Opisz usterkę",
     "defectPlaceholder": "Co jest nie tak i gdzie?",
     "addPhoto": "Dodaj zdjęcie",
@@ -173,13 +185,20 @@
       "daily": "Osiągnięto dziś 9 godzin. Dzienny limit jazdy to 9 h (10 h dwa razy w tygodniu).",
       "weekly": "Osiągnięto 56 godzin w tym tygodniu — tygodniowy limit jazdy."
     },
-    "errors": { "shiftOpen": "Masz już rozpoczętą zmianę.", "notFound": "Nie znaleziono zmiany." },
+    "errors": {
+      "shiftOpen": "Masz już rozpoczętą zmianę.",
+      "notFound": "Nie znaleziono zmiany."
+    },
     "disclaimer": "Wyłącznie orientacyjnie, na podstawie godzin zmiany (przepisy UE/GB 561/2006). To nie jest tachograf — wiążący prawnie jest zapis z tachografu.",
     "ukDomestic": "Przy przewozach krajowych w Wielkiej Brytanii mogą obowiązywać przepisy krajowe GB (10 h jazdy, 11 h pracy)."
   },
   "profile": {
     "documents": "Moje dokumenty",
-    "doc": { "licence": "Prawo jazdy", "cpc": "Kwalifikacja zawodowa (CPC)", "tacho": "Karta kierowcy" },
+    "doc": {
+      "licence": "Prawo jazdy",
+      "cpc": "Kwalifikacja zawodowa (CPC)",
+      "tacho": "Karta kierowcy"
+    },
     "expires": "Ważne do {date}",
     "notRecorded": "Brak danych",
     "expired": "Wygasło",
@@ -187,6 +206,12 @@
     "documentsHint": "Błędne dane? Poproś biuro o aktualizację.",
     "language": "Język",
     "officeApp": "Otwórz panel biura",
-    "signOut": "Wyloguj się"
+    "signOut": "Wyloguj się",
+    "deleteTitle": "Usuń moje konto",
+    "deleteBody": "Usuwa Twoje konto logowania i historię lokalizacji. Zrealizowane dostawy pozostają w Twojej firmie. Poproś firmę o usunięcie Twoich danych kierowcy (prawo jazdy, telefon).",
+    "deleteConfirm": "Wpisz DELETE, aby potwierdzić",
+    "deleteButton": "Usuń moje konto",
+    "deleteMismatch": "Wpisz DELETE wielkimi literami, aby potwierdzić.",
+    "deleteFailed": "Nie udało się teraz usunąć konta. Spróbuj ponownie."
   }
 }

@@ -10,6 +10,7 @@ import { str, num } from "@/lib/utils";
 import { isLocale } from "@/i18n/config";
 import { country } from "@/lib/countries";
 import type { Role } from "@/lib/types";
+import { eraseOrphanedUsers, eraseUserAccount } from "@/lib/account-deletion";
 
 export type ActionState = { ok?: boolean; error?: string; token?: string } | undefined;
 
@@ -133,7 +134,7 @@ export async function inviteMember(_: ActionState, fd: FormData): Promise<Action
     .select("token")
     .single();
   if (error) return { error: error.message };
-  await audit(ctx, "invitation.created", "invitation", email, { role });
+  await audit(ctx, "invitation.created", "invitation", undefined, { role }); // no email in the audit trail
   revalidatePath("/app/settings/team");
   return { ok: true, token: data.token };
 }
@@ -208,6 +209,17 @@ export async function deleteOrganization(_: ActionState, fd: FormData): Promise<
   await audit(ctx, "organization.deleted", "organization", ctx.org.id, { name: ctx.org.name });
 
   const admin = createAdminClient();
+  // remember who belonged to the company: their logins are erased afterwards if they have no other company
+  const { data: members } = await admin.from("hl_memberships").select("user_id").eq("org_id", ctx.org.id);
+  const memberIds = (members ?? []).map((m) => m.user_id as string);
+  // Stripe keeps billing history for tax law, but the customer profile (name, email, address) is deleted
+  if (ctx.org.stripe_customer_id && billingConfigured()) {
+    try {
+      await getStripe().customers.del(ctx.org.stripe_customer_id);
+    } catch {
+      /* already deleted */
+    }
+  }
   // remove stored files (POD + logos) for this organisation
   for (const bucket of ["hl-pod", "hl-logos"]) {
     const { data: items } = await admin.storage.from(bucket).list(ctx.org.id, { limit: 1000 });
@@ -227,6 +239,7 @@ export async function deleteOrganization(_: ActionState, fd: FormData): Promise<
   const { error } = await admin.from("hl_organizations").delete().eq("id", ctx.org.id);
   if (error) return { error: error.message };
   await ctx.supabase.auth.signOut();
+  await eraseOrphanedUsers(memberIds); // includes the owner, unless they belong to another company
   redirect("/?deleted=1");
 }
 
@@ -234,12 +247,9 @@ export async function deleteMyAccount(_: ActionState, fd: FormData): Promise<Act
   const ctx = await requireOffice();
   if (str(fd, "confirm") !== "DELETE") return { error: "confirmMismatch" };
   if (ctx.membership.role === "owner" && (await ownerCount(ctx)) <= 1) return { error: "lastOwnerAccount" };
-  await audit(ctx, "user.deleted", "user", ctx.user.id, { email: ctx.user.email });
-  const admin = createAdminClient();
-  await admin.from("hl_drivers").update({ user_id: null }).eq("user_id", ctx.user.id);
-  await admin.from("hl_memberships").delete().eq("user_id", ctx.user.id);
-  const { error } = await admin.auth.admin.deleteUser(ctx.user.id);
-  if (error) return { error: error.message };
+  await audit(ctx, "user.deleted", "user", ctx.user.id); // no email: the point is to forget it
+  const res = await eraseUserAccount(ctx.user.id, ctx.user.email);
+  if ("error" in res) return { error: res.error };
   await ctx.supabase.auth.signOut();
   redirect("/?deleted=1");
 }

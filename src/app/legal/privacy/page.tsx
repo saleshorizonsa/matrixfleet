@@ -57,6 +57,9 @@ export default function PrivacyPolicyPage() {
           <tr><td>Vercel Inc.</td><td>Application hosting and content delivery</td><td>Global edge network; EU/UK regions where available</td></tr>
           <tr><td>Stripe Payments Europe Ltd / Stripe Inc.</td><td>Subscription billing and payments</td><td>EU/UK, USA</td></tr>
           <tr><td>OpenStreetMap Foundation and map/routing services</td><td>Map tiles, address search and route distances (addresses only, no names)</td><td>UK/EU</td></tr>
+          <tr><td>Zoho Corporation (Zoho Mail)</td><td>Sending account emails (sign-up confirmation, sign-in links, password resets): recipient email address and the link</td><td>USA (Zoho US data centre) — UK IDTA / EU SCCs</td></tr>
+          <tr><td>European Commission VIES and HMRC</td><td>Checking a customer&apos;s VAT number when you click Verify (VAT number only)</td><td>EU / UK</td></tr>
+          <tr><td>Google Maps / Waze</td><td>Only when a driver taps Navigate: the destination address or coordinates, sent from the driver&apos;s phone to the app they choose</td><td>Google: USA/global</td></tr>
         </tbody>
       </table>
 

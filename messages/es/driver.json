@@ -1,5 +1,10 @@
 {
-  "tabs": { "jobs": "Servicios", "check": "Revisión", "shift": "Jornada", "profile": "Perfil" },
+  "tabs": {
+    "jobs": "Servicios",
+    "check": "Revisión",
+    "shift": "Jornada",
+    "profile": "Perfil"
+  },
   "gps": {
     "live": "En directo",
     "problem": "Fallo de GPS",
@@ -66,7 +71,10 @@
       "collected": "Cargado — en tránsito",
       "arrived_delivery": "Llegada a la entrega registrada"
     },
-    "errors": { "notFound": "Servicio no encontrado.", "closed": "Este servicio ya está cerrado." },
+    "errors": {
+      "notFound": "Servicio no encontrado.",
+      "closed": "Este servicio ya está cerrado."
+    },
     "reportProblem": "Comunicar una incidencia",
     "problemPlaceholder": "¿Qué ha pasado? Se avisará a la oficina.",
     "problemSent": "Incidencia comunicada a la oficina",
@@ -122,7 +130,11 @@
       "dashboard": "Tacógrafo y testigos",
       "safety": "Botiquín y extintor"
     },
-    "result": { "ok": "OK", "defect": "Defecto", "na": "No aplica" },
+    "result": {
+      "ok": "OK",
+      "defect": "Defecto",
+      "na": "No aplica"
+    },
     "defectDetails": "Describe el defecto",
     "defectPlaceholder": "¿Qué falla y dónde?",
     "addPhoto": "Añadir foto",
@@ -173,13 +185,20 @@
       "daily": "Has llegado a 9 horas hoy. El límite diario de conducción es de 9 h (10 h dos veces por semana).",
       "weekly": "Has llegado a 56 horas esta semana — el límite semanal de conducción."
     },
-    "errors": { "shiftOpen": "Ya tienes una jornada en curso.", "notFound": "Jornada no encontrada." },
+    "errors": {
+      "shiftOpen": "Ya tienes una jornada en curso.",
+      "notFound": "Jornada no encontrada."
+    },
     "disclaimer": "Solo orientativo, según las horas de jornada (Reglamento UE/GB 561/2006). No sustituye al tacógrafo — el registro del tacógrafo es el documento legal.",
     "ukDomestic": "En transporte nacional dentro del Reino Unido pueden aplicarse las normas nacionales británicas (10 h de conducción, 11 h de servicio)."
   },
   "profile": {
     "documents": "Mis documentos",
-    "doc": { "licence": "Permiso de conducir", "cpc": "CAP (Certificado de Aptitud Profesional)", "tacho": "Tarjeta de conductor" },
+    "doc": {
+      "licence": "Permiso de conducir",
+      "cpc": "CAP (Certificado de Aptitud Profesional)",
+      "tacho": "Tarjeta de conductor"
+    },
     "expires": "Caduca el {date}",
     "notRecorded": "Sin registrar",
     "expired": "Caducado",
@@ -187,6 +206,12 @@
     "documentsHint": "¿Datos incorrectos? Pide a la oficina que los actualice.",
     "language": "Idioma",
     "officeApp": "Abrir panel de oficina",
-    "signOut": "Cerrar sesión"
+    "signOut": "Cerrar sesión",
+    "deleteTitle": "Eliminar mi cuenta",
+    "deleteBody": "Borra tu acceso y tu historial de ubicación. Las entregas que hiciste siguen en tu empresa. Pide a tu empresa que elimine tus datos de conductor (carné, teléfono).",
+    "deleteConfirm": "Escribe DELETE para confirmar",
+    "deleteButton": "Eliminar mi cuenta",
+    "deleteMismatch": "Escribe DELETE en mayúsculas para confirmar.",
+    "deleteFailed": "No hemos podido eliminar tu cuenta ahora mismo. Inténtalo de nuevo."
   }
 }

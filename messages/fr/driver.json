@@ -1,5 +1,10 @@
 {
-  "tabs": { "jobs": "Missions", "check": "Contrôle", "shift": "Service", "profile": "Profil" },
+  "tabs": {
+    "jobs": "Missions",
+    "check": "Contrôle",
+    "shift": "Service",
+    "profile": "Profil"
+  },
   "gps": {
     "live": "En direct",
     "problem": "Problème GPS",
@@ -66,7 +71,10 @@
       "collected": "Chargé — en route",
       "arrived_delivery": "Arrivée à la livraison enregistrée"
     },
-    "errors": { "notFound": "Mission introuvable.", "closed": "Cette mission est déjà clôturée." },
+    "errors": {
+      "notFound": "Mission introuvable.",
+      "closed": "Cette mission est déjà clôturée."
+    },
     "reportProblem": "Signaler un problème",
     "problemPlaceholder": "Que s'est-il passé ? L'exploitation sera prévenue.",
     "problemSent": "Problème signalé à l'exploitation",
@@ -122,7 +130,11 @@
       "dashboard": "Chronotachygraphe et voyants",
       "safety": "Trousse de secours et extincteur"
     },
-    "result": { "ok": "OK", "defect": "Défaut", "na": "Sans objet" },
+    "result": {
+      "ok": "OK",
+      "defect": "Défaut",
+      "na": "Sans objet"
+    },
     "defectDetails": "Décrivez le défaut",
     "defectPlaceholder": "Qu'est-ce qui ne va pas, et où ?",
     "addPhoto": "Ajouter une photo",
@@ -173,13 +185,20 @@
       "daily": "Vous avez atteint 9 heures aujourd'hui. La conduite journalière est limitée à 9 h (10 h deux fois par semaine).",
       "weekly": "Vous avez atteint 56 heures cette semaine — la limite hebdomadaire de conduite."
     },
-    "errors": { "shiftOpen": "Vous avez déjà un service en cours.", "notFound": "Service introuvable." },
+    "errors": {
+      "shiftOpen": "Vous avez déjà un service en cours.",
+      "notFound": "Service introuvable."
+    },
     "disclaimer": "À titre indicatif uniquement, d'après les heures de service (règlement UE/GB 561/2006). Ce n'est pas un chronotachygraphe — seul l'enregistrement du chronotachygraphe fait foi.",
     "ukDomestic": "Pour les transports nationaux au Royaume-Uni, les règles nationales britanniques peuvent s'appliquer (10 h de conduite, 11 h de service)."
   },
   "profile": {
     "documents": "Mes documents",
-    "doc": { "licence": "Permis de conduire", "cpc": "FIMO / FCO (CQC)", "tacho": "Carte conducteur" },
+    "doc": {
+      "licence": "Permis de conduire",
+      "cpc": "FIMO / FCO (CQC)",
+      "tacho": "Carte conducteur"
+    },
     "expires": "Expire le {date}",
     "notRecorded": "Non renseigné",
     "expired": "Expiré",
@@ -187,6 +206,12 @@
     "documentsHint": "Informations erronées ? Demandez à l'exploitation de les mettre à jour.",
     "language": "Langue",
     "officeApp": "Ouvrir le tableau de bord",
-    "signOut": "Se déconnecter"
+    "signOut": "Se déconnecter",
+    "deleteTitle": "Supprimer mon compte",
+    "deleteBody": "Efface votre compte de connexion et votre historique de localisation. Les livraisons effectuées restent à votre entreprise. Demandez à votre entreprise de supprimer vos données de chauffeur (permis, téléphone).",
+    "deleteConfirm": "Tapez DELETE pour confirmer",
+    "deleteButton": "Supprimer mon compte",
+    "deleteMismatch": "Tapez DELETE en majuscules pour confirmer.",
+    "deleteFailed": "Votre compte n'a pas pu être supprimé pour le moment. Réessayez."
   }
 }

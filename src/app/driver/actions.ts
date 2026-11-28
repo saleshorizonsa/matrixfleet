@@ -1,5 +1,7 @@
 "use server";
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+import { eraseUserAccount } from "@/lib/account-deletion";
 import { requireDriver } from "@/lib/auth";
 import { audit } from "@/lib/audit";
 import type { Job, JobStatus } from "@/lib/types";
@@ -224,4 +226,17 @@ export async function endShift(shiftId: string, notes: string | null): Promise<R
   if (error) return { ok: false, error: error.message };
   revalidatePath("/driver/shift");
   return { ok: true };
+}
+
+/** Driver self-service erasure (GDPR Art. 17): login, GPS history and audit-trail email. */
+export async function deleteDriverAccount(_: { error?: string } | undefined, fd: FormData): Promise<{ error?: string } | undefined> {
+  const ctx = await requireDriver();
+  // owners/admins who also drive delete their account from Settings → Privacy (last-owner checks live there)
+  if (ctx.membership.role !== "driver") return { error: "deleteFailed" };
+  if (String(fd.get("confirm") ?? "").trim() !== "DELETE") return { error: "deleteMismatch" };
+  await audit(ctx, "user.deleted", "user", ctx.user.id);
+  const res = await eraseUserAccount(ctx.user.id, ctx.user.email);
+  if ("error" in res) return { error: "deleteFailed" };
+  await ctx.supabase.auth.signOut();
+  redirect("/?deleted=1");
 }

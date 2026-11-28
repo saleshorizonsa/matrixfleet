@@ -7,6 +7,7 @@ import { Avatar } from "@/components/ui";
 import { LanguageSwitcher } from "@/components/app/client";
 import { PoweredBy } from "@/components/app/logo";
 import { cn } from "@/lib/utils";
+import { DeleteDriverAccount } from "@/components/driver/delete-account";
 
 export const metadata = { title: "Profile" };
 
@@ -89,6 +90,8 @@ export default async function DriverProfilePage() {
           <LogOut className="h-5 w-5" /> {t("signOut")}
         </button>
       </form>
+
+      {membership.role === "driver" && <DeleteDriverAccount />}
 
       <div className="text-center">
         <PoweredBy />

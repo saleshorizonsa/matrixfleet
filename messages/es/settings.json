@@ -26,7 +26,8 @@
     "lastOwner": "Toda empresa necesita al menos un propietario.",
     "lastOwnerAccount": "Eres el único propietario. Nombra antes a otro propietario o elimina la empresa completa.",
     "notFound": "No encontrado.",
-    "confirmMismatch": "El texto de confirmación no coincide."
+    "confirmMismatch": "El texto de confirmación no coincide.",
+    "erase_failed": "No hemos podido borrar tus datos ahora mismo. No se ha eliminado nada; inténtalo de nuevo o contacta con soporte."
   },
   "company": {
     "identity": "Datos de la empresa",
@@ -145,7 +146,7 @@
     "retention": {
       "invoices": "Las facturas se conservan mientras exista tu cuenta para cumplir las obligaciones fiscales (6 años en RU, hasta 10 años en algunos países de la UE).",
       "jobs": "Servicios, firmas y fotos de prueba de entrega se conservan hasta que los elimines o cierres tu cuenta.",
-      "gps": "Las posiciones GPS de los conductores solo se registran durante su jornada con la ubicación compartida activada.",
+      "gps": "Las posiciones GPS solo se registran mientras un conductor comparte su ubicación. El historial de más de 90 días se elimina automáticamente.",
       "checks": "Las revisiones de vehículos se conservan para acreditar su buen estado ante las autoridades.",
       "audit": "El registro de auditoría guarda quién cambió qué, para garantizar la responsabilidad.",
       "backups": "Al eliminar tu empresa, los datos se borran de inmediato y desaparecen de las copias de seguridad en 14 días."
@@ -154,11 +155,11 @@
     "dangerTitle": "Zona de peligro",
     "dangerHint": "Estas acciones son permanentes y no se pueden deshacer.",
     "deleteMeTitle": "Eliminar mi cuenta",
-    "deleteMeBody": "Elimina tu acceso personal. Los datos de empresa que creaste se quedan en la empresa.",
+    "deleteMeBody": "Elimina tu acceso, quita tu correo del registro de auditoría y borra tu historial GPS. Los datos de negocio que creaste (servicios, facturas) siguen siendo de la empresa.",
     "typeDelete": "Escribe DELETE para confirmar",
     "deleteMeButton": "Eliminar mi cuenta",
     "deleteOrgTitle": "Eliminar empresa",
-    "deleteOrgBody": "Cancela tu suscripción y borra de forma permanente todos los servicios, clientes, facturas, conductores, vehículos y archivos.",
+    "deleteOrgBody": "Cancela tu suscripción, elimina tu perfil de facturación en Stripe y borra definitivamente todos los servicios, clientes, facturas, conductores, vehículos y archivos, además de los accesos de todas las personas de la empresa que no pertenezcan a otra empresa.",
     "typeName": "Escribe «{name}» para confirmar",
     "deleteOrgButton": "Eliminar la empresa definitivamente"
   },

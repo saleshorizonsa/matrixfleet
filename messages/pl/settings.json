@@ -26,7 +26,8 @@
     "lastOwner": "Każda firma musi mieć co najmniej jednego właściciela.",
     "lastOwnerAccount": "Jesteś jedynym właścicielem. Najpierw nadaj komuś rolę właściciela albo usuń całą firmę.",
     "notFound": "Nie znaleziono.",
-    "confirmMismatch": "Tekst potwierdzenia się nie zgadza."
+    "confirmMismatch": "Tekst potwierdzenia się nie zgadza.",
+    "erase_failed": "Nie udało się teraz usunąć Twoich danych. Nic nie zostało usunięte — spróbuj ponownie lub skontaktuj się z pomocą techniczną."
   },
   "company": {
     "identity": "Dane firmy",
@@ -145,7 +146,7 @@
     "retention": {
       "invoices": "Faktury są przechowywane przez cały okres istnienia konta, aby spełnić wymogi podatkowe (6 lat w UK, do 10 lat w niektórych krajach UE).",
       "jobs": "Zlecenia, podpisy i zdjęcia potwierdzeń dostawy są przechowywane do czasu ich usunięcia lub zamknięcia konta.",
-      "gps": "Pozycje GPS kierowców są rejestrowane tylko w trakcie zmiany, gdy udostępnianie lokalizacji jest włączone.",
+      "gps": "Pozycje GPS są zapisywane tylko wtedy, gdy kierowca udostępnia lokalizację. Historia lokalizacji starsza niż 90 dni jest usuwana automatycznie.",
       "checks": "Kontrole pojazdów są przechowywane, aby wykazać ich sprawność przed organami kontrolnymi.",
       "audit": "Dziennik zdarzeń rejestruje, kto i co zmienił — dla rozliczalności.",
       "backups": "Po usunięciu firmy dane są natychmiast kasowane i znikają z kopii zapasowych w ciągu 14 dni."
@@ -154,11 +155,11 @@
     "dangerTitle": "Strefa niebezpieczna",
     "dangerHint": "Te operacje są trwałe i nie można ich cofnąć.",
     "deleteMeTitle": "Usuń moje konto",
-    "deleteMeBody": "Usuwa Twój osobisty login. Utworzone przez Ciebie dane firmy pozostają w firmie.",
+    "deleteMeBody": "Usuwa Twoje konto logowania, Twój e-mail z dziennika zdarzeń oraz historię GPS. Dane firmowe, które utworzyłeś (zlecenia, faktury), pozostają w firmie.",
     "typeDelete": "Wpisz DELETE, aby potwierdzić",
     "deleteMeButton": "Usuń moje konto",
     "deleteOrgTitle": "Usuń firmę",
-    "deleteOrgBody": "Anuluje subskrypcję i trwale usuwa wszystkie zlecenia, klientów, faktury, kierowców, pojazdy i pliki.",
+    "deleteOrgBody": "Anuluje subskrypcję, usuwa profil rozliczeniowy w Stripe i trwale kasuje wszystkie zlecenia, klientów, faktury, kierowców, pojazdy i pliki — a także konta wszystkich osób z firmy, które nie należą do innej firmy.",
     "typeName": "Wpisz „{name}”, aby potwierdzić",
     "deleteOrgButton": "Trwale usuń firmę"
   },

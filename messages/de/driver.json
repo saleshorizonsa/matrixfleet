@@ -1,5 +1,10 @@
 {
-  "tabs": { "jobs": "Aufträge", "check": "Prüfung", "shift": "Schicht", "profile": "Profil" },
+  "tabs": {
+    "jobs": "Aufträge",
+    "check": "Prüfung",
+    "shift": "Schicht",
+    "profile": "Profil"
+  },
   "gps": {
     "live": "Live",
     "problem": "GPS-Problem",
@@ -66,7 +71,10 @@
       "collected": "Geladen — jetzt unterwegs",
       "arrived_delivery": "Ankunft an der Lieferadresse erfasst"
     },
-    "errors": { "notFound": "Auftrag nicht gefunden.", "closed": "Dieser Auftrag ist bereits abgeschlossen." },
+    "errors": {
+      "notFound": "Auftrag nicht gefunden.",
+      "closed": "Dieser Auftrag ist bereits abgeschlossen."
+    },
     "reportProblem": "Problem melden",
     "problemPlaceholder": "Was ist passiert? Die Disposition wird informiert.",
     "problemSent": "Problem an die Disposition gemeldet",
@@ -122,7 +130,11 @@
       "dashboard": "Tachograf & Warnleuchten",
       "safety": "Verbandkasten & Feuerlöscher"
     },
-    "result": { "ok": "OK", "defect": "Mangel", "na": "Nicht zutreffend" },
+    "result": {
+      "ok": "OK",
+      "defect": "Mangel",
+      "na": "Nicht zutreffend"
+    },
     "defectDetails": "Mangel beschreiben",
     "defectPlaceholder": "Was ist defekt und wo?",
     "addPhoto": "Foto hinzufügen",
@@ -173,13 +185,20 @@
       "daily": "Du hast heute 9 Stunden erreicht. Die tägliche Lenkzeit beträgt 9 h (zweimal pro Woche 10 h).",
       "weekly": "Du hast diese Woche 56 Stunden erreicht — die wöchentliche Lenkzeitgrenze."
     },
-    "errors": { "shiftOpen": "Du hast bereits eine laufende Schicht.", "notFound": "Schicht nicht gefunden." },
+    "errors": {
+      "shiftOpen": "Du hast bereits eine laufende Schicht.",
+      "notFound": "Schicht nicht gefunden."
+    },
     "disclaimer": "Nur zur Orientierung, basierend auf Schichtzeiten (EU-/GB-Verordnung 561/2006). Kein Ersatz für den Tachografen — rechtlich gilt die Tachografen-Aufzeichnung.",
     "ukDomestic": "Bei innerbritischen Fahrten können stattdessen die GB-Inlandsregeln gelten (10 h Lenkzeit, 11 h Dienst)."
   },
   "profile": {
     "documents": "Meine Dokumente",
-    "doc": { "licence": "Führerschein", "cpc": "Berufskraftfahrer-Qualifikation", "tacho": "Fahrerkarte" },
+    "doc": {
+      "licence": "Führerschein",
+      "cpc": "Berufskraftfahrer-Qualifikation",
+      "tacho": "Fahrerkarte"
+    },
     "expires": "Gültig bis {date}",
     "notRecorded": "Nicht erfasst",
     "expired": "Abgelaufen",
@@ -187,6 +206,12 @@
     "documentsHint": "Angaben falsch? Bitte die Disposition um Aktualisierung.",
     "language": "Sprache",
     "officeApp": "Büro-Dashboard öffnen",
-    "signOut": "Abmelden"
+    "signOut": "Abmelden",
+    "deleteTitle": "Mein Konto löschen",
+    "deleteBody": "Löscht Ihr Login und Ihren Standortverlauf. Erledigte Zustellungen bleiben bei Ihrem Unternehmen. Bitten Sie Ihr Unternehmen, Ihre Fahrerdaten (Führerschein, Telefon) zu entfernen.",
+    "deleteConfirm": "Zur Bestätigung DELETE eingeben",
+    "deleteButton": "Mein Konto löschen",
+    "deleteMismatch": "Bitte DELETE in Großbuchstaben eingeben.",
+    "deleteFailed": "Ihr Konto konnte gerade nicht gelöscht werden. Bitte versuchen Sie es erneut."
   }
 }

@@ -141,6 +141,6 @@ export async function inviteDriver(_: InviteState, fd: FormData): Promise<Invite
     .select("token")
     .single();
   if (error) return { error: error.message };
-  await audit(ctx, "invitation.created", "invitation", driverId, { email, role: "driver" });
+  await audit(ctx, "invitation.created", "invitation", driverId, { role: "driver" }); // no email in the audit trail
   return { link: `${APP_URL}/invite/${data.token}`, email };
 }
