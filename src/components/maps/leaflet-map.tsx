@@ -5,8 +5,13 @@ import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker, Popup, Polyline, Tooltip, useMap } from "react-leaflet";
 import type { MapMarker, MapViewProps } from "./types";
 
+/** Marker HTML is built as a string, so every value must be safe: colours are validated, text escaped. */
+const HEX = /^#[0-9a-fA-F]{6}$/;
+const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
+
 function iconFor(m: MapMarker) {
-  const color = m.color ?? (m.kind === "pickup" ? "#0ea5e9" : m.kind === "delivery" ? "#10b981" : "#5B5BF7");
+  const fallback = m.kind === "pickup" ? "#0ea5e9" : m.kind === "delivery" ? "#10b981" : "#5B5BF7";
+  const color = m.color && HEX.test(m.color) ? m.color : fallback;
   if (m.kind === "driver") {
     const initials = (m.label ?? "")
       .split(/\s+/)
@@ -23,7 +28,7 @@ function iconFor(m: MapMarker) {
       iconSize: [36, 36],
       iconAnchor: [18, 18],
       popupAnchor: [0, -18],
-      html: `<div style="position:relative;width:36px;height:36px">${pulse}<div style="position:relative;width:36px;height:36px;border-radius:9999px;background:${color};color:#fff;display:grid;place-items:center;font:600 12px/1 Inter,system-ui,sans-serif;border:3px solid #fff;box-shadow:0 4px 14px rgba(10,20,48,.35)">${initials || "•"}</div></div>`,
+      html: `<div style="position:relative;width:36px;height:36px">${pulse}<div style="position:relative;width:36px;height:36px;border-radius:9999px;background:${color};color:#fff;display:grid;place-items:center;font:600 12px/1 Inter,system-ui,sans-serif;border:3px solid #fff;box-shadow:0 4px 14px rgba(10,20,48,.35)">${esc(initials) || "•"}</div></div>`,
     });
   }
   const letter = m.kind === "pickup" ? "A" : m.kind === "delivery" ? "B" : "";

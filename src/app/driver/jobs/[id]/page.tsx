@@ -23,8 +23,9 @@ export default async function DriverJobPage({ params }: { params: Promise<{ id: 
 
   const [{ data: eventsData }, { data: customer }] = await Promise.all([
     supabase.from("hl_job_events").select("*").eq("job_id", job.id).order("created_at", { ascending: true }),
+    // drivers get the customer's name only (no access to customer contact/VAT records)
     job.customer_id
-      ? supabase.from("hl_customers").select("name").eq("id", job.customer_id).maybeSingle<{ name: string }>()
+      ? supabase.rpc("hl_my_job_customer_name", { p_job: job.id }).then((r) => ({ data: r.data ? { name: r.data as string } : null }))
       : Promise.resolve({ data: null }),
   ]);
   const events = (eventsData ?? []) as JobEvent[];

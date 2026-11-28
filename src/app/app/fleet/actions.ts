@@ -94,7 +94,7 @@ function driverPayload(fd: FormData) {
     cpc_expiry: str(fd, "cpc_expiry"),
     tacho_card_expiry: str(fd, "tacho_card_expiry"),
     status: str(fd, "status") ?? "active",
-    colour: str(fd, "colour") ?? "#5B5BF7",
+    colour: /^#[0-9a-fA-F]{6}$/.test(str(fd, "colour") ?? "") ? str(fd, "colour")! : "#5B5BF7",
   };
 }
 

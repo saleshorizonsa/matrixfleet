@@ -126,3 +126,20 @@ caddy validate --config /tmp/Caddyfile.new --adapter caddyfile && install -m 644
 ```
 **Rotating the gateway key:** generate a new value, update `SUPABASE_AUTH_GATEWAY_KEY` in Vercel (Production + Preview) and
 `/etc/caddy/mf-gateway.env` (+ `mf-gateway.key`), redeploy the app first, then `systemctl restart caddy`.
+
+## Security regression test (attacker simulation)
+
+Re-run after any change to database policies, roles or billing. It creates two throwaway companies
+("PT Victim …", "PT Attacker …") with every role, runs ~55 attacks (cross-company access, token forgery,
+role escalation, driver tampering, abuse, business-logic) plus ~13 normal-use checks, then you clean up.
+Expected result: `0 problem(s): vulnerable or broken`.
+
+```
+$env:ALLOW_PENTEST="yes"
+node --env-file=.env.local scripts/security/pentest-fixture.mjs pt.json
+node --env-file=.env.local scripts/security/pentest-attack.mjs pt.json
+node --env-file=.env.local scripts/security/pentest-cleanup.mjs
+Remove-Item pt.json
+```
+
+Accepted risk: drivers can read their company's bank details (they are printed on every invoice anyway).

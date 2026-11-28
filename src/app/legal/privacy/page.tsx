@@ -68,6 +68,13 @@ export default function PrivacyPolicyPage() {
         <li>Account data: for the life of your account, then deleted within 30 days of closure (backups within a further 14 days).</li>
         <li>Billing records: 6 years after the end of the financial year (UK tax law).</li>
         <li>Security logs: up to 12 months.</li>
+        <li>Driver GPS history: 90 days, then deleted automatically.</li>
+        <li>
+          Free-trial fingerprint: to offer one free trial per email address, we keep a one-way SHA-256 hash of the email
+          address used to start a trial, even after the account is deleted. The address cannot be read back from it
+          (legitimate interest: preventing abuse of free trials).
+        </li>
+        <li>Sign-in attempt counters (hashed IP address and email, used for rate limiting): up to 24 hours.</li>
       </ul>
 
       <h2>6. Security</h2>

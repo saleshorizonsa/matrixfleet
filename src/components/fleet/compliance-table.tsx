@@ -45,7 +45,12 @@ export function ComplianceTable({ items }: { items: ComplianceItem[] }) {
     const header = ["type", "subject", "document", "expiry_date", "days_left", "status"];
     const lines = rows.map((r) =>
       [r.subjectType, r.subjectLabel, t(`docs.${r.doc}`), r.date ?? "", r.days ?? "", t(`urgency.${r.urgency}`)]
-        .map((v) => `"${String(v).replace(/"/g, '""')}"`)
+        .map((v) => {
+          let s = String(v);
+          // a cell starting with = + - @ would run as a formula in Excel/Sheets (CSV injection)
+          if (/^[=+\-@\t\r]/.test(s) && !/^-?\d+(\.\d+)?$/.test(s)) s = "'" + s;
+          return `"${s.replace(/"/g, '""')}"`;
+        })
         .join(","),
     );
     const blob = new Blob([[header.join(","), ...lines].join("\n")], { type: "text/csv;charset=utf-8" });

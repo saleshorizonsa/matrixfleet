@@ -63,6 +63,9 @@ export function validateEnv(): { errors: string[]; warnings: string[] } {
     warnings.push("STRIPE_SECRET_KEY is not set — online billing is disabled");
   }
 
+  // daily billing reconciliation needs a secret whenever billing is on
+  if (get("STRIPE_SECRET_KEY") && get("CRON_SECRET").length < 32) errors.push("CRON_SECRET must be set (32+ characters) when Stripe is enabled");
+
   if (get("NEXT_PUBLIC_DEBUG") === "1" || get("DEBUG") === "1") warnings.push("a DEBUG flag is set — remove it in production");
   return { errors, warnings };
 }

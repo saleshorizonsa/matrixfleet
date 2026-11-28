@@ -48,3 +48,7 @@ next-env.d.ts
 !.env.example
 
 .vercel
+
+# security regression test output (holds short-lived test tokens)
+pt.json
+*.pentest.json

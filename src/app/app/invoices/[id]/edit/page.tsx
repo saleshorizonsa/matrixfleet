@@ -19,6 +19,7 @@ export default async function EditInvoicePage({ params }: { params: Promise<{ id
   if (!invoice) notFound();
   if (invoice.status !== "draft") redirect(`/app/invoices/${id}`);
 
+  if (!/^[0-9a-f-]{36}$/i.test(id)) notFound();
   const [{ data: lines }, { data: customers }, { data: jobs }] = await Promise.all([
     ctx.supabase.from("hl_invoice_lines").select("*").eq("invoice_id", id).order("position").returns<InvoiceLine[]>(),
     ctx.supabase.from("hl_customers").select(CUSTOMER_COLS).order("name").returns<InvoiceFormCustomer[]>(),

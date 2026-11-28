@@ -67,8 +67,9 @@ export async function uploadLogo(_: ActionState, fd: FormData): Promise<ActionSt
   const file = fd.get("logo");
   if (!(file instanceof File) || file.size === 0) return { error: "noFile" };
   if (file.size > 2 * 1024 * 1024) return { error: "fileTooLarge" };
-  if (!["image/png", "image/jpeg", "image/svg+xml", "image/webp"].includes(file.type)) return { error: "fileType" };
-  const ext = file.type === "image/svg+xml" ? "svg" : file.type === "image/jpeg" ? "jpg" : file.type === "image/webp" ? "webp" : "png";
+  if (!["image/png", "image/jpeg", "image/webp"].includes(file.type)) return { error: "fileType" };
+  if (file.size > 2 * 1024 * 1024) return { error: "fileTooLarge" };
+  const ext = file.type === "image/jpeg" ? "jpg" : file.type === "image/webp" ? "webp" : "png";
   const path = `${ctx.org.id}/logo-${Date.now()}.${ext}`;
   const { error } = await ctx.supabase.storage.from("hl-logos").upload(path, file, { contentType: file.type, upsert: true });
   if (error) return actionError(error, "app/settings");

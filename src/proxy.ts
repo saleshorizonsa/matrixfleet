@@ -19,6 +19,6 @@ export async function proxy(request: NextRequest) {
 export const config = {
   matcher: [
     // pages and API routes; not static files, map tiles or the Stripe webhook (raw body)
-    "/((?!_next/static|_next/image|favicon.ico|manifest.webmanifest|sw.js|icons/|api/tiles/|api/stripe/webhook|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)",
+    "/((?!_next/static|_next/image|favicon.ico|manifest.webmanifest|sw.js|icons/|api/tiles/|api/stripe/webhook|api/cron/|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)",
   ],
 };

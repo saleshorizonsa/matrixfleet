@@ -17,7 +17,9 @@ export default async function CustomersPage({ searchParams }: { searchParams: Pr
   const loc = intlLocale(await getLocale());
 
   let query = ctx.supabase.from("hl_customers").select("*").eq("org_id", ctx.org.id).order("name").limit(500);
-  const needle = q?.trim().replace(/[%,()]/g, "");
+  // characters with meaning in PostgREST filter syntax are removed so search text can't alter the filter
+  // (commas and brackets would add conditions; dots inside a value are harmless, so email search still works)
+  const needle = q?.trim().replace(/[%,()*"\\]/g, " ").replace(/\s+/g, " ").trim().slice(0, 100);
   if (needle) query = query.or(`name.ilike.%${needle}%,email.ilike.%${needle}%,city.ilike.%${needle}%,vat_number.ilike.%${needle}%,postcode.ilike.%${needle}%`);
   const [{ data }, { data: jobs }] = await Promise.all([
     query,

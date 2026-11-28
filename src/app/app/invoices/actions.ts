@@ -133,6 +133,7 @@ export async function saveInvoice(_: InvoiceFormState, fd: FormData): Promise<In
   );
   if (linesErr) return actionError(linesErr, "app/invoices");
 
+  if (!/^[0-9a-f-]{36}$/i.test(invoiceId)) throw new Error("invalid invoice id");
   if (jobIds.length) {
     await sb
       .from("hl_jobs")
