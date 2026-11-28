@@ -8,6 +8,16 @@ import { computeTotals } from "@/lib/vat";
 import { buyerSnapshot, sellerSnapshot } from "@/lib/invoices";
 import type { Customer, Invoice, InvoiceLine, Role } from "@/lib/types";
 import { actionError } from "@/lib/action-error";
+import { getZatcaStatus, issueZatcaInvoice, retryPendingZatca, zatcaRequired, type IssueOutcome } from "@/lib/zatca";
+import type { AppContext } from "@/lib/auth";
+
+/** Saudi company connected to ZATCA → invoices are issued through clearance/reporting. */
+async function zatcaActive(ctx: AppContext) {
+  if (!zatcaRequired(ctx.org)) return false;
+  return (await getZatcaStatus(ctx.org.id))?.status === "active";
+}
+
+const E_FINAL = ["pending", "cleared", "reported", "warning"];
 
 const INVOICE_ROLES: Role[] = ["owner", "admin", "accountant", "dispatcher"];
 
@@ -31,6 +41,7 @@ const formSchema = z.object({
   vat_rate: z.coerce.number().min(0).max(100),
   vat_note: z.string().max(1000).optional(),
   notes: z.string().max(2000).optional(),
+  adjustment_reason: z.string().max(500).optional(),
   intent: z.enum(["draft", "issue"]),
   lines: z.array(lineSchema).min(1).max(200),
 });
@@ -59,6 +70,7 @@ export async function saveInvoice(_: InvoiceFormState, fd: FormData): Promise<In
     vat_rate: val(fd, "vat_rate") ?? "0",
     vat_note: val(fd, "vat_note"),
     notes: val(fd, "notes"),
+    adjustment_reason: val(fd, "adjustment_reason"),
     intent: val(fd, "intent") ?? "draft",
     lines: linesRaw,
   });
@@ -73,8 +85,11 @@ export async function saveInvoice(_: InvoiceFormState, fd: FormData): Promise<In
   const { data: customer } = await sb.from("hl_customers").select("*").eq("id", f.customer_id).maybeSingle<Customer>();
   if (!customer) return { error: "noCustomer" };
 
+  const viaZatca = await zatcaActive(ctx);
+  if (viaZatca && f.currency.toUpperCase() !== "SAR") return { error: "zatcaCurrency" };
+  if (viaZatca && f.lines.some((l) => l.unit_price < 0)) return { error: "zatcaNegative" };
   const vatRate = f.vat_treatment === "standard" ? f.vat_rate : 0;
-  const totals = computeTotals(f.lines, vatRate);
+  const totals = computeTotals(f.lines, vatRate, f.currency);
   const jobIds = [...new Set(f.lines.map((l) => l.job_id).filter((x): x is string => !!x))];
 
   const header = {
@@ -90,16 +105,24 @@ export async function saveInvoice(_: InvoiceFormState, fd: FormData): Promise<In
     vat_treatment: f.vat_treatment,
     vat_note: f.vat_note ?? null,
     notes: f.notes ?? null,
+    adjustment_reason: f.adjustment_reason ?? null,
     seller_snapshot: sellerSnapshot(ctx.org),
     buyer_snapshot: buyerSnapshot(customer),
-    ...(f.intent === "issue" ? { status: "sent" as const, sent_at: new Date().toISOString() } : {}),
+    // via ZATCA the invoice stays a draft until it has been cleared/reported
+    ...(f.intent === "issue" && !viaZatca ? { status: "sent" as const, sent_at: new Date().toISOString() } : {}),
   };
 
   let invoiceId = f.invoice_id;
   if (invoiceId) {
-    const { data: existing } = await sb.from("hl_invoices").select("status").eq("id", invoiceId).maybeSingle<Pick<Invoice, "status">>();
+    const { data: existing } = await sb
+      .from("hl_invoices")
+      .select("status,zatca_status")
+      .eq("id", invoiceId)
+      .maybeSingle<Pick<Invoice, "status" | "zatca_status">>();
     if (!existing) return { error: "notFound" };
     if (existing.status !== "draft") return { error: "immutable" };
+    // signed and waiting for ZATCA: only "retry" may touch it
+    if (existing.zatca_status === "failed" || (existing.zatca_status && E_FINAL.includes(existing.zatca_status))) return { error: "immutable" };
     const { error } = await sb.from("hl_invoices").update(header).eq("id", invoiceId);
     if (error) return actionError(error, "app/invoices");
     await sb.from("hl_invoice_lines").delete().eq("invoice_id", invoiceId);
@@ -147,9 +170,15 @@ export async function saveInvoice(_: InvoiceFormState, fd: FormData): Promise<In
     currency: header.currency,
     issued: f.intent === "issue",
   });
+  let query = "";
+  if (f.intent === "issue" && viaZatca) {
+    const r = await issueZatcaInvoice(ctx.org, invoiceId);
+    await auditZatca(ctx, invoiceId, r);
+    query = r.ok ? `?zatca=${r.status}` : `?zatca=${r.error}${r.fields?.length ? `&fields=${r.fields.join(",")}` : ""}`;
+  }
   revalidatePath("/app/invoices");
   revalidatePath("/app/jobs");
-  redirect(`/app/invoices/${invoiceId}`);
+  redirect(`/app/invoices/${invoiceId}${query}`);
 }
 
 async function loadInvoice(id: string) {
@@ -159,14 +188,94 @@ async function loadInvoice(id: string) {
   return { ctx, invoice };
 }
 
-export async function markSent(id: string) {
+async function auditZatca(ctx: AppContext, id: string, r: IssueOutcome) {
+  await audit(ctx, r.ok ? `invoice.zatca_${r.status}` : `invoice.zatca_${r.error}`, "invoice", id, { messages: r.messages.slice(0, 5) });
+}
+
+export type IssueResult = { ok: boolean; zatca?: string; messages?: string[]; fields?: string[] };
+
+export async function markSent(id: string): Promise<IssueResult> {
   const { ctx, invoice } = await loadInvoice(id);
-  if (invoice.status !== "draft") return;
+  if (invoice.status !== "draft") return { ok: true };
+  if (await zatcaActive(ctx)) {
+    const r = await issueZatcaInvoice(ctx.org, id);
+    await auditZatca(ctx, id, r);
+    revalidatePath(`/app/invoices/${id}`);
+    revalidatePath("/app/invoices");
+    return r.ok ? { ok: true, zatca: r.status, messages: r.messages } : { ok: false, zatca: r.error, messages: r.messages, fields: r.fields };
+  }
   // refresh the snapshots at the moment of issue
   await ctx.supabase.from("hl_invoices").update({ status: "sent", sent_at: new Date().toISOString(), seller_snapshot: sellerSnapshot(ctx.org) }).eq("id", id);
   await audit(ctx, "invoice.issued", "invoice", id, { number: invoice.number });
   revalidatePath(`/app/invoices/${id}`);
   revalidatePath("/app/invoices");
+  return { ok: true };
+}
+
+/** Submit again after ZATCA was unreachable (same signed document) or after fixing a rejection. */
+export async function retryZatca(id: string): Promise<IssueResult> {
+  const { ctx } = await loadInvoice(id);
+  if (!(await zatcaActive(ctx))) return { ok: false, zatca: "not_onboarded" };
+  const r = await issueZatcaInvoice(ctx.org, id);
+  await auditZatca(ctx, id, r);
+  await retryPendingZatca(ctx.org.id);
+  revalidatePath(`/app/invoices/${id}`);
+  revalidatePath("/app/invoices");
+  return r.ok ? { ok: true, zatca: r.status, messages: r.messages } : { ok: false, zatca: r.error, messages: r.messages, fields: r.fields };
+}
+
+/** Credit note for an issued invoice: a new draft with the same lines, linked to the original. */
+export async function createCreditNote(id: string, reason: string) {
+  const { ctx, invoice } = await loadInvoice(id);
+  if (invoice.doc_type !== "invoice" || invoice.status === "draft" || invoice.status === "void") throw new Error("not creditable");
+  const { data: lines } = await ctx.supabase.from("hl_invoice_lines").select("*").eq("invoice_id", id).order("position").returns<InvoiceLine[]>();
+  const { data: number, error: numErr } = await ctx.supabase.rpc("hl_next_invoice_number", { p_org: ctx.org.id });
+  if (numErr || !number) throw new Error(numErr?.message ?? "numbering");
+  const today = new Date().toISOString().slice(0, 10);
+  const { data: created, error } = await ctx.supabase
+    .from("hl_invoices")
+    .insert({
+      org_id: ctx.org.id,
+      customer_id: invoice.customer_id,
+      number,
+      doc_type: "credit_note",
+      original_invoice_id: invoice.id,
+      adjustment_reason: reason.trim().slice(0, 500) || null,
+      issue_date: today,
+      supply_date: invoice.supply_date,
+      due_date: today,
+      currency: invoice.currency,
+      status: "draft",
+      subtotal: invoice.subtotal,
+      vat_rate: invoice.vat_rate,
+      vat_amount: invoice.vat_amount,
+      total: invoice.total,
+      vat_treatment: invoice.vat_treatment,
+      vat_note: invoice.vat_note,
+      seller_snapshot: sellerSnapshot(ctx.org),
+      buyer_snapshot: invoice.buyer_snapshot,
+      created_by: ctx.user.id,
+    })
+    .select("id")
+    .single<{ id: string }>();
+  if (error || !created) throw new Error(error?.message ?? "insert");
+  if (lines?.length) {
+    await ctx.supabase.from("hl_invoice_lines").insert(
+      lines.map((l) => ({
+        org_id: ctx.org.id,
+        invoice_id: created.id,
+        job_id: null,
+        description: l.description,
+        quantity: l.quantity,
+        unit_price: l.unit_price,
+        amount: l.amount,
+        position: l.position,
+      })),
+    );
+  }
+  await audit(ctx, "invoice.credit_note_created", "invoice", created.id, { for: invoice.number });
+  revalidatePath("/app/invoices");
+  redirect(`/app/invoices/${created.id}/edit`);
 }
 
 export async function markPaid(id: string, paidOn: string) {
@@ -195,6 +304,10 @@ export async function markUnpaid(id: string) {
 export async function voidInvoice(id: string) {
   const { ctx, invoice } = await loadInvoice(id);
   if (invoice.status === "void") return;
+  // a cleared/reported e-invoice cannot be voided — it must be cancelled with a credit note
+  if (invoice.zatca_status && (E_FINAL.includes(invoice.zatca_status) || invoice.zatca_status === "failed")) {
+    throw new Error("e-invoice: use a credit note");
+  }
   await ctx.supabase.from("hl_invoices").update({ status: "void" }).eq("id", id);
   await ctx.supabase.from("hl_jobs").update({ invoice_id: null, status: "delivered" }).eq("invoice_id", id);
   await audit(ctx, "invoice.voided", "invoice", id, { number: invoice.number });

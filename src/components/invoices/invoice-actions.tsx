@@ -3,9 +3,10 @@ import * as React from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
-import { Ban, CheckCircle2, Copy, Download, ExternalLink, Loader2, Mail, Pencil, Send, Undo2, Wallet } from "lucide-react";
-import { duplicateInvoice, markPaid, markSent, markUnpaid, voidInvoice } from "@/app/app/invoices/actions";
-import { Button, Field, Input, buttonClass } from "@/components/ui";
+import { useRouter } from "next/navigation";
+import { Ban, CheckCircle2, Copy, Download, ExternalLink, FileMinus2, Loader2, Mail, Pencil, Send, Undo2, Wallet } from "lucide-react";
+import { createCreditNote, duplicateInvoice, markPaid, markSent, markUnpaid, voidInvoice } from "@/app/app/invoices/actions";
+import { Button, Field, Input, Textarea, buttonClass } from "@/components/ui";
 import { ConfirmButton, Modal } from "@/components/app/client";
 import type { InvoiceStatus } from "@/lib/types";
 
@@ -16,6 +17,9 @@ export function InvoiceActions({
   buyerEmail,
   emailSubject,
   emailBody,
+  docType = "invoice",
+  einvoiceLocked = false,
+  einvoicing = false,
 }: {
   id: string;
   number: string;
@@ -23,7 +27,16 @@ export function InvoiceActions({
   buyerEmail: string | null;
   emailSubject: string;
   emailBody: string;
+  docType?: "invoice" | "credit_note" | "debit_note";
+  /** submitted to ZATCA: cannot be voided or edited, only credited */
+  einvoiceLocked?: boolean;
+  /** company issues through ZATCA (issuing may take a moment and can be refused) */
+  einvoicing?: boolean;
 }) {
+  const router = useRouter();
+  const tz = useTranslations("invoices.zatca");
+  const [creditOpen, setCreditOpen] = React.useState(false);
+  const [reason, setReason] = React.useState("");
   const t = useTranslations("invoices");
   const tc = useTranslations("common");
   const [pending, start] = React.useTransition();
@@ -59,8 +72,18 @@ export function InvoiceActions({
           <Link href={`/app/invoices/${id}/edit`} className={buttonClass("secondary", "md")}>
             <Pencil className="h-4 w-4" /> {t("detail.edit")}
           </Link>
-          <Button disabled={pending} onClick={() => run(() => markSent(id), t("status.sent"))}>
-            <Send className="h-4 w-4" /> {t("detail.markSent")}
+          <Button
+            disabled={pending}
+            onClick={() =>
+              run(async () => {
+                const r = await markSent(id);
+                if (!r.ok) toast.error(tz.has(`result.${r.zatca}`) ? tz(`result.${r.zatca}`) : tz("result.failed"));
+                else toast.success(r.zatca ? tz(`result.${r.zatca}`) : t("status.sent"));
+                router.refresh();
+              })
+            }
+          >
+            <Send className="h-4 w-4" /> {einvoicing ? tz("issue") : t("detail.markSent")}
           </Button>
         </>
       )}
@@ -86,14 +109,43 @@ export function InvoiceActions({
           <Mail className="h-4 w-4" /> {t("detail.email")}
         </a>
       )}
-      <Button variant="ghost" disabled={pending} onClick={() => run(() => duplicateInvoice(id))}>
-        <Copy className="h-4 w-4" /> {t("detail.duplicate")}
-      </Button>
-      {status !== "void" && (
+      {docType === "invoice" && (
+        <Button variant="ghost" disabled={pending} onClick={() => run(() => duplicateInvoice(id))}>
+          <Copy className="h-4 w-4" /> {t("detail.duplicate")}
+        </Button>
+      )}
+      {docType === "invoice" && status !== "draft" && status !== "void" && (
+        <Button variant="ghost" disabled={pending} onClick={() => setCreditOpen(true)}>
+          <FileMinus2 className="h-4 w-4" /> {t("detail.creditNote")}
+        </Button>
+      )}
+      {status !== "void" && !einvoiceLocked && (
         <ConfirmButton action={() => voidInvoice(id)} message={t("detail.voidConfirm")} variant="ghost" size="md" className="text-rose-600 hover:bg-rose-50 hover:text-rose-700">
           <Ban className="h-4 w-4" /> {t("detail.void")}
         </ConfirmButton>
       )}
+
+      <Modal
+        open={creditOpen}
+        onClose={() => setCreditOpen(false)}
+        title={`${t("detail.creditNote")} · ${number}`}
+        size="sm"
+        footer={
+          <>
+            <Button variant="secondary" onClick={() => setCreditOpen(false)}>
+              {tc("cancel")}
+            </Button>
+            <Button disabled={pending || reason.trim().length < 3} onClick={() => run(() => createCreditNote(id, reason))}>
+              <FileMinus2 className="h-4 w-4" /> {t("detail.createCreditNote")}
+            </Button>
+          </>
+        }
+      >
+        <p className="mb-3 text-sm text-slate-600">{t("detail.creditNoteHelp")}</p>
+        <Field label={t("form.creditReason")}>
+          <Textarea value={reason} maxLength={500} onChange={(e) => setReason(e.target.value)} />
+        </Field>
+      </Modal>
 
       <Modal
         open={payOpen}

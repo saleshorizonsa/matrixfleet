@@ -59,6 +59,7 @@ export default function PrivacyPolicyPage() {
           <tr><td>OpenStreetMap Foundation and map/routing services</td><td>Map tiles, address search and route distances (addresses only, no names)</td><td>UK/EU</td></tr>
           <tr><td>Zoho Corporation (Zoho Mail)</td><td>Sending account emails (sign-up confirmation, sign-in links, password resets): recipient email address and the link</td><td>USA (Zoho US data centre) — UK IDTA / EU SCCs</td></tr>
           <tr><td>European Commission VIES and HMRC</td><td>Checking a customer&apos;s VAT number when you click Verify (VAT number only)</td><td>EU / UK</td></tr>
+          <tr><td>Zakat, Tax and Customs Authority (ZATCA), Saudi Arabia</td><td>Only for companies in Saudi Arabia that connect e-invoicing: their tax invoices and credit notes (seller and buyer names, VAT/ID numbers, addresses, line items, amounts) are sent to ZATCA as Saudi e-invoicing law requires. ZATCA is a public authority receiving the data under that legal obligation, not our processor.</td><td>Saudi Arabia</td></tr>
           <tr><td>Google Maps / Waze</td><td>Only when a driver taps Navigate: the destination address or coordinates, sent from the driver&apos;s phone to the app they choose</td><td>Google: USA/global</td></tr>
         </tbody>
       </table>
@@ -67,6 +68,7 @@ export default function PrivacyPolicyPage() {
       <ul>
         <li>Account data: for the life of your account, then deleted within 30 days of closure (backups within a further 14 days).</li>
         <li>Billing records: 6 years after the end of the financial year (UK tax law).</li>
+        <li>Saudi e-invoices (signed XML and the ZATCA response): kept with the invoice for at least 6 years (Saudi VAT law), unless you delete your company account earlier — export them first.</li>
         <li>Security logs: up to 12 months.</li>
         <li>Driver GPS history: 90 days, then deleted automatically.</li>
         <li>

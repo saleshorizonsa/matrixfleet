@@ -18,6 +18,8 @@ export interface Organization {
   id: string;
   name: string;
   legal_name: string | null;
+  /** legal name in Arabic (GCC invoices) */
+  legal_name_ar: string | null;
   country: string;
   currency: string;
   distance_unit: "km" | "mi";
@@ -28,6 +30,10 @@ export interface Organization {
   address_line2: string | null;
   city: string | null;
   postcode: string | null;
+  /** Saudi National Address: 4-digit building number, district, 4-digit additional number */
+  building_number: string | null;
+  district: string | null;
+  additional_number: string | null;
   email: string | null;
   phone: string | null;
   website: string | null;
@@ -83,6 +89,13 @@ export interface Customer {
   address_line2: string | null;
   city: string | null;
   postcode: string | null;
+  name_ar: string | null;
+  building_number: string | null;
+  district: string | null;
+  additional_number: string | null;
+  /** buyer ID when there is no VAT number (ZATCA scheme: CRN, NAT, IQA, PAS, GCC, MOM, MLS, 700, SAG, OTH) */
+  id_scheme: string | null;
+  id_value: string | null;
   contact_name: string | null;
   email: string | null;
   phone: string | null;
@@ -231,6 +244,22 @@ export interface Invoice {
   paid_at: string | null;
   created_by: string | null;
   created_at: string;
+  doc_type: "invoice" | "credit_note" | "debit_note";
+  original_invoice_id: string | null;
+  adjustment_reason: string | null;
+  // Saudi e-invoicing (server-managed)
+  zatca_kind: "standard" | "simplified" | null;
+  zatca_status: "pending" | "cleared" | "reported" | "warning" | "rejected" | "failed" | null;
+  zatca_uuid: string | null;
+  zatca_icv: number | null;
+  zatca_hash: string | null;
+  zatca_pih: string | null;
+  zatca_qr: string | null;
+  zatca_xml: string | null;
+  zatca_messages: string[] | null;
+  zatca_env: string | null;
+  zatca_issued_at: string | null;
+  zatca_submitted_at: string | null;
 }
 
 export interface InvoiceLine {

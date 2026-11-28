@@ -38,6 +38,14 @@ export interface InvoiceLabels {
   draft: string;
   page: string;
   footer: string;
+  creditNote: string;
+  creditNoteNo: string;
+  originalInvoice: string;
+  reason: string;
+  amountCredited: string;
+  taxInvoice: string;
+  simplifiedTaxInvoice: string;
+  crNo: string;
 }
 
 const FOOTER = "Generated with MatrixFleet · Powered by Matrix Infotech Ltd";
@@ -50,6 +58,8 @@ export const INVOICE_LABELS: Record<PdfLocale, InvoiceLabels> = {
     paymentDetails: "Payment details", bank: "Bank", iban: "IBAN", bic: "BIC/SWIFT", sortCode: "Sort code", account: "Account no.",
     paymentRef: "Payment reference", paymentTerms: (d) => `Payment due within ${d} days of the invoice date.`, notes: "Notes",
     paid: "PAID", void: "VOID", draft: "DRAFT", page: "Page", footer: FOOTER,
+    creditNote: "Credit note", creditNoteNo: "Credit note no.", originalInvoice: "Original invoice", reason: "Reason",
+    amountCredited: "Amount credited", taxInvoice: "Tax invoice", simplifiedTaxInvoice: "Simplified tax invoice", crNo: "CR no.",
   },
   de: {
     invoice: "Rechnung", invoiceNo: "Rechnungsnr.", issueDate: "Rechnungsdatum", supplyDate: "Leistungsdatum", dueDate: "Fällig am",
@@ -58,6 +68,8 @@ export const INVOICE_LABELS: Record<PdfLocale, InvoiceLabels> = {
     paymentDetails: "Zahlungsinformationen", bank: "Bank", iban: "IBAN", bic: "BIC", sortCode: "Sort Code", account: "Kontonr.",
     paymentRef: "Verwendungszweck", paymentTerms: (d) => `Zahlbar innerhalb von ${d} Tagen ab Rechnungsdatum.`, notes: "Hinweise",
     paid: "BEZAHLT", void: "STORNIERT", draft: "ENTWURF", page: "Seite", footer: FOOTER,
+    creditNote: "Gutschrift", creditNoteNo: "Gutschriftnr.", originalInvoice: "Ursprüngliche Rechnung", reason: "Grund",
+    amountCredited: "Gutgeschriebener Betrag", taxInvoice: "Steuerrechnung", simplifiedTaxInvoice: "Vereinfachte Steuerrechnung", crNo: "CR-Nr.",
   },
   fr: {
     invoice: "Facture", invoiceNo: "N° de facture", issueDate: "Date d'émission", supplyDate: "Date de la prestation", dueDate: "Échéance",
@@ -66,6 +78,8 @@ export const INVOICE_LABELS: Record<PdfLocale, InvoiceLabels> = {
     paymentDetails: "Coordonnées de paiement", bank: "Banque", iban: "IBAN", bic: "BIC", sortCode: "Sort code", account: "N° de compte",
     paymentRef: "Référence de paiement", paymentTerms: (d) => `Paiement à ${d} jours à compter de la date de facture. Pénalités de retard : taux légal ; indemnité forfaitaire de recouvrement : 40 €.`, notes: "Remarques",
     paid: "PAYÉE", void: "ANNULÉE", draft: "BROUILLON", page: "Page", footer: FOOTER,
+    creditNote: "Avoir", creditNoteNo: "N° d'avoir", originalInvoice: "Facture d'origine", reason: "Motif",
+    amountCredited: "Montant crédité", taxInvoice: "Facture fiscale", simplifiedTaxInvoice: "Facture fiscale simplifiée", crNo: "N° CR",
   },
   es: {
     invoice: "Factura", invoiceNo: "N.º de factura", issueDate: "Fecha de emisión", supplyDate: "Fecha de la operación", dueDate: "Vencimiento",
@@ -74,6 +88,8 @@ export const INVOICE_LABELS: Record<PdfLocale, InvoiceLabels> = {
     paymentDetails: "Datos de pago", bank: "Banco", iban: "IBAN", bic: "BIC", sortCode: "Sort code", account: "N.º de cuenta",
     paymentRef: "Referencia de pago", paymentTerms: (d) => `Pago a ${d} días desde la fecha de factura.`, notes: "Observaciones",
     paid: "PAGADA", void: "ANULADA", draft: "BORRADOR", page: "Página", footer: FOOTER,
+    creditNote: "Factura rectificativa", creditNoteNo: "N.º de rectificativa", originalInvoice: "Factura original", reason: "Motivo",
+    amountCredited: "Importe abonado", taxInvoice: "Factura fiscal", simplifiedTaxInvoice: "Factura fiscal simplificada", crNo: "N.º CR",
   },
   pl: {
     invoice: "Faktura", invoiceNo: "Nr faktury", issueDate: "Data wystawienia", supplyDate: "Data wykonania usługi", dueDate: "Termin płatności",
@@ -82,6 +98,8 @@ export const INVOICE_LABELS: Record<PdfLocale, InvoiceLabels> = {
     paymentDetails: "Dane do przelewu", bank: "Bank", iban: "IBAN", bic: "BIC/SWIFT", sortCode: "Sort code", account: "Nr rachunku",
     paymentRef: "Tytuł przelewu", paymentTerms: (d) => `Płatność w terminie ${d} dni od daty wystawienia faktury.`, notes: "Uwagi",
     paid: "OPŁACONA", void: "ANULOWANA", draft: "PROJEKT", page: "Strona", footer: FOOTER,
+    creditNote: "Faktura korygująca", creditNoteNo: "Nr korekty", originalInvoice: "Faktura pierwotna", reason: "Powód",
+    amountCredited: "Kwota korekty", taxInvoice: "Faktura podatkowa", simplifiedTaxInvoice: "Uproszczona faktura podatkowa", crNo: "Nr CR",
   },
 };
 

@@ -25,6 +25,7 @@ const RULES: Rule[] = [
   { name: "NEXT_PUBLIC_SUPABASE_SCHEMA", required: false, check: (v) => (/^[a-z_][a-z0-9_]*$/.test(v) ? null : "invalid schema name"), hint: "defaults to matrixfleet" },
   { name: "OSRM_URL", required: false, check: url, hint: "routing service" },
   { name: "NOMINATIM_URL", required: false, check: url, hint: "address search service" },
+  { name: "ZATCA_ENCRYPTION_KEY", required: false, check: (v) => (/^[0-9a-f]{64}$/i.test(v) ? null : "must be 64 hex characters (32 bytes)"), hint: "encrypts Saudi e-invoicing signing keys at rest (server only); without it ZATCA connection is disabled" },
   { name: "MAP_TILE_URL", required: false, check: (v) => (/^https:\/\/.+\{z\}.+\{x\}.+\{y\}/.test(v) ? null : "must be https and contain {z}, {x}, {y}"), hint: "map tile template" },
 ];
 

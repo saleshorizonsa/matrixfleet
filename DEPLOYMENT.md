@@ -143,3 +143,39 @@ Remove-Item pt.json
 ```
 
 Accepted risk: drivers can read their company's bank details (they are printed on every invoice anyway).
+
+## GCC countries and Saudi e-invoicing (ZATCA Phase 2)
+
+**Countries and VAT.** Companies can pick Saudi Arabia, the UAE, Bahrain, Oman, Qatar or Kuwait (Settings → Company → Country,
+grouped under "Gulf (GCC)"). Choosing a country pre-fills its currency, standard VAT rate and km:
+
+| Country | Currency | VAT | Rules built in (`src/lib/vat.ts`) |
+|---|---|---|---|
+| Saudi Arabia | SAR | 15% | domestic → 15%; goods into/out of KSA → zero-rated (Art. 33 Implementing Regulations) |
+| UAE | AED (VAT number shown as "TRN") | 5% | domestic → 5%; international → zero-rated (Art. 45) |
+| Bahrain | BHD (3 decimals) | 10% | domestic → 10%; international → zero-rated |
+| Oman | OMR (3 decimals) | 5% | domestic → 5%; international → zero-rated |
+| Qatar | QAR | none | no VAT charged |
+| Kuwait | KWD (3 decimals) | none | no VAT charged |
+
+Invoices for GCC companies are titled "Tax invoice". Saudi invoices are bilingual (English + Arabic) and carry the ZATCA QR code.
+Amounts are stored with 3 decimals (`numeric(14,3)`). The suggestion is guidance: users can always override it.
+
+**ZATCA (Saudi Arabia only).** Migration `0008_gcc_zatca.sql` adds credit notes, the Saudi National Address fields and the
+`hl_zatca_units` table (signing key + ZATCA credentials, encrypted with `ZATCA_ENCRYPTION_KEY`, readable only by the service role).
+
+- Each Saudi company connects itself: Settings → E-invoicing → environment + one-time code from the Fatoora portal. MatrixFleet
+  creates the key and CSR, passes ZATCA's 6 compliance checks and stores the production certificate (about a minute).
+- Business customers → **standard** tax invoice, cleared in real time (it only becomes "sent" once ZATCA clears it).
+  Private customers → **simplified** tax invoice, issued at once and reported; if ZATCA is unreachable it is retried by the
+  daily job (`/api/cron/billing-sync`) and on the invoice page.
+- Every e-invoice joins an unbroken hash chain (counter + previous hash, reserved one at a time per company).
+- A submitted e-invoice can't be edited or voided (enforced in the database): use **Credit note**. A full-amount credit note
+  voids the original and frees its jobs.
+- Library: `src/lib/zatca/` (no external dependencies; tested against ZATCA's developer sandbox, where all document types pass).
+
+**Setup:** set `ZATCA_ENCRYPTION_KEY` (64 hex characters) in Vercel (Production + Preview) **once** and never change it.
+Back it up somewhere safe: losing it means every Saudi company has to reconnect.
+
+**Not built yet:** UAE e-invoicing (Peppol through an accredited provider, phased in from 2026–2027), Oman/Bahrain e-invoicing,
+Arabic user interface.

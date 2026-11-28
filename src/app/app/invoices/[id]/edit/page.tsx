@@ -18,9 +18,11 @@ export default async function EditInvoicePage({ params }: { params: Promise<{ id
   const { data: invoice } = await ctx.supabase.from("hl_invoices").select("*").eq("id", id).maybeSingle<Invoice>();
   if (!invoice) notFound();
   if (invoice.status !== "draft") redirect(`/app/invoices/${id}`);
+  // signed for ZATCA and waiting for an answer: no edits, only "retry"
+  if (invoice.zatca_status && invoice.zatca_status !== "rejected") redirect(`/app/invoices/${id}`);
 
   if (!/^[0-9a-f-]{36}$/i.test(id)) notFound();
-  const [{ data: lines }, { data: customers }, { data: jobs }] = await Promise.all([
+  const [{ data: lines }, { data: customers }, { data: jobs }, { data: original }] = await Promise.all([
     ctx.supabase.from("hl_invoice_lines").select("*").eq("invoice_id", id).order("position").returns<InvoiceLine[]>(),
     ctx.supabase.from("hl_customers").select(CUSTOMER_COLS).order("name").returns<InvoiceFormCustomer[]>(),
     ctx.supabase
@@ -30,6 +32,9 @@ export default async function EditInvoicePage({ params }: { params: Promise<{ id
       .order("delivered_at", { ascending: true })
       .limit(1000)
       .returns<InvoiceFormJob[]>(),
+    invoice.original_invoice_id
+      ? ctx.supabase.from("hl_invoices").select("number").eq("id", invoice.original_invoice_id).maybeSingle<{ number: string }>()
+      : Promise.resolve({ data: null }),
   ]);
 
   return (
@@ -37,7 +42,7 @@ export default async function EditInvoicePage({ params }: { params: Promise<{ id
       <Link href={`/app/invoices/${id}`} className="mb-3 inline-flex items-center gap-1 text-sm text-slate-500 hover:text-slate-900">
         <ArrowLeft className="h-4 w-4" /> {invoice.number}
       </Link>
-      <PageHeader title={t("editTitle", { number: invoice.number })} />
+      <PageHeader title={invoice.doc_type === "credit_note" ? t("creditNoteTitle", { number: invoice.number }) : t("editTitle", { number: invoice.number })} />
       <InvoiceForm
         customers={customers ?? []}
         jobs={jobs ?? []}
@@ -60,6 +65,9 @@ export default async function EditInvoicePage({ params }: { params: Promise<{ id
           vat_rate: Number(invoice.vat_rate),
           vat_note: invoice.vat_note,
           notes: invoice.notes,
+          doc_type: invoice.doc_type,
+          adjustment_reason: invoice.adjustment_reason,
+          original_number: original?.number ?? null,
           lines: (lines ?? []).map((l) => ({ description: l.description, quantity: Number(l.quantity), unit_price: Number(l.unit_price), job_id: l.job_id })),
         }}
       />

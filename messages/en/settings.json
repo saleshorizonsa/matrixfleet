@@ -10,7 +10,8 @@
     "team": "Team",
     "billing": "Billing",
     "privacy": "Privacy & data",
-    "audit": "Audit log"
+    "audit": "Audit log",
+    "einvoicing": "E-invoicing"
   },
   "errors": {
     "nameRequired": "Company name is required.",
@@ -27,7 +28,18 @@
     "lastOwnerAccount": "You are the only owner. Make someone else owner first, or delete the whole company.",
     "notFound": "Not found.",
     "confirmMismatch": "The confirmation text does not match.",
-    "erase_failed": "Your data could not be erased right now. Nothing was deleted — please try again or contact support."
+    "erase_failed": "Your data could not be erased right now. Nothing was deleted — please try again or contact support.",
+    "environment": "Choose an environment.",
+    "otp_format": "The one-time code has 6 digits.",
+    "otp_refused": "ZATCA did not accept the one-time code. Codes are valid for one hour and can be used once, and must come from the same environment (Simulation or Production).",
+    "checks_failed": "ZATCA's compliance checks failed. See the details below.",
+    "production_refused": "ZATCA did not issue the production certificate. Please try again with a new code.",
+    "not_configured": "E-invoicing is not switched on for this installation.",
+    "not_saudi": "E-invoicing with ZATCA is only for companies in Saudi Arabia.",
+    "seller_incomplete": "Complete your company details first.",
+    "store_failed": "The connection worked but could not be saved. Please try again.",
+    "rate_limited": "Too many attempts. Please wait an hour.",
+    "unexpected": "Something went wrong. Please try again."
   },
   "company": {
     "identity": "Company details",
@@ -70,7 +82,24 @@
     "chooseLogo": "Click to choose a logo",
     "uploadLogo": "Upload logo",
     "removeLogo": "Remove",
-    "removeLogoConfirm": "Remove your company logo?"
+    "removeLogoConfirm": "Remove your company logo?",
+    "legalNameAr": "Legal name in Arabic",
+    "legalNameArHint": "Shown on your tax invoices and sent to ZATCA.",
+    "vatHintSA": "15 digits, starting and ending with 3.",
+    "crNumber": "Commercial Registration (CR) number",
+    "crHint": "10 digits.",
+    "street": "Street",
+    "buildingNumber": "Building number",
+    "buildingHint": "4 digits, from your National Address.",
+    "additionalNumber": "Additional number",
+    "additionalHint": "4 digits, from your National Address.",
+    "district": "District",
+    "region": {
+      "uk": "United Kingdom",
+      "eu": "European Union",
+      "europe": "Other Europe",
+      "gcc": "Gulf (GCC)"
+    }
   },
   "pricing": {
     "title": "Quote pricing",
@@ -177,5 +206,61 @@
     "page": "Page {page} of {pages}",
     "prev": "Previous",
     "next": "Next"
+  },
+  "einvoicing": {
+    "title": "Saudi e-invoicing (ZATCA Phase 2)",
+    "intro": "Saudi VAT-registered companies must issue tax invoices through ZATCA's Fatoora platform. Once connected, MatrixFleet signs every invoice, sends business invoices for clearance and reports consumer invoices automatically.",
+    "notConnected": "Not connected",
+    "status": "Status",
+    "connected": "Connected",
+    "invoicesSigned": "E-invoices signed",
+    "connectedOn": "Connected on",
+    "certificateUntil": "Certificate valid until",
+    "device": "Solution unit (EGS) serial",
+    "notConnectedBody": "Until you connect, Saudi invoices carry the basic QR code only (phase 1). Connect before your ZATCA integration deadline.",
+    "testWarning": "This is a test connection. Invoices are not legally submitted. Connect to Production before issuing real invoices.",
+    "checks": "Compliance checks",
+    "check": {
+      "standard_invoice": "Standard tax invoice",
+      "standard_credit_note": "Standard credit note",
+      "standard_debit_note": "Standard debit note",
+      "simplified_invoice": "Simplified tax invoice",
+      "simplified_credit_note": "Simplified credit note",
+      "simplified_debit_note": "Simplified debit note"
+    },
+    "notConfigured": "E-invoicing is not switched on for this MatrixFleet installation yet. Please contact MatrixFleet support.",
+    "missingTitle": "Complete your company details first",
+    "missingBody": "ZATCA needs these details on every tax invoice:",
+    "field": {
+      "legal_name": "legal name",
+      "vat_number": "VAT number (15 digits, starts and ends with 3)",
+      "company_number": "Commercial Registration number (10 digits)",
+      "address_line1": "street",
+      "building_number": "building number (4 digits)",
+      "district": "district",
+      "city": "city",
+      "postcode": "postal code (5 digits)"
+    },
+    "openCompany": "Open company settings →",
+    "connectTitle": "Connect to ZATCA",
+    "reconnectTitle": "Reconnect or renew",
+    "connectBody": "Enter the one-time code from the Fatoora portal. MatrixFleet creates your signing key, runs ZATCA's six compliance checks and activates the connection. This takes about a minute.",
+    "environment": "Environment",
+    "environmentHint": "Use Simulation first to test with ZATCA's simulation portal, then Production.",
+    "env": {
+      "sandbox": "Developer sandbox",
+      "simulation": "Simulation",
+      "production": "Production"
+    },
+    "otp": "One-time code (OTP)",
+    "otpHint": "6 digits, valid for 1 hour.",
+    "connect": "Connect",
+    "reconnect": "Reconnect",
+    "howTitle": "How to get the one-time code",
+    "how1": "Sign in to the Fatoora portal with your ZATCA (ERAD) account.",
+    "how2": "Choose “Onboard new solution unit/device” (use the Simulation portal for testing).",
+    "how3": "Generate one code (OTP) and copy it.",
+    "how4": "Paste it here within one hour and press Connect.",
+    "howNote": "Your private signing key is created on our server and stored encrypted. It never leaves MatrixFleet."
   }
 }

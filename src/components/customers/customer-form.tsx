@@ -6,7 +6,7 @@ import { BadgeCheck, Building2, Loader2, ShieldAlert, ShieldQuestion, User } fro
 import { saveCustomer, checkVat } from "@/app/app/customers/actions";
 import { Button, Card, CardBody, CardHeader, Field, Input, Select, Textarea, buttonClass } from "@/components/ui";
 import { SubmitButton } from "@/components/app/client";
-import { COUNTRIES } from "@/lib/countries";
+import { COUNTRIES, isGCC } from "@/lib/countries";
 import type { Customer } from "@/lib/types";
 import type { VatCheckResult } from "@/lib/vat-check";
 import { cn } from "@/lib/utils";
@@ -162,6 +162,38 @@ export function CustomerForm({ customer, defaultCountry, currency, unit }: { cus
           <Field label={tc("postcode")}>
             <Input name="postcode" defaultValue={customer?.postcode ?? ""} className="uppercase" />
           </Field>
+          {isGCC(ctry) && (
+            <>
+              <Field label={t("form.nameAr")} className="sm:col-span-2">
+                <Input name="name_ar" dir="rtl" lang="ar" defaultValue={customer?.name_ar ?? ""} />
+              </Field>
+              <Field label={t("form.buildingNumber")} hint={ctry === "SA" ? t("form.buildingHint") : undefined}>
+                <Input name="building_number" inputMode="numeric" maxLength={8} defaultValue={customer?.building_number ?? ""} />
+              </Field>
+              <Field label={t("form.additionalNumber")}>
+                <Input name="additional_number" inputMode="numeric" maxLength={8} defaultValue={customer?.additional_number ?? ""} />
+              </Field>
+              <Field label={t("form.district")} className="sm:col-span-2">
+                <Input name="district" defaultValue={customer?.district ?? ""} />
+              </Field>
+              {kind === "business" && (
+                <>
+                  <Field label={t("form.idScheme")} hint={t("form.idHint")}>
+                    <Select name="id_scheme" defaultValue={customer?.id_scheme ?? "CRN"}>
+                      {["CRN", "MOM", "MLS", "700", "SAG", "OTH"].map((c) => (
+                        <option key={c} value={c}>
+                          {t(`form.idSchemes.${c}`)}
+                        </option>
+                      ))}
+                    </Select>
+                  </Field>
+                  <Field label={t("form.idValue")}>
+                    <Input name="id_value" defaultValue={customer?.id_value ?? ""} />
+                  </Field>
+                </>
+              )}
+            </>
+          )}
           <Field label={t("form.contactName")}>
             <Input name="contact_name" defaultValue={customer?.contact_name ?? ""} />
           </Field>

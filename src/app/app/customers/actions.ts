@@ -12,6 +12,8 @@ export type CustomerFormState = { error?: string } | undefined;
 
 const EDIT_ROLES = ["owner", "admin", "dispatcher", "accountant"] as const;
 
+const ID_SCHEMES = ["CRN", "MOM", "MLS", "700", "SAG", "NAT", "GCC", "IQA", "PAS", "OTH"];
+
 export async function saveCustomer(_: CustomerFormState, fd: FormData): Promise<CustomerFormState> {
   const ctx = await requireOffice([...EDIT_ROLES]);
   const id = str(fd, "id");
@@ -31,6 +33,12 @@ export async function saveCustomer(_: CustomerFormState, fd: FormData): Promise<
     address_line2: str(fd, "address_line2"),
     city: str(fd, "city"),
     postcode: str(fd, "postcode")?.toUpperCase() ?? null,
+    name_ar: str(fd, "name_ar"),
+    building_number: str(fd, "building_number")?.replace(/\s+/g, "") ?? null,
+    additional_number: str(fd, "additional_number")?.replace(/\s+/g, "") ?? null,
+    district: str(fd, "district"),
+    id_scheme: ID_SCHEMES.includes(str(fd, "id_scheme") ?? "") && str(fd, "id_value") ? str(fd, "id_scheme") : null,
+    id_value: str(fd, "id_value")?.replace(/\s+/g, "") ?? null,
     contact_name: str(fd, "contact_name"),
     email: str(fd, "email")?.toLowerCase() ?? null,
     phone: str(fd, "phone"),

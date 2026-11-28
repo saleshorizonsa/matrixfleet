@@ -25,9 +25,17 @@
 //      the place of supply is the place of DEPARTURE (Art. 50), so if the goods
 //      depart from another member state that state's rate applies (the seller
 //      may need a VAT registration there).
+//  GCC sellers (Saudi Arabia, UAE, Bahrain, Oman — GCC Unified VAT Agreement):
+//   6. Goods transported into or out of the seller's country (international
+//      transport) → zero-rated (KSA: Art. 33 VAT Implementing Regulations;
+//      UAE: Art. 45 Federal Decree-Law No. 8 of 2017; Bahrain and Oman: the
+//      international transport zero-rating in their VAT laws).
+//   7. Transport inside the seller's country → seller's standard rate
+//      (15% KSA, 5% UAE, 10% Bahrain, 5% Oman), B2B and B2C alike.
+//   8. Qatar and Kuwait have no VAT in force → no VAT charged.
 //  Other sellers (e.g. NO, CH): seller's standard rate, no special rules built-in.
 
-import { country, isEU } from "./countries";
+import { country, currencyDecimals, hasVat, isEU, isGCC } from "./countries";
 import type { VatTreatment } from "./types";
 
 export type VatRule =
@@ -40,6 +48,9 @@ export type VatRule =
   | "eu_outside_eu"
   | "b2c_seller_rate"
   | "b2c_eu_departure"
+  | "gcc_domestic"
+  | "gcc_international_zero"
+  | "gcc_no_vat"
   | "other_seller";
 
 export interface VatInput {
@@ -106,6 +117,54 @@ export const VAT_NOTES: Record<string, Record<NoteKey, string>> = {
 
 export function vatNote(key: NoteKey, locale = "en") {
   return (VAT_NOTES[locale] ?? VAT_NOTES.en)[key];
+}
+
+// GCC legal notes (English + Arabic; Saudi tax invoices must also be in Arabic).
+type GccNoteKey = "international" | "no_vat";
+const GCC_NOTES: Record<string, Record<GccNoteKey, { en: string; ar: string }>> = {
+  SA: {
+    international: {
+      en: "Zero-rated — international transport of goods (Article 33, KSA VAT Implementing Regulations).",
+      ar: "خاضع لنسبة الصفر — نقل دولي للسلع (المادة 33 من اللائحة التنفيذية لنظام ضريبة القيمة المضافة).",
+    },
+    no_vat: { en: "", ar: "" },
+  },
+  AE: {
+    international: {
+      en: "Zero-rated — international transport of goods (Article 45, Federal Decree-Law No. 8 of 2017 on VAT).",
+      ar: "خاضع لنسبة الصفر — النقل الدولي للبضائع (المادة 45 من المرسوم بقانون اتحادي رقم 8 لسنة 2017).",
+    },
+    no_vat: { en: "", ar: "" },
+  },
+  BH: {
+    international: {
+      en: "Zero-rated — international transport of goods (Bahrain VAT Law, Decree-Law No. 48 of 2018).",
+      ar: "خاضع لنسبة الصفر — النقل الدولي للبضائع (قانون ضريبة القيمة المضافة، المرسوم بقانون رقم 48 لسنة 2018).",
+    },
+    no_vat: { en: "", ar: "" },
+  },
+  OM: {
+    international: {
+      en: "Zero-rated — international transport of goods (Oman VAT Law, Royal Decree No. 121/2020).",
+      ar: "خاضع لنسبة الصفر — النقل الدولي للبضائع (قانون ضريبة القيمة المضافة، المرسوم السلطاني رقم 121/2020).",
+    },
+    no_vat: { en: "", ar: "" },
+  },
+  QA: {
+    international: { en: "", ar: "" },
+    no_vat: { en: "No VAT charged — VAT is not in force in Qatar.", ar: "لا تُفرض ضريبة القيمة المضافة — الضريبة غير مطبقة في دولة قطر." },
+  },
+  KW: {
+    international: { en: "", ar: "" },
+    no_vat: { en: "No VAT charged — VAT is not in force in Kuwait.", ar: "لا تُفرض ضريبة القيمة المضافة — الضريبة غير مطبقة في دولة الكويت." },
+  },
+};
+
+/** English (or bilingual for Saudi Arabia) GCC legal note. */
+export function gccNote(sellerCountry: string, key: GccNoteKey) {
+  const n = GCC_NOTES[sellerCountry.toUpperCase()]?.[key];
+  if (!n || !n.en) return null;
+  return sellerCountry.toUpperCase() === "SA" ? `${n.en}\n${n.ar}` : n.en;
 }
 
 const up = (c?: string | null) => (c ?? "").trim().toUpperCase();
@@ -200,6 +259,30 @@ export function suggestVatTreatment(input: VatInput): VatSuggestion {
     return std("b2c_seller_rate", "Consumer customer: seller's standard rate.");
   }
 
+  // --- GCC sellers ----------------------------------------------------------
+  if (isGCC(seller)) {
+    if (!hasVat(seller)) {
+      return {
+        treatment: "outside_scope",
+        rate: 0,
+        legalNote: gccNote(seller, "no_vat"),
+        rule: "gcc_no_vat",
+        explanation: "No VAT system in force in the seller's country.",
+      };
+    }
+    const sellerRate = rate || country(seller)?.vat || 0;
+    if (pickup !== seller || delivery !== seller) {
+      return {
+        treatment: "zero_rated",
+        rate: 0,
+        legalNote: gccNote(seller, "international"),
+        rule: "gcc_international_zero",
+        explanation: "Goods transported into or out of the seller's country: international transport is zero-rated.",
+      };
+    }
+    return std("gcc_domestic", "Transport within the seller's country: standard rate.", sellerRate);
+  }
+
   // --- Other sellers (NO, CH, …) ------------------------------------------
   return std("other_seller", "No specific rules for this seller country — standard rate pre-filled.");
 }
@@ -208,16 +291,24 @@ export function round2(n: number) {
   return Math.round((n + Number.EPSILON) * 100) / 100;
 }
 
+/** Round to the currency's minor unit (2 decimals, 3 for KWD/BHD/OMR). */
+export function roundTo(n: number, decimals = 2) {
+  const f = 10 ** decimals;
+  return Math.round((n + Number.EPSILON) * f) / f;
+}
+
 export interface LineInput {
   quantity: number;
   unit_price: number;
 }
 
-export function computeTotals(lines: LineInput[], vatRate: number) {
-  const amounts = lines.map((l) => round2((Number(l.quantity) || 0) * (Number(l.unit_price) || 0)));
-  const subtotal = round2(amounts.reduce((a, b) => a + b, 0));
-  const vat_amount = round2((subtotal * (Number(vatRate) || 0)) / 100);
-  return { amounts, subtotal, vat_amount, total: round2(subtotal + vat_amount) };
+export function computeTotals(lines: LineInput[], vatRate: number, currency?: string) {
+  const d = currencyDecimals(currency);
+  const r = (n: number) => roundTo(n, d);
+  const amounts = lines.map((l) => r((Number(l.quantity) || 0) * (Number(l.unit_price) || 0)));
+  const subtotal = r(amounts.reduce((a, b) => a + b, 0));
+  const vat_amount = r((subtotal * (Number(vatRate) || 0)) / 100);
+  return { amounts, subtotal, vat_amount, total: r(subtotal + vat_amount) };
 }
 
 export const VAT_TREATMENTS: VatTreatment[] = ["standard", "zero_rated", "exempt", "reverse_charge", "outside_scope"];

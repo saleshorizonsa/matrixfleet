@@ -76,7 +76,9 @@
     "summary": "Summary",
     "vatVerified": "VAT number verified",
     "vatUnverified": "VAT number not verified",
-    "noVatNumber": "No VAT number"
+    "noVatNumber": "No VAT number",
+    "creditReason": "Reason for the credit note",
+    "creditReasonHint": "Shown on the credit note and sent to ZATCA. It corrects invoice {number}."
   },
   "treatments": {
     "standard": "Standard rate",
@@ -95,7 +97,10 @@
     "eu_outside_eu": "Business customer outside the EU — not subject to EU VAT.",
     "b2c_seller_rate": "Private customer — your standard VAT rate applies.",
     "b2c_eu_departure": "Private customer, intra-EU transport — VAT of the departure country applies; you may need a VAT registration there.",
-    "other_seller": "No built-in rules for your country — standard rate pre-filled."
+    "other_seller": "No built-in rules for your country — standard rate pre-filled.",
+    "gcc_domestic": "Transport within your country — your standard VAT rate applies.",
+    "gcc_international_zero": "The goods move into or out of your country — international transport is zero-rated.",
+    "gcc_no_vat": "VAT is not in force in your country — no VAT is charged."
   },
   "errors": {
     "invalid": "Please check the form — some values are not valid.",
@@ -105,7 +110,9 @@
     "dueBeforeIssue": "The due date can't be before the issue date.",
     "immutable": "This invoice has been issued and can no longer be edited. Void it and create a new one instead.",
     "notFound": "Invoice not found.",
-    "numbering": "Could not allocate an invoice number."
+    "numbering": "Could not allocate an invoice number.",
+    "zatcaCurrency": "Saudi e-invoices must be in SAR. Change the currency to SAR.",
+    "zatcaNegative": "Saudi e-invoices cannot have negative lines. Issue a credit note instead of a discount line."
   },
   "detail": {
     "invoice": "Invoice",
@@ -146,6 +153,67 @@
     "activity": "Activity",
     "emailSubject": "Invoice {number} from {company}",
     "emailBody": "Hello,\n\nPlease find attached invoice {number} for {total}, due on {due}.\n\nPayment reference: {number}\n\nKind regards,\n{company}",
-    "emailHint": "Download the PDF and attach it to the email that opens."
+    "emailHint": "Download the PDF and attach it to the email that opens.",
+    "creditNote": "Credit note",
+    "createCreditNote": "Create credit note",
+    "creditNoteHelp": "A credit note cancels or corrects an issued invoice. You can adjust the lines before issuing it. A credit note for the full amount marks the original invoice as void."
+  },
+  "creditNote": "Credit note",
+  "creditNoteFor": "corrects {number}",
+  "creditNoteTitle": "Credit note {number}",
+  "zatca": {
+    "title": "Saudi e-invoicing (ZATCA)",
+    "issue": "Issue and send to ZATCA",
+    "state": {
+      "cleared": "Cleared by ZATCA",
+      "reported": "Reported to ZATCA",
+      "warning": "Accepted by ZATCA with warnings",
+      "rejected": "Rejected by ZATCA",
+      "failed": "Waiting — ZATCA could not be reached",
+      "pending": "Being sent to ZATCA",
+      "notSubmitted": "Not sent to ZATCA yet",
+      "notConnected": "Not connected to ZATCA"
+    },
+    "kind": {
+      "standard": "Standard tax invoice (B2B, clearance)",
+      "simplified": "Simplified tax invoice (B2C, reporting)"
+    },
+    "env": {
+      "sandbox": "test sandbox",
+      "simulation": "simulation",
+      "production": "production"
+    },
+    "rejectedHelp": "Fix the problems above (usually the customer's details), edit the invoice if needed, then submit it again.",
+    "retry": "Try again",
+    "resubmit": "Submit again",
+    "downloadXml": "Download XML",
+    "phase1Note": "Your company is not connected to ZATCA yet, so this invoice carries the basic (phase 1) QR code only. Connect under Settings → E-invoicing.",
+    "submittedOn": "Sent {date}",
+    "missingBuyer": "ZATCA needs these customer details:",
+    "editCustomer": "Edit customer",
+    "buyerField": {
+      "name": "customer",
+      "vat_number": "VAT number (15 digits, starts and ends with 3)",
+      "id_value": "VAT number or another ID (e.g. CR number)",
+      "address_line1": "street",
+      "building_number": "building number (4 digits)",
+      "district": "district",
+      "city": "city",
+      "postcode": "postal code (5 digits)"
+    },
+    "result": {
+      "cleared": "Invoice cleared by ZATCA and issued.",
+      "reported": "Invoice issued and reported to ZATCA.",
+      "warning": "Invoice accepted by ZATCA with warnings — see the details.",
+      "pending": "Invoice issued. ZATCA could not be reached; it will be reported automatically.",
+      "not_onboarded": "Connect your company to ZATCA first (Settings → E-invoicing).",
+      "currency": "Saudi e-invoices must be in SAR.",
+      "buyer_incomplete": "The customer's details are incomplete for a Saudi tax invoice.",
+      "negative_line": "Saudi e-invoices cannot have negative lines. Use a credit note.",
+      "busy": "Another invoice is being signed right now. Please try again in a moment.",
+      "rejected": "ZATCA rejected the invoice. It is still a draft — see the reasons.",
+      "failed": "ZATCA could not be reached. Please try again.",
+      "already": "This invoice has already been sent to ZATCA."
+    }
   }
 }

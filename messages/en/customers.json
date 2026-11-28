@@ -42,7 +42,23 @@
     "paymentTerms": "Payment terms (days)",
     "paymentTermsHint": "Leave empty to use your company default",
     "rate": "Rate per {unit} ({currency})",
-    "rateHint": "Overrides your default price per distance for this customer"
+    "rateHint": "Overrides your default price per distance for this customer",
+    "nameAr": "Name in Arabic",
+    "buildingNumber": "Building number",
+    "buildingHint": "4 digits (Saudi National Address).",
+    "additionalNumber": "Additional number",
+    "district": "District",
+    "idScheme": "Other ID type",
+    "idHint": "Needed on Saudi tax invoices when the customer has no VAT number.",
+    "idValue": "ID number",
+    "idSchemes": {
+      "700": "700 number",
+      "CRN": "Commercial Registration (CR)",
+      "MOM": "MOMRA licence",
+      "MLS": "MHRSD licence",
+      "SAG": "MISA licence",
+      "OTH": "Other ID"
+    }
   },
   "errors": {
     "nameRequired": "Please enter a name.",

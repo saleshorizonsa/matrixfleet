@@ -23,6 +23,11 @@ export interface SellerSnapshot {
   bank_sort_code: string | null;
   bank_account: string | null;
   payment_terms_days: number;
+  // GCC (optional: older snapshots do not have them)
+  legal_name_ar?: string | null;
+  building_number?: string | null;
+  district?: string | null;
+  additional_number?: string | null;
 }
 
 export interface BuyerSnapshot {
@@ -37,6 +42,12 @@ export interface BuyerSnapshot {
   vat_number: string | null;
   vat_verified: boolean;
   email: string | null;
+  name_ar?: string | null;
+  building_number?: string | null;
+  district?: string | null;
+  additional_number?: string | null;
+  id_scheme?: string | null;
+  id_value?: string | null;
 }
 
 export function sellerSnapshot(org: Organization): SellerSnapshot {
@@ -61,6 +72,10 @@ export function sellerSnapshot(org: Organization): SellerSnapshot {
     bank_sort_code: org.bank_sort_code,
     bank_account: org.bank_account,
     payment_terms_days: org.payment_terms_days,
+    legal_name_ar: org.legal_name_ar ?? null,
+    building_number: org.building_number ?? null,
+    district: org.district ?? null,
+    additional_number: org.additional_number ?? null,
   };
 }
 
@@ -77,6 +92,12 @@ export function buyerSnapshot(c: Customer): BuyerSnapshot {
     vat_number: c.vat_number,
     vat_verified: c.vat_verified,
     email: c.email,
+    name_ar: c.name_ar ?? null,
+    building_number: c.building_number ?? null,
+    district: c.district ?? null,
+    additional_number: c.additional_number ?? null,
+    id_scheme: c.id_scheme ?? null,
+    id_value: c.id_value ?? null,
   };
 }
 
@@ -87,9 +108,15 @@ export function addressLines(p: {
   city?: string | null;
   postcode?: string | null;
   country?: string | null;
+  building_number?: string | null;
+  district?: string | null;
+  additional_number?: string | null;
 }) {
   const cityLine = [p.postcode, p.city].filter(Boolean).join(" ");
-  return [p.address_line1, p.address_line2, cityLine, country(p.country)?.name ?? p.country].filter(Boolean) as string[];
+  // GCC National Address: "<building> <street>", "<district>", "<postcode> <city>", "Additional no."
+  const street = [p.building_number, p.address_line1].filter(Boolean).join(" ");
+  const extra = p.additional_number ? `Additional No. ${p.additional_number}` : null;
+  return [street || null, p.address_line2, p.district, cityLine, extra, country(p.country)?.name ?? p.country].filter(Boolean) as string[];
 }
 
 /** Effective status: a sent invoice past its due date is shown as overdue. */

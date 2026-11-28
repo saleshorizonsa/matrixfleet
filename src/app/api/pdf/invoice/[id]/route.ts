@@ -32,7 +32,10 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     buyer = c ? buyerSnapshot(c) : ({ name: "—", kind: "business", country: ctx.org.country } as BuyerSnapshot);
   }
 
-  const bytes = await buildInvoicePdf({ invoice, lines: lines ?? [], seller, buyer });
+  const { data: original } = invoice.original_invoice_id
+    ? await ctx.supabase.from("hl_invoices").select("number").eq("id", invoice.original_invoice_id).maybeSingle<{ number: string }>()
+    : { data: null };
+  const bytes = await buildInvoicePdf({ invoice, lines: lines ?? [], seller, buyer, originalNumber: original?.number ?? null });
   const download = new URL(request.url).searchParams.get("download") === "1";
   return pdfResponse(bytes, `${invoice.number}.pdf`, !download);
 }

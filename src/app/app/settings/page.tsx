@@ -5,7 +5,8 @@ import { SubmitButton } from "@/components/app/client";
 import { ActionForm } from "@/components/settings/action-form";
 import { LogoUploader } from "@/components/settings/logo-uploader";
 import { updateCompany } from "./actions";
-import { COUNTRIES, CURRENCIES } from "@/lib/countries";
+import { COUNTRIES, CURRENCIES, REGIONS, country, isGCC } from "@/lib/countries";
+import { CountryDefaults } from "@/components/settings/country-defaults";
 import { LOCALES, LOCALE_LABELS } from "@/i18n/config";
 
 export const metadata = { title: "Company settings" };
@@ -16,6 +17,9 @@ export default async function CompanySettingsPage() {
   const ts = await getTranslations("settings");
   const org = ctx.org;
   const canEdit = ADMIN_ROLES.includes(ctx.membership.role);
+  const gcc = isGCC(org.country);
+  const saudi = org.country === "SA";
+  const vatLabel = country(org.country)?.vatLabel ?? t("vatNumber");
 
   return (
     <div className="grid gap-6 xl:grid-cols-[1fr_320px]">
@@ -30,15 +34,33 @@ export default async function CompanySettingsPage() {
               <Field label={t("legalName")}>
                 <Input name="legal_name" defaultValue={org.legal_name ?? ""} />
               </Field>
-              <Field label={t("vatNumber")} hint={t("vatHint")}>
-                <Input name="vat_number" defaultValue={org.vat_number ?? ""} placeholder="GB123456789" />
+              {gcc && (
+                <Field label={t("legalNameAr")} hint={saudi ? t("legalNameArHint") : undefined}>
+                  <Input name="legal_name_ar" dir="rtl" lang="ar" defaultValue={org.legal_name_ar ?? ""} />
+                </Field>
+              )}
+              <Field label={vatLabel} hint={saudi ? t("vatHintSA") : t("vatHint")}>
+                <Input name="vat_number" defaultValue={org.vat_number ?? ""} placeholder={saudi ? "3xxxxxxxxxxxxx3" : org.country === "AE" ? "100xxxxxxxxxxxx" : "GB123456789"} />
               </Field>
-              <Field label={t("companyNumber")}>
+              <Field label={saudi ? t("crNumber") : t("companyNumber")} hint={saudi ? t("crHint") : undefined}>
                 <Input name="company_number" defaultValue={org.company_number ?? ""} />
               </Field>
-              <Field label={t("address1")} className="sm:col-span-2">
+              <Field label={saudi ? t("street") : t("address1")} className="sm:col-span-2">
                 <Input name="address_line1" defaultValue={org.address_line1 ?? ""} />
               </Field>
+              {gcc && (
+                <>
+                  <Field label={t("buildingNumber")} hint={saudi ? t("buildingHint") : undefined}>
+                    <Input name="building_number" inputMode="numeric" maxLength={8} defaultValue={org.building_number ?? ""} />
+                  </Field>
+                  <Field label={t("additionalNumber")} hint={saudi ? t("additionalHint") : undefined}>
+                    <Input name="additional_number" inputMode="numeric" maxLength={8} defaultValue={org.additional_number ?? ""} />
+                  </Field>
+                  <Field label={t("district")} className="sm:col-span-2">
+                    <Input name="district" defaultValue={org.district ?? ""} />
+                  </Field>
+                </>
+              )}
               <Field label={t("address2")} className="sm:col-span-2">
                 <Input name="address_line2" defaultValue={org.address_line2 ?? ""} />
               </Field>
@@ -65,12 +87,17 @@ export default async function CompanySettingsPage() {
             <CardBody className="grid gap-4 sm:grid-cols-2">
               <Field label={t("country")}>
                 <Select name="country" defaultValue={org.country}>
-                  {COUNTRIES.map((c) => (
-                    <option key={c.code} value={c.code}>
-                      {c.name}
-                    </option>
+                  {REGIONS.map((r) => (
+                    <optgroup key={r.id} label={t(`region.${r.id}`)}>
+                      {COUNTRIES.filter((c) => c.region === r.id).map((c) => (
+                        <option key={c.code} value={c.code}>
+                          {c.name}
+                        </option>
+                      ))}
+                    </optgroup>
                   ))}
                 </Select>
+                <CountryDefaults />
               </Field>
               <Field label={t("currency")}>
                 <Select name="currency" defaultValue={org.currency}>

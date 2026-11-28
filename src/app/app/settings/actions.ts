@@ -8,7 +8,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { billingConfigured, getStripe } from "@/lib/stripe";
 import { str, num } from "@/lib/utils";
 import { isLocale } from "@/i18n/config";
-import { country } from "@/lib/countries";
+import { country, hasVat } from "@/lib/countries";
 import type { Role } from "@/lib/types";
 import { eraseOrphanedUsers, eraseUserAccount } from "@/lib/account-deletion";
 import { actionError } from "@/lib/action-error";
@@ -32,6 +32,10 @@ export async function updateCompany(_: ActionState, fd: FormData): Promise<Actio
   const update = {
     name,
     legal_name: str(fd, "legal_name"),
+    legal_name_ar: str(fd, "legal_name_ar"),
+    building_number: str(fd, "building_number")?.replace(/\s+/g, "") ?? null,
+    district: str(fd, "district"),
+    additional_number: str(fd, "additional_number")?.replace(/\s+/g, "") ?? null,
     vat_number: str(fd, "vat_number")?.replace(/\s+/g, "").toUpperCase() ?? null,
     company_number: str(fd, "company_number"),
     address_line1: str(fd, "address_line1"),
@@ -45,7 +49,8 @@ export async function updateCompany(_: ActionState, fd: FormData): Promise<Actio
     currency: (str(fd, "currency") ?? ctx.org.currency).toUpperCase(),
     distance_unit: unit === "km" || unit === "mi" ? unit : ctx.org.distance_unit,
     locale: isLocale(locale) ? locale : ctx.org.locale,
-    default_vat_rate: vat !== null && vat >= 0 && vat <= 50 ? vat : ctx.org.default_vat_rate,
+    // no VAT system in force (Qatar, Kuwait) → 0 %
+    default_vat_rate: !hasVat(ctry) ? 0 : vat !== null && vat >= 0 && vat <= 50 ? vat : ctx.org.default_vat_rate,
     invoice_prefix: (str(fd, "invoice_prefix") ?? "INV").replace(/[^A-Za-z0-9-]/g, "").slice(0, 12) || "INV",
     payment_terms_days: terms !== null && terms >= 0 && terms <= 180 ? Math.round(terms) : ctx.org.payment_terms_days,
     bank_name: str(fd, "bank_name"),

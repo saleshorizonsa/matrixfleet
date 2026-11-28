@@ -36,6 +36,10 @@ export interface InvoiceFormInitial {
   vat_note: string | null;
   notes: string | null;
   lines: { description: string; quantity: number; unit_price: number; job_id: string | null }[];
+  doc_type?: "invoice" | "credit_note" | "debit_note";
+  adjustment_reason?: string | null;
+  /** number of the invoice a credit note corrects */
+  original_number?: string | null;
 }
 
 interface Line {
@@ -138,7 +142,7 @@ export function InvoiceForm({
     setOverride({ treatment, rate: rateStr, note, ...patch });
 
   const parsed = lines.map((l) => ({ quantity: Number(l.quantity.replace(",", ".")) || 0, unit_price: Number(l.unit_price.replace(",", ".")) || 0 }));
-  const totals = computeTotals(parsed, vatRate);
+  const totals = computeTotals(parsed, vatRate, currency);
   const payload = JSON.stringify(
     lines
       .filter((l) => l.description.trim())
@@ -312,6 +316,16 @@ export function InvoiceForm({
             )}
           </CardBody>
         </Card>
+
+        {initial?.doc_type === "credit_note" && (
+          <Card>
+            <CardBody>
+              <Field label={t("form.creditReason")} hint={t("form.creditReasonHint", { number: initial.original_number ?? "—" })}>
+                <Textarea name="adjustment_reason" required maxLength={500} defaultValue={initial.adjustment_reason ?? ""} />
+              </Field>
+            </CardBody>
+          </Card>
+        )}
 
         <Card>
           <CardBody>

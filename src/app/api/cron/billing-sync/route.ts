@@ -3,11 +3,13 @@ import { timingSafeEqual } from "node:crypto";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { syncExtraVehicles } from "@/lib/stripe";
 import { logError } from "@/lib/safe-log";
+import { retryPendingZatca } from "@/lib/zatca";
 
 /**
  * Daily billing reconciliation (Vercel Cron, see vercel.json).
  * Vehicles can be added outside the app's own forms (e.g. directly through the API); this makes sure
  * every paying company's "extra vehicles" quantity in Stripe matches its real fleet size.
+ * Also re-submits Saudi simplified e-invoices that ZATCA could not be reached for (24-hour rule).
  * Vercel sends `Authorization: Bearer $CRON_SECRET`; anything else gets 401.
  */
 export const runtime = "nodejs";
@@ -34,7 +36,13 @@ export async function GET(request: NextRequest) {
       const r = await syncExtraVehicles(o.id);
       if (r?.changed) changed++;
     }
-    return NextResponse.json({ checked: orgs?.length ?? 0, changed });
+    let zatca = { checked: 0, reported: 0 };
+    try {
+      zatca = await retryPendingZatca();
+    } catch (err) {
+      logError("[cron] zatca retry failed", err);
+    }
+    return NextResponse.json({ checked: orgs?.length ?? 0, changed, zatca });
   } catch (err) {
     logError("[cron] billing-sync failed", err);
     return NextResponse.json({ error: "failed" }, { status: 500 });
