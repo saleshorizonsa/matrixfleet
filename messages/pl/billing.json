@@ -39,7 +39,9 @@
     "forbidden": "Tylko właściciele i administratorzy mogą zarządzać płatnościami.",
     "not_configured": "Płatności nie są jeszcze skonfigurowane.",
     "price_missing": "Ten plan nie jest jeszcze dostępny w Twojej walucie.",
-    "portal_unavailable": "Portal płatności nie jest jeszcze dostępny — najpierw wybierz plan."
+    "portal_unavailable": "Portal płatności nie jest jeszcze dostępny — najpierw wybierz plan.",
+    "price_invalid": "Ten plan nie jest jeszcze poprawnie skonfigurowany (nieprawidłowy identyfikator ceny Stripe). Skontaktuj się z pomocą techniczną.",
+    "stripe_error": "Nie udało się otworzyć strony płatności. Nic nie zostało pobrane — spróbuj ponownie za chwilę lub skontaktuj się z pomocą techniczną."
   },
   "features": {
     "f_jobs": "Zlecenia, wyceny i klienci",

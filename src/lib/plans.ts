@@ -100,12 +100,34 @@ export function trialDaysLeft(org: Pick<Organization, "trial_ends_at">) {
   return Math.max(0, Math.ceil(ms / 86_400_000));
 }
 
+/** Raw env value, trimmed. */
+function envValue(name: string) {
+  const v = process.env[name]?.trim();
+  return v ? v : undefined;
+}
+
+/** Only real Stripe price ids count; anything else (e.g. an amount like "£39") is treated as not set. */
+function priceIdFromEnv(name: string) {
+  const v = envValue(name);
+  if (v && !v.startsWith("price_")) {
+    console.error(`[billing] ${name} is not a Stripe price id (must start with "price_"); plan disabled`);
+    return undefined;
+  }
+  return v;
+}
+
+/** True when a price variable is set but is not a Stripe price id (misconfiguration). */
+export function priceEnvInvalid(plan: Plan["id"], currency: string) {
+  const v = envValue(`STRIPE_PRICE_${plan.toUpperCase()}_${billingCurrency(currency)}`);
+  return !!v && !v.startsWith("price_");
+}
+
 /** Stripe price id for a plan's monthly base fee. */
 export function stripePriceId(plan: Plan["id"], currency: string) {
-  return process.env[`STRIPE_PRICE_${plan.toUpperCase()}_${billingCurrency(currency)}`];
+  return priceIdFromEnv(`STRIPE_PRICE_${plan.toUpperCase()}_${billingCurrency(currency)}`);
 }
 
 /** Stripe price id for one extra vehicle per month on a plan, e.g. STRIPE_PRICE_GROWTH_EXTRA_VEHICLE_GBP. */
 export function stripeExtraVehiclePriceId(plan: Plan["id"], currency: string) {
-  return process.env[`STRIPE_PRICE_${plan.toUpperCase()}_EXTRA_VEHICLE_${billingCurrency(currency)}`];
+  return priceIdFromEnv(`STRIPE_PRICE_${plan.toUpperCase()}_EXTRA_VEHICLE_${billingCurrency(currency)}`);
 }

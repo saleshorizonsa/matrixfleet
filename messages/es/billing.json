@@ -39,7 +39,9 @@
     "forbidden": "Solo propietarios y administradores pueden gestionar la facturación.",
     "not_configured": "La facturación aún no está configurada.",
     "price_missing": "Este plan aún no está disponible en tu moneda.",
-    "portal_unavailable": "El portal de facturación aún no está disponible: elige primero un plan."
+    "portal_unavailable": "El portal de facturación aún no está disponible: elige primero un plan.",
+    "price_invalid": "Este plan todavía no está bien configurado (el ID de precio de Stripe no es válido). Contacta con soporte.",
+    "stripe_error": "No hemos podido abrir la página de pago. No se ha cobrado nada; inténtalo de nuevo en un momento o contacta con soporte."
   },
   "features": {
     "f_jobs": "Servicios, presupuestos y clientes",

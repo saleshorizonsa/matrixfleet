@@ -39,7 +39,9 @@
     "forbidden": "Seuls les propriétaires et administrateurs peuvent gérer la facturation.",
     "not_configured": "La facturation n'est pas encore configurée.",
     "price_missing": "Cette formule n'est pas encore disponible dans votre devise.",
-    "portal_unavailable": "Le portail de facturation n'est pas encore disponible — choisissez d'abord une formule."
+    "portal_unavailable": "Le portail de facturation n'est pas encore disponible — choisissez d'abord une formule.",
+    "price_invalid": "Cette formule n'est pas encore correctement configurée (identifiant de prix Stripe invalide). Veuillez contacter le support.",
+    "stripe_error": "Impossible d'ouvrir la page de paiement. Aucun montant n'a été débité — réessayez dans un instant ou contactez le support."
   },
   "features": {
     "f_jobs": "Missions, devis et clients",

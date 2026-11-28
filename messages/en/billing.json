@@ -39,7 +39,9 @@
     "forbidden": "Only owners and admins can manage billing.",
     "not_configured": "Billing is not configured yet.",
     "price_missing": "This plan is not available in your currency yet.",
-    "portal_unavailable": "The billing portal is not available yet — choose a plan first."
+    "portal_unavailable": "The billing portal is not available yet — choose a plan first.",
+    "price_invalid": "This plan is not set up correctly yet (its Stripe price ID is invalid). Please contact support.",
+    "stripe_error": "We could not open the payment page. Nothing was charged — please try again in a moment or contact support."
   },
   "features": {
     "f_jobs": "Jobs, quotes & customers",

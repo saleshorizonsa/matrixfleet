@@ -39,7 +39,9 @@
     "forbidden": "Nur Inhaber und Administratoren können die Abrechnung verwalten.",
     "not_configured": "Die Abrechnung ist noch nicht eingerichtet.",
     "price_missing": "Dieser Tarif ist in Ihrer Währung noch nicht verfügbar.",
-    "portal_unavailable": "Das Abrechnungsportal ist noch nicht verfügbar – wählen Sie zuerst einen Tarif."
+    "portal_unavailable": "Das Abrechnungsportal ist noch nicht verfügbar – wählen Sie zuerst einen Tarif.",
+    "price_invalid": "Dieser Tarif ist noch nicht richtig eingerichtet (ungültige Stripe-Preis-ID). Bitte wenden Sie sich an den Support.",
+    "stripe_error": "Die Zahlungsseite konnte nicht geöffnet werden. Es wurde nichts belastet – bitte versuchen Sie es gleich erneut oder kontaktieren Sie den Support."
   },
   "features": {
     "f_jobs": "Aufträge, Angebote & Kunden",

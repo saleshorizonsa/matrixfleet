@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { getContext, ADMIN_ROLES } from "@/lib/auth";
-import { PLANS, extraVehicles, stripeExtraVehiclePriceId, stripePriceId } from "@/lib/plans";
+import { PLANS, extraVehicles, priceEnvInvalid, stripeExtraVehiclePriceId, stripePriceId } from "@/lib/plans";
 import { billingConfigured, getStripe } from "@/lib/stripe";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { audit } from "@/lib/audit";
@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
   const plan = PLANS.find((p) => p.id === planId);
   const price = plan ? stripePriceId(plan.id, ctx.org.currency) : undefined;
   if (!plan || !price) {
-    back.searchParams.set("error", "price_missing");
+    back.searchParams.set("error", plan && priceEnvInvalid(plan.id, ctx.org.currency) ? "price_invalid" : "price_missing");
     return NextResponse.redirect(back, { status: 303 });
   }
 
@@ -37,6 +37,7 @@ export async function POST(request: NextRequest) {
   }
   const lineItems = [{ price, quantity: 1 }, ...(extra > 0 ? [{ price: extraPrice!, quantity: extra }] : [])];
 
+  try {
   const stripe = getStripe();
   let customerId = ctx.org.stripe_customer_id;
   if (!customerId) {
@@ -69,4 +70,14 @@ export async function POST(request: NextRequest) {
 
   await audit(ctx, "billing.checkout_started", "organization", ctx.org.id, { plan: plan.id, extra_vehicles: extra });
   return NextResponse.redirect(session.url!, { status: 303 });
+  } catch (err) {
+    // never show a 500 to the customer: log the Stripe error and go back with a readable message
+    console.error("[billing] checkout failed", err);
+    await audit(ctx, "billing.checkout_failed", "organization", ctx.org.id, {
+      plan: plan.id,
+      error: err instanceof Error ? err.message.slice(0, 200) : "unknown",
+    });
+    back.searchParams.set("error", "stripe_error");
+    return NextResponse.redirect(back, { status: 303 });
+  }
 }
