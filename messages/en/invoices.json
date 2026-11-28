@@ -156,7 +156,10 @@
     "emailHint": "Download the PDF and attach it to the email that opens.",
     "creditNote": "Credit note",
     "createCreditNote": "Create credit note",
-    "creditNoteHelp": "A credit note cancels or corrects an issued invoice. You can adjust the lines before issuing it. A credit note for the full amount marks the original invoice as void."
+    "creditNoteHelp": "A credit note cancels or corrects an issued invoice. You can adjust the lines before issuing it. A credit note for the full amount marks the original invoice as void.",
+    "immutableNoteCredit": "Issued documents are locked to protect your records. To correct one, issue a credit note.",
+    "taxInvoice": "Tax invoice",
+    "simplifiedTaxInvoice": "Simplified tax invoice"
   },
   "creditNote": "Credit note",
   "creditNoteFor": "corrects {number}",

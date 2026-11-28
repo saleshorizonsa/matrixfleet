@@ -173,6 +173,11 @@ Amounts are stored with 3 decimals (`numeric(14,3)`). The suggestion is guidance
 - A submitted e-invoice can't be edited or voided (enforced in the database): use **Credit note**. A full-amount credit note
   voids the original and frees its jobs.
 - Library: `src/lib/zatca/` (no external dependencies; tested against ZATCA's developer sandbox, where all document types pass).
+- "Developer sandbox" mode is for demos only: ZATCA's sandbox hands out a dummy production certificate, so there invoices are
+  signed with the genuine compliance certificate and validated through ZATCA's compliance endpoint. Simulation and
+  Production use the real clearance/reporting endpoints with the production certificate.
+- End-to-end check (28 Nov 2026, live database + sandbox): onboarding 6/6, B2B cleared, B2C reported, credit note cleared and
+  original voided, hash chain intact, and 7 tamper attempts by a signed-in user all refused.
 
 **Setup:** set `ZATCA_ENCRYPTION_KEY` (64 hex characters) in Vercel (Production + Preview) **once** and never change it.
 Back it up somewhere safe: losing it means every Saudi company has to reconnect.

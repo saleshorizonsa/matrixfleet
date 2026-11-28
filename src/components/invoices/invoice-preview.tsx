@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { hasVat, isGCC } from "@/lib/countries";
 import { addressLines, type BuyerSnapshot, type SellerSnapshot } from "@/lib/invoices";
 import { date, money } from "@/lib/format";
 import type { Invoice, InvoiceLine, InvoiceStatus } from "@/lib/types";
@@ -22,6 +23,12 @@ export function InvoicePreview({
 }) {
   const t = useTranslations("invoices");
   const fmt = (n: number) => money(n, invoice.currency, locale);
+  const credit = invoice.doc_type === "credit_note";
+  const saudi = seller.country === "SA";
+  const simplified = saudi && (invoice.zatca_kind ? invoice.zatca_kind === "simplified" : buyer.kind === "individual");
+  const taxDoc = isGCC(seller.country) && hasVat(seller.country);
+  const docTitle = credit ? t("creditNote") : saudi && simplified ? t("detail.simplifiedTaxInvoice") : taxDoc ? t("detail.taxInvoice") : t("detail.invoice");
+  const arTitle = saudi ? (credit ? "إشعار دائن" : simplified ? "فاتورة ضريبية مبسطة" : "فاتورة ضريبية") : null;
   const stamp = status === "paid" || status === "void" || status === "draft" ? t(`status.${status}`) : null;
   const bank: [string, string | null][] = [
     [t("detail.bank"), seller.bank_name],
@@ -59,7 +66,12 @@ export function InvoicePreview({
             )}
           </div>
           <div className="sm:text-right">
-            <div className="font-display text-3xl font-bold tracking-tight text-ink-900">{t("detail.invoice").toUpperCase()}</div>
+            <div className="font-display text-3xl font-bold tracking-tight text-ink-900">{docTitle.toUpperCase()}</div>
+            {arTitle && (
+              <div dir="rtl" lang="ar" className="mt-1 text-lg font-bold text-ink-900">
+                {arTitle}
+              </div>
+            )}
             <dl className="mt-3 grid grid-cols-[auto_auto] justify-start gap-x-4 gap-y-1 text-sm sm:justify-end">
               <dt className="text-slate-500">{t("detail.invoiceNo")}</dt>
               <dd className="font-mono font-semibold text-slate-900">{invoice.number}</dd>

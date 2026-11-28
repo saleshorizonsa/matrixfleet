@@ -88,7 +88,7 @@ export function InvoiceActions({
         </>
       )}
 
-      {(status === "sent" || status === "overdue") && (
+      {(status === "sent" || status === "overdue") && docType === "invoice" && (
         <Button variant="primary" disabled={pending} onClick={() => setPayOpen(true)}>
           <Wallet className="h-4 w-4" /> {t("detail.recordPayment")}
         </Button>

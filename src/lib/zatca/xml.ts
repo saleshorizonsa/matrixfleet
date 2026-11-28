@@ -4,7 +4,7 @@
 // declarations in canonical order, no insignificant whitespace). That way the "invoice hash" — SHA-256
 // over the canonical invoice without UBLExtensions, cac:Signature and the QR reference — is simply the
 // hash of the assembled string without those three parts, with no XML library needed.
-import { certFromToken, certificateHash, publicKeyOf, sha256b64, sha256hexb64, signInvoiceHash } from "./crypto";
+import { certFromToken, certificateHash, sha256b64, sha256hexb64, signInvoiceHash } from "./crypto";
 import { qrTlv } from "./qr";
 
 export type ZatcaKind = "standard" | "simplified";
@@ -349,7 +349,7 @@ export function signInvoice(i: ZatcaInvoiceInput, privateKeyPem: string, certTok
     a(tot.vat),
     hash,
     signature,
-    publicKeyOf(privateKeyPem),
+    cert.publicKey,
     ...(i.kind === "simplified" ? [cert.signature] : []),
   ]);
 

@@ -34,6 +34,8 @@ interface UnitRow {
   location: string | null;
   industry: string;
   private_key_enc: string | null;
+  compliance_token: string | null;
+  compliance_secret_enc: string | null;
   production_token: string | null;
   production_secret_enc: string | null;
   certificate_expires_at: string | null;
@@ -315,6 +317,17 @@ export async function onboardZatca(org: Organization, environment: ZatcaEnv, otp
 
 /* ------------------------------------------------------------------ issuing */
 
+/**
+ * Certificate + secret used to sign and submit invoices. ZATCA's developer sandbox hands out a fixed
+ * dummy production certificate that does not belong to our key, so in the sandbox the (genuine)
+ * compliance certificate is used instead. Simulation and production use the production CSID.
+ */
+function credentials(unit: UnitRow): { token: string; secret: string } | null {
+  const token = unit.environment === "sandbox" ? unit.compliance_token : unit.production_token;
+  const enc = unit.environment === "sandbox" ? unit.compliance_secret_enc : unit.production_secret_enc;
+  return token && enc ? { token, secret: decryptSecret(enc) } : null;
+}
+
 export type IssueOutcome =
   | { ok: true; status: "cleared" | "reported" | "warning" | "pending"; messages: string[] }
   | { ok: false; error: "not_onboarded" | "currency" | "buyer_incomplete" | "negative_line" | "busy" | "rejected" | "failed" | "already"; messages: string[]; fields?: BuyerField[] };
@@ -329,7 +342,7 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 export async function issueZatcaInvoice(org: Organization, invoiceId: string): Promise<IssueOutcome> {
   const admin = createAdminClient();
   const { data: unit } = await admin.from("hl_zatca_units").select("*").eq("org_id", org.id).maybeSingle<UnitRow>();
-  if (!unit || unit.status !== "active" || !unit.private_key_enc || !unit.production_token || !unit.production_secret_enc) {
+  if (!unit || unit.status !== "active" || !unit.private_key_enc || !credentials(unit)) {
     return { ok: false, error: "not_onboarded", messages: [] };
   }
   const { data: inv } = await admin.from("hl_invoices").select("*").eq("id", invoiceId).eq("org_id", org.id).maybeSingle<Invoice>();
@@ -392,7 +405,7 @@ export async function issueZatcaInvoice(org: Organization, invoiceId: string): P
       lines: lines.map((l) => ({ name: l.description, quantity: Number(l.quantity), unitPrice: Number(l.unit_price) })),
       paymentMeansCode: "30",
     };
-    signed = signInvoice(input, decryptSecret(unit.private_key_enc), unit.production_token);
+    signed = signInvoice(input, decryptSecret(unit.private_key_enc), credentials(unit)!.token);
     if (Math.abs(signed.totals.gross - Number(inv.total)) > 0.005 || Math.abs(signed.totals.vat - Number(inv.vat_amount)) > 0.005) {
       throw new Error("totals mismatch");
     }
@@ -430,7 +443,7 @@ async function submitStored(org: Organization, unit: UnitRow, inv: Invoice): Pro
   const admin = createAdminClient();
   const kind = inv.zatca_kind as ZatcaKind;
   const env = unit.environment;
-  const secret = decryptSecret(unit.production_secret_enc!);
+  const cred = credentials(unit)!;
   const doc = { hash: inv.zatca_hash!, uuid: inv.zatca_uuid!, xml: inv.zatca_xml! };
   const now = new Date().toISOString();
   // a simplified invoice is handed to the customer straight away; a standard one only once cleared
@@ -438,7 +451,13 @@ async function submitStored(org: Organization, unit: UnitRow, inv: Invoice): Pro
 
   let r: ZatcaResult;
   try {
-    r = kind === "standard" ? await clearInvoice(env, unit.production_token!, secret, doc) : await reportInvoice(env, unit.production_token!, secret, doc);
+    if (env === "sandbox") {
+      // developer sandbox: its clearance/reporting endpoints only take a dummy certificate, so test
+      // invoices are validated through the compliance endpoint (same checks, genuine certificate)
+      r = await complianceCheck(env, cred.token, cred.secret, doc);
+    } else {
+      r = kind === "standard" ? await clearInvoice(env, cred.token, cred.secret, doc) : await reportInvoice(env, cred.token, cred.secret, doc);
+    }
   } catch (e) {
     logError("[zatca] submission failed", e);
     await admin
@@ -450,7 +469,8 @@ async function submitStored(org: Organization, unit: UnitRow, inv: Invoice): Pro
   }
 
   const messages = [...r.errors, ...r.warnings].map(msgText);
-  if (r.httpStatus >= 500 || r.httpStatus === 429 || r.httpStatus === 0) {
+  // server trouble, throttling or refused credentials: nothing was decided about the invoice → retry later
+  if (r.httpStatus >= 500 || r.httpStatus === 429 || r.httpStatus === 0 || r.httpStatus === 401 || r.httpStatus === 403) {
     await admin.from("hl_invoices").update({ zatca_status: "failed", zatca_messages: messages, ...(kind === "simplified" ? issued : {}) }).eq("id", inv.id);
     if (kind === "simplified") return { ok: true, status: "pending", messages };
     return { ok: false, error: "failed", messages };

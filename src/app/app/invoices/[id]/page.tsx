@@ -164,9 +164,9 @@ export default async function InvoicePage({
             <CardBody className="space-y-3 text-sm">
               <div className="flex items-start gap-3">
                 {status === "draft" ? <FileText className="mt-0.5 h-4 w-4 text-slate-400" /> : <Lock className="mt-0.5 h-4 w-4 text-slate-400" />}
-                <p className="text-slate-600">{status === "draft" ? t("detail.draftNote") : t("detail.immutableNote")}</p>
+                <p className="text-slate-600">{status === "draft" ? t("detail.draftNote") : einvoiceLocked || invoice.doc_type === "credit_note" ? t("detail.immutableNoteCredit") : t("detail.immutableNote")}</p>
               </div>
-              {(status === "sent" || status === "overdue") && d !== null && (
+              {(status === "sent" || status === "overdue") && d !== null && invoice.doc_type !== "credit_note" && (
                 <div className={cn("flex items-center gap-3 rounded-xl px-3 py-2 font-medium", d < 0 ? "bg-rose-50 text-rose-700" : "bg-sky-50 text-sky-700")}>
                   <Clock className="h-4 w-4" />
                   {d < 0 ? t("detail.overdueBy", { days: -d }) : t("detail.dueIn", { days: d })}
