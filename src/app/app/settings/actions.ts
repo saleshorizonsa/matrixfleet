@@ -11,6 +11,7 @@ import { isLocale } from "@/i18n/config";
 import { country } from "@/lib/countries";
 import type { Role } from "@/lib/types";
 import { eraseOrphanedUsers, eraseUserAccount } from "@/lib/account-deletion";
+import { actionError } from "@/lib/action-error";
 
 export type ActionState = { ok?: boolean; error?: string; token?: string } | undefined;
 
@@ -55,7 +56,7 @@ export async function updateCompany(_: ActionState, fd: FormData): Promise<Actio
   };
 
   const { error } = await ctx.supabase.from("hl_organizations").update(update).eq("id", ctx.org.id);
-  if (error) return { error: error.message };
+  if (error) return actionError(error, "app/settings");
   await audit(ctx, "organization.updated", "organization", ctx.org.id, { fields: Object.keys(update) });
   revalidatePath("/app", "layout");
   return { ok: true };
@@ -70,10 +71,10 @@ export async function uploadLogo(_: ActionState, fd: FormData): Promise<ActionSt
   const ext = file.type === "image/svg+xml" ? "svg" : file.type === "image/jpeg" ? "jpg" : file.type === "image/webp" ? "webp" : "png";
   const path = `${ctx.org.id}/logo-${Date.now()}.${ext}`;
   const { error } = await ctx.supabase.storage.from("hl-logos").upload(path, file, { contentType: file.type, upsert: true });
-  if (error) return { error: error.message };
+  if (error) return actionError(error, "app/settings");
   const { data } = ctx.supabase.storage.from("hl-logos").getPublicUrl(path);
   const { error: upErr } = await ctx.supabase.from("hl_organizations").update({ logo_url: data.publicUrl }).eq("id", ctx.org.id);
-  if (upErr) return { error: upErr.message };
+  if (upErr) return actionError(upErr, "app/settings");
   await audit(ctx, "organization.logo_updated", "organization", ctx.org.id);
   revalidatePath("/app", "layout");
   return { ok: true };
@@ -101,7 +102,7 @@ export async function updatePricing(_: ActionState, fd: FormData): Promise<Actio
     per_pallet: field("per_pallet"),
   };
   const { error } = await ctx.supabase.from("hl_organizations").update({ pricing }).eq("id", ctx.org.id);
-  if (error) return { error: error.message };
+  if (error) return actionError(error, "app/settings");
   await audit(ctx, "organization.pricing_updated", "organization", ctx.org.id, pricing);
   revalidatePath("/app/settings/pricing");
   return { ok: true };
@@ -133,7 +134,7 @@ export async function inviteMember(_: ActionState, fd: FormData): Promise<Action
     .insert({ org_id: ctx.org.id, email, role, invited_by: ctx.user.id })
     .select("token")
     .single();
-  if (error) return { error: error.message };
+  if (error) return actionError(error, "app/settings");
   await audit(ctx, "invitation.created", "invitation", undefined, { role }); // no email in the audit trail
   revalidatePath("/app/settings/team");
   return { ok: true, token: data.token };
@@ -168,7 +169,7 @@ export async function changeRole(userId: string, role: Role) {
   if ((target.role === "owner" || role === "owner") && ctx.membership.role !== "owner") return { error: "onlyOwner" };
   if (target.role === "owner" && role !== "owner" && (await ownerCount(ctx)) <= 1) return { error: "lastOwner" };
   const { error } = await ctx.supabase.from("hl_memberships").update({ role }).eq("org_id", ctx.org.id).eq("user_id", userId);
-  if (error) return { error: error.message };
+  if (error) return actionError(error, "app/settings");
   await audit(ctx, "membership.role_changed", "membership", userId, { from: target.role, to: role });
   revalidatePath("/app/settings/team");
   return { ok: true };
@@ -186,7 +187,7 @@ export async function removeMember(userId: string) {
   if (target.role === "owner" && ctx.membership.role !== "owner") return { error: "onlyOwner" };
   if (target.role === "owner" && (await ownerCount(ctx)) <= 1) return { error: "lastOwner" };
   const { error } = await ctx.supabase.from("hl_memberships").delete().eq("org_id", ctx.org.id).eq("user_id", userId);
-  if (error) return { error: error.message };
+  if (error) return actionError(error, "app/settings");
   // unlink the driver profile so the person loses access to the driver app
   await ctx.supabase.from("hl_drivers").update({ user_id: null }).eq("org_id", ctx.org.id).eq("user_id", userId);
   await audit(ctx, "membership.removed", "membership", userId, { role: target.role });
@@ -237,7 +238,7 @@ export async function deleteOrganization(_: ActionState, fd: FormData): Promise<
     }
   }
   const { error } = await admin.from("hl_organizations").delete().eq("id", ctx.org.id);
-  if (error) return { error: error.message };
+  if (error) return actionError(error, "app/settings");
   await ctx.supabase.auth.signOut();
   await eraseOrphanedUsers(memberIds); // includes the owner, unless they belong to another company
   redirect("/?deleted=1");

@@ -52,5 +52,10 @@
   "name": "Nom",
   "date": "Date",
   "total": "Total",
-  "poweredBy": "Powered by Matrix Infotech Ltd"
+  "poweredBy": "Powered by Matrix Infotech Ltd",
+  "errorRef": "Une erreur est survenue. Réessayez — si cela persiste, contactez le support avec la référence {ref}.",
+  "errorTitle": "Une erreur est survenue",
+  "errorReference": "Référence",
+  "tryAgain": "Réessayer",
+  "home": "Accueil"
 }

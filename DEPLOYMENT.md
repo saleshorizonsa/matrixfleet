@@ -104,3 +104,25 @@ Map tiles (`tile.openstreetmap.org`) have the same policy — for production use
 - Register with the ICO (UK data protection fee).
 - Check the VAT rules in `src/lib/vat.ts` with your accountant; users can always override the suggested treatment.
 - Set up off-site backups (the credentials file notes Google Drive copy is not configured yet).
+
+## Security hardening (launch checklist, 28 Nov 2026)
+
+| Area | Where |
+|---|---|
+| Startup env check — server refuses to start if a critical variable is missing/invalid | `src/lib/env.ts`, `src/instrumentation.ts` |
+| Generic errors with a reference ID; details only in server logs | `src/lib/action-error.ts`, `src/app/error.tsx`, `src/app/global-error.tsx` |
+| Security headers (HSTS 1y, X-Frame-Options DENY, nosniff, Permissions-Policy, COOP) | `next.config.ts` |
+| Content-Security-Policy with a per-request nonce | `src/lib/csp.ts`, `src/proxy.ts` |
+| Map tiles proxied through our domain (`MAP_TILE_URL`, server-only) | `src/app/api/tiles/[z]/[x]/[y]/route.ts` |
+| Rate limits: sign-in 5/min/IP + 10/15min/email; sign-up 5/h/IP + 3/h/email; email link (= password reset) 3/h/email; invites 10/h/IP | `src/lib/rate-limit.ts`, `supabase/migrations/0005_rate_limits.sql` |
+| API gateway: password sign-in, sign-up, OTP, magic link and recovery only accepted with `X-MF-Gateway` (`SUPABASE_AUTH_GATEWAY_KEY`) — no rate-limit bypass via the API | `infra/caddy/Caddyfile` |
+| CORS on the API: only `https://fleet.matrixinfo.co.uk` (+ localhost for development) | `infra/caddy/Caddyfile` |
+| Database pooler (5432/6543) refuses connections without TLS (`enforce_ssl`) | `/opt/supabase/volumes/pooler/pooler.exs` + `_supavisor.tenants` |
+
+**Changing the Caddy config safely** (always validate before installing):
+```
+set -a; . /etc/caddy/mf-gateway.env; set +a
+caddy validate --config /tmp/Caddyfile.new --adapter caddyfile && install -m 644 /tmp/Caddyfile.new /etc/caddy/Caddyfile && systemctl reload caddy
+```
+**Rotating the gateway key:** generate a new value, update `SUPABASE_AUTH_GATEWAY_KEY` in Vercel (Production + Preview) and
+`/etc/caddy/mf-gateway.env` (+ `mf-gateway.key`), redeploy the app first, then `systemctl restart caddy`.

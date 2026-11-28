@@ -47,7 +47,11 @@ for (const m of oldMem ?? []) await admin.from("hl_organizations").delete().eq("
 await admin.from("hl_memberships").delete().eq("user_id", driverUserId);
 
 // Create the organisation as the owner (exercises the real RPC).
-const ownerClient = createClient(URL, ANON, { db: { schema: SCHEMA }, auth: { persistSession: false } });
+const ownerClient = createClient(URL, ANON, {
+  db: { schema: SCHEMA },
+  auth: { persistSession: false },
+  global: process.env.SUPABASE_AUTH_GATEWAY_KEY ? { headers: { "X-MF-Gateway": process.env.SUPABASE_AUTH_GATEWAY_KEY } } : undefined,
+});
 const { error: signErr } = await ownerClient.auth.signInWithPassword({ email: OWNER_EMAIL, password: creds.owner });
 if (signErr) throw signErr;
 const { data: orgId, error: orgErr } = await ownerClient.rpc("hl_create_organization", {

@@ -5,6 +5,7 @@ import { requireOffice } from "@/lib/auth";
 import { audit } from "@/lib/audit";
 import { bool, num, str } from "@/lib/utils";
 import type { Customer, Job, JobStatus } from "@/lib/types";
+import { actionError } from "@/lib/action-error";
 
 export type JobFormState = { error?: string } | undefined;
 
@@ -58,7 +59,7 @@ export async function saveJob(_: JobFormState, fd: FormData): Promise<JobFormSta
     if (existing?.status === "quote" && intent === "book") patch.status = row.driver_id ? "assigned" : "booked";
     else if (existing && ["booked", "assigned"].includes(existing.status)) patch.status = row.driver_id ? "assigned" : "booked";
     const { error } = await ctx.supabase.from("hl_jobs").update(patch).eq("id", id).eq("org_id", ctx.org.id);
-    if (error) return { error: error.message };
+    if (error) return actionError(error, "app/jobs");
     await audit(ctx, "job.updated", "job", id);
   } else {
     const status: JobStatus = intent === "quote" ? "quote" : row.driver_id ? "assigned" : "booked";
@@ -67,7 +68,7 @@ export async function saveJob(_: JobFormState, fd: FormData): Promise<JobFormSta
       .insert({ ...row, org_id: ctx.org.id, status, currency: ctx.org.currency, reference: "", created_by: ctx.user.id })
       .select("id, reference")
       .single<{ id: string; reference: string }>();
-    if (error || !data) return { error: error?.message ?? "insert failed" };
+    if (error || !data) return actionError(error ?? new Error("no row returned"), "app/jobs insert");
     jobId = data.id;
     await audit(ctx, "job.created", "job", data.id, { reference: data.reference, status });
   }
@@ -96,7 +97,7 @@ export async function quickAddCustomer(input: {
     })
     .select("id, name, rate_per_distance, country")
     .single();
-  if (error) return { error: error.message };
+  if (error) return actionError(error, "app/jobs");
   await audit(ctx, "customer.created", "customer", data.id, { via: "job-form" });
   revalidatePath("/app/customers");
   return { customer: data };
@@ -110,7 +111,7 @@ export async function setJobStatus(jobId: string, status: JobStatus) {
   if (status === "delivered") patch.delivered_at = now;
   if (status === "booked") patch.driver_id = null;
   const { error } = await ctx.supabase.from("hl_jobs").update(patch).eq("id", jobId).eq("org_id", ctx.org.id);
-  if (error) return { error: error.message };
+  if (error) return actionError(error, "app/jobs");
   await audit(ctx, "job.status", "job", jobId, { status });
   revalidatePath(`/app/jobs/${jobId}`);
   revalidatePath("/app/jobs");
@@ -124,7 +125,7 @@ export async function assignJob(jobId: string, driverId: string | null, vehicleI
   const patch: Record<string, unknown> = { driver_id: driverId, vehicle_id: vehicleId };
   if (job && ["booked", "assigned"].includes(job.status)) patch.status = driverId ? "assigned" : "booked";
   const { error } = await ctx.supabase.from("hl_jobs").update(patch).eq("id", jobId).eq("org_id", ctx.org.id);
-  if (error) return { error: error.message };
+  if (error) return actionError(error, "app/jobs");
   await audit(ctx, "job.assigned", "job", jobId, { driverId, vehicleId });
   revalidatePath(`/app/jobs/${jobId}`);
   revalidatePath("/app/dispatch");
@@ -145,7 +146,7 @@ export async function duplicateJob(jobId: string) {
   copy.created_by = ctx.user.id;
   copy.scheduled_date = null;
   const { data, error } = await ctx.supabase.from("hl_jobs").insert(copy).select("id").single<{ id: string }>();
-  if (error || !data) return { error: error?.message };
+  if (error || !data) return actionError(error ?? new Error("no row returned"), "app/jobs");
   await audit(ctx, "job.duplicated", "job", data.id, { from: jobId });
   revalidatePath("/app/jobs");
   redirect(`/app/jobs/${data.id}/edit`);
@@ -158,7 +159,7 @@ export async function addJobNote(jobId: string, message: string) {
   const { error } = await ctx.supabase
     .from("hl_job_events")
     .insert({ org_id: ctx.org.id, job_id: jobId, kind: "note", message: text.slice(0, 2000), created_by: ctx.user.id });
-  if (error) return { error: error.message };
+  if (error) return actionError(error, "app/jobs");
   revalidatePath(`/app/jobs/${jobId}`);
   return { ok: true };
 }
@@ -168,7 +169,7 @@ export async function deleteJob(jobId: string) {
   const { data: job } = await ctx.supabase.from("hl_jobs").select("reference, invoice_id").eq("id", jobId).single();
   if (job?.invoice_id) return { error: "invoiced" };
   const { error } = await ctx.supabase.from("hl_jobs").delete().eq("id", jobId).eq("org_id", ctx.org.id);
-  if (error) return { error: error.message };
+  if (error) return actionError(error, "app/jobs");
   await audit(ctx, "job.deleted", "job", jobId, { reference: job?.reference });
   revalidatePath("/app/jobs");
   redirect("/app/jobs");

@@ -11,6 +11,9 @@ import { intlLocale } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import type { JobStatus } from "@/lib/types";
 
+/** Same zone on server and browser, so times render identically (no hydration mismatch). */
+const TZ = "Europe/London";
+
 export interface TrackingData {
   reference: string;
   status: JobStatus;
@@ -61,8 +64,8 @@ export function TrackingView({ data }: { data: TrackingData }) {
 
   const stepIndex = done ? 3 : Math.max(0, STEPS.indexOf(data.status));
   const fmtTime = (iso: string | null) =>
-    iso ? new Intl.DateTimeFormat(locale, { weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }).format(new Date(iso)) : null;
-  const fmtDay = (d: string | null) => (d ? new Intl.DateTimeFormat(locale, { weekday: "long", day: "numeric", month: "long" }).format(new Date(`${d}T12:00:00Z`)) : null);
+    iso ? new Intl.DateTimeFormat(locale, { weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", timeZone: TZ }).format(new Date(iso)) : null;
+  const fmtDay = (d: string | null) => (d ? new Intl.DateTimeFormat(locale, { weekday: "long", day: "numeric", month: "long", timeZone: TZ }).format(new Date(`${d}T12:00:00Z`)) : null);
   const stepAt = (s: JobStatus) => data.events.filter((e) => e.status === s).at(-1)?.at ?? null;
 
   const markers: MapMarker[] = [];
@@ -166,8 +169,9 @@ export function TrackingView({ data }: { data: TrackingData }) {
                   </span>
                   {data.driver_first_name ? t("driverLive", { name: data.driver_first_name }) : t("liveLocation")}
                 </span>
-                <span className="inline-flex items-center gap-1">
-                  <RefreshCw className="h-3 w-3" /> {t("updated", { time: new Date(lastRefresh).toLocaleTimeString(locale, { hour: "2-digit", minute: "2-digit" }) })}
+                {/* "updated at" is the render time, which can tick over a minute between server and browser */}
+                <span className="inline-flex items-center gap-1" suppressHydrationWarning>
+                  <RefreshCw className="h-3 w-3" /> {t("updated", { time: new Date(lastRefresh).toLocaleTimeString(locale, { hour: "2-digit", minute: "2-digit", timeZone: TZ }) })}
                 </span>
               </div>
             )}

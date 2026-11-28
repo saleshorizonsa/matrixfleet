@@ -49,7 +49,7 @@ export function OnboardingForm({ defaults }: { defaults: { company?: string; ful
             </Select>
           </Field>
         </div>
-        {state?.error && <p className="rounded-lg bg-rose-50 px-3 py-2 text-sm text-rose-700">{state.error}</p>}
+        {state?.error && <p className="rounded-lg bg-rose-50 px-3 py-2 text-sm text-rose-700">{t.has(`errors.${state.error}`) ? t(`errors.${state.error}`) : state.error}</p>}
         <SubmitButton className="w-full" size="lg">
           {t("finishSetup")}
         </SubmitButton>

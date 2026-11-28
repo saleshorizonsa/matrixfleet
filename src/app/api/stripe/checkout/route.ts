@@ -76,7 +76,8 @@ export async function POST(request: NextRequest) {
     logError("[billing] checkout failed", err);
     await audit(ctx, "billing.checkout_failed", "organization", ctx.org.id, {
       plan: plan.id,
-      error: err instanceof Error ? err.message.slice(0, 200) : "unknown",
+      error_type: (err as { type?: string })?.type ?? "unknown",
+      error_code: (err as { code?: string })?.code ?? null,
     });
     back.searchParams.set("error", "stripe_error");
     return NextResponse.redirect(back, { status: 303 });

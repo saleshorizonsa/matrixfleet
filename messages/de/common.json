@@ -52,5 +52,10 @@
   "name": "Name",
   "date": "Datum",
   "total": "Gesamt",
-  "poweredBy": "Powered by Matrix Infotech Ltd"
+  "poweredBy": "Powered by Matrix Infotech Ltd",
+  "errorRef": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut – wenn es weiterhin passiert, wenden Sie sich mit der Referenz {ref} an den Support.",
+  "errorTitle": "Etwas ist schiefgelaufen",
+  "errorReference": "Referenz",
+  "tryAgain": "Erneut versuchen",
+  "home": "Zur Startseite"
 }

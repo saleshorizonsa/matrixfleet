@@ -45,7 +45,7 @@ export function InviteForm({
               <Input name="password" type="password" minLength={8} required autoComplete="new-password" />
             </Field>
           )}
-          {state?.error && <p className="rounded-lg bg-rose-50 px-3 py-2 text-sm text-rose-700">{state.error}</p>}
+          {state?.error && <p className="rounded-lg bg-rose-50 px-3 py-2 text-sm text-rose-700">{t.has(`errors.${state.error}`) ? t(`errors.${state.error}`) : state.error}</p>}
           <SubmitButton className="w-full" size="lg">
             {t("acceptInvite")}
           </SubmitButton>

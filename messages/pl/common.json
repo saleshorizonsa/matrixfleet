@@ -52,5 +52,10 @@
   "name": "Nazwa",
   "date": "Data",
   "total": "Razem",
-  "poweredBy": "Powered by Matrix Infotech Ltd"
+  "poweredBy": "Powered by Matrix Infotech Ltd",
+  "errorRef": "Coś poszło nie tak. Spróbuj ponownie — jeśli problem się powtarza, skontaktuj się z pomocą techniczną, podając numer {ref}.",
+  "errorTitle": "Coś poszło nie tak",
+  "errorReference": "Numer referencyjny",
+  "tryAgain": "Spróbuj ponownie",
+  "home": "Strona główna"
 }

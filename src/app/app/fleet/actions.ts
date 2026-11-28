@@ -6,6 +6,7 @@ import { audit } from "@/lib/audit";
 import { limitsFor } from "@/lib/plans";
 import { syncExtraVehicles } from "@/lib/stripe";
 import { APP_URL, num, str } from "@/lib/utils";
+import { actionError } from "@/lib/action-error";
 
 export type FormState = { error?: string; ok?: boolean } | undefined;
 
@@ -38,7 +39,7 @@ export async function saveVehicle(_: FormState, fd: FormData): Promise<FormState
 
   if (id) {
     const { error } = await ctx.supabase.from("hl_vehicles").update(payload).eq("id", id).eq("org_id", ctx.org.id);
-    if (error) return { error: error.message };
+    if (error) return actionError(error, "app/fleet");
     await audit(ctx, "vehicle.updated", "vehicle", id, { registration: payload.registration });
     revalidatePath("/app/fleet", "layout");
     redirect(`/app/fleet/vehicles/${id}`);
@@ -53,7 +54,7 @@ export async function saveVehicle(_: FormState, fd: FormData): Promise<FormState
     .insert({ ...payload, org_id: ctx.org.id })
     .select("id")
     .single();
-  if (error) return { error: error.message };
+  if (error) return actionError(error, "app/fleet");
   await audit(ctx, "vehicle.created", "vehicle", data.id, { registration: payload.registration });
   await syncExtraVehicles(ctx.org.id); // Growth/Pro: bill vehicles above the included ones
   revalidatePath("/app/fleet", "layout");
@@ -104,13 +105,13 @@ export async function saveDriver(_: FormState, fd: FormData): Promise<FormState>
   if (!payload.full_name) return { error: "nameRequired" };
   if (id) {
     const { error } = await ctx.supabase.from("hl_drivers").update(payload).eq("id", id).eq("org_id", ctx.org.id);
-    if (error) return { error: error.message };
+    if (error) return actionError(error, "app/fleet");
     await audit(ctx, "driver.updated", "driver", id);
     revalidatePath("/app/fleet", "layout");
     redirect(`/app/fleet/drivers/${id}`);
   }
   const { data, error } = await ctx.supabase.from("hl_drivers").insert({ ...payload, org_id: ctx.org.id }).select("id").single();
-  if (error) return { error: error.message };
+  if (error) return actionError(error, "app/fleet");
   await audit(ctx, "driver.created", "driver", data.id);
   revalidatePath("/app/fleet", "layout");
   redirect(`/app/fleet/drivers/${data.id}`);
@@ -140,7 +141,7 @@ export async function inviteDriver(_: InviteState, fd: FormData): Promise<Invite
     .insert({ org_id: ctx.org.id, email, role: "driver", invited_by: ctx.user.id })
     .select("token")
     .single();
-  if (error) return { error: error.message };
+  if (error) return actionError(error, "app/fleet");
   await audit(ctx, "invitation.created", "invitation", driverId, { role: "driver" }); // no email in the audit trail
   return { link: `${APP_URL}/invite/${data.token}`, email };
 }

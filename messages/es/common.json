@@ -52,5 +52,10 @@
   "name": "Nombre",
   "date": "Fecha",
   "total": "Total",
-  "poweredBy": "Powered by Matrix Infotech Ltd"
+  "poweredBy": "Powered by Matrix Infotech Ltd",
+  "errorRef": "Algo ha salido mal. Inténtalo de nuevo; si sigue ocurriendo, contacta con soporte indicando la referencia {ref}.",
+  "errorTitle": "Algo ha salido mal",
+  "errorReference": "Referencia",
+  "tryAgain": "Reintentar",
+  "home": "Ir al inicio"
 }

@@ -1,0 +1,65 @@
+# Caddy config for the public Supabase API (api.matrixinfo.co.uk) on the London VPS.
+# Installed at /etc/caddy/Caddyfile. The shared secret comes from /etc/caddy/mf-gateway.env
+# (MF_GATEWAY_KEY=…, root:caddy 640) via a systemd drop-in:
+#   /etc/systemd/system/caddy.service.d/mf-gateway.conf  →  [Service] EnvironmentFile=/etc/caddy/mf-gateway.env
+# After changing the env file: systemctl daemon-reload && systemctl restart caddy
+
+{
+	email info@matrixinfo.co.uk
+}
+
+api.matrixinfo.co.uk {
+	encode zstd gzip
+
+	# 1. Credential endpoints: only the MatrixFleet server may call them (it sends X-MF-Gateway and
+	#    applies rate limits: 5 sign-ins/min per IP, 3 email links/hour per address, …). Direct calls
+	#    from the internet — e.g. password guessing against the API — are refused.
+	@credential_direct {
+		path /auth/v1/signup /auth/v1/otp /auth/v1/magiclink /auth/v1/recover /auth/v1/resend
+		not header X-MF-Gateway {$MF_GATEWAY_KEY}
+	}
+	@password_direct {
+		path /auth/v1/token
+		query grant_type=password
+		not header X-MF-Gateway {$MF_GATEWAY_KEY}
+	}
+	handle @credential_direct {
+		respond "Forbidden" 403
+	}
+	handle @password_direct {
+		respond "Forbidden" 403
+	}
+
+	# 2. Only the client-facing API paths are public. Studio and /pg (postgres-meta) stay private
+	#    (use the SSH tunnel to localhost:8000).
+	@api path /auth/v1/* /rest/v1/* /storage/v1/* /realtime/v1/* /functions/v1/* /graphql/v1/*
+	handle @api {
+		reverse_proxy 127.0.0.1:8000 {
+			header_up -X-MF-Gateway
+			# replace the upstream's "Access-Control-Allow-Origin: *" with the allow-list below
+			header_down -Access-Control-Allow-Origin
+			header_down -Server
+			header_down -X-Envoy-Upstream-Service-Time
+			header_down -Via
+		}
+	}
+	handle {
+		respond "Not found" 404
+	}
+
+	# 3. CORS: browsers may call the API only from the MatrixFleet app (and local development).
+	@cors_allowed header_regexp Origin ^(https://fleet\.matrixinfo\.co\.uk|http://localhost:300[01])$
+	header @cors_allowed Access-Control-Allow-Origin "{http.request.header.Origin}"
+	header Vary Origin
+
+	# 4. Security headers (JSON API: nothing may be framed, sniffed or embedded).
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options nosniff
+		X-Frame-Options DENY
+		Referrer-Policy no-referrer
+		Content-Security-Policy "default-src 'none'; frame-ancestors 'none'"
+		-Server
+		-Via
+	}
+}

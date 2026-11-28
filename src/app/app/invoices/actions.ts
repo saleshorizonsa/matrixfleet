@@ -7,6 +7,7 @@ import { audit } from "@/lib/audit";
 import { computeTotals } from "@/lib/vat";
 import { buyerSnapshot, sellerSnapshot } from "@/lib/invoices";
 import type { Customer, Invoice, InvoiceLine, Role } from "@/lib/types";
+import { actionError } from "@/lib/action-error";
 
 const INVOICE_ROLES: Role[] = ["owner", "admin", "accountant", "dispatcher"];
 
@@ -100,7 +101,7 @@ export async function saveInvoice(_: InvoiceFormState, fd: FormData): Promise<In
     if (!existing) return { error: "notFound" };
     if (existing.status !== "draft") return { error: "immutable" };
     const { error } = await sb.from("hl_invoices").update(header).eq("id", invoiceId);
-    if (error) return { error: error.message };
+    if (error) return actionError(error, "app/invoices");
     await sb.from("hl_invoice_lines").delete().eq("invoice_id", invoiceId);
     // release jobs no longer on this invoice
     let release = sb.from("hl_jobs").update({ invoice_id: null, status: "delivered" }).eq("invoice_id", invoiceId);
@@ -108,13 +109,13 @@ export async function saveInvoice(_: InvoiceFormState, fd: FormData): Promise<In
     await release;
   } else {
     const { data: number, error: numErr } = await sb.rpc("hl_next_invoice_number", { p_org: ctx.org.id });
-    if (numErr || !number) return { error: numErr?.message ?? "numbering" };
+    if (numErr || !number) return actionError(numErr ?? new Error("no invoice number"), "app/invoices numbering");
     const { data: created, error } = await sb
       .from("hl_invoices")
       .insert({ ...header, org_id: ctx.org.id, number, created_by: ctx.user.id, status: header.status ?? "draft" })
       .select("id")
       .single<{ id: string }>();
-    if (error || !created) return { error: error?.message ?? "insert" };
+    if (error || !created) return actionError(error ?? new Error("no row returned"), "app/invoices insert");
     invoiceId = created.id;
   }
 
@@ -130,7 +131,7 @@ export async function saveInvoice(_: InvoiceFormState, fd: FormData): Promise<In
       position: i,
     })),
   );
-  if (linesErr) return { error: linesErr.message };
+  if (linesErr) return actionError(linesErr, "app/invoices");
 
   if (jobIds.length) {
     await sb

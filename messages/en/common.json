@@ -52,5 +52,10 @@
   "name": "Name",
   "date": "Date",
   "total": "Total",
-  "poweredBy": "Powered by Matrix Infotech Ltd"
+  "poweredBy": "Powered by Matrix Infotech Ltd",
+  "errorRef": "Something went wrong. Please try again — if it keeps happening, contact support with reference {ref}.",
+  "errorTitle": "Something went wrong",
+  "errorReference": "Reference",
+  "tryAgain": "Try again",
+  "home": "Go to home page"
 }

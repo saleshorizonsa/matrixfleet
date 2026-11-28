@@ -5,6 +5,7 @@ import { eraseUserAccount } from "@/lib/account-deletion";
 import { requireDriver } from "@/lib/auth";
 import { audit } from "@/lib/audit";
 import type { Job, JobStatus } from "@/lib/types";
+import { actionError } from "@/lib/action-error";
 
 export type DriverStep = "start" | "arrived_pickup" | "collected" | "arrived_delivery";
 
@@ -38,7 +39,7 @@ export async function driverStep(jobId: string, step: DriverStep, lat?: number |
 
   if (Object.keys(patch).length) {
     const { error } = await ctx.supabase.from("hl_jobs").update(patch).eq("id", job.id);
-    if (error) return { ok: false, error: error.message };
+    if (error) return { ok: false, ...(await actionError(error, "driver")) };
   }
   // status changes already create a timeline event via trigger; add the step marker for the others
   if (step !== "collected") {
@@ -89,7 +90,7 @@ export async function submitPod(
       pod_lng: input.lng,
     })
     .eq("id", job.id);
-  if (error) return { ok: false, error: error.message };
+  if (error) return { ok: false, ...(await actionError(error, "driver")) };
 
   await ctx.supabase.from("hl_job_events").insert({
     org_id: job.org_id,
@@ -119,7 +120,7 @@ export async function reportProblem(jobId: string, message: string, lat?: number
     lng: lng ?? null,
     created_by: ctx.user.id,
   });
-  if (error) return { ok: false, error: error.message };
+  if (error) return { ok: false, ...(await actionError(error, "driver")) };
   await audit(ctx, "job.problem_reported", "job", job.id, { reference: job.reference });
   revalidatePath(`/driver/jobs/${job.id}`);
   return { ok: true };
@@ -153,7 +154,7 @@ export async function submitVehicleCheck(input: {
     })
     .select("id")
     .single();
-  if (error) return { ok: false, error: error.message };
+  if (error) return { ok: false, ...(await actionError(error, "driver")) };
   await audit(ctx, passed ? "vehicle_check.passed" : "vehicle_check.defect", "vehicle_check", data.id, { vehicle_id: vehicle.id });
   revalidatePath("/driver/check");
   return { ok: true };
@@ -173,7 +174,7 @@ export async function startShift(vehicleId: string | null): Promise<Result> {
     driver_id: ctx.driver.id,
     vehicle_id: vehicleId || null,
   });
-  if (error) return { ok: false, error: error.message };
+  if (error) return { ok: false, ...(await actionError(error, "driver")) };
   revalidatePath("/driver/shift");
   return { ok: true };
 }
@@ -197,7 +198,7 @@ export async function toggleBreak(shiftId: string): Promise<Result> {
       }
     : { on_break_since: now.toISOString() };
   const { error } = await ctx.supabase.from("hl_driver_shifts").update(patch).eq("id", shift.id);
-  if (error) return { ok: false, error: error.message };
+  if (error) return { ok: false, ...(await actionError(error, "driver")) };
   revalidatePath("/driver/shift");
   return { ok: true };
 }
@@ -223,7 +224,7 @@ export async function endShift(shiftId: string, notes: string | null): Promise<R
       notes: notes?.trim() || null,
     })
     .eq("id", shift.id);
-  if (error) return { ok: false, error: error.message };
+  if (error) return { ok: false, ...(await actionError(error, "driver")) };
   revalidatePath("/driver/shift");
   return { ok: true };
 }

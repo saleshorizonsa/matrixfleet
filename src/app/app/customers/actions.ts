@@ -6,6 +6,7 @@ import { audit } from "@/lib/audit";
 import { verifyVat, type VatCheckResult } from "@/lib/vat-check";
 import { country as findCountry } from "@/lib/countries";
 import { num, str } from "@/lib/utils";
+import { actionError } from "@/lib/action-error";
 
 export type CustomerFormState = { error?: string } | undefined;
 
@@ -40,13 +41,13 @@ export async function saveCustomer(_: CustomerFormState, fd: FormData): Promise<
 
   if (id) {
     const { error } = await ctx.supabase.from("hl_customers").update(payload).eq("id", id).eq("org_id", ctx.org.id);
-    if (error) return { error: error.message };
+    if (error) return actionError(error, "app/customers");
     await audit(ctx, "customer.updated", "customer", id);
     revalidatePath("/app/customers", "layout");
     redirect(`/app/customers/${id}`);
   }
   const { data, error } = await ctx.supabase.from("hl_customers").insert({ ...payload, org_id: ctx.org.id }).select("id").single();
-  if (error) return { error: error.message };
+  if (error) return actionError(error, "app/customers");
   await audit(ctx, "customer.created", "customer", data.id, { name });
   revalidatePath("/app/customers", "layout");
   redirect(`/app/customers/${data.id}`);
@@ -131,7 +132,7 @@ export async function importCustomers(rows: ImportRow[]): Promise<{ inserted: nu
     .slice(0, 2000);
   if (!records.length) return { inserted: 0, skipped: rows.length, error: "noRows" };
   const { error } = await ctx.supabase.from("hl_customers").insert(records);
-  if (error) return { inserted: 0, skipped: rows.length, error: error.message };
+  if (error) return { inserted: 0, skipped: rows.length, ...(await actionError(error, "app/customers import")) };
   await audit(ctx, "customer.imported", "customer", undefined, { count: records.length });
   revalidatePath("/app/customers");
   return { inserted: records.length, skipped: rows.length - records.length };

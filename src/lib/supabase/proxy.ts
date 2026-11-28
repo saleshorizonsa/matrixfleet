@@ -5,8 +5,13 @@ import { AUTH_COOKIE_OPTIONS } from "./cookie-options";
 
 const PROTECTED = ["/app", "/driver", "/onboarding"];
 
-export async function updateSession(request: NextRequest) {
-  let response = NextResponse.next({ request });
+/**
+ * Refresh the Supabase session cookie and guard private areas.
+ * `requestHeaders` carries extra request headers for the page render (CSP nonce).
+ */
+export async function updateSession(request: NextRequest, requestHeaders: Headers = new Headers(request.headers)) {
+  const next = () => NextResponse.next({ request: { headers: requestHeaders } });
+  let response = next();
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -21,7 +26,9 @@ export async function updateSession(request: NextRequest) {
       },
       setAll(cookiesToSet) {
         cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value));
-        response = NextResponse.next({ request });
+        // keep the refreshed cookies on the request the page is rendered with
+        requestHeaders.set("cookie", request.headers.get("cookie") ?? "");
+        response = next();
         cookiesToSet.forEach(({ name, value, options }) => response.cookies.set(name, value, options));
       },
     },

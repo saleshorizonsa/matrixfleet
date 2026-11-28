@@ -3,6 +3,7 @@ import { revalidatePath } from "next/cache";
 import { requireOffice } from "@/lib/auth";
 import { audit } from "@/lib/audit";
 import type { Job } from "@/lib/types";
+import { actionError } from "@/lib/action-error";
 
 /**
  * Move a job onto a driver's run (or back to unassigned) for `day`, and persist the
@@ -37,7 +38,7 @@ export async function moveJob(input: { jobId: string; driverId: string | null; o
   if (!driverId) patch.vehicle_id = null;
 
   const { error } = await ctx.supabase.from("hl_jobs").update(patch).eq("id", jobId).eq("org_id", ctx.org.id);
-  if (error) return { error: error.message };
+  if (error) return actionError(error, "app/dispatch");
 
   // persist order within the column
   await Promise.all(

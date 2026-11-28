@@ -75,8 +75,9 @@ export default function LeafletMap({
   return (
     <MapContainer center={center} zoom={zoom} scrollWheelZoom className={className ?? "h-80 w-full"} style={{ zIndex: 0 }}>
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution={process.env.NEXT_PUBLIC_MAP_ATTRIBUTION || '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}
+        url="/api/tiles/{z}/{x}/{y}"
+        maxZoom={19}
       />
       {route && route.length > 1 && (
         <>
