@@ -5,6 +5,7 @@ import { billingConfigured, getStripe } from "@/lib/stripe";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { audit } from "@/lib/audit";
 import { APP_URL } from "@/lib/utils";
+import { logError } from "@/lib/safe-log";
 
 export async function POST(request: NextRequest) {
   const ctx = await getContext();
@@ -72,7 +73,7 @@ export async function POST(request: NextRequest) {
   return NextResponse.redirect(session.url!, { status: 303 });
   } catch (err) {
     // never show a 500 to the customer: log the Stripe error and go back with a readable message
-    console.error("[billing] checkout failed", err);
+    logError("[billing] checkout failed", err);
     await audit(ctx, "billing.checkout_failed", "organization", ctx.org.id, {
       plan: plan.id,
       error: err instanceof Error ? err.message.slice(0, 200) : "unknown",

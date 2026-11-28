@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getContext, ADMIN_ROLES } from "@/lib/auth";
 import { billingConfigured, getStripe } from "@/lib/stripe";
 import { APP_URL } from "@/lib/utils";
+import { logError } from "@/lib/safe-log";
 
 export async function POST() {
   const ctx = await getContext();
@@ -17,7 +18,7 @@ export async function POST() {
     });
     return NextResponse.redirect(session.url, { status: 303 });
   } catch (err) {
-    console.error("[billing] portal failed", err);
+    logError("[billing] portal failed", err);
     back.searchParams.set("error", "stripe_error");
     return NextResponse.redirect(back, { status: 303 });
   }

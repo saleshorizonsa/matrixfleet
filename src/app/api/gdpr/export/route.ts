@@ -18,6 +18,18 @@ const TABLES = [
   "hl_audit_logs",
 ] as const;
 
+/**
+ * Live access tokens are not personal data and must not travel in an export file:
+ * an invitation token lets anyone join the company, a tracking token opens a shipment page.
+ */
+const TOKEN_FIELDS = ["token", "tracking_token"];
+function redactTokens(row: unknown) {
+  if (!row || typeof row !== "object") return row;
+  const copy = { ...(row as Record<string, unknown>) };
+  for (const f of TOKEN_FIELDS) if (f in copy && copy[f]) copy[f] = "[redacted]";
+  return copy;
+}
+
 /** GDPR Art. 15/20 — portable JSON export of everything the organisation holds. */
 export async function GET() {
   const ctx = await getContext();
@@ -34,7 +46,7 @@ export async function GET() {
       rows.push(...page);
       if (page.length < 1000) break;
     }
-    data[table.replace(/^hl_/, "")] = rows;
+    data[table.replace(/^hl_/, "")] = rows.map(redactTokens);
   }
 
   await audit(ctx, "gdpr.export", "organization", ctx.org.id);

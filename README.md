@@ -44,3 +44,33 @@ Database migrations live in `supabase/migrations` (apply `0001_init.sql`, then t
 All tables are prefixed `hl_` and protected by row-level security per organisation.
 
 Deployment: see [DEPLOYMENT.md](DEPLOYMENT.md).
+
+## Security & secrets
+
+**Rule: no secret ever lives in the source code.** Every key, password, token and connection string is
+read from environment variables (`process.env.*`). Local values go in `.env.local` (git-ignored); production
+values live in Vercel → Project → Settings → Environment Variables, marked **Sensitive**.
+`.env.example` lists every variable with placeholders only.
+
+| Variable | Exposure | Notes |
+|---|---|---|
+| `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `NEXT_PUBLIC_SUPABASE_SCHEMA`, `NEXT_PUBLIC_APP_URL`, `NEXT_PUBLIC_APP_NAME` | Browser | The anon key is safe **only** because row-level security is on for every table and `anon` has no table grants. Never disable RLS. |
+| `SUPABASE_SERVICE_ROLE_KEY` | Server only | Bypasses RLS. Used only in `src/lib/supabase/admin.ts` (guarded by `server-only`). |
+| `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET` | Server only | Used only in `src/lib/stripe.ts` and `src/app/api/stripe/webhook`. |
+| `STRIPE_PRICE_*` | Server | Not secret; must start with `price_`. |
+| `MATRIXFLEET_DATABASE_URL`, `MATRIXFLEET_DIRECT_URL` | Server only | Optional, for reports/backups; contain a password. |
+| `OSRM_URL`, `NOMINATIM_URL` | Server | Service URLs, not secret. |
+
+Never give a secret the `NEXT_PUBLIC_` prefix: Next.js compiles those into the JavaScript sent to every visitor.
+Errors are logged through `src/lib/safe-log.ts`, which logs only safe fields and masks anything that looks like a key.
+
+> ### ⚠️ Git history and key rotation
+> A secret that was **ever** committed stays in git history (and in every clone and fork) even after it is
+> deleted from the code. If that ever happens: **rotate the secret immediately** — create a new one in the
+> provider (Stripe → API keys / Webhooks, Supabase `JWT_SECRET` + anon/service keys, database password,
+> Zoho app password), update Vercel and the server, redeploy, then revoke the old one. Deleting the commit is
+> not enough.
+>
+> Audit of 28 Nov 2026: all 9 commits were scanned by pattern and against the exact values of the real keys in
+> use (Supabase anon/service/JWT, Stripe secret, database and SMTP passwords) — **none were found in history**,
+> so no rotation is needed because of git. Keep it that way: run a scan (e.g. `gitleaks detect`) before pushing.

@@ -2,6 +2,7 @@ import "server-only";
 import Stripe from "stripe";
 import { PLANS, extraVehicles, stripeExtraVehiclePriceId, type Plan } from "@/lib/plans";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { logError } from "@/lib/safe-log";
 
 let _stripe: Stripe | null = null;
 
@@ -91,7 +92,7 @@ export async function syncExtraVehicles(orgId: string): Promise<{ extra: number;
     }
     return { extra, changed: false };
   } catch (err) {
-    console.error("[billing] syncExtraVehicles failed", err);
+    logError("[billing] syncExtraVehicles failed", err);
     return null;
   }
 }

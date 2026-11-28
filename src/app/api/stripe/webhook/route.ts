@@ -2,6 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import type Stripe from "stripe";
 import { getStripe, isExtraVehiclePrice, planFromSubscription, syncExtraVehicles } from "@/lib/stripe";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { logError } from "@/lib/safe-log";
 
 export const runtime = "nodejs";
 
@@ -55,7 +56,8 @@ export async function POST(request: NextRequest) {
   try {
     event = stripe.webhooks.constructEvent(raw, signature, secret);
   } catch (err) {
-    return NextResponse.json({ error: `invalid signature: ${(err as Error).message}` }, { status: 400 });
+    logError("[stripe webhook] signature check failed", err);
+    return NextResponse.json({ error: "invalid signature" }, { status: 400 });
   }
 
   try {
@@ -101,7 +103,7 @@ export async function POST(request: NextRequest) {
         break;
     }
   } catch (err) {
-    console.error("[stripe webhook]", err);
+    logError("[stripe webhook]", err);
     return NextResponse.json({ error: "handler failed" }, { status: 500 });
   }
   return NextResponse.json({ received: true });

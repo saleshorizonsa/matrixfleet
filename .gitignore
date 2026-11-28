@@ -40,8 +40,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# secrets
+# secrets — never commit real values (only .env.example is tracked)
+.env
 *credentials*.txt
+*.key
+*.p12
 !.env.example
 
 .vercel
