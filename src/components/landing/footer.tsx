@@ -49,6 +49,10 @@ export function LandingFooter() {
             Powered by <span className="font-semibold text-white/70">Matrix Infotech Ltd</span>
           </span>
         </div>
+        {/* Company details required on business websites (Companies (Trading Disclosures) Regulations 2008) */}
+        <p className="mx-auto max-w-7xl px-5 pb-6 text-center text-[11px] leading-relaxed text-white/35 sm:text-left lg:px-8">
+          {t("registered", { number: "15056659", address: "167–169 Great Portland Street, Fifth Floor, London W1W 5PF" })}
+        </p>
       </div>
     </footer>
   );

@@ -10,6 +10,17 @@ const ANON = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 const SERVICE = process.env.SUPABASE_SERVICE_ROLE_KEY;
 if (!URL || !ANON || !SERVICE) throw new Error("Supabase env vars missing — run with --env-file=.env.local");
 
+// Safety: this script creates a fake company and logins. Never run it against the live database
+// by accident — it needs an explicit opt-in, and a second one for the production API.
+if (process.env.ALLOW_DEMO_SEED !== "yes") {
+  console.error("Refusing to seed: set ALLOW_DEMO_SEED=yes to create demo data (development/staging only).");
+  process.exit(1);
+}
+if (/api.matrixinfo.co.uk/.test(URL) && process.env.ALLOW_DEMO_SEED_ON_PRODUCTION !== "yes") {
+  console.error("Refusing to seed: NEXT_PUBLIC_SUPABASE_URL is the PRODUCTION API. Set ALLOW_DEMO_SEED_ON_PRODUCTION=yes only if you really mean it.");
+  process.exit(1);
+}
+
 const CRED_FILE = new globalThis.URL("./demo-credentials.local.txt", import.meta.url);
 const SCHEMA = process.env.NEXT_PUBLIC_SUPABASE_SCHEMA || "matrixfleet";
 const admin = createClient(URL, SERVICE, { db: { schema: SCHEMA }, auth: { persistSession: false } });

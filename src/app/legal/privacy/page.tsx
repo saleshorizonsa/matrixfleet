@@ -80,18 +80,18 @@ export default function PrivacyPolicyPage() {
       <p>
         You have the right to access, rectify, erase, restrict or object to processing of your personal data, and to data
         portability. Company owners can export or delete all company data directly in Settings → Privacy &amp; data. To exercise
-        your rights, email privacy@[●]. You may complain to the UK Information Commissioner’s Office (ico.org.uk) or your local EU
+        your rights, email info@matrixinfo.co.uk. You may complain to the UK Information Commissioner’s Office (ico.org.uk) or your local EU
         supervisory authority.
       </p>
 
       <h2>8. EU representative</h2>
-      <p>Where required under Article 27 EU GDPR, our EU representative is: [●].</p>
+      <p>Where required under Article 27 EU GDPR, our EU representative will be named here once appointed. Until then, individuals in the EU can contact us directly at info@matrixinfo.co.uk.</p>
 
       <h2>9. Cookies</h2>
       <p>We only use strictly necessary cookies. See our <a href="/legal/cookies">Cookie Policy</a>.</p>
 
       <h2>10. Contact</h2>
-      <p>Matrix Infotech Ltd, [registered address]. Email: privacy@[●].</p>
+      <p>Matrix Infotech Ltd (company number 15056659), 167–169 Great Portland Street, Fifth Floor, London W1W 5PF, England. Email: info@matrixinfo.co.uk.</p>
     </>
   );
 }

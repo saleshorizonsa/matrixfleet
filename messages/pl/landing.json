@@ -215,6 +215,7 @@
     "trust1": "Hosting w Londynie, UK",
     "trust2": "Zgodność z RODO UK i UE",
     "trust3": "Płatności zabezpieczone przez Stripe",
-    "rights": "Wszelkie prawa zastrzeżone."
+    "rights": "Wszelkie prawa zastrzeżone.",
+    "registered": "Matrix Infotech Ltd · Zarejestrowana w Anglii i Walii, numer spółki {number} · Siedziba: {address}"
   }
 }

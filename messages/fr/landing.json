@@ -215,6 +215,7 @@
     "trust1": "Hébergé à Londres, R.-U.",
     "trust2": "Conforme RGPD R.-U. et UE",
     "trust3": "Paiements sécurisés par Stripe",
-    "rights": "Tous droits réservés."
+    "rights": "Tous droits réservés.",
+    "registered": "Matrix Infotech Ltd · Immatriculée en Angleterre et au Pays de Galles, numéro {number} · Siège social : {address}"
   }
 }

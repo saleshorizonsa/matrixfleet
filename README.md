@@ -38,7 +38,7 @@ A trial gets Growth limits for 14 days.
    ```
 2. Copy `.env.example` to `.env.local` and fill in the Supabase anon + service role keys.
 3. `npm install` then `npm run dev` → http://localhost:3000
-4. Optional demo data: `npm run seed:demo` (logins are written to `scripts/demo-credentials.local.txt`, git-ignored).
+4. Optional demo data (development/staging only): `ALLOW_DEMO_SEED=yes npm run seed:demo`. The script refuses to run without that flag, and refuses the production API unless `ALLOW_DEMO_SEED_ON_PRODUCTION=yes` is also set. Logins go to `scripts/demo-credentials.local.txt` (git-ignored).
 
 Database migrations live in `supabase/migrations` (apply `0001_init.sql`, then the `0002_*.sql` files).
 All tables are prefixed `hl_` and protected by row-level security per organisation.

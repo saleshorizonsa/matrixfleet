@@ -215,6 +215,7 @@
     "trust1": "Alojado en Londres, RU",
     "trust2": "Preparado para RGPD de RU y UE",
     "trust3": "Pagos protegidos por Stripe",
-    "rights": "Todos los derechos reservados."
+    "rights": "Todos los derechos reservados.",
+    "registered": "Matrix Infotech Ltd · Registrada en Inglaterra y Gales, número de sociedad {number} · Domicilio social: {address}"
   }
 }

@@ -9,7 +9,7 @@ export default function TermsPage() {
       <h2>1. Who we are</h2>
       <p>
         MatrixFleet (the “Service”) is provided by <strong>Matrix Infotech Ltd</strong>, a company registered in England and Wales
-        (company number [●], registered office [●]) (“we”, “us”). These Terms form a contract between us and the business that
+        (company number 15056659, registered office 167–169 Great Portland Street, Fifth Floor, London W1W 5PF, England) (“we”, “us”). These Terms form a contract between us and the business that
         creates a MatrixFleet account (“Customer”, “you”). The Service is intended for business use only; you confirm you are not
         acting as a consumer.
       </p>
@@ -90,7 +90,7 @@ export default function TermsPage() {
       <h2>12. General</h2>
       <p>
         These Terms are governed by the laws of England and Wales and the courts of England and Wales have exclusive
-        jurisdiction. If any provision is unenforceable the rest remains in effect. Contact: legal@[●].
+        jurisdiction. If any provision is unenforceable the rest remains in effect. Contact: info@matrixinfo.co.uk.
       </p>
     </>
   );
