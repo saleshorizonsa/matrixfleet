@@ -10,7 +10,7 @@
   "hero": {
     "badgeNew": "Nouveau",
     "badge": "CMR numérique et suivi client en direct",
-    "title": "Pilotez votre <hl>transport au R.-U. et dans l'UE</hl> depuis un seul écran",
+    "title": "Pilotez votre <hl>transport au R.-U., dans l'UE et le Golfe</hl> depuis un seul écran",
     "subtitle": "MatrixFleet réunit devis, missions, planning, suivi GPS en direct, une appli chauffeur avec preuve de livraison et une facturation conforme à la TVA — conçu pour les petites et moyennes entreprises de transport.",
     "ctaPrimary": "Essai gratuit de 14 jours",
     "ctaSecondary": "Se connecter",
@@ -30,7 +30,7 @@
   },
   "stats": {
     "s1": {
-      "value": "30",
+      "value": "36",
       "label": "pays pris en charge"
     },
     "s2": {
@@ -68,8 +68,8 @@
         "body": "Les chauffeurs voient leur tournée, naviguent et recueillent signatures et photos comme preuve de livraison sur n'importe quel téléphone."
       },
       "invoicing": {
-        "title": "Facturation conforme à la TVA",
-        "body": "TVA britannique, TVA nationale UE et autoliquidation pour le B2B transfrontalier, avec numérotation séquentielle."
+        "title": "Facturation TVA et facture électronique",
+        "body": "TVA britannique, TVA UE et autoliquidation, ainsi que la TVA d'Arabie saoudite, des Émirats, de Bahreïn et d'Oman, avec la facturation électronique saoudienne ZATCA (phase 2) intégrée."
       },
       "cmr": {
         "title": "Lettres de voiture CMR",
@@ -113,7 +113,7 @@
     "subtitle": "Sans consultants, sans matériel, sans engagement long.",
     "s1": {
       "title": "Créez votre entreprise",
-      "body": "Inscrivez-vous, choisissez votre pays : TVA, devise et unités sont configurées automatiquement."
+      "body": "Inscrivez-vous, choisissez votre pays (R.-U., UE ou Golfe) : TVA, devise et unités de distance sont configurées automatiquement."
     },
     "s2": {
       "title": "Ajoutez véhicules et chauffeurs",
@@ -191,6 +191,10 @@
     "q8": {
       "q": "Qui est derrière MatrixFleet ?",
       "a": "MatrixFleet est développé et exploité par Matrix Infotech Ltd, éditeur de logiciels britannique."
+    },
+    "q9": {
+      "q": "Prenez-vous en charge l'Arabie saoudite et les autres pays du Golfe (CCG) ?",
+      "a": "Oui. Les entreprises d'Arabie saoudite, des Émirats, de Bahreïn, d'Oman, du Qatar et du Koweït disposent de leur devise et de leurs règles de TVA. Les entreprises saoudiennes obtiennent des factures fiscales bilingues arabe/anglais avec le QR code ZATCA et peuvent se connecter à ZATCA (Fatoora) : chaque facture est signée, validée ou déclarée automatiquement. Les corrections se font par avoir, comme l'exige ZATCA."
     }
   },
   "cta": {
@@ -199,7 +203,7 @@
     "secondary": "Comparer les formules"
   },
   "footer": {
-    "tagline": "Logiciel de gestion de transport pour les petites et moyennes entreprises de transport et de livraison au R.-U. et dans l'UE.",
+    "tagline": "Logiciel de gestion de transport pour les petites et moyennes entreprises de transport et de livraison au R.-U., dans l'UE et le Golfe.",
     "product": "MatrixFleet est un produit de Matrix Infotech Ltd.",
     "productTitle": "Produit",
     "features": "Fonctionnalités",

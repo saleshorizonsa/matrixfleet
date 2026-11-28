@@ -10,7 +10,7 @@ const jakarta = Plus_Jakarta_Sans({ subsets: ["latin", "latin-ext"], variable: "
 
 export const metadata: Metadata = {
   title: {
-    default: "MatrixFleet — Transport management for UK & EU hauliers",
+    default: "MatrixFleet — Transport management for UK, EU & GCC hauliers",
     template: "%s · MatrixFleet",
   },
   description:

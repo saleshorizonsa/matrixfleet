@@ -1,12 +1,32 @@
 {
   "title": "Facturas",
-  "subtitle": "Facturas con el IVA correcto para clientes del Reino Unido y la UE, creadas directamente desde los servicios entregados.",
+  "subtitle": "Facturas con el IVA correcto para clientes de RU, la UE y el Golfo, creadas directamente desde los servicios entregados.",
   "new": "Nueva factura",
   "newTitle": "Crear factura",
   "editTitle": "Editar borrador {number}",
-  "tabs": { "all": "Todas", "draft": "Borradores", "sent": "Pendientes de pago", "overdue": "Vencidas", "paid": "Pagadas", "void": "Anuladas" },
-  "status": { "draft": "Borrador", "sent": "Enviada", "paid": "Pagada", "overdue": "Vencida", "void": "Anulada" },
-  "cols": { "number": "Número", "customer": "Cliente", "issued": "Emitida", "due": "Vencimiento", "total": "Total", "status": "Estado" },
+  "tabs": {
+    "all": "Todas",
+    "draft": "Borradores",
+    "sent": "Pendientes de pago",
+    "overdue": "Vencidas",
+    "paid": "Pagadas",
+    "void": "Anuladas"
+  },
+  "status": {
+    "draft": "Borrador",
+    "sent": "Enviada",
+    "paid": "Pagada",
+    "overdue": "Vencida",
+    "void": "Anulada"
+  },
+  "cols": {
+    "number": "Número",
+    "customer": "Cliente",
+    "issued": "Emitida",
+    "due": "Vencimiento",
+    "total": "Total",
+    "status": "Estado"
+  },
   "kpi": {
     "outstanding": "Pendiente de cobro",
     "overdue": "Vencido",
@@ -15,7 +35,10 @@
     "jobsCount": "{count, plural, one {# servicio} other {# servicios}}",
     "invoicesCount": "{count, plural, one {# factura} other {# facturas}}"
   },
-  "empty": { "title": "Aún no hay facturas", "description": "Crea tu primera factura a partir de servicios entregados: el IVA y la numeración se gestionan automáticamente." },
+  "empty": {
+    "title": "Aún no hay facturas",
+    "description": "Crea tu primera factura a partir de servicios entregados: el IVA y la numeración se gestionan automáticamente."
+  },
   "form": {
     "customer": "Cliente",
     "selectCustomer": "Selecciona un cliente…",

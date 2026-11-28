@@ -1,12 +1,32 @@
 {
   "title": "Factures",
-  "subtitle": "Des factures conformes à la TVA pour vos clients au Royaume-Uni et dans l'UE, créées directement à partir des missions livrées.",
+  "subtitle": "Des factures conformes à la TVA pour vos clients au R.-U., dans l'UE et le Golfe, créées directement à partir des missions livrées.",
   "new": "Nouvelle facture",
   "newTitle": "Créer une facture",
   "editTitle": "Modifier le brouillon {number}",
-  "tabs": { "all": "Toutes", "draft": "Brouillons", "sent": "En attente de paiement", "overdue": "En retard", "paid": "Payées", "void": "Annulées" },
-  "status": { "draft": "Brouillon", "sent": "Envoyée", "paid": "Payée", "overdue": "En retard", "void": "Annulée" },
-  "cols": { "number": "Numéro", "customer": "Client", "issued": "Émise le", "due": "Échéance", "total": "Total", "status": "Statut" },
+  "tabs": {
+    "all": "Toutes",
+    "draft": "Brouillons",
+    "sent": "En attente de paiement",
+    "overdue": "En retard",
+    "paid": "Payées",
+    "void": "Annulées"
+  },
+  "status": {
+    "draft": "Brouillon",
+    "sent": "Envoyée",
+    "paid": "Payée",
+    "overdue": "En retard",
+    "void": "Annulée"
+  },
+  "cols": {
+    "number": "Numéro",
+    "customer": "Client",
+    "issued": "Émise le",
+    "due": "Échéance",
+    "total": "Total",
+    "status": "Statut"
+  },
   "kpi": {
     "outstanding": "Encours",
     "overdue": "En retard",
@@ -15,7 +35,10 @@
     "jobsCount": "{count, plural, one {# mission} other {# missions}}",
     "invoicesCount": "{count, plural, one {# facture} other {# factures}}"
   },
-  "empty": { "title": "Aucune facture pour l'instant", "description": "Créez votre première facture à partir des missions livrées — la TVA et la numérotation sont gérées pour vous." },
+  "empty": {
+    "title": "Aucune facture pour l'instant",
+    "description": "Créez votre première facture à partir des missions livrées — la TVA et la numérotation sont gérées pour vous."
+  },
   "form": {
     "customer": "Client",
     "selectCustomer": "Sélectionnez un client…",

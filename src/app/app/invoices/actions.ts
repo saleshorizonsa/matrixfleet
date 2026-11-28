@@ -308,6 +308,8 @@ export async function voidInvoice(id: string) {
   if (invoice.zatca_status && (E_FINAL.includes(invoice.zatca_status) || invoice.zatca_status === "failed")) {
     throw new Error("e-invoice: use a credit note");
   }
+  // Saudi Arabia (ZATCA, phase 1 and 2): an issued tax invoice may only be cancelled with a credit note
+  if (zatcaRequired(ctx.org) && invoice.status !== "draft") throw new Error("Saudi tax invoice: use a credit note");
   await ctx.supabase.from("hl_invoices").update({ status: "void" }).eq("id", id);
   await ctx.supabase.from("hl_jobs").update({ invoice_id: null, status: "delivered" }).eq("invoice_id", id);
   await audit(ctx, "invoice.voided", "invoice", id, { number: invoice.number });

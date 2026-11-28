@@ -10,7 +10,7 @@
   "hero": {
     "badgeNew": "New",
     "badge": "Digital CMR & live customer tracking",
-    "title": "Run your <hl>UK & EU haulage</hl> business from one screen",
+    "title": "Run your <hl>UK, EU & GCC haulage</hl> business from one screen",
     "subtitle": "MatrixFleet brings quotes, jobs, dispatch, live GPS tracking, a driver app with proof of delivery and VAT-correct invoicing together — built for small and medium transport companies.",
     "ctaPrimary": "Start free 14-day trial",
     "ctaSecondary": "Sign in",
@@ -20,7 +20,7 @@
   },
   "preview": {
     "live": "Live",
-    "mapLabel": "Animated map of vehicles moving between UK and European cities",
+    "mapLabel": "Animated map of vehicles moving between cities",
     "onRoad": "On the road",
     "vehicles": "vehicles",
     "deliveredToday": "Delivered today",
@@ -30,7 +30,7 @@
   },
   "stats": {
     "s1": {
-      "value": "30",
+      "value": "36",
       "label": "countries supported"
     },
     "s2": {
@@ -68,8 +68,8 @@
         "body": "Drivers see their run, navigate, and capture signatures and photos as proof of delivery on any phone."
       },
       "invoicing": {
-        "title": "VAT-correct invoicing",
-        "body": "UK VAT, EU domestic VAT and reverse charge for cross-border B2B worked out for you, with sequential numbering."
+        "title": "VAT-correct invoicing & e-invoicing",
+        "body": "UK VAT, EU VAT and reverse charge, plus VAT for Saudi Arabia, the UAE, Bahrain and Oman, with Saudi ZATCA e-invoicing (Phase 2) built in."
       },
       "cmr": {
         "title": "Digital CMR notes",
@@ -113,7 +113,7 @@
     "subtitle": "No consultants, no hardware, no long contracts.",
     "s1": {
       "title": "Create your company",
-      "body": "Sign up, pick your country and we set up VAT, currency and distance units automatically."
+      "body": "Sign up, pick your country (UK, EU or GCC) and we set up VAT, currency and distance units automatically."
     },
     "s2": {
       "title": "Add vehicles & invite drivers",
@@ -141,7 +141,7 @@
     "cta": "Start saving — free for 14 days"
   },
   "quote": {
-    "text": "We built MatrixFleet with UK and European hauliers to remove the paperwork that eats into every working day — so you can spend your time moving freight, not chasing it.",
+    "text": "We built MatrixFleet with hauliers in the UK, Europe and the Gulf to remove the paperwork that eats into every working day — so you can spend your time moving freight, not chasing it.",
     "by": "The MatrixFleet team · Matrix Infotech Ltd"
   },
   "pricing": {
@@ -166,7 +166,7 @@
     },
     "q2": {
       "q": "Does MatrixFleet handle VAT for cross-border jobs?",
-      "a": "Yes. MatrixFleet applies UK VAT, domestic EU VAT or the reverse-charge mechanism depending on where you and your customer are established and whether the customer has a valid VAT number, and prints the correct wording on the invoice. Always confirm unusual cases with your accountant."
+      "a": "Yes. MatrixFleet applies UK VAT, domestic EU VAT or the reverse-charge mechanism depending on where you and your customer are established and whether the customer has a valid VAT number. For GCC companies it applies the local rate (Saudi Arabia 15%, UAE 5%, Bahrain 10%, Oman 5%; no VAT in Qatar and Kuwait) and zero-rates international transport. The correct wording is printed on the invoice. Always confirm unusual cases with your accountant."
     },
     "q3": {
       "q": "Where is my data stored?",
@@ -191,6 +191,10 @@
     "q8": {
       "q": "Who is behind MatrixFleet?",
       "a": "MatrixFleet is built and operated by Matrix Infotech Ltd, a UK software company."
+    },
+    "q9": {
+      "q": "Do you support Saudi Arabia and the other GCC countries?",
+      "a": "Yes. Companies in Saudi Arabia, the UAE, Bahrain, Oman, Qatar and Kuwait get their local currency and VAT rules. Saudi companies get bilingual Arabic/English tax invoices with the ZATCA QR code, and can connect to ZATCA (Fatoora) so every invoice is signed, cleared or reported automatically. Corrections are made with credit notes, as ZATCA requires."
     }
   },
   "cta": {
@@ -199,7 +203,7 @@
     "secondary": "Compare plans"
   },
   "footer": {
-    "tagline": "Transport management for small and medium haulage and delivery companies in the UK and EU.",
+    "tagline": "Transport management for small and medium haulage and delivery companies in the UK, EU and GCC.",
     "product": "MatrixFleet is a product of Matrix Infotech Ltd.",
     "productTitle": "Product",
     "features": "Features",

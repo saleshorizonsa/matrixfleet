@@ -1,6 +1,6 @@
 {
   "title": "Invoices",
-  "subtitle": "VAT-correct invoices for UK and EU customers, created straight from delivered jobs.",
+  "subtitle": "VAT-correct invoices for UK, EU and GCC customers, created straight from delivered jobs.",
   "new": "New invoice",
   "newTitle": "Create invoice",
   "editTitle": "Edit draft {number}",

@@ -10,7 +10,7 @@
   "hero": {
     "badgeNew": "Nowość",
     "badge": "Cyfrowy CMR i śledzenie na żywo dla klientów",
-    "title": "Prowadź <hl>transport w UK i UE</hl> z jednego ekranu",
+    "title": "Prowadź <hl>transport w UK, UE i GCC</hl> z jednego ekranu",
     "subtitle": "MatrixFleet łączy wyceny, zlecenia, planowanie, śledzenie GPS na żywo, aplikację kierowcy z potwierdzeniem dostawy i fakturowanie z poprawnym VAT — stworzone dla małych i średnich firm transportowych.",
     "ctaPrimary": "Wypróbuj 14 dni za darmo",
     "ctaSecondary": "Zaloguj się",
@@ -30,7 +30,7 @@
   },
   "stats": {
     "s1": {
-      "value": "30",
+      "value": "36",
       "label": "obsługiwanych krajów"
     },
     "s2": {
@@ -68,8 +68,8 @@
         "body": "Kierowcy widzą trasę, nawigują i zbierają podpisy oraz zdjęcia jako potwierdzenie dostawy na dowolnym telefonie."
       },
       "invoicing": {
-        "title": "Faktury z poprawnym VAT",
-        "body": "VAT brytyjski, krajowy VAT w UE i odwrotne obciążenie dla transgranicznego B2B — automatycznie, z ciągłą numeracją."
+        "title": "Faktury z poprawnym VAT i e-faktury",
+        "body": "VAT brytyjski, VAT w UE i odwrotne obciążenie, a także VAT Arabii Saudyjskiej, ZEA, Bahrajnu i Omanu — z wbudowanymi saudyjskimi e-fakturami ZATCA (faza 2)."
       },
       "cmr": {
         "title": "Cyfrowe listy CMR",
@@ -113,7 +113,7 @@
     "subtitle": "Bez konsultantów, bez sprzętu, bez długich umów.",
     "s1": {
       "title": "Załóż firmę",
-      "body": "Zarejestruj się, wybierz kraj — automatycznie ustawimy VAT, walutę i jednostki."
+      "body": "Zarejestruj się, wybierz kraj (UK, UE lub GCC), a VAT, walutę i jednostki odległości ustawimy automatycznie."
     },
     "s2": {
       "title": "Dodaj pojazdy i zaproś kierowców",
@@ -191,6 +191,10 @@
     "q8": {
       "q": "Kto stoi za MatrixFleet?",
       "a": "MatrixFleet jest tworzona i obsługiwana przez Matrix Infotech Ltd, brytyjską firmę programistyczną."
+    },
+    "q9": {
+      "q": "Czy obsługujecie Arabię Saudyjską i inne kraje GCC?",
+      "a": "Tak. Firmy z Arabii Saudyjskiej, ZEA, Bahrajnu, Omanu, Kataru i Kuwejtu otrzymują lokalną walutę i zasady VAT. Firmy saudyjskie otrzymują dwujęzyczne faktury (arabski/angielski) z kodem QR ZATCA i mogą połączyć się z ZATCA (Fatoora) — każda faktura jest automatycznie podpisywana, zatwierdzana lub zgłaszana. Korekty wystawia się fakturą korygującą, zgodnie z wymogami ZATCA."
     }
   },
   "cta": {
@@ -199,7 +203,7 @@
     "secondary": "Porównaj plany"
   },
   "footer": {
-    "tagline": "Zarządzanie transportem dla małych i średnich firm transportowych i kurierskich w UK i UE.",
+    "tagline": "Zarządzanie transportem dla małych i średnich firm transportowych i kurierskich w UK, UE i GCC.",
     "product": "MatrixFleet jest produktem Matrix Infotech Ltd.",
     "productTitle": "Produkt",
     "features": "Funkcje",

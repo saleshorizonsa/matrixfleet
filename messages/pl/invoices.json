@@ -1,12 +1,32 @@
 {
   "title": "Faktury",
-  "subtitle": "Faktury z prawidłowym VAT dla klientów z Wielkiej Brytanii i UE, tworzone bezpośrednio ze zrealizowanych zleceń.",
+  "subtitle": "Faktury z prawidłowym VAT dla klientów z UK, UE i GCC, tworzone bezpośrednio ze zrealizowanych zleceń.",
   "new": "Nowa faktura",
   "newTitle": "Wystaw fakturę",
   "editTitle": "Edytuj projekt {number}",
-  "tabs": { "all": "Wszystkie", "draft": "Projekty", "sent": "Oczekujące na płatność", "overdue": "Przeterminowane", "paid": "Opłacone", "void": "Anulowane" },
-  "status": { "draft": "Projekt", "sent": "Wysłana", "paid": "Opłacona", "overdue": "Przeterminowana", "void": "Anulowana" },
-  "cols": { "number": "Numer", "customer": "Klient", "issued": "Wystawiona", "due": "Termin", "total": "Razem", "status": "Status" },
+  "tabs": {
+    "all": "Wszystkie",
+    "draft": "Projekty",
+    "sent": "Oczekujące na płatność",
+    "overdue": "Przeterminowane",
+    "paid": "Opłacone",
+    "void": "Anulowane"
+  },
+  "status": {
+    "draft": "Projekt",
+    "sent": "Wysłana",
+    "paid": "Opłacona",
+    "overdue": "Przeterminowana",
+    "void": "Anulowana"
+  },
+  "cols": {
+    "number": "Numer",
+    "customer": "Klient",
+    "issued": "Wystawiona",
+    "due": "Termin",
+    "total": "Razem",
+    "status": "Status"
+  },
   "kpi": {
     "outstanding": "Należności",
     "overdue": "Przeterminowane",
@@ -15,7 +35,10 @@
     "jobsCount": "{count, plural, one {# zlecenie} few {# zlecenia} many {# zleceń} other {# zlecenia}}",
     "invoicesCount": "{count, plural, one {# faktura} few {# faktury} many {# faktur} other {# faktury}}"
   },
-  "empty": { "title": "Brak faktur", "description": "Wystaw pierwszą fakturę ze zrealizowanych zleceń — VAT i numerację obsłużymy za Ciebie." },
+  "empty": {
+    "title": "Brak faktur",
+    "description": "Wystaw pierwszą fakturę ze zrealizowanych zleceń — VAT i numerację obsłużymy za Ciebie."
+  },
   "form": {
     "customer": "Klient",
     "selectCustomer": "Wybierz klienta…",

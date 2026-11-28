@@ -25,7 +25,7 @@ const FEATURES = [
 ] as const;
 
 const STATS = ["s1", "s2", "s3", "s4"] as const;
-const FAQ = ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8"] as const;
+const FAQ = ["q1", "q2", "q9", "q3", "q4", "q5", "q6", "q7", "q8"] as const;
 
 export default async function LandingPage() {
   const t = await getTranslations("landing");

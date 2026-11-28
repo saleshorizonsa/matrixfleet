@@ -5,7 +5,7 @@ import { CheckCircle2, MapPin, PenLine, Truck } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /**
- * Interactive product preview: a stylised live map of UK & EU routes with trucks
+ * Interactive product preview: a stylised live map of routes with trucks
  * moving along them (pure SVG animateMotion — no map library), plus a mini
  * dispatch feed whose jobs progress through statuses.
  */

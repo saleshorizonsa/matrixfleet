@@ -10,7 +10,7 @@
   "hero": {
     "badgeNew": "Neu",
     "badge": "Digitaler CMR & Live-Sendungsverfolgung",
-    "title": "Führen Sie Ihre <hl>Spedition in UK & EU</hl> von einem Bildschirm aus",
+    "title": "Führen Sie Ihre <hl>Spedition in UK, EU & GCC</hl> von einem Bildschirm aus",
     "subtitle": "MatrixFleet vereint Angebote, Aufträge, Disposition, Live-GPS-Tracking, eine Fahrer-App mit Zustellnachweis und umsatzsteuerkorrekte Rechnungen – gebaut für kleine und mittlere Transportunternehmen.",
     "ctaPrimary": "14 Tage kostenlos testen",
     "ctaSecondary": "Anmelden",
@@ -30,7 +30,7 @@
   },
   "stats": {
     "s1": {
-      "value": "30",
+      "value": "36",
       "label": "unterstützte Länder"
     },
     "s2": {
@@ -68,8 +68,8 @@
         "body": "Fahrer sehen ihre Tour, navigieren und erfassen Unterschriften und Fotos als Zustellnachweis auf jedem Handy."
       },
       "invoicing": {
-        "title": "USt-korrekte Rechnungen",
-        "body": "Britische USt., inländische EU-USt. und Reverse Charge für grenzüberschreitendes B2B – automatisch, mit fortlaufender Nummerierung."
+        "title": "USt-korrekte Rechnungen & E-Rechnung",
+        "body": "Britische USt., EU-USt. und Reverse Charge sowie MwSt. für Saudi-Arabien, die VAE, Bahrain und Oman – inklusive saudischer ZATCA-E-Rechnung (Phase 2)."
       },
       "cmr": {
         "title": "Digitale CMR-Frachtbriefe",
@@ -113,7 +113,7 @@
     "subtitle": "Keine Berater, keine Hardware, keine langen Verträge.",
     "s1": {
       "title": "Unternehmen anlegen",
-      "body": "Registrieren Sie sich, wählen Sie Ihr Land – wir richten USt., Währung und Einheiten automatisch ein."
+      "body": "Registrieren, Land wählen (UK, EU oder GCC) – USt., Währung und Entfernungseinheiten werden automatisch eingerichtet."
     },
     "s2": {
       "title": "Fahrzeuge anlegen & Fahrer einladen",
@@ -191,6 +191,10 @@
     "q8": {
       "q": "Wer steht hinter MatrixFleet?",
       "a": "MatrixFleet wird von der Matrix Infotech Ltd entwickelt und betrieben, einem britischen Softwareunternehmen."
+    },
+    "q9": {
+      "q": "Unterstützen Sie Saudi-Arabien und die anderen GCC-Staaten?",
+      "a": "Ja. Unternehmen in Saudi-Arabien, den VAE, Bahrain, Oman, Katar und Kuwait erhalten ihre Landeswährung und MwSt.-Regeln. Saudische Unternehmen erhalten zweisprachige Steuerrechnungen (Arabisch/Englisch) mit ZATCA-QR-Code und können sich mit ZATCA (Fatoora) verbinden – jede Rechnung wird automatisch signiert, freigegeben oder gemeldet. Korrekturen erfolgen per Gutschrift, wie von ZATCA vorgeschrieben."
     }
   },
   "cta": {
@@ -199,7 +203,7 @@
     "secondary": "Tarife vergleichen"
   },
   "footer": {
-    "tagline": "Transportmanagement für kleine und mittlere Speditions- und Lieferunternehmen in UK und EU.",
+    "tagline": "Transportmanagement für kleine und mittlere Speditions- und Lieferunternehmen in UK, EU und GCC.",
     "product": "MatrixFleet ist ein Produkt der Matrix Infotech Ltd.",
     "productTitle": "Produkt",
     "features": "Funktionen",

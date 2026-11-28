@@ -1,12 +1,32 @@
 {
   "title": "Rechnungen",
-  "subtitle": "Umsatzsteuerkonforme Rechnungen für Kunden in Großbritannien und der EU – direkt aus zugestellten Aufträgen.",
+  "subtitle": "Umsatzsteuerkonforme Rechnungen für Kunden in UK, EU und GCC – direkt aus zugestellten Aufträgen.",
   "new": "Neue Rechnung",
   "newTitle": "Rechnung erstellen",
   "editTitle": "Entwurf {number} bearbeiten",
-  "tabs": { "all": "Alle", "draft": "Entwürfe", "sent": "Offen", "overdue": "Überfällig", "paid": "Bezahlt", "void": "Storniert" },
-  "status": { "draft": "Entwurf", "sent": "Versendet", "paid": "Bezahlt", "overdue": "Überfällig", "void": "Storniert" },
-  "cols": { "number": "Nummer", "customer": "Kunde", "issued": "Ausgestellt", "due": "Fällig", "total": "Gesamt", "status": "Status" },
+  "tabs": {
+    "all": "Alle",
+    "draft": "Entwürfe",
+    "sent": "Offen",
+    "overdue": "Überfällig",
+    "paid": "Bezahlt",
+    "void": "Storniert"
+  },
+  "status": {
+    "draft": "Entwurf",
+    "sent": "Versendet",
+    "paid": "Bezahlt",
+    "overdue": "Überfällig",
+    "void": "Storniert"
+  },
+  "cols": {
+    "number": "Nummer",
+    "customer": "Kunde",
+    "issued": "Ausgestellt",
+    "due": "Fällig",
+    "total": "Gesamt",
+    "status": "Status"
+  },
   "kpi": {
     "outstanding": "Offene Posten",
     "overdue": "Überfällig",
@@ -15,7 +35,10 @@
     "jobsCount": "{count, plural, one {# Auftrag} other {# Aufträge}}",
     "invoicesCount": "{count, plural, one {# Rechnung} other {# Rechnungen}}"
   },
-  "empty": { "title": "Noch keine Rechnungen", "description": "Erstellen Sie Ihre erste Rechnung aus zugestellten Aufträgen – Umsatzsteuer und Nummerierung erledigen wir." },
+  "empty": {
+    "title": "Noch keine Rechnungen",
+    "description": "Erstellen Sie Ihre erste Rechnung aus zugestellten Aufträgen – Umsatzsteuer und Nummerierung erledigen wir."
+  },
   "form": {
     "customer": "Kunde",
     "selectCustomer": "Kunden auswählen…",

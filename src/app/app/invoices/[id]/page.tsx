@@ -64,7 +64,8 @@ export default async function InvoicePage({
   ]);
   const connected = zatcaUnit?.status === "active";
   const zs = invoice.zatca_status;
-  const einvoiceLocked = !!zs && zs !== "rejected";
+  // submitted to ZATCA, or any issued Saudi tax invoice: no void, corrections by credit note only
+  const einvoiceLocked = (!!zs && zs !== "rejected") || (saudi && invoice.status !== "draft");
   const banner = sp.zatca && tz.has(`result.${sp.zatca}`) ? sp.zatca : null;
   const bannerFields = (sp.fields ?? "").split(",").filter((f) => /^[a-z_0-9]+$/.test(f)).slice(0, 10);
 
